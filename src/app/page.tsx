@@ -177,10 +177,10 @@ export default function Home() {
               <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-gradient-to-br from-blue-400/30 via-cyan-400/20 to-purple-400/30 rounded-full blur-3xl" />
 
               {/* iPhone Mockup Container */}
-              <div className="relative z-10 mx-auto max-w-[360px] lg:max-w-[400px]">
+              <div className="relative z-10 mx-auto w-full max-w-[280px] lg:max-w-[320px]">
                 {/* USER WILL ADD SCREENSHOT HERE */}
                 {/* Replace the entire div below with: <Image src="/screenshots/hero.png" ... /> */}
-                <div className="relative aspect-[9/19] bg-gradient-to-br from-gray-900 to-gray-800 rounded-[3rem] p-3 shadow-2xl shadow-blue-500/20 border border-gray-700">
+                <div className="relative h-[70vh] min-h-[500px] max-h-[700px] bg-gradient-to-br from-gray-900 to-gray-800 rounded-[3rem] p-3 shadow-2xl shadow-blue-500/20 border border-gray-700">
                   <div className="w-full h-full bg-white rounded-[2.5rem] overflow-hidden relative">
                     {/* Screenshot Placeholder - Replace this with actual app screenshot */}
                     <div className="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-blue-50 to-purple-50">
@@ -244,7 +244,7 @@ export default function Home() {
       </section>
 
       {/* Features Section */}
-      <section id="features" className="py-24 lg:py-32 bg-white relative">
+      <section id="features" className="py-12 lg:py-16 bg-white relative">
         {/* Background Gradient */}
         <div className="absolute inset-0 bg-gradient-to-b from-gray-50/50 to-transparent" />
 
@@ -410,7 +410,7 @@ export default function Home() {
       </section>
 
       {/* Screenshot Gallery Section */}
-      <section className="py-24 lg:py-32 bg-gradient-to-b from-white to-gray-50">
+      <section className="py-12 lg:py-16 bg-gradient-to-b from-white to-gray-50">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -432,7 +432,7 @@ export default function Home() {
 
           {/* Screenshot Grid - Placeholder for user screenshots */}
           {/* USER WILL ADD SCREENSHOTS HERE */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
             {[1, 2, 3].map((i) => (
               <motion.div
                 key={i}
@@ -444,7 +444,7 @@ export default function Home() {
                   delay: i * 0.1,
                   ease: [0.16, 1, 0.3, 1],
                 }}
-                className="relative aspect-[9/19] bg-gradient-to-br from-gray-900 to-gray-800 rounded-[2.5rem] p-2.5 shadow-2xl"
+                className="relative h-[70vh] min-h-[500px] max-h-[700px] bg-gradient-to-br from-gray-900 to-gray-800 rounded-[2.5rem] p-2.5 shadow-2xl"
               >
                 <div className="w-full h-full bg-gradient-to-br from-blue-50 to-purple-50 rounded-[2rem] flex items-center justify-center">
                   <div className="text-center px-6">
