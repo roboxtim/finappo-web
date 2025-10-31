@@ -38,11 +38,12 @@ export default function Home() {
               </a>
               <a
                 href="/app"
-                className="inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-2xl bg-gradient-to-r from-blue-600 to-cyan-600 text-white text-sm font-semibold shadow-lg shadow-blue-500/25 hover:shadow-xl hover:shadow-blue-500/30 transition-all duration-200 hover:scale-[1.02] active:scale-[0.98]"
+                className="group relative inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-2xl overflow-hidden text-white text-sm font-semibold shadow-lg shadow-blue-500/25 hover:shadow-xl hover:shadow-blue-500/30 transition-shadow duration-300"
               >
-                <span>Try App</span>
+                <div className="absolute inset-0 bg-gradient-to-r from-blue-600 via-cyan-600 to-blue-600 bg-[length:200%_100%] bg-left transition-all duration-700 ease-in-out group-hover:bg-right" />
+                <span className="relative">Try App</span>
                 <svg
-                  className="w-4 h-4"
+                  className="relative w-4 h-4"
                   fill="none"
                   viewBox="0 0 24 24"
                   stroke="currentColor"
@@ -116,11 +117,12 @@ export default function Home() {
                 <a
                   href="/app"
                   onClick={() => setMobileMenuOpen(false)}
-                  className="flex items-center justify-center gap-2 w-full px-5 py-3 rounded-2xl bg-gradient-to-r from-blue-600 to-cyan-600 text-white text-base font-semibold shadow-lg shadow-blue-500/25 active:scale-[0.98] transition-transform"
+                  className="relative flex items-center justify-center gap-2 w-full px-5 py-3 rounded-2xl overflow-hidden text-white text-base font-semibold shadow-lg shadow-blue-500/25 transition-shadow"
                 >
-                  <span>Try App</span>
+                  <div className="absolute inset-0 bg-gradient-to-r from-blue-600 via-cyan-600 to-blue-600" />
+                  <span className="relative">Try App</span>
                   <svg
-                    className="w-4 h-4"
+                    className="relative w-4 h-4"
                     fill="none"
                     viewBox="0 0 24 24"
                     stroke="currentColor"
@@ -286,31 +288,14 @@ export default function Home() {
                 <div className="relative h-[70vh] min-h-[500px] max-h-[700px] bg-gradient-to-br from-gray-900 to-gray-800 rounded-[3rem] p-3 shadow-2xl shadow-blue-500/20 border border-gray-700">
                   <div className="w-full h-full bg-white rounded-[2.5rem] overflow-hidden relative">
                     {/* Screenshot Placeholder - Replace this with actual app screenshot */}
-                    <div className="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-blue-50 to-purple-50">
-                      <div className="text-center px-8">
-                        <div className="w-20 h-20 mx-auto mb-6 rounded-3xl bg-gradient-to-br from-blue-500 to-cyan-500 flex items-center justify-center shadow-lg">
-                          <svg
-                            className="w-10 h-10 text-white"
-                            fill="none"
-                            viewBox="0 0 24 24"
-                            stroke="currentColor"
-                          >
-                            <path
-                              strokeLinecap="round"
-                              strokeLinejoin="round"
-                              strokeWidth={2}
-                              d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"
-                            />
-                          </svg>
-                        </div>
-                        <p className="text-sm text-gray-500 font-medium">
-                          App Screenshot
-                        </p>
-                        <p className="text-xs text-gray-400 mt-2">
-                          User will provide screenshot
-                        </p>
-                      </div>
-                    </div>
+	                  <Image
+		                  src="/app_1.jpg"
+		                  alt="Finappo"
+		                  width={320}
+		                  height={500}
+		                  priority
+		                  className="w-full max-w-full h-full object-cover"
+	                  />
                   </div>
                   {/* Notch */}
                   <div className="absolute top-0 left-1/2 -translate-x-1/2 w-32 h-7 bg-gray-900 rounded-b-3xl z-20" />
