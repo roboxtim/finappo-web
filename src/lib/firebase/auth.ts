@@ -17,9 +17,10 @@ export const signInWithGoogle = async () => {
   try {
     const result = await signInWithPopup(auth, googleProvider);
     return { user: result.user, error: null };
-  } catch (error: any) {
+  } catch (error: unknown) {
     console.error('Google sign-in error:', error);
-    return { user: null, error: error.message };
+    const message = error instanceof Error ? error.message : 'An error occurred during Google sign-in';
+    return { user: null, error: message };
   }
 };
 
@@ -32,9 +33,10 @@ export const signInWithApple = async () => {
   try {
     const result = await signInWithPopup(auth, appleProvider);
     return { user: result.user, error: null };
-  } catch (error: any) {
+  } catch (error: unknown) {
     console.error('Apple sign-in error:', error);
-    return { user: null, error: error.message };
+    const message = error instanceof Error ? error.message : 'An error occurred during Apple sign-in';
+    return { user: null, error: message };
   }
 };
 
@@ -43,9 +45,10 @@ export const signOut = async () => {
   try {
     await firebaseSignOut(auth);
     return { error: null };
-  } catch (error: any) {
+  } catch (error: unknown) {
     console.error('Sign-out error:', error);
-    return { error: error.message };
+    const message = error instanceof Error ? error.message : 'An error occurred during sign-out';
+    return { error: message };
   }
 };
 

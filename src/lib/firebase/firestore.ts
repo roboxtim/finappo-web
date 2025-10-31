@@ -44,8 +44,9 @@ export const addCategory = async (userId: string, category: Partial<UserCategory
       updatedAt: Timestamp.now(),
     });
     return { id: docRef.id, error: null };
-  } catch (error: any) {
-    return { id: null, error: error.message };
+  } catch (error: unknown) {
+    const message = error instanceof Error ? error.message : 'An error occurred adding category';
+    return { id: null, error: message };
   }
 };
 
@@ -56,8 +57,9 @@ export const updateCategory = async (categoryId: string, updates: Partial<UserCa
       updatedAt: Timestamp.now(),
     });
     return { error: null };
-  } catch (error: any) {
-    return { error: error.message };
+  } catch (error: unknown) {
+    const message = error instanceof Error ? error.message : 'An error occurred updating category';
+    return { error: message };
   }
 };
 
@@ -65,8 +67,9 @@ export const deleteCategory = async (categoryId: string) => {
   try {
     await deleteDoc(doc(db, 'categories', categoryId));
     return { error: null };
-  } catch (error: any) {
-    return { error: error.message };
+  } catch (error: unknown) {
+    const message = error instanceof Error ? error.message : 'An error occurred deleting category';
+    return { error: message };
   }
 };
 
@@ -103,8 +106,9 @@ export const addTransaction = async (userId: string, transaction: Partial<Transa
       updatedAt: Timestamp.now(),
     });
     return { id: docRef.id, error: null };
-  } catch (error: any) {
-    return { id: null, error: error.message };
+  } catch (error: unknown) {
+    const message = error instanceof Error ? error.message : 'An error occurred adding transaction';
+    return { id: null, error: message };
   }
 };
 
@@ -115,8 +119,9 @@ export const updateTransaction = async (transactionId: string, updates: Partial<
       updatedAt: Timestamp.now(),
     });
     return { error: null };
-  } catch (error: any) {
-    return { error: error.message };
+  } catch (error: unknown) {
+    const message = error instanceof Error ? error.message : 'An error occurred updating transaction';
+    return { error: message };
   }
 };
 
@@ -124,7 +129,8 @@ export const deleteTransaction = async (transactionId: string) => {
   try {
     await deleteDoc(doc(db, 'transactions', transactionId));
     return { error: null };
-  } catch (error: any) {
-    return { error: error.message };
+  } catch (error: unknown) {
+    const message = error instanceof Error ? error.message : 'An error occurred deleting transaction';
+    return { error: message };
   }
 };

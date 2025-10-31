@@ -120,6 +120,26 @@ const sfSymbolToEmoji: Record<string, string> = {
   'clock': '🕐',
   'clock.fill': '🕐',
 
+  // Shapes & Symbols
+  'circle': '⭕',
+  'circle.fill': '⭕',
+  'circle.grid.3x3': '⭕',
+  'circle.grid.3x3.fill': '⭕',
+  'square.grid.2x2': '▪️',
+  'square.grid.2x2.fill': '▪️',
+  'square.grid.3x3': '▪️',
+  'square.grid.3x3.fill': '▪️',
+  'square': '◻️',
+  'square.fill': '◼️',
+  'checkmark.circle': '✅',
+  'checkmark.circle.fill': '✅',
+  'xmark.circle': '❌',
+  'xmark.circle.fill': '❌',
+  'questionmark.circle': '❓',
+  'questionmark.circle.fill': '❓',
+  'exclamationmark.circle': '❗',
+  'exclamationmark.circle.fill': '❗',
+
   // Miscellaneous
   'star': '⭐',
   'star.fill': '⭐',
@@ -165,25 +185,40 @@ const legacyIconMap: Record<string, string> = {
 
 /**
  * Maps icon names (SF Symbols or legacy) to emoji for web display
+ * @param iconName - The icon name to map (SF Symbol, legacy icon name, or emoji)
+ * @returns The corresponding emoji character
  */
 export function mapIconToEmoji(iconName: string): string {
-  // Check if it's already an emoji (single character with emoji property)
-  if (iconName && /\p{Emoji}/u.test(iconName)) {
-    return iconName;
+  // Handle empty or undefined icon names
+  if (!iconName || typeof iconName !== 'string') {
+    return '⭕'; // Default for missing/invalid icons
+  }
+
+  // Trim whitespace
+  const trimmedName = iconName.trim();
+
+  // Check if it's already an emoji
+  if (/\p{Emoji}/u.test(trimmedName)) {
+    return trimmedName;
   }
 
   // Try SF Symbol mapping first
-  if (sfSymbolToEmoji[iconName]) {
-    return sfSymbolToEmoji[iconName];
+  if (sfSymbolToEmoji[trimmedName]) {
+    return sfSymbolToEmoji[trimmedName];
   }
 
   // Try legacy mapping
-  if (legacyIconMap[iconName]) {
-    return legacyIconMap[iconName];
+  if (legacyIconMap[trimmedName]) {
+    return legacyIconMap[trimmedName];
   }
 
-  // Default fallback
-  return '📝';
+  // Log unmapped icons in development for debugging
+  if (process.env.NODE_ENV === 'development') {
+    console.warn(`[IconMapper] Unmapped icon: "${trimmedName}"`);
+  }
+
+  // Default fallback for unmapped icons
+  return '⭕';
 }
 
 /**
