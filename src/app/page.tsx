@@ -550,11 +550,8 @@ export default function Home() {
               >
                 Download
               </a>
-              <a href="#" className="hover:text-gray-900 transition-colors">
+              <a href="/privacy" className="hover:text-gray-900 transition-colors">
                 Privacy
-              </a>
-              <a href="#" className="hover:text-gray-900 transition-colors">
-                Support
               </a>
             </div>
           </div>
