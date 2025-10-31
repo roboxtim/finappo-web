@@ -11,21 +11,32 @@ const firebaseConfig = {
   appId: process.env.NEXT_PUBLIC_FIREBASE_APP_ID,
 };
 
-// Initialize Firebase
-let app: FirebaseApp;
-let auth: Auth;
-let db: Firestore;
+// Initialize Firebase - lazy initialization for client-side only
+let app: FirebaseApp | undefined;
+let auth: Auth | undefined;
+let db: Firestore | undefined;
 
-if (typeof window !== 'undefined') {
-  // Only initialize on client side
-  if (!getApps().length) {
-    app = initializeApp(firebaseConfig);
-  } else {
-    app = getApps()[0];
+// Initialize Firebase only on client side
+function initializeFirebase() {
+  if (typeof window === 'undefined') {
+    return;
   }
 
-  auth = getAuth(app);
-  db = getFirestore(app);
+  if (!app) {
+    if (!getApps().length) {
+      app = initializeApp(firebaseConfig);
+    } else {
+      app = getApps()[0];
+    }
+    auth = getAuth(app);
+    db = getFirestore(app);
+  }
 }
 
+// Auto-initialize on client
+if (typeof window !== 'undefined') {
+  initializeFirebase();
+}
+
+// Export with safety checks
 export { app, auth, db };

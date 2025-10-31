@@ -20,6 +20,11 @@ export const subscribeToCategories = (
   userId: string,
   callback: (categories: UserCategory[]) => void
 ) => {
+  if (!db) {
+    // Return a no-op unsubscribe function if db is not initialized
+    return () => {};
+  }
+
   const q = query(
     collection(db, 'categories'),
     where('userId', '==', userId),
@@ -36,6 +41,10 @@ export const subscribeToCategories = (
 };
 
 export const addCategory = async (userId: string, category: Partial<UserCategory>) => {
+  if (!db) {
+    return { id: null, error: 'Firebase not initialized' };
+  }
+
   try {
     const docRef = await addDoc(collection(db, 'categories'), {
       ...category,
@@ -51,6 +60,10 @@ export const addCategory = async (userId: string, category: Partial<UserCategory
 };
 
 export const updateCategory = async (categoryId: string, updates: Partial<UserCategory>) => {
+  if (!db) {
+    return { error: 'Firebase not initialized' };
+  }
+
   try {
     await updateDoc(doc(db, 'categories', categoryId), {
       ...updates,
@@ -64,6 +77,10 @@ export const updateCategory = async (categoryId: string, updates: Partial<UserCa
 };
 
 export const deleteCategory = async (categoryId: string) => {
+  if (!db) {
+    return { error: 'Firebase not initialized' };
+  }
+
   try {
     await deleteDoc(doc(db, 'categories', categoryId));
     return { error: null };
@@ -80,6 +97,11 @@ export const subscribeToTransactions = (
   endDate: Date,
   callback: (transactions: Transaction[]) => void
 ) => {
+  if (!db) {
+    // Return a no-op unsubscribe function if db is not initialized
+    return () => {};
+  }
+
   const q = query(
     collection(db, 'transactions'),
     where('userId', '==', userId),
@@ -98,6 +120,10 @@ export const subscribeToTransactions = (
 };
 
 export const addTransaction = async (userId: string, transaction: Partial<Transaction>) => {
+  if (!db) {
+    return { id: null, error: 'Firebase not initialized' };
+  }
+
   try {
     const docRef = await addDoc(collection(db, 'transactions'), {
       ...transaction,
@@ -113,6 +139,10 @@ export const addTransaction = async (userId: string, transaction: Partial<Transa
 };
 
 export const updateTransaction = async (transactionId: string, updates: Partial<Transaction>) => {
+  if (!db) {
+    return { error: 'Firebase not initialized' };
+  }
+
   try {
     await updateDoc(doc(db, 'transactions', transactionId), {
       ...updates,
@@ -126,6 +156,10 @@ export const updateTransaction = async (transactionId: string, updates: Partial<
 };
 
 export const deleteTransaction = async (transactionId: string) => {
+  if (!db) {
+    return { error: 'Firebase not initialized' };
+  }
+
   try {
     await deleteDoc(doc(db, 'transactions', transactionId));
     return { error: null };

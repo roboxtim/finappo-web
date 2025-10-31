@@ -14,6 +14,9 @@ import { auth } from './config';
 const googleProvider = new GoogleAuthProvider();
 
 export const signInWithGoogle = async () => {
+  if (!auth) {
+    return { user: null, error: 'Firebase auth not initialized' };
+  }
   try {
     const result = await signInWithPopup(auth, googleProvider);
     return { user: result.user, error: null };
@@ -30,6 +33,9 @@ appleProvider.addScope('email');
 appleProvider.addScope('name');
 
 export const signInWithApple = async () => {
+  if (!auth) {
+    return { user: null, error: 'Firebase auth not initialized' };
+  }
   try {
     const result = await signInWithPopup(auth, appleProvider);
     return { user: result.user, error: null };
@@ -42,6 +48,9 @@ export const signInWithApple = async () => {
 
 // Sign Out
 export const signOut = async () => {
+  if (!auth) {
+    return { error: 'Firebase auth not initialized' };
+  }
   try {
     await firebaseSignOut(auth);
     return { error: null };
@@ -54,5 +63,9 @@ export const signOut = async () => {
 
 // Auth State Listener
 export const subscribeToAuthChanges = (callback: (user: User | null) => void) => {
+  if (!auth) {
+    // Return a no-op unsubscribe function if auth is not initialized
+    return () => {};
+  }
   return onAuthStateChanged(auth, callback);
 };
