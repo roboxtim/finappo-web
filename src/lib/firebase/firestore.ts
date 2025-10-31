@@ -1,51 +1,58 @@
 'use client';
 
-import {
-  collection,
-  query,
-  where,
-  onSnapshot,
-  addDoc,
-  updateDoc,
-  deleteDoc,
-  doc,
-  Timestamp,
-  orderBy,
-} from 'firebase/firestore';
-import { db } from './config';
-import { UserCategory, Transaction } from '../types/models';
+import type { UserCategory, Transaction } from '../types/models';
 
 // Categories Collection
 export const subscribeToCategories = (
   userId: string,
   callback: (categories: UserCategory[]) => void
 ) => {
-  if (!db) {
-    // Return a no-op unsubscribe function if db is not initialized
+  if (typeof window === 'undefined') {
     return () => {};
   }
 
-  const q = query(
-    collection(db, 'categories'),
-    where('userId', '==', userId),
-    orderBy('order', 'asc')
-  );
+  let unsubscribe: (() => void) | null = null;
 
-  return onSnapshot(q, (snapshot) => {
-    const categories = snapshot.docs.map((doc) => ({
-      id: doc.id,
-      ...doc.data(),
-    })) as UserCategory[];
-    callback(categories);
+  // Dynamic import to prevent Firebase from loading during SSR
+  import('firebase/firestore').then(({ collection, query, where, orderBy, onSnapshot }) => {
+    import('./config').then(({ getFirebaseDb }) => {
+      getFirebaseDb().then((db) => {
+        if (!db) {
+          return;
+        }
+
+        const q = query(
+          collection(db, 'categories'),
+          where('userId', '==', userId),
+          orderBy('order', 'asc')
+        );
+
+        unsubscribe = onSnapshot(q, (snapshot) => {
+          const categories = snapshot.docs.map((doc) => ({
+            id: doc.id,
+            ...doc.data(),
+          })) as UserCategory[];
+          callback(categories);
+        });
+      });
+    });
   });
+
+  return () => {
+    if (unsubscribe) unsubscribe();
+  };
 };
 
 export const addCategory = async (userId: string, category: Partial<UserCategory>) => {
-  if (!db) {
-    return { id: null, error: 'Firebase not initialized' };
-  }
-
   try {
+    const { collection, addDoc, Timestamp } = await import('firebase/firestore');
+    const { getFirebaseDb } = await import('./config');
+
+    const db = await getFirebaseDb();
+    if (!db) {
+      return { id: null, error: 'Firebase not initialized' };
+    }
+
     const docRef = await addDoc(collection(db, 'categories'), {
       ...category,
       userId,
@@ -60,11 +67,15 @@ export const addCategory = async (userId: string, category: Partial<UserCategory
 };
 
 export const updateCategory = async (categoryId: string, updates: Partial<UserCategory>) => {
-  if (!db) {
-    return { error: 'Firebase not initialized' };
-  }
-
   try {
+    const { doc, updateDoc, Timestamp } = await import('firebase/firestore');
+    const { getFirebaseDb } = await import('./config');
+
+    const db = await getFirebaseDb();
+    if (!db) {
+      return { error: 'Firebase not initialized' };
+    }
+
     await updateDoc(doc(db, 'categories', categoryId), {
       ...updates,
       updatedAt: Timestamp.now(),
@@ -77,11 +88,15 @@ export const updateCategory = async (categoryId: string, updates: Partial<UserCa
 };
 
 export const deleteCategory = async (categoryId: string) => {
-  if (!db) {
-    return { error: 'Firebase not initialized' };
-  }
-
   try {
+    const { doc, deleteDoc } = await import('firebase/firestore');
+    const { getFirebaseDb } = await import('./config');
+
+    const db = await getFirebaseDb();
+    if (!db) {
+      return { error: 'Firebase not initialized' };
+    }
+
     await deleteDoc(doc(db, 'categories', categoryId));
     return { error: null };
   } catch (error: unknown) {
@@ -97,34 +112,54 @@ export const subscribeToTransactions = (
   endDate: Date,
   callback: (transactions: Transaction[]) => void
 ) => {
-  if (!db) {
-    // Return a no-op unsubscribe function if db is not initialized
+  if (typeof window === 'undefined') {
     return () => {};
   }
 
-  const q = query(
-    collection(db, 'transactions'),
-    where('userId', '==', userId),
-    where('date', '>=', Timestamp.fromDate(startDate)),
-    where('date', '<=', Timestamp.fromDate(endDate)),
-    orderBy('date', 'desc')
-  );
+  let unsubscribe: (() => void) | null = null;
 
-  return onSnapshot(q, (snapshot) => {
-    const transactions = snapshot.docs.map((doc) => ({
-      id: doc.id,
-      ...doc.data(),
-    })) as Transaction[];
-    callback(transactions);
+  // Dynamic import to prevent Firebase from loading during SSR
+  import('firebase/firestore').then(({ collection, query, where, orderBy, onSnapshot, Timestamp }) => {
+    import('./config').then(({ getFirebaseDb }) => {
+      getFirebaseDb().then((db) => {
+        if (!db) {
+          return;
+        }
+
+        const q = query(
+          collection(db, 'transactions'),
+          where('userId', '==', userId),
+          where('date', '>=', Timestamp.fromDate(startDate)),
+          where('date', '<=', Timestamp.fromDate(endDate)),
+          orderBy('date', 'desc')
+        );
+
+        unsubscribe = onSnapshot(q, (snapshot) => {
+          const transactions = snapshot.docs.map((doc) => ({
+            id: doc.id,
+            ...doc.data(),
+          })) as Transaction[];
+          callback(transactions);
+        });
+      });
+    });
   });
+
+  return () => {
+    if (unsubscribe) unsubscribe();
+  };
 };
 
 export const addTransaction = async (userId: string, transaction: Partial<Transaction>) => {
-  if (!db) {
-    return { id: null, error: 'Firebase not initialized' };
-  }
-
   try {
+    const { collection, addDoc, Timestamp } = await import('firebase/firestore');
+    const { getFirebaseDb } = await import('./config');
+
+    const db = await getFirebaseDb();
+    if (!db) {
+      return { id: null, error: 'Firebase not initialized' };
+    }
+
     const docRef = await addDoc(collection(db, 'transactions'), {
       ...transaction,
       userId,
@@ -139,11 +174,15 @@ export const addTransaction = async (userId: string, transaction: Partial<Transa
 };
 
 export const updateTransaction = async (transactionId: string, updates: Partial<Transaction>) => {
-  if (!db) {
-    return { error: 'Firebase not initialized' };
-  }
-
   try {
+    const { doc, updateDoc, Timestamp } = await import('firebase/firestore');
+    const { getFirebaseDb } = await import('./config');
+
+    const db = await getFirebaseDb();
+    if (!db) {
+      return { error: 'Firebase not initialized' };
+    }
+
     await updateDoc(doc(db, 'transactions', transactionId), {
       ...updates,
       updatedAt: Timestamp.now(),
@@ -156,11 +195,15 @@ export const updateTransaction = async (transactionId: string, updates: Partial<
 };
 
 export const deleteTransaction = async (transactionId: string) => {
-  if (!db) {
-    return { error: 'Firebase not initialized' };
-  }
-
   try {
+    const { doc, deleteDoc } = await import('firebase/firestore');
+    const { getFirebaseDb } = await import('./config');
+
+    const db = await getFirebaseDb();
+    if (!db) {
+      return { error: 'Firebase not initialized' };
+    }
+
     await deleteDoc(doc(db, 'transactions', transactionId));
     return { error: null };
   } catch (error: unknown) {

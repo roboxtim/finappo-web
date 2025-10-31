@@ -2,6 +2,10 @@ import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
   /* config options here */
+  experimental: {
+    // Disable SSR for routes that use Firebase client SDK
+    clientRouterFilter: true,
+  },
 };
 
 export default nextConfig;

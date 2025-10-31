@@ -1,24 +1,20 @@
 'use client';
 
-import {
-  signInWithPopup,
-  GoogleAuthProvider,
-  OAuthProvider,
-  signOut as firebaseSignOut,
-  onAuthStateChanged,
-  User,
-} from 'firebase/auth';
-import { auth } from './config';
-
-// Google Sign-In
-const googleProvider = new GoogleAuthProvider();
+import type { User } from 'firebase/auth';
 
 export const signInWithGoogle = async () => {
-  if (!auth) {
-    return { user: null, error: 'Firebase auth not initialized' };
-  }
   try {
-    const result = await signInWithPopup(auth, googleProvider);
+    // Dynamic imports to prevent Firebase from loading during SSR
+    const { signInWithPopup, GoogleAuthProvider } = await import('firebase/auth');
+    const { getFirebaseAuth } = await import('./config');
+
+    const auth = await getFirebaseAuth();
+    if (!auth) {
+      return { user: null, error: 'Firebase auth not initialized' };
+    }
+
+    const provider = new GoogleAuthProvider();
+    const result = await signInWithPopup(auth, provider);
     return { user: result.user, error: null };
   } catch (error: unknown) {
     console.error('Google sign-in error:', error);
@@ -27,17 +23,21 @@ export const signInWithGoogle = async () => {
   }
 };
 
-// Apple Sign-In
-const appleProvider = new OAuthProvider('apple.com');
-appleProvider.addScope('email');
-appleProvider.addScope('name');
-
 export const signInWithApple = async () => {
-  if (!auth) {
-    return { user: null, error: 'Firebase auth not initialized' };
-  }
   try {
-    const result = await signInWithPopup(auth, appleProvider);
+    // Dynamic imports to prevent Firebase from loading during SSR
+    const { signInWithPopup, OAuthProvider } = await import('firebase/auth');
+    const { getFirebaseAuth } = await import('./config');
+
+    const auth = await getFirebaseAuth();
+    if (!auth) {
+      return { user: null, error: 'Firebase auth not initialized' };
+    }
+
+    const provider = new OAuthProvider('apple.com');
+    provider.addScope('email');
+    provider.addScope('name');
+    const result = await signInWithPopup(auth, provider);
     return { user: result.user, error: null };
   } catch (error: unknown) {
     console.error('Apple sign-in error:', error);
@@ -48,10 +48,15 @@ export const signInWithApple = async () => {
 
 // Sign Out
 export const signOut = async () => {
-  if (!auth) {
-    return { error: 'Firebase auth not initialized' };
-  }
   try {
+    const { signOut as firebaseSignOut } = await import('firebase/auth');
+    const { getFirebaseAuth } = await import('./config');
+
+    const auth = await getFirebaseAuth();
+    if (!auth) {
+      return { error: 'Firebase auth not initialized' };
+    }
+
     await firebaseSignOut(auth);
     return { error: null };
   } catch (error: unknown) {
@@ -63,9 +68,25 @@ export const signOut = async () => {
 
 // Auth State Listener
 export const subscribeToAuthChanges = (callback: (user: User | null) => void) => {
-  if (!auth) {
-    // Return a no-op unsubscribe function if auth is not initialized
+  // This function needs to be synchronous for useEffect, so we handle it differently
+  if (typeof window === 'undefined') {
     return () => {};
   }
-  return onAuthStateChanged(auth, callback);
+
+  let unsubscribe: (() => void) | null = null;
+
+  // Import dynamically and subscribe
+  import('firebase/auth').then(({ onAuthStateChanged }) => {
+    import('./config').then(({ getFirebaseAuth }) => {
+      getFirebaseAuth().then((auth) => {
+        if (auth) {
+          unsubscribe = onAuthStateChanged(auth, callback);
+        }
+      });
+    });
+  });
+
+  return () => {
+    if (unsubscribe) unsubscribe();
+  };
 };

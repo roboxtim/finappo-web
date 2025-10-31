@@ -1,6 +1,7 @@
-import { initializeApp, getApps, FirebaseApp } from 'firebase/app';
-import { getAuth, Auth } from 'firebase/auth';
-import { getFirestore, Firestore } from 'firebase/firestore';
+// Only import types during SSR, actual Firebase modules are imported dynamically
+import type { FirebaseApp } from 'firebase/app';
+import type { Auth } from 'firebase/auth';
+import type { Firestore } from 'firebase/firestore';
 
 const firebaseConfig = {
   apiKey: process.env.NEXT_PUBLIC_FIREBASE_API_KEY || 'AIzaSyAAAqq-js4-AhYSJal5H4iQnRZxDiqyfXU',
@@ -15,28 +16,54 @@ const firebaseConfig = {
 let app: FirebaseApp | undefined;
 let auth: Auth | undefined;
 let db: Firestore | undefined;
+let initPromise: Promise<void> | null = null;
 
 // Initialize Firebase only on client side
-function initializeFirebase() {
+async function initializeFirebase() {
   if (typeof window === 'undefined') {
     return;
   }
 
+  // Return existing initialization promise if already initializing
+  if (initPromise) {
+    return initPromise;
+  }
+
   if (!app) {
-    if (!getApps().length) {
-      app = initializeApp(firebaseConfig);
-    } else {
-      app = getApps()[0];
-    }
-    auth = getAuth(app);
-    db = getFirestore(app);
+    initPromise = (async () => {
+      // Dynamic imports to avoid loading Firebase during SSR
+      const { initializeApp, getApps } = await import('firebase/app');
+      const { getAuth } = await import('firebase/auth');
+      const { getFirestore } = await import('firebase/firestore');
+
+      if (!getApps().length) {
+        app = initializeApp(firebaseConfig);
+      } else {
+        app = getApps()[0];
+      }
+      auth = getAuth(app);
+      db = getFirestore(app);
+    })();
+
+    await initPromise;
   }
 }
 
-// Auto-initialize on client
-if (typeof window !== 'undefined') {
-  initializeFirebase();
+// Getter functions that ensure Firebase is initialized
+export async function getFirebaseApp(): Promise<FirebaseApp | undefined> {
+  await initializeFirebase();
+  return app;
 }
 
-// Export with safety checks
+export async function getFirebaseAuth(): Promise<Auth | undefined> {
+  await initializeFirebase();
+  return auth;
+}
+
+export async function getFirebaseDb(): Promise<Firestore | undefined> {
+  await initializeFirebase();
+  return db;
+}
+
+// Legacy exports for backward compatibility (but these will be undefined until initialized)
 export { app, auth, db };
