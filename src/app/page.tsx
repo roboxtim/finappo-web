@@ -1,6 +1,7 @@
 'use client';
 
 import Image from 'next/image';
+import Link from 'next/link';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useState } from 'react';
 import { AppStoreButton } from '@/components/landing/AppStoreButton';
@@ -36,7 +37,7 @@ export default function Home() {
               >
                 Features
               </a>
-              <a
+              <Link
                 href="/app"
                 className="group relative inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-2xl overflow-hidden text-white text-sm font-semibold shadow-lg shadow-blue-500/25 hover:shadow-xl hover:shadow-blue-500/30 transition-shadow duration-300"
               >
@@ -55,7 +56,7 @@ export default function Home() {
                     d="M13 7l5 5m0 0l-5 5m5-5H6"
                   />
                 </svg>
-              </a>
+              </Link>
               <a
                 href="#download"
                 className="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors"
@@ -114,7 +115,7 @@ export default function Home() {
                 >
                   Features
                 </a>
-                <a
+                <Link
                   href="/app"
                   onClick={() => setMobileMenuOpen(false)}
                   className="relative flex items-center justify-center gap-2 w-full px-5 py-3 rounded-2xl overflow-hidden text-white text-base font-semibold shadow-lg shadow-blue-500/25 transition-shadow"
@@ -134,7 +135,7 @@ export default function Home() {
                       d="M13 7l5 5m0 0l-5 5m5-5H6"
                     />
                   </svg>
-                </a>
+                </Link>
                 <a
                   href="#download"
                   onClick={() => setMobileMenuOpen(false)}
