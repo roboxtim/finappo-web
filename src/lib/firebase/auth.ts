@@ -49,7 +49,7 @@ export const signInWithApple = async () => {
 // Sign Out
 export const signOut = async () => {
   try {
-    const { signOut as firebaseSignOut } = await import('firebase/auth');
+    const firebaseAuth = await import('firebase/auth');
     const { getFirebaseAuth } = await import('./config');
 
     const auth = await getFirebaseAuth();
@@ -57,7 +57,7 @@ export const signOut = async () => {
       return { error: 'Firebase auth not initialized' };
     }
 
-    await firebaseSignOut(auth);
+    await firebaseAuth.signOut(auth);
     return { error: null };
   } catch (error: unknown) {
     console.error('Sign-out error:', error);
