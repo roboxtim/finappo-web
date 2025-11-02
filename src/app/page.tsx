@@ -38,7 +38,7 @@ export default function Home() {
                 Features
               </a>
               <Link
-                href="/app"
+                href="/dashboard"
                 className="group relative inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-2xl overflow-hidden text-white text-sm font-semibold shadow-lg shadow-blue-500/25 hover:shadow-xl hover:shadow-blue-500/30 transition-shadow duration-300"
               >
                 <div className="absolute inset-0 bg-gradient-to-r from-blue-600 via-cyan-600 to-blue-600 bg-[length:200%_100%] bg-left transition-all duration-700 ease-in-out group-hover:bg-right" />
@@ -116,7 +116,7 @@ export default function Home() {
                   Features
                 </a>
                 <Link
-                  href="/app"
+                  href="/dashboard"
                   onClick={() => setMobileMenuOpen(false)}
                   className="relative flex items-center justify-center gap-2 w-full px-5 py-3 rounded-2xl overflow-hidden text-white text-base font-semibold shadow-lg shadow-blue-500/25 transition-shadow"
                 >
