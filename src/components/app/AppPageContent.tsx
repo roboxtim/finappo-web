@@ -11,6 +11,7 @@ import { UserCategory, Transaction } from '@/lib/types/models';
 import CategoryCard from '@/components/app/CategoryCard';
 
 export default function AppPageContent() {
+  console.log('AppPageContent component rendering');
   const { user, loading, setUser, setLoading } = useAuthStore();
   const [error, setError] = useState<string | null>(null);
   const [signingIn, setSigningIn] = useState(false);
