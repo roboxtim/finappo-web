@@ -1,11 +1,6 @@
-import dynamic from 'next/dynamic';
-import type { Metadata } from 'next';
+'use client';
 
-// Metadata for this page
-export const metadata: Metadata = {
-  title: 'Finappo App - Your Budget Dashboard',
-  description: 'Access your budget dashboard and track your family expenses.',
-};
+import dynamic from 'next/dynamic';
 
 // Dynamically import the app component with SSR disabled
 const AppPageContent = dynamic(() => import('@/components/app/AppPageContent'), {
