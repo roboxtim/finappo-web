@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import type { Metadata } from 'next';
+import { Navigation } from '@/components/Navigation';
 
 export const metadata: Metadata = {
   title: "Privacy Policy - Finappo",
@@ -11,23 +12,10 @@ export default function PrivacyPage() {
   return (
     <div className="min-h-screen bg-white">
       {/* Navigation */}
-      <nav className="border-b border-gray-200">
-        <div className="max-w-5xl mx-auto px-6 lg:px-8 py-6">
-          <Link href="/" className="flex items-center gap-3 hover:opacity-80 transition-opacity w-fit">
-            <Image
-              src="/logo.png"
-              alt="Finappo"
-              width={40}
-              height={40}
-              className="w-10 h-10"
-            />
-            <span className="text-xl font-semibold text-gray-900">Finappo</span>
-          </Link>
-        </div>
-      </nav>
+      <Navigation />
 
       {/* Content */}
-      <main className="max-w-4xl mx-auto px-6 lg:px-8 py-16">
+      <main className="max-w-4xl mx-auto px-6 lg:px-8 py-16 mt-16">
         <h1 className="text-4xl sm:text-5xl font-bold text-gray-900 mb-4">
           Privacy Policy
         </h1>
