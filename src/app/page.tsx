@@ -155,14 +155,13 @@ export default function Home() {
 								<div
 									className="relative h-[70vh] min-h-[500px] max-h-[700px] bg-gradient-to-br from-gray-900 to-gray-800 rounded-[3rem] p-3 shadow-2xl shadow-blue-500/20 border border-gray-700">
 									<div className="w-full h-full bg-white rounded-[2.5rem] overflow-hidden relative">
-										{/* Screenshot Placeholder - Replace this with actual app screenshot */}
+										{/* Hero Screenshot */}
 										<Image
-											src="/app_1.jpg"
-											alt="Finappo"
-											width={320}
-											height={500}
+											src="/screen_main.jpg"
+											alt="Finappo App Main Screen"
+											fill
 											priority
-											className="w-full max-w-full h-full object-cover"
+											className="object-cover object-center"
 										/>
 									</div>
 									{/* Notch */}
@@ -387,38 +386,82 @@ export default function Home() {
 						</p>
 					</motion.div>
 
-					{/* Screenshot Grid - Placeholder for user screenshots */}
-					{/* USER WILL ADD SCREENSHOTS HERE */}
+					{/* Screenshot Grid */}
 					<div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
-						{[1, 2, 3].map((i) => (
-							<motion.div
-								key={i}
-								initial={{opacity : 0, y : 30}}
-								whileInView={{opacity : 1, y : 0}}
-								viewport={{once : true}}
-								transition={{
-									duration : 0.6,
-									delay    : i * 0.1,
-									ease     : [0.16, 1, 0.3, 1]
-								}}
-								className="relative h-[70vh] min-h-[500px] max-h-[700px] bg-gradient-to-br from-gray-900 to-gray-800 rounded-[2.5rem] p-2.5 shadow-2xl"
-							>
-								<div
-									className="w-full h-full bg-gradient-to-br from-blue-50 to-purple-50 rounded-[2rem] flex items-center justify-center">
-									<div className="text-center px-6">
-										<p className="text-sm text-gray-500 font-medium">
-											Screenshot {i}
-										</p>
-										<p className="text-xs text-gray-400 mt-1">
-											User will provide
-										</p>
-									</div>
-								</div>
-								{/* Notch */}
-								<div
-									className="absolute top-0 left-1/2 -translate-x-1/2 w-24 h-6 bg-gray-900 rounded-b-2xl z-20"/>
-							</motion.div>
-						))}
+						{/* Screenshot 1 - Add Transaction */}
+						<motion.div
+							initial={{opacity : 0, y : 30}}
+							whileInView={{opacity : 1, y : 0}}
+							viewport={{once : true}}
+							transition={{
+								duration : 0.6,
+								delay    : 0,
+								ease     : [0.16, 1, 0.3, 1]
+							}}
+							className="relative h-[70vh] min-h-[500px] max-h-[700px] bg-gradient-to-br from-gray-900 to-gray-800 rounded-[2.5rem] p-2.5 shadow-2xl"
+						>
+							<div className="w-full h-full bg-white rounded-[2rem] overflow-hidden relative">
+								<Image
+									src="/screen_add_trans.jpg"
+									alt="Add Transaction Screen"
+									fill
+									className="object-cover object-center"
+								/>
+							</div>
+							{/* Notch */}
+							<div
+								className="absolute top-0 left-1/2 -translate-x-1/2 w-24 h-6 bg-gray-900 rounded-b-2xl z-20"/>
+						</motion.div>
+
+						{/* Screenshot 2 - Transactions List */}
+						<motion.div
+							initial={{opacity : 0, y : 30}}
+							whileInView={{opacity : 1, y : 0}}
+							viewport={{once : true}}
+							transition={{
+								duration : 0.6,
+								delay    : 0.1,
+								ease     : [0.16, 1, 0.3, 1]
+							}}
+							className="relative h-[70vh] min-h-[500px] max-h-[700px] bg-gradient-to-br from-gray-900 to-gray-800 rounded-[2.5rem] p-2.5 shadow-2xl"
+						>
+							<div className="w-full h-full bg-white rounded-[2rem] overflow-hidden relative">
+								<Image
+									src="/screen_trans.jpg"
+									alt="Transactions List Screen"
+									fill
+									className="object-cover object-center"
+								/>
+							</div>
+							{/* Notch */}
+							<div
+								className="absolute top-0 left-1/2 -translate-x-1/2 w-24 h-6 bg-gray-900 rounded-b-2xl z-20"/>
+						</motion.div>
+
+						{/* Screenshot 3 - Calculator */}
+						<motion.div
+							initial={{opacity : 0, y : 30}}
+							whileInView={{opacity : 1, y : 0}}
+							viewport={{once : true}}
+							transition={{
+								duration : 0.6,
+								delay    : 0.2,
+								ease     : [0.16, 1, 0.3, 1]
+							}}
+							className="relative h-[70vh] min-h-[500px] max-h-[700px] bg-gradient-to-br from-gray-900 to-gray-800 rounded-[2.5rem] p-2.5 shadow-2xl"
+						>
+							<div className="w-full h-full bg-white rounded-[2rem] overflow-hidden relative">
+								<Image
+									src="/screen_cal.jpg"
+									alt="Calculator Screen"
+									fill
+									className="object-cover object-center"
+								/>
+							</div>
+							{/* Notch */}
+							<div
+								className="absolute top-0 left-1/2 -translate-x-1/2 w-24 h-6 bg-gray-900 rounded-b-2xl z-20"/>
+						</motion.div>
 					</div>
 				</div>
 			</section>
