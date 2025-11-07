@@ -35,6 +35,7 @@ export function Navigation() {
             >
               Features
             </Link>
+            {/* Temporarily commented out - will be enabled later
             <Link
               href="/dashboard"
               className="group relative inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-2xl overflow-hidden text-white text-sm font-semibold shadow-lg shadow-blue-500/25 hover:shadow-xl hover:shadow-blue-500/30 transition-shadow duration-300"
@@ -55,6 +56,7 @@ export function Navigation() {
                 />
               </svg>
             </Link>
+            */}
             <Link
               href="/#download"
               className="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors"
@@ -119,6 +121,7 @@ export function Navigation() {
               >
                 Features
               </Link>
+              {/* Temporarily commented out - will be enabled later
               <Link
                 href="/dashboard"
                 onClick={() => setMobileMenuOpen(false)}
@@ -140,6 +143,7 @@ export function Navigation() {
                   />
                 </svg>
               </Link>
+              */}
               <Link
                 href="/#download"
                 onClick={() => setMobileMenuOpen(false)}
