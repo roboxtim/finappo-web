@@ -61,6 +61,12 @@ export function Navigation() {
             >
               Download
             </Link>
+            <Link
+              href="/#contact"
+              className="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors"
+            >
+              Contact
+            </Link>
           </div>
 
           {/* Mobile Menu Button */}
@@ -140,6 +146,13 @@ export function Navigation() {
                 className="block text-base font-medium text-gray-600 hover:text-gray-900 py-2 transition-colors"
               >
                 Download
+              </Link>
+              <Link
+                href="/#contact"
+                onClick={() => setMobileMenuOpen(false)}
+                className="block text-base font-medium text-gray-600 hover:text-gray-900 py-2 transition-colors"
+              >
+                Contact
               </Link>
             </div>
           </motion.div>

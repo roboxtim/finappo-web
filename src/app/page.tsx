@@ -4,6 +4,7 @@ import Image from 'next/image';
 import { motion } from 'framer-motion';
 import { AppStoreButton } from '@/components/landing/AppStoreButton';
 import { FeatureCard } from '@/components/landing/FeatureCard';
+import { ContactForm } from '@/components/landing/ContactForm';
 import { Navigation } from '@/components/Navigation';
 
 export default function Home() {
@@ -520,6 +521,46 @@ export default function Home() {
 				</div>
 			</section>
 
+			{/* Contact Section */}
+			<section id="contact" className="py-24 lg:py-32 bg-white relative overflow-hidden">
+				{/* Subtle Background Gradient */}
+				<div className="absolute inset-0 bg-gradient-to-b from-gray-50/50 via-white to-white"/>
+
+				<div className="relative max-w-4xl mx-auto px-6 lg:px-8">
+					<motion.div
+						initial={{opacity : 0, y : 20}}
+						whileInView={{opacity : 1, y : 0}}
+						viewport={{once : true}}
+						transition={{
+							duration : 0.6,
+							ease     : [0.16, 1, 0.3, 1]
+						}}
+						className="text-center mb-12"
+					>
+						<h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-900 mb-6 tracking-tight">
+							Get in Touch
+						</h2>
+						<p className="text-xl text-gray-600 max-w-2xl mx-auto leading-relaxed">
+							Have a question, suggestion, or feedback? We'd love to hear from you.
+						</p>
+					</motion.div>
+
+					<motion.div
+						initial={{opacity : 0, y : 30}}
+						whileInView={{opacity : 1, y : 0}}
+						viewport={{once : true}}
+						transition={{
+							duration : 0.6,
+							delay    : 0.2,
+							ease     : [0.16, 1, 0.3, 1]
+						}}
+						className="bg-white border border-gray-200 rounded-3xl shadow-xl shadow-gray-900/5 p-8 lg:p-12"
+					>
+						<ContactForm />
+					</motion.div>
+				</div>
+			</section>
+
 			{/* Footer */}
 			<footer className="border-t border-gray-200 bg-white">
 				<div className="max-w-7xl mx-auto px-6 lg:px-8 py-12">
@@ -552,6 +593,12 @@ export default function Home() {
 								className="hover:text-gray-900 transition-colors"
 							>
 								Download
+							</a>
+							<a
+								href="#contact"
+								className="hover:text-gray-900 transition-colors"
+							>
+								Contact
 							</a>
 							<a href="/privacy" className="hover:text-gray-900 transition-colors">
 								Privacy
