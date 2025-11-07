@@ -83,7 +83,7 @@ export function ContactForm() {
           message: data.error || 'Failed to send message'
         });
       }
-    } catch (error) {
+    } catch {
       setStatus({
         type: 'error',
         message: 'Network error. Please try again.'

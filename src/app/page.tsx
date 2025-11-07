@@ -541,7 +541,7 @@ export default function Home() {
 							Get in Touch
 						</h2>
 						<p className="text-xl text-gray-600 max-w-2xl mx-auto leading-relaxed">
-							Have a question, suggestion, or feedback? We'd love to hear from you.
+							Have a question, suggestion, or feedback? We&apos;d love to hear from you.
 						</p>
 					</motion.div>
 

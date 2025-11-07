@@ -1,0 +1,11 @@
+name = "finappo-web"
+compatibility_date = "2025-01-01"
+
+[env.production.vars]
+CONTACT_EMAIL = "roboxtim@gmail.com"
+# RESEND_API_KEY should be set in Cloudflare Dashboard for security
+# Do not put API keys in wrangler.toml as it may be committed to git
+
+[env.preview.vars]
+CONTACT_EMAIL = "roboxtim@gmail.com"
+# RESEND_API_KEY should be set in Cloudflare Dashboard for security
