@@ -1,6 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
+import Link from 'next/link';
 import { Navigation } from '@/components/Navigation';
 import { CalculatorCard } from '@/components/landing/CalculatorCard';
 
@@ -131,24 +132,24 @@ export default function FinancialCalculators() {
 
             {/* Links */}
             <div className="flex items-center gap-8 text-sm text-gray-600">
-              <a href="/" className="hover:text-gray-900 transition-colors">
+              <Link href="/" className="hover:text-gray-900 transition-colors">
                 Home
-              </a>
-              <a
+              </Link>
+              <Link
                 href="/#features"
                 className="hover:text-gray-900 transition-colors"
               >
                 Features
-              </a>
-              <a
+              </Link>
+              <Link
                 href="/#download"
                 className="hover:text-gray-900 transition-colors"
               >
                 Download
-              </a>
-              <a href="/privacy" className="hover:text-gray-900 transition-colors">
+              </Link>
+              <Link href="/privacy" className="hover:text-gray-900 transition-colors">
                 Privacy
-              </a>
+              </Link>
             </div>
           </div>
         </div>
