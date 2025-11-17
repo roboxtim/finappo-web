@@ -7,13 +7,15 @@ import { useState, useEffect, useCallback } from 'react';
 
 export default function AutoLoanCalculator() {
   // Input states
-  const [autoPrice, setAutoPrice] = useState<number>(30000);
-  const [downPayment, setDownPayment] = useState<number>(6000);
-  const [interestRate, setInterestRate] = useState<number>(5.5);
+  const [autoPrice, setAutoPrice] = useState<number>(50000);
+  const [downPayment, setDownPayment] = useState<number>(10000);
+  const [interestRate, setInterestRate] = useState<number>(5);
   const [loanTerm, setLoanTerm] = useState<number>(60); // months
-  const [tradeInValue, setTradeInValue] = useState<number>(0);
+  const [tradeInValue, setTradeInValue] = useState<number>(1);
   const [salesTax, setSalesTax] = useState<number>(7);
-  const [otherFees, setOtherFees] = useState<number>(1500);
+  const [otherFees, setOtherFees] = useState<number>(2500);
+  const [includeTaxFeesInLoan, setIncludeTaxFeesInLoan] =
+    useState<boolean>(false);
 
   // Calculated results
   const [monthlyPayment, setMonthlyPayment] = useState<number>(0);
@@ -25,8 +27,16 @@ export default function AutoLoanCalculator() {
     // Calculate loan amount
     const carPriceAfterTrade = autoPrice - tradeInValue;
     const taxAmount = (carPriceAfterTrade * salesTax) / 100;
-    const totalAmountNeeded = carPriceAfterTrade + taxAmount + otherFees;
-    const loanAmount = totalAmountNeeded - downPayment;
+
+    let loanAmount: number;
+    if (includeTaxFeesInLoan) {
+      // Include tax and fees in the loan
+      const totalAmountNeeded = carPriceAfterTrade + taxAmount + otherFees;
+      loanAmount = totalAmountNeeded - downPayment;
+    } else {
+      // Tax and fees paid upfront, not included in loan
+      loanAmount = carPriceAfterTrade - downPayment;
+    }
 
     // Calculate monthly payment
     const monthlyRate = interestRate / 100 / 12;
@@ -58,6 +68,7 @@ export default function AutoLoanCalculator() {
     tradeInValue,
     salesTax,
     otherFees,
+    includeTaxFeesInLoan,
   ]);
 
   useEffect(() => {
@@ -319,6 +330,27 @@ export default function AutoLoanCalculator() {
                       className="w-full pl-8 pr-4 py-3 rounded-xl border-2 border-gray-200 focus:border-blue-500 focus:outline-none transition-colors text-gray-900 font-medium"
                     />
                   </div>
+                </div>
+
+                {/* Include Tax & Fees Checkbox */}
+                <div className="pt-4 border-t border-gray-200">
+                  <label className="flex items-center gap-3 cursor-pointer">
+                    <input
+                      type="checkbox"
+                      checked={includeTaxFeesInLoan}
+                      onChange={(e) =>
+                        setIncludeTaxFeesInLoan(e.target.checked)
+                      }
+                      className="w-5 h-5 rounded border-gray-300 text-blue-600 focus:ring-blue-500"
+                    />
+                    <span className="text-sm font-medium text-gray-700">
+                      Include sales tax & fees in loan
+                    </span>
+                  </label>
+                  <p className="mt-2 text-xs text-gray-500 ml-8">
+                    When unchecked, tax and fees are paid upfront along with
+                    down payment
+                  </p>
                 </div>
               </div>
             </motion.div>
