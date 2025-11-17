@@ -60,7 +60,7 @@ export default function FinancialCalculators() {
                     strokeLinecap="round"
                     strokeLinejoin="round"
                     strokeWidth={2}
-                    d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z"
+                    d="M8 7v8a2 2 0 002 2h6M8 7V5a2 2 0 012-2h4.586a1 1 0 01.707.293l4.414 4.414a1 1 0 01.293.707V15a2 2 0 01-2 2h-2M8 7H6a2 2 0 00-2 2v10a2 2 0 002 2h8a2 2 0 002-2v-2"
                   />
                 </svg>
               }
@@ -107,7 +107,11 @@ export default function FinancialCalculators() {
                 rel="noopener noreferrer"
                 className="inline-flex items-center justify-center gap-3 px-10 py-5 rounded-2xl bg-white text-gray-900 font-semibold shadow-2xl hover:shadow-xl transition-all duration-200 hover:scale-105 active:scale-95"
               >
-                <svg className="w-7 h-7" viewBox="0 0 24 24" fill="currentColor">
+                <svg
+                  className="w-7 h-7"
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                >
                   <path d="M17.05 20.28c-.98.95-2.05.8-3.08.35-1.09-.46-2.09-.48-3.24 0-1.44.62-2.2.44-3.06-.35C2.79 15.25 3.51 7.59 9.05 7.31c1.35.07 2.29.74 3.08.8 1.18-.24 2.31-.93 3.57-.84 1.51.12 2.65.72 3.4 1.8-3.12 1.87-2.38 5.98.48 7.13-.57 1.5-1.31 2.99-2.54 4.09l.01-.01zM12.03 7.25c-.15-2.23 1.66-4.07 3.74-4.25.29 2.58-2.34 4.5-3.74 4.25z" />
                 </svg>
                 <div className="flex flex-col items-start -my-1">
@@ -147,7 +151,10 @@ export default function FinancialCalculators() {
               >
                 Download
               </Link>
-              <Link href="/privacy" className="hover:text-gray-900 transition-colors">
+              <Link
+                href="/privacy"
+                className="hover:text-gray-900 transition-colors"
+              >
                 Privacy
               </Link>
             </div>
