@@ -287,6 +287,89 @@ export default function PersonalLoanCalculator() {
                 </div>
               </div>
 
+              {/* Payment Schedule Chart */}
+              <div className="bg-white rounded-3xl p-8 shadow-sm border border-gray-100">
+                <h3 className="text-xl font-bold text-gray-900 mb-6">
+                  Payment Schedule Over Time
+                </h3>
+
+                <div className="space-y-2">
+                  {amortizationSchedule
+                    .filter((_, index) => {
+                      // Show every month for short loans, every 3 months for medium, every 6 for long
+                      if (loanTerm <= 24) return true;
+                      if (loanTerm <= 60) return index % 3 === 0;
+                      return index % 6 === 0;
+                    })
+                    .map((row) => {
+                      const principalPercent =
+                        (row.principal / row.payment) * 100;
+                      const interestPercent =
+                        (row.interest / row.payment) * 100;
+
+                      return (
+                        <div key={row.month} className="group">
+                          {/* Month Label */}
+                          <div className="flex items-center justify-between mb-1">
+                            <span className="text-xs font-medium text-gray-600">
+                              Month {row.month}
+                            </span>
+                            <span className="text-xs text-gray-500">
+                              Balance: {formatCurrency(row.balance)}
+                            </span>
+                          </div>
+
+                          {/* Stacked Bar */}
+                          <div className="flex h-8 rounded-lg overflow-hidden bg-gray-100 group-hover:shadow-md transition-shadow">
+                            <div
+                              className="bg-green-500 flex items-center justify-center transition-all"
+                              style={{ width: `${principalPercent}%` }}
+                            >
+                              {principalPercent > 20 && (
+                                <span className="text-xs font-semibold text-white">
+                                  {formatCurrency(row.principal)}
+                                </span>
+                              )}
+                            </div>
+                            <div
+                              className="bg-orange-500 flex items-center justify-center transition-all"
+                              style={{ width: `${interestPercent}%` }}
+                            >
+                              {interestPercent > 20 && (
+                                <span className="text-xs font-semibold text-white">
+                                  {formatCurrency(row.interest)}
+                                </span>
+                              )}
+                            </div>
+                          </div>
+                        </div>
+                      );
+                    })}
+                </div>
+
+                {/* Legend */}
+                <div className="flex items-center gap-6 mt-6 pt-4 border-t border-gray-100">
+                  <div className="flex items-center gap-2">
+                    <div className="w-4 h-4 rounded bg-green-500"></div>
+                    <span className="text-sm text-gray-600">
+                      Principal Payment
+                    </span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <div className="w-4 h-4 rounded bg-orange-500"></div>
+                    <span className="text-sm text-gray-600">
+                      Interest Payment
+                    </span>
+                  </div>
+                </div>
+
+                <p className="text-xs text-gray-500 mt-4">
+                  Notice how the principal portion (green) increases over time
+                  while interest (orange) decreases. Early payments go mostly
+                  toward interest.
+                </p>
+              </div>
+
               {/* Amortization Schedule Accordion */}
               <div className="bg-white rounded-3xl shadow-sm border border-gray-100 overflow-hidden">
                 <button
