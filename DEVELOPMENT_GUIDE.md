@@ -51,6 +51,12 @@ npm run build
 # Проверка типов TypeScript
 npm run check
 
+# Запуск тестов
+npm test
+
+# Запуск тестов один раз (для CI)
+npm run test:run
+
 # Деплой на Cloudflare
 npm run deploy
 ```
@@ -138,3 +144,23 @@ npx husky install
 **Prettier конфликтует с форматированием:**
 - Проверьте настройки редактора
 - Используйте `.prettierrc` конфигурацию проекта
+
+### 11. Тестирование
+
+**Framework:** Vitest
+
+**Запуск тестов:**
+```bash
+npm test          # watch mode (для разработки)
+npm run test:run  # один раз (для CI)
+npm run test:ui   # UI интерфейс
+```
+
+**Расположение тестов:**
+- `src/lib/autoLoanCalculator.test.ts` - тесты калькулятора автокредита
+
+**Test Coverage:**
+- 10/10 тестов проходит ✅
+- Покрывает: базовые расчеты, 0% процент, разные сроки, налоги в кредите, edge cases
+
+**Подробнее:** См. [TESTING.md](./TESTING.md)
