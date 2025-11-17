@@ -157,10 +157,11 @@ npm run test:ui   # UI интерфейс
 ```
 
 **Расположение тестов:**
-- `src/lib/autoLoanCalculator.test.ts` - тесты калькулятора автокредита
+- `src/lib/autoLoanCalculator.test.ts` - тесты калькулятора автокредита (10 тестов)
+- `src/lib/personalLoanCalculator.test.ts` - тесты калькулятора персональных займов (13 тестов)
 
 **Test Coverage:**
-- 10/10 тестов проходит ✅
+- 23/23 тестов проходит ✅
 - Покрывает: базовые расчеты, 0% процент, разные сроки, налоги в кредите, edge cases
 
 **Подробнее:** См. [TESTING.md](./TESTING.md)

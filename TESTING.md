@@ -41,7 +41,40 @@ Location: `src/lib/autoLoanCalculator.test.ts`
    - Large down payment
    - Trade-in equal to price minus down payment (zero loan)
 
-**All tests passing:** 10/10 ✅
+**Tests passing:** 10/10 ✅
+
+### Personal Loan Calculator Tests
+
+Location: `src/lib/personalLoanCalculator.test.ts`
+
+**Test Cases:**
+
+1. **Basic calculations**
+   - $10k loan, 6% APR, 36 months
+   - $20k loan, 5% APR, 60 months
+   - $100k loan, 7% APR, 120 months
+   - 0% interest rate handling
+
+2. **Different loan terms**
+   - 12 month loan
+   - 24 month loan
+   - 84 month loan
+
+3. **Different interest rates**
+   - Low interest rate (3%)
+   - High interest rate (15%)
+   - Very low rate (1.5%)
+
+4. **Edge cases**
+   - Large loan amounts ($500k)
+   - Small loan amounts ($1k)
+   - Very short term (6 months)
+
+**Tests passing:** 13/13 ✅
+
+### Total Test Coverage
+
+**All tests passing:** 23/23 ✅
 
 ## Test Data Sources
 
