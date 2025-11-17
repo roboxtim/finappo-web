@@ -29,6 +29,13 @@ export default function PersonalLoanCalculator() {
 
   // UI state
   const [isScheduleOpen, setIsScheduleOpen] = useState<boolean>(false);
+  const [hoveredPoint, setHoveredPoint] = useState<{
+    month: number;
+    balance: number;
+    principalPaid: number;
+    interestPaid: number;
+    x: number;
+  } | null>(null);
 
   const calculateLoan = useCallback(() => {
     // Calculate monthly payment
@@ -109,7 +116,7 @@ export default function PersonalLoanCalculator() {
       {/* Calculator Section */}
       <section className="py-8 lg:py-12">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
-          <div className="grid lg:grid-cols-2 gap-8">
+          <div className="grid lg:grid-cols-[40%_60%] gap-8">
             {/* Left Column - Input Form */}
             <motion.div
               initial={{ opacity: 0, x: -20 }}
@@ -189,6 +196,7 @@ export default function PersonalLoanCalculator() {
                     <option value={72}>72 months (6 years)</option>
                     <option value={84}>84 months (7 years)</option>
                     <option value={120}>120 months (10 years)</option>
+                    <option value={432}>432 months (36 years)</option>
                   </select>
                 </div>
               </div>
@@ -287,87 +295,392 @@ export default function PersonalLoanCalculator() {
                 </div>
               </div>
 
-              {/* Payment Schedule Chart */}
+              {/* Loan Balance Over Time Chart */}
               <div className="bg-white rounded-3xl p-8 shadow-sm border border-gray-100">
                 <h3 className="text-xl font-bold text-gray-900 mb-6">
-                  Payment Schedule Over Time
+                  Loan Balance Over Time
                 </h3>
 
-                <div className="space-y-2">
-                  {amortizationSchedule
-                    .filter((_, index) => {
-                      // Show every month for short loans, every 3 months for medium, every 6 for long
-                      if (loanTerm <= 24) return true;
-                      if (loanTerm <= 60) return index % 3 === 0;
-                      return index % 6 === 0;
-                    })
-                    .map((row) => {
-                      const principalPercent =
-                        (row.principal / row.payment) * 100;
-                      const interestPercent =
-                        (row.interest / row.payment) * 100;
+                {/* SVG Chart */}
+                <div className="relative h-64 mb-6 ml-16">
+                  {/* Y-axis labels */}
+                  <div className="absolute left-0 top-0 h-full flex flex-col justify-between text-xs text-gray-500 -ml-16 w-14 text-right">
+                    <span>{formatCurrency(totalPayment)}</span>
+                    <span>{formatCurrency(totalPayment * 0.75)}</span>
+                    <span>{formatCurrency(totalPayment * 0.5)}</span>
+                    <span>{formatCurrency(totalPayment * 0.25)}</span>
+                    <span>$0</span>
+                  </div>
 
-                      return (
-                        <div key={row.month} className="group">
-                          {/* Month Label */}
-                          <div className="flex items-center justify-between mb-1">
-                            <span className="text-xs font-medium text-gray-600">
-                              Month {row.month}
-                            </span>
-                            <span className="text-xs text-gray-500">
-                              Balance: {formatCurrency(row.balance)}
-                            </span>
-                          </div>
+                  <svg
+                    className="w-full h-full cursor-crosshair"
+                    viewBox="0 0 800 256"
+                    preserveAspectRatio="none"
+                    onMouseMove={(e) => {
+                      if (amortizationSchedule.length === 0) return;
 
-                          {/* Stacked Bar */}
-                          <div className="flex h-8 rounded-lg overflow-hidden bg-gray-100 group-hover:shadow-md transition-shadow">
-                            <div
-                              className="bg-green-500 flex items-center justify-center transition-all"
-                              style={{ width: `${principalPercent}%` }}
-                            >
-                              {principalPercent > 20 && (
-                                <span className="text-xs font-semibold text-white">
-                                  {formatCurrency(row.principal)}
-                                </span>
-                              )}
-                            </div>
-                            <div
-                              className="bg-orange-500 flex items-center justify-center transition-all"
-                              style={{ width: `${interestPercent}%` }}
-                            >
-                              {interestPercent > 20 && (
-                                <span className="text-xs font-semibold text-white">
-                                  {formatCurrency(row.interest)}
-                                </span>
-                              )}
-                            </div>
-                          </div>
-                        </div>
+                      const rect = e.currentTarget.getBoundingClientRect();
+                      const x = ((e.clientX - rect.left) / rect.width) * 800;
+                      const index = Math.round(
+                        (x / 800) * (amortizationSchedule.length - 1)
                       );
-                    })}
+                      const validIndex = Math.max(
+                        0,
+                        Math.min(index, amortizationSchedule.length - 1)
+                      );
+
+                      // Calculate cumulative values
+                      let principalPaid = 0;
+                      let interestPaid = 0;
+                      for (let i = 0; i <= validIndex; i++) {
+                        principalPaid += amortizationSchedule[i].principal;
+                        interestPaid += amortizationSchedule[i].interest;
+                      }
+
+                      const row = amortizationSchedule[validIndex];
+                      const pointX =
+                        (validIndex / (amortizationSchedule.length - 1)) * 800;
+
+                      setHoveredPoint({
+                        month: row.month,
+                        balance: row.balance,
+                        principalPaid,
+                        interestPaid,
+                        x: pointX,
+                      });
+                    }}
+                    onMouseLeave={() => setHoveredPoint(null)}
+                  >
+                    {/* Grid lines */}
+                    <g className="opacity-10">
+                      {[0, 0.25, 0.5, 0.75, 1].map((y) => (
+                        <line
+                          key={y}
+                          x1="0"
+                          y1={256 * y}
+                          x2="800"
+                          y2={256 * y}
+                          stroke="#6B7280"
+                          strokeWidth="1"
+                        />
+                      ))}
+                    </g>
+
+                    {/* Gradients */}
+                    <defs>
+                      <linearGradient
+                        id="principalGradient"
+                        x1="0"
+                        y1="0"
+                        x2="0"
+                        y2="1"
+                      >
+                        <stop
+                          offset="0%"
+                          stopColor="#10B981"
+                          stopOpacity="0.6"
+                        />
+                        <stop
+                          offset="100%"
+                          stopColor="#10B981"
+                          stopOpacity="0.3"
+                        />
+                      </linearGradient>
+                      <linearGradient
+                        id="interestGradient"
+                        x1="0"
+                        y1="0"
+                        x2="0"
+                        y2="1"
+                      >
+                        <stop
+                          offset="0%"
+                          stopColor="#F59E0B"
+                          stopOpacity="0.6"
+                        />
+                        <stop
+                          offset="100%"
+                          stopColor="#F59E0B"
+                          stopOpacity="0.3"
+                        />
+                      </linearGradient>
+                      <linearGradient
+                        id="balanceGradientRemaining"
+                        x1="0"
+                        y1="0"
+                        x2="0"
+                        y2="1"
+                      >
+                        <stop
+                          offset="0%"
+                          stopColor="#6B7280"
+                          stopOpacity="0.4"
+                        />
+                        <stop
+                          offset="100%"
+                          stopColor="#6B7280"
+                          stopOpacity="0.2"
+                        />
+                      </linearGradient>
+                    </defs>
+
+                    {amortizationSchedule.length > 0 && (
+                      <>
+                        {/* Principal Paid Area (bottom layer) */}
+                        <path
+                          d={(() => {
+                            let cumulativePrincipal = 0;
+                            const points = amortizationSchedule
+                              .map((row, i) => {
+                                cumulativePrincipal += row.principal;
+                                const x =
+                                  (i / (amortizationSchedule.length - 1)) * 800;
+                                const y =
+                                  256 -
+                                  (cumulativePrincipal / totalPayment) * 256;
+                                return `${x},${y}`;
+                              })
+                              .join(' L ');
+                            return `M 0,256 L ${points} L 800,256 Z`;
+                          })()}
+                          fill="url(#principalGradient)"
+                        />
+
+                        {/* Interest Paid Area (middle layer) */}
+                        <path
+                          d={(() => {
+                            let cumulativePrincipal = 0;
+                            let cumulativeInterest = 0;
+                            const points = amortizationSchedule
+                              .map((row, i) => {
+                                cumulativePrincipal += row.principal;
+                                cumulativeInterest += row.interest;
+                                const x =
+                                  (i / (amortizationSchedule.length - 1)) * 800;
+                                const y =
+                                  256 -
+                                  ((cumulativePrincipal + cumulativeInterest) /
+                                    totalPayment) *
+                                    256;
+                                return `${x},${y}`;
+                              })
+                              .join(' L ');
+
+                            // Bottom boundary (top of principal area)
+                            let cumPrincipal = 0;
+                            const bottomPoints = amortizationSchedule
+                              .map((row, i) => {
+                                cumPrincipal += row.principal;
+                                const x =
+                                  (i / (amortizationSchedule.length - 1)) * 800;
+                                const y =
+                                  256 - (cumPrincipal / totalPayment) * 256;
+                                return `${x},${y}`;
+                              })
+                              .reverse()
+                              .join(' L ');
+
+                            return `M 0,${256 - 0} L ${points} L ${bottomPoints} Z`;
+                          })()}
+                          fill="url(#interestGradient)"
+                        />
+
+                        {/* Remaining Balance Area (top layer) */}
+                        <path
+                          d={(() => {
+                            let cumulativePrincipal = 0;
+                            let cumulativeInterest = 0;
+                            const points = amortizationSchedule
+                              .map((row, i) => {
+                                cumulativePrincipal += row.principal;
+                                cumulativeInterest += row.interest;
+                                const x =
+                                  (i / (amortizationSchedule.length - 1)) * 800;
+                                const y =
+                                  256 -
+                                  ((cumulativePrincipal +
+                                    cumulativeInterest +
+                                    row.balance) /
+                                    totalPayment) *
+                                    256;
+                                return `${x},${y}`;
+                              })
+                              .join(' L ');
+
+                            // Bottom boundary (top of interest area)
+                            let cumPrincipal = 0;
+                            let cumInterest = 0;
+                            const bottomPoints = amortizationSchedule
+                              .map((row, i) => {
+                                cumPrincipal += row.principal;
+                                cumInterest += row.interest;
+                                const x =
+                                  (i / (amortizationSchedule.length - 1)) * 800;
+                                const y =
+                                  256 -
+                                  ((cumPrincipal + cumInterest) /
+                                    totalPayment) *
+                                    256;
+                                return `${x},${y}`;
+                              })
+                              .reverse()
+                              .join(' L ');
+
+                            return `M 0,${256 - 0} L ${points} L ${bottomPoints} Z`;
+                          })()}
+                          fill="url(#balanceGradientRemaining)"
+                        />
+
+                        {/* Border lines */}
+                        <polyline
+                          points={(() => {
+                            let cumulativePrincipal = 0;
+                            return amortizationSchedule
+                              .map((row, i) => {
+                                cumulativePrincipal += row.principal;
+                                const x =
+                                  (i / (amortizationSchedule.length - 1)) * 800;
+                                const y =
+                                  256 -
+                                  (cumulativePrincipal / totalPayment) * 256;
+                                return `${x},${y}`;
+                              })
+                              .join(' ');
+                          })()}
+                          fill="none"
+                          stroke="#10B981"
+                          strokeWidth="2"
+                          opacity="0.8"
+                        />
+                        <polyline
+                          points={(() => {
+                            let cumulativePrincipal = 0;
+                            let cumulativeInterest = 0;
+                            return amortizationSchedule
+                              .map((row, i) => {
+                                cumulativePrincipal += row.principal;
+                                cumulativeInterest += row.interest;
+                                const x =
+                                  (i / (amortizationSchedule.length - 1)) * 800;
+                                const y =
+                                  256 -
+                                  ((cumulativePrincipal + cumulativeInterest) /
+                                    totalPayment) *
+                                    256;
+                                return `${x},${y}`;
+                              })
+                              .join(' ');
+                          })()}
+                          fill="none"
+                          stroke="#F59E0B"
+                          strokeWidth="2"
+                          opacity="0.8"
+                        />
+                      </>
+                    )}
+
+                    {/* Hover indicator */}
+                    {hoveredPoint && (
+                      <>
+                        {/* Vertical line */}
+                        <line
+                          x1={hoveredPoint.x}
+                          y1="0"
+                          x2={hoveredPoint.x}
+                          y2="256"
+                          stroke="#6B7280"
+                          strokeWidth="2"
+                          strokeDasharray="4 4"
+                          opacity="0.6"
+                        />
+                      </>
+                    )}
+                  </svg>
+
+                  {/* Tooltip */}
+                  {hoveredPoint && (
+                    <div
+                      className="absolute bg-gray-900 text-white px-4 py-3 rounded-lg text-sm pointer-events-none z-10 shadow-xl"
+                      style={{
+                        left: `${(hoveredPoint.x / 800) * 100}%`,
+                        top: '50%',
+                        transform:
+                          hoveredPoint.x > 400
+                            ? 'translate(-100%, -50%)'
+                            : 'translate(10px, -50%)',
+                      }}
+                    >
+                      <div className="font-bold mb-2 text-base">
+                        Month {hoveredPoint.month}
+                      </div>
+                      <div className="space-y-1.5">
+                        <div className="flex items-center gap-2">
+                          <div className="w-3 h-3 rounded bg-green-500"></div>
+                          <span className="text-gray-300 text-xs">
+                            Principal Paid:
+                          </span>
+                          <span className="font-semibold ml-auto">
+                            {formatCurrency(hoveredPoint.principalPaid)}
+                          </span>
+                        </div>
+                        <div className="flex items-center gap-2">
+                          <div className="w-3 h-3 rounded bg-amber-500"></div>
+                          <span className="text-gray-300 text-xs">
+                            Interest Paid:
+                          </span>
+                          <span className="font-semibold ml-auto">
+                            {formatCurrency(hoveredPoint.interestPaid)}
+                          </span>
+                        </div>
+                        <div className="flex items-center gap-2">
+                          <div className="w-3 h-3 rounded bg-gray-500"></div>
+                          <span className="text-gray-300 text-xs">
+                            Remaining:
+                          </span>
+                          <span className="font-semibold ml-auto">
+                            {formatCurrency(hoveredPoint.balance)}
+                          </span>
+                        </div>
+                      </div>
+                    </div>
+                  )}
                 </div>
 
-                {/* Legend */}
-                <div className="flex items-center gap-6 mt-6 pt-4 border-t border-gray-100">
-                  <div className="flex items-center gap-2">
-                    <div className="w-4 h-4 rounded bg-green-500"></div>
-                    <span className="text-sm text-gray-600">
-                      Principal Payment
-                    </span>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <div className="w-4 h-4 rounded bg-orange-500"></div>
-                    <span className="text-sm text-gray-600">
-                      Interest Payment
-                    </span>
-                  </div>
+                {/* X-axis labels */}
+                <div className="flex justify-between text-xs text-gray-500 mb-4">
+                  <span>Month 0</span>
+                  <span>Month {Math.floor(loanTerm / 2)}</span>
+                  <span>Month {loanTerm}</span>
                 </div>
 
-                <p className="text-xs text-gray-500 mt-4">
-                  Notice how the principal portion (green) increases over time
-                  while interest (orange) decreases. Early payments go mostly
-                  toward interest.
-                </p>
+                {/* Stats */}
+                <div className="grid grid-cols-3 gap-4 pt-4 border-t border-gray-100">
+                  <div>
+                    <div className="text-xs text-gray-500">
+                      Starting Balance
+                    </div>
+                    <div className="text-sm font-semibold text-gray-900">
+                      {formatCurrency(loanAmount)}
+                    </div>
+                  </div>
+                  <div>
+                    <div className="text-xs text-gray-500">
+                      Mid-point Balance
+                    </div>
+                    <div className="text-sm font-semibold text-gray-900">
+                      {formatCurrency(
+                        amortizationSchedule[Math.floor(loanTerm / 2) - 1]
+                          ?.balance || 0
+                      )}
+                    </div>
+                  </div>
+                  <div>
+                    <div className="text-xs text-gray-500">Final Balance</div>
+                    <div className="text-sm font-semibold text-green-600">
+                      $0.00
+                    </div>
+                  </div>
+                </div>
               </div>
 
               {/* Amortization Schedule Accordion */}
