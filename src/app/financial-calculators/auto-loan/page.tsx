@@ -164,10 +164,14 @@ export default function AutoLoanCalculator() {
                       $
                     </span>
                     <input
-                      type="number"
-                      value={autoPrice}
-                      onChange={(e) => setAutoPrice(Number(e.target.value))}
-                      className="w-full pl-8 pr-4 py-3 rounded-xl border-2 border-gray-200 focus:border-blue-500 focus:outline-none transition-colors"
+                      type="text"
+                      inputMode="numeric"
+                      value={autoPrice || ''}
+                      onChange={(e) => {
+                        const value = e.target.value.replace(/[^0-9]/g, '');
+                        setAutoPrice(value ? Number(value) : 0);
+                      }}
+                      className="w-full pl-8 pr-4 py-3 rounded-xl border-2 border-gray-200 focus:border-blue-500 focus:outline-none transition-colors text-gray-900 font-medium"
                     />
                   </div>
                 </div>
@@ -182,15 +186,21 @@ export default function AutoLoanCalculator() {
                       $
                     </span>
                     <input
-                      type="number"
-                      value={downPayment}
-                      onChange={(e) => setDownPayment(Number(e.target.value))}
-                      className="w-full pl-8 pr-4 py-3 rounded-xl border-2 border-gray-200 focus:border-blue-500 focus:outline-none transition-colors"
+                      type="text"
+                      inputMode="numeric"
+                      value={downPayment || ''}
+                      onChange={(e) => {
+                        const value = e.target.value.replace(/[^0-9]/g, '');
+                        setDownPayment(value ? Number(value) : 0);
+                      }}
+                      className="w-full pl-8 pr-4 py-3 rounded-xl border-2 border-gray-200 focus:border-blue-500 focus:outline-none transition-colors text-gray-900 font-medium"
                     />
                   </div>
                   <div className="mt-2 text-sm text-gray-500">
-                    {((downPayment / autoPrice) * 100).toFixed(1)}% of auto
-                    price
+                    {autoPrice > 0
+                      ? ((downPayment / autoPrice) * 100).toFixed(1)
+                      : 0}
+                    % of auto price
                   </div>
                 </div>
 
@@ -201,11 +211,19 @@ export default function AutoLoanCalculator() {
                   </label>
                   <div className="relative">
                     <input
-                      type="number"
-                      step="0.1"
-                      value={interestRate}
-                      onChange={(e) => setInterestRate(Number(e.target.value))}
-                      className="w-full pl-4 pr-8 py-3 rounded-xl border-2 border-gray-200 focus:border-blue-500 focus:outline-none transition-colors"
+                      type="text"
+                      inputMode="decimal"
+                      value={interestRate || ''}
+                      onChange={(e) => {
+                        const value = e.target.value.replace(/[^0-9.]/g, '');
+                        const parts = value.split('.');
+                        const formatted =
+                          parts.length > 2
+                            ? parts[0] + '.' + parts.slice(1).join('')
+                            : value;
+                        setInterestRate(formatted ? Number(formatted) : 0);
+                      }}
+                      className="w-full pl-4 pr-8 py-3 rounded-xl border-2 border-gray-200 focus:border-blue-500 focus:outline-none transition-colors text-gray-900 font-medium"
                     />
                     <span className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-500">
                       %
@@ -221,7 +239,7 @@ export default function AutoLoanCalculator() {
                   <select
                     value={loanTerm}
                     onChange={(e) => setLoanTerm(Number(e.target.value))}
-                    className="w-full px-4 py-3 rounded-xl border-2 border-gray-200 focus:border-blue-500 focus:outline-none transition-colors"
+                    className="w-full px-4 py-3 rounded-xl border-2 border-gray-200 focus:border-blue-500 focus:outline-none transition-colors text-gray-900 font-medium"
                   >
                     <option value={24}>24 months (2 years)</option>
                     <option value={36}>36 months (3 years)</option>
@@ -242,10 +260,14 @@ export default function AutoLoanCalculator() {
                       $
                     </span>
                     <input
-                      type="number"
-                      value={tradeInValue}
-                      onChange={(e) => setTradeInValue(Number(e.target.value))}
-                      className="w-full pl-8 pr-4 py-3 rounded-xl border-2 border-gray-200 focus:border-blue-500 focus:outline-none transition-colors"
+                      type="text"
+                      inputMode="numeric"
+                      value={tradeInValue || ''}
+                      onChange={(e) => {
+                        const value = e.target.value.replace(/[^0-9]/g, '');
+                        setTradeInValue(value ? Number(value) : 0);
+                      }}
+                      className="w-full pl-8 pr-4 py-3 rounded-xl border-2 border-gray-200 focus:border-blue-500 focus:outline-none transition-colors text-gray-900 font-medium"
                     />
                   </div>
                 </div>
@@ -257,11 +279,19 @@ export default function AutoLoanCalculator() {
                   </label>
                   <div className="relative">
                     <input
-                      type="number"
-                      step="0.1"
-                      value={salesTax}
-                      onChange={(e) => setSalesTax(Number(e.target.value))}
-                      className="w-full pl-4 pr-8 py-3 rounded-xl border-2 border-gray-200 focus:border-blue-500 focus:outline-none transition-colors"
+                      type="text"
+                      inputMode="decimal"
+                      value={salesTax || ''}
+                      onChange={(e) => {
+                        const value = e.target.value.replace(/[^0-9.]/g, '');
+                        const parts = value.split('.');
+                        const formatted =
+                          parts.length > 2
+                            ? parts[0] + '.' + parts.slice(1).join('')
+                            : value;
+                        setSalesTax(formatted ? Number(formatted) : 0);
+                      }}
+                      className="w-full pl-4 pr-8 py-3 rounded-xl border-2 border-gray-200 focus:border-blue-500 focus:outline-none transition-colors text-gray-900 font-medium"
                     />
                     <span className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-500">
                       %
@@ -279,10 +309,14 @@ export default function AutoLoanCalculator() {
                       $
                     </span>
                     <input
-                      type="number"
-                      value={otherFees}
-                      onChange={(e) => setOtherFees(Number(e.target.value))}
-                      className="w-full pl-8 pr-4 py-3 rounded-xl border-2 border-gray-200 focus:border-blue-500 focus:outline-none transition-colors"
+                      type="text"
+                      inputMode="numeric"
+                      value={otherFees || ''}
+                      onChange={(e) => {
+                        const value = e.target.value.replace(/[^0-9]/g, '');
+                        setOtherFees(value ? Number(value) : 0);
+                      }}
+                      className="w-full pl-8 pr-4 py-3 rounded-xl border-2 border-gray-200 focus:border-blue-500 focus:outline-none transition-colors text-gray-900 font-medium"
                     />
                   </div>
                 </div>
