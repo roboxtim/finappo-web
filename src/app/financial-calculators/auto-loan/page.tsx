@@ -1,8 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import Link from 'next/link';
-import { Navigation } from '@/components/Navigation';
+import { CalculatorLayout } from '@/components/CalculatorLayout';
 import { useState, useEffect, useCallback } from 'react';
 
 export default function AutoLoanCalculator() {
@@ -90,65 +89,26 @@ export default function AutoLoanCalculator() {
       : 50;
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-[#F5F8FF] via-white to-white">
-      <Navigation />
-
-      {/* Hero Section */}
-      <section className="relative pt-24 pb-8 lg:pt-28 lg:pb-10">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8">
-          <Link
-            href="/financial-calculators"
-            className="inline-flex items-center gap-2 text-sm text-gray-600 hover:text-gray-900 transition-colors mb-6"
-          >
-            <svg
-              className="w-4 h-4"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M15 19l-7-7 7-7"
-              />
-            </svg>
-            Back to Calculators
-          </Link>
-
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="flex items-center gap-4 mb-4"
-          >
-            <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-blue-500 to-cyan-500 flex items-center justify-center shadow-lg">
-              <svg
-                className="w-8 h-8 text-white"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M8 7v8a2 2 0 002 2h6M8 7V5a2 2 0 012-2h4.586a1 1 0 01.707.293l4.414 4.414a1 1 0 01.293.707V15a2 2 0 01-2 2h-2M8 7H6a2 2 0 00-2 2v10a2 2 0 002 2h8a2 2 0 002-2v-2"
-                />
-              </svg>
-            </div>
-            <div>
-              <h1 className="text-4xl sm:text-5xl font-bold tracking-tight text-gray-900">
-                Auto Loan Calculator
-              </h1>
-              <p className="text-lg text-gray-600 mt-2">
-                Calculate your monthly car payments and total loan cost
-              </p>
-            </div>
-          </motion.div>
-        </div>
-      </section>
-
+    <CalculatorLayout
+      title="Auto Loan Calculator"
+      description="Calculate your monthly car payments and total loan cost"
+      icon={
+        <svg
+          className="w-8 h-8 text-white"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+        >
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth={2}
+            d="M8 7v8a2 2 0 002 2h6M8 7V5a2 2 0 012-2h4.586a1 1 0 01.707.293l4.414 4.414a1 1 0 01.293.707V15a2 2 0 01-2 2h-2M8 7H6a2 2 0 00-2 2v10a2 2 0 002 2h8a2 2 0 002-2v-2"
+          />
+        </svg>
+      }
+      gradient="bg-gradient-to-br from-blue-500 to-cyan-500"
+    >
       {/* Calculator Section */}
       <section className="py-8 lg:py-12">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
@@ -584,35 +544,6 @@ export default function AutoLoanCalculator() {
           </motion.div>
         </div>
       </section>
-
-      {/* Footer */}
-      <footer className="border-t border-gray-200 bg-white">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8 py-12">
-          <div className="flex flex-col md:flex-row items-center justify-between gap-6">
-            <div className="text-sm text-gray-600 text-center md:text-left">
-              <p className="font-medium text-gray-900">Finappo</p>
-              <p>© 2025 All rights reserved.</p>
-            </div>
-            <div className="flex items-center gap-8 text-sm text-gray-600">
-              <Link href="/" className="hover:text-gray-900 transition-colors">
-                Home
-              </Link>
-              <Link
-                href="/financial-calculators"
-                className="hover:text-gray-900 transition-colors"
-              >
-                Calculators
-              </Link>
-              <Link
-                href="/privacy"
-                className="hover:text-gray-900 transition-colors"
-              >
-                Privacy
-              </Link>
-            </div>
-          </div>
-        </div>
-      </footer>
-    </div>
+    </CalculatorLayout>
   );
 }
