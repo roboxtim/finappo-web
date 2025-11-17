@@ -122,7 +122,7 @@ export default function PersonalLoanCalculator() {
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
-              className="bg-white rounded-3xl p-8 shadow-sm border border-gray-100"
+              className="bg-white rounded-3xl p-8 shadow-sm border border-gray-100 sticky top-24 self-start"
             >
               <h2 className="text-2xl font-bold text-gray-900 mb-6">
                 Loan Details
