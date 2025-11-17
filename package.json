@@ -26,16 +26,21 @@
   "devDependencies": {
     "@eslint/eslintrc": "3",
     "@tailwindcss/postcss": "4.1.4",
+    "@testing-library/jest-dom": "^6.9.1",
+    "@testing-library/react": "^16.3.0",
     "@types/node": "24.0.4",
     "@types/react": "19.0.10",
     "@types/react-dom": "19.0.4",
+    "@vitejs/plugin-react": "^5.1.1",
     "eslint": "9.27.0",
     "eslint-config-next": "15.3.3",
     "husky": "^9.1.7",
+    "jsdom": "^27.0.1",
     "lint-staged": "^16.2.6",
     "prettier": "^3.6.2",
     "tailwindcss": "4.1.1",
     "typescript": "5.8.3",
+    "vitest": "^3.2.4",
     "wrangler": "4.21.x"
   },
   "scripts": {
@@ -47,7 +52,10 @@
     "lint": "next lint",
     "preview": "opennextjs-cloudflare build && opennextjs-cloudflare preview",
     "start": "next start",
-    "prepare": "husky"
+    "prepare": "husky",
+    "test": "vitest",
+    "test:ui": "vitest --ui",
+    "test:run": "vitest run"
   },
   "lint-staged": {
     "*.{js,jsx,ts,tsx}": [

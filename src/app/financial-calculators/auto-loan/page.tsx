@@ -139,7 +139,7 @@ export default function AutoLoanCalculator() {
       gradient="bg-gradient-to-br from-blue-500 to-cyan-500"
     >
       {/* Calculator Section */}
-      <section className="py-8 lg:py-12">
+      <section className="py-4 lg:py-6">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-8">
             {/* Left Column - Input Form */}
