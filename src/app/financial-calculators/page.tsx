@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 import Link from 'next/link';
 import { Navigation } from '@/components/Navigation';
 import { CalculatorCard } from '@/components/landing/CalculatorCard';
-import { Car } from 'lucide-react';
+import { Car, CircleDollarSign } from 'lucide-react';
 
 export default function FinancialCalculators() {
   return (
@@ -56,6 +56,14 @@ export default function FinancialCalculators() {
               gradient="bg-gradient-to-br from-blue-500 to-cyan-500"
               href="/financial-calculators/auto-loan"
               delay={0}
+            />
+            <CalculatorCard
+              icon={<CircleDollarSign className="w-8 h-8 text-white" />}
+              title="Personal Loan Calculator"
+              description="Calculate monthly payments for personal loans. Plan debt consolidation, home improvements, or any personal financing needs with accurate estimates."
+              gradient="bg-gradient-to-br from-green-500 to-emerald-500"
+              href="/financial-calculators/personal-loan"
+              delay={0.1}
             />
           </div>
         </div>
