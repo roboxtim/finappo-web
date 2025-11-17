@@ -11,7 +11,7 @@ export default function AutoLoanCalculator() {
   const [downPayment, setDownPayment] = useState<number>(10000);
   const [interestRate, setInterestRate] = useState<number>(5);
   const [loanTerm, setLoanTerm] = useState<number>(60); // months
-  const [tradeInValue, setTradeInValue] = useState<number>(1);
+  const [tradeInValue, setTradeInValue] = useState<number>(0);
   const [salesTax, setSalesTax] = useState<number>(7);
   const [otherFees, setOtherFees] = useState<number>(2500);
   const [includeTaxFeesInLoan, setIncludeTaxFeesInLoan] =
