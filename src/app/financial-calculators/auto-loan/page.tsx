@@ -3,6 +3,7 @@
 import { motion } from 'framer-motion';
 import { CalculatorLayout } from '@/components/CalculatorLayout';
 import { useState, useEffect, useCallback } from 'react';
+import { Car } from 'lucide-react';
 
 export default function AutoLoanCalculator() {
   // Input states
@@ -21,6 +22,18 @@ export default function AutoLoanCalculator() {
   const [totalLoanAmount, setTotalLoanAmount] = useState<number>(0);
   const [totalInterest, setTotalInterest] = useState<number>(0);
   const [totalCost, setTotalCost] = useState<number>(0);
+  const [amortizationSchedule, setAmortizationSchedule] = useState<
+    Array<{
+      month: number;
+      payment: number;
+      principal: number;
+      interest: number;
+      balance: number;
+    }>
+  >([]);
+
+  // UI state
+  const [isScheduleOpen, setIsScheduleOpen] = useState<boolean>(false);
 
   const calculateLoan = useCallback(() => {
     // Calculate loan amount
@@ -59,6 +72,26 @@ export default function AutoLoanCalculator() {
     setTotalLoanAmount(loanAmount);
     setTotalInterest(interest);
     setTotalCost(total);
+
+    // Calculate amortization schedule
+    const schedule = [];
+    let remainingBalance = loanAmount;
+
+    for (let month = 1; month <= numberOfPayments; month++) {
+      const interestPayment = remainingBalance * monthlyRate;
+      const principalPayment = payment - interestPayment;
+      remainingBalance -= principalPayment;
+
+      schedule.push({
+        month,
+        payment,
+        principal: principalPayment,
+        interest: interestPayment,
+        balance: Math.max(0, remainingBalance), // Prevent negative balance due to rounding
+      });
+    }
+
+    setAmortizationSchedule(schedule);
   }, [
     autoPrice,
     downPayment,
@@ -78,9 +111,19 @@ export default function AutoLoanCalculator() {
     return new Intl.NumberFormat('en-US', {
       style: 'currency',
       currency: 'USD',
-      minimumFractionDigits: 0,
-      maximumFractionDigits: 0,
+      minimumFractionDigits: 2,
+      maximumFractionDigits: 2,
     }).format(value);
+  };
+
+  const formatInputValue = (value: number) => {
+    if (!value) return '';
+    return new Intl.NumberFormat('en-US').format(value);
+  };
+
+  const parseInputValue = (value: string): number => {
+    const cleaned = value.replace(/[^0-9]/g, '');
+    return cleaned ? Number(cleaned) : 0;
   };
 
   const principalPercentage =
@@ -92,21 +135,7 @@ export default function AutoLoanCalculator() {
     <CalculatorLayout
       title="Auto Loan Calculator"
       description="Calculate your monthly car payments and total loan cost"
-      icon={
-        <svg
-          className="w-8 h-8 text-white"
-          fill="none"
-          viewBox="0 0 24 24"
-          stroke="currentColor"
-        >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth={2}
-            d="M8 7v8a2 2 0 002 2h6M8 7V5a2 2 0 012-2h4.586a1 1 0 01.707.293l4.414 4.414a1 1 0 01.293.707V15a2 2 0 01-2 2h-2M8 7H6a2 2 0 00-2 2v10a2 2 0 002 2h8a2 2 0 002-2v-2"
-          />
-        </svg>
-      }
+      icon={<Car className="w-8 h-8 text-white" />}
       gradient="bg-gradient-to-br from-blue-500 to-cyan-500"
     >
       {/* Calculator Section */}
@@ -124,7 +153,7 @@ export default function AutoLoanCalculator() {
                 Loan Details
               </h2>
 
-              <div className="space-y-6">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 {/* Auto Price */}
                 <div>
                   <label className="block text-sm font-semibold text-gray-700 mb-2">
@@ -137,10 +166,9 @@ export default function AutoLoanCalculator() {
                     <input
                       type="text"
                       inputMode="numeric"
-                      value={autoPrice || ''}
+                      value={formatInputValue(autoPrice)}
                       onChange={(e) => {
-                        const value = e.target.value.replace(/[^0-9]/g, '');
-                        setAutoPrice(value ? Number(value) : 0);
+                        setAutoPrice(parseInputValue(e.target.value));
                       }}
                       className="w-full pl-8 pr-4 py-3 rounded-xl border-2 border-gray-200 focus:border-blue-500 focus:outline-none transition-colors text-gray-900 font-medium"
                     />
@@ -159,10 +187,9 @@ export default function AutoLoanCalculator() {
                     <input
                       type="text"
                       inputMode="numeric"
-                      value={downPayment || ''}
+                      value={formatInputValue(downPayment)}
                       onChange={(e) => {
-                        const value = e.target.value.replace(/[^0-9]/g, '');
-                        setDownPayment(value ? Number(value) : 0);
+                        setDownPayment(parseInputValue(e.target.value));
                       }}
                       className="w-full pl-8 pr-4 py-3 rounded-xl border-2 border-gray-200 focus:border-blue-500 focus:outline-none transition-colors text-gray-900 font-medium"
                     />
@@ -233,10 +260,9 @@ export default function AutoLoanCalculator() {
                     <input
                       type="text"
                       inputMode="numeric"
-                      value={tradeInValue || ''}
+                      value={formatInputValue(tradeInValue)}
                       onChange={(e) => {
-                        const value = e.target.value.replace(/[^0-9]/g, '');
-                        setTradeInValue(value ? Number(value) : 0);
+                        setTradeInValue(parseInputValue(e.target.value));
                       }}
                       className="w-full pl-8 pr-4 py-3 rounded-xl border-2 border-gray-200 focus:border-blue-500 focus:outline-none transition-colors text-gray-900 font-medium"
                     />
@@ -282,10 +308,9 @@ export default function AutoLoanCalculator() {
                     <input
                       type="text"
                       inputMode="numeric"
-                      value={otherFees || ''}
+                      value={formatInputValue(otherFees)}
                       onChange={(e) => {
-                        const value = e.target.value.replace(/[^0-9]/g, '');
-                        setOtherFees(value ? Number(value) : 0);
+                        setOtherFees(parseInputValue(e.target.value));
                       }}
                       className="w-full pl-8 pr-4 py-3 rounded-xl border-2 border-gray-200 focus:border-blue-500 focus:outline-none transition-colors text-gray-900 font-medium"
                     />
@@ -293,7 +318,7 @@ export default function AutoLoanCalculator() {
                 </div>
 
                 {/* Include Tax & Fees Checkbox */}
-                <div className="pt-4 border-t border-gray-200">
+                <div className="md:col-span-2 pt-4 border-t border-gray-200">
                   <label className="flex items-center gap-3 cursor-pointer">
                     <input
                       type="checkbox"
@@ -359,13 +384,15 @@ export default function AutoLoanCalculator() {
                       className="bg-blue-500 flex items-center justify-center text-white text-sm font-semibold"
                       style={{ width: `${principalPercentage}%` }}
                     >
-                      {principalPercentage > 15 && 'Principal'}
+                      {principalPercentage > 15 &&
+                        `Principal ${principalPercentage.toFixed(1)}%`}
                     </div>
                     <div
                       className="bg-orange-500 flex items-center justify-center text-white text-sm font-semibold"
                       style={{ width: `${100 - principalPercentage}%` }}
                     >
-                      {100 - principalPercentage > 15 && 'Interest'}
+                      {100 - principalPercentage > 15 &&
+                        `Interest ${(100 - principalPercentage).toFixed(1)}%`}
                     </div>
                   </div>
 
@@ -416,6 +443,88 @@ export default function AutoLoanCalculator() {
                     </span>
                   </div>
                 </div>
+              </div>
+
+              {/* Amortization Schedule Accordion */}
+              <div className="bg-white rounded-3xl shadow-sm border border-gray-100 overflow-hidden">
+                <button
+                  onClick={() => setIsScheduleOpen(!isScheduleOpen)}
+                  className="w-full px-8 py-6 flex items-center justify-between hover:bg-gray-50 transition-colors"
+                >
+                  <h3 className="text-xl font-bold text-gray-900">
+                    Amortization Schedule
+                  </h3>
+                  <svg
+                    className={`w-6 h-6 text-gray-600 transition-transform ${
+                      isScheduleOpen ? 'rotate-180' : ''
+                    }`}
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M19 9l-7 7-7-7"
+                    />
+                  </svg>
+                </button>
+
+                {isScheduleOpen && (
+                  <div className="px-8 pb-8 max-h-96 overflow-y-auto">
+                    <div className="text-sm text-gray-600 mb-4">
+                      Monthly breakdown of principal and interest payments
+                    </div>
+                    <div className="overflow-x-auto">
+                      <table className="w-full text-sm">
+                        <thead className="bg-gray-50 sticky top-0">
+                          <tr>
+                            <th className="px-4 py-3 text-left font-semibold text-gray-700">
+                              Month
+                            </th>
+                            <th className="px-4 py-3 text-right font-semibold text-gray-700">
+                              Payment
+                            </th>
+                            <th className="px-4 py-3 text-right font-semibold text-gray-700">
+                              Principal
+                            </th>
+                            <th className="px-4 py-3 text-right font-semibold text-gray-700">
+                              Interest
+                            </th>
+                            <th className="px-4 py-3 text-right font-semibold text-gray-700">
+                              Balance
+                            </th>
+                          </tr>
+                        </thead>
+                        <tbody className="divide-y divide-gray-100">
+                          {amortizationSchedule.map((row) => (
+                            <tr
+                              key={row.month}
+                              className="hover:bg-gray-50 transition-colors"
+                            >
+                              <td className="px-4 py-3 text-gray-900 font-medium">
+                                {row.month}
+                              </td>
+                              <td className="px-4 py-3 text-right text-gray-900">
+                                {formatCurrency(row.payment)}
+                              </td>
+                              <td className="px-4 py-3 text-right text-blue-600">
+                                {formatCurrency(row.principal)}
+                              </td>
+                              <td className="px-4 py-3 text-right text-orange-600">
+                                {formatCurrency(row.interest)}
+                              </td>
+                              <td className="px-4 py-3 text-right text-gray-900 font-medium">
+                                {formatCurrency(row.balance)}
+                              </td>
+                            </tr>
+                          ))}
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                )}
               </div>
             </motion.div>
           </div>
