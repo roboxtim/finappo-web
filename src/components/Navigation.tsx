@@ -35,6 +35,12 @@ export function Navigation() {
             >
               Features
             </Link>
+            <Link
+              href="/financial-calculators"
+              className="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors"
+            >
+              Calculators
+            </Link>
             {/* Temporarily commented out - will be enabled later
             <Link
               href="/dashboard"
@@ -120,6 +126,13 @@ export function Navigation() {
                 className="block text-base font-medium text-gray-600 hover:text-gray-900 py-2 transition-colors"
               >
                 Features
+              </Link>
+              <Link
+                href="/financial-calculators"
+                onClick={() => setMobileMenuOpen(false)}
+                className="block text-base font-medium text-gray-600 hover:text-gray-900 py-2 transition-colors"
+              >
+                Calculators
               </Link>
               {/* Temporarily commented out - will be enabled later
               <Link

@@ -9,7 +9,9 @@ export function AppStoreButton({ variant = 'primary' }: AppStoreButtonProps) {
 
   return (
     <a
-      href="#download"
+      href="https://apps.apple.com/us/app/finappo/id6754455387"
+      target="_blank"
+      rel="noopener noreferrer"
       className={`group inline-flex items-center justify-center gap-3 px-8 py-4 rounded-2xl font-semibold transition-all duration-200 hover:scale-[1.02] active:scale-[0.98] ${
         isPrimary
           ? 'bg-[#007AFF] text-white shadow-lg shadow-blue-500/30 hover:shadow-xl hover:shadow-blue-500/40 hover:bg-[#0051D5]'
