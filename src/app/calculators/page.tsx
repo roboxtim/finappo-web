@@ -103,6 +103,14 @@ const categories: Category[] = [
         keywords: ['mortgage', 'home', 'loan', 'house', 'pmi'],
       },
       {
+        id: 'real-estate',
+        title: 'Real Estate Calculator',
+        description: 'Comprehensive home investment analysis with equity, appreciation, and tax savings',
+        href: '/financial-calculators/real-estate',
+        icon: <Home className="w-5 h-5" />,
+        keywords: ['real estate', 'home', 'investment', 'property', 'equity', 'appreciation', 'tax deduction', 'pmi', 'homeownership'],
+      },
+      {
         id: 'rent',
         title: 'Rent Calculator',
         description: 'Calculate total rental costs and affordability',
