@@ -105,7 +105,9 @@ export default function HomeEquityLoanCalculator() {
       icon={<Home className="w-6 h-6" />}
       gradient="from-blue-600 to-indigo-600"
     >
-      <div className="space-y-8">
+      <section className="py-8 lg:py-12">
+        <div className="max-w-7xl mx-auto px-6 lg:px-8">
+          <div className="space-y-8">
         {/* Tab Navigation */}
         <div className="flex space-x-1 bg-gray-100 rounded-lg p-1">
           <button
@@ -770,7 +772,9 @@ export default function HomeEquityLoanCalculator() {
             </div>
           )}
         </motion.div>
-      </div>
+          </div>
+        </div>
+      </section>
     </CalculatorLayout>
   );
 }
