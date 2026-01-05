@@ -24,7 +24,13 @@ export default function PaymentCalculator() {
   const [monthlyPayment, setMonthlyPayment] = useState<number>(0);
   const [totalPayments, setTotalPayments] = useState<number>(0);
   const [totalInterest, setTotalInterest] = useState<number>(0);
-  const [schedule, setSchedule] = useState<any[]>([]);
+  const [schedule, setSchedule] = useState<Array<{
+    period: number;
+    payment: number;
+    principal: number;
+    interest: number;
+    balance: number;
+  }>>([]);
 
   // UI states
   const [isScheduleOpen, setIsScheduleOpen] = useState<boolean>(false);

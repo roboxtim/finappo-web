@@ -148,7 +148,7 @@ export function calculatePaymentSchedule(inputs: PaymentInputs): PaymentResult {
 
     // Handle the last payment which might need adjustment for balloon payment
     if (period === numberOfPeriods && futureValue > 0) {
-      const adjustedPrincipal = balance + futureValue;
+      // Adjust for balloon payment in final period
       principalPayment = payment - interestPayment;
       balance = futureValue;
     }
