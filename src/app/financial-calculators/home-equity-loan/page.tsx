@@ -337,7 +337,7 @@ export default function HomeEquityLoanCalculator() {
                     <div>
                       <div className="flex justify-between text-sm mb-1">
                         <span className="text-gray-600">Principal</span>
-                        <span className="font-medium">
+                        <span className="text-gray-900 font-semibold">
                           {formatCurrency(loanAmount)}
                         </span>
                       </div>
@@ -357,7 +357,7 @@ export default function HomeEquityLoanCalculator() {
                     <div>
                       <div className="flex justify-between text-sm mb-1">
                         <span className="text-gray-600">Interest</span>
-                        <span className="font-medium">
+                        <span className="text-gray-900 font-semibold">
                           {formatCurrency(totalInterest)}
                         </span>
                       </div>
