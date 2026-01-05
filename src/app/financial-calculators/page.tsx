@@ -83,11 +83,19 @@ export default function FinancialCalculators() {
             />
             <CalculatorCard
               icon={<Percent className="w-8 h-8 text-white" />}
+              title="APR Calculator"
+              description="Calculate the true cost of a loan including all fees and interest. Compare nominal interest rate vs effective APR to understand what you're really paying."
+              gradient="bg-gradient-to-br from-blue-600 to-indigo-600"
+              href="/financial-calculators/apr-calculator"
+              delay={0.4}
+            />
+            <CalculatorCard
+              icon={<Percent className="w-8 h-8 text-white" />}
               title="Interest Calculator"
               description="Calculate simple or compound interest on investments. Plan your savings growth with regular contributions, various compounding frequencies, and tax considerations."
               gradient="bg-gradient-to-br from-purple-500 to-pink-500"
               href="/financial-calculators/interest"
-              delay={0.4}
+              delay={0.5}
             />
             <CalculatorCard
               icon={<Home className="w-8 h-8 text-white" />}
@@ -95,7 +103,7 @@ export default function FinancialCalculators() {
               description="Calculate monthly mortgage payments, total interest, and explore amortization schedules. Compare different scenarios with extra payments to save thousands in interest."
               gradient="bg-gradient-to-br from-blue-600 to-indigo-600"
               href="/financial-calculators/mortgage"
-              delay={0.5}
+              delay={0.6}
             />
             <CalculatorCard
               icon={<Home className="w-8 h-8 text-white" />}
@@ -103,7 +111,7 @@ export default function FinancialCalculators() {
               description="Calculate total rental costs including utilities, insurance, parking, and more. Plan for annual rent increases and check affordability with the 30% rule."
               gradient="bg-gradient-to-br from-blue-600 to-indigo-600"
               href="/financial-calculators/rent"
-              delay={0.6}
+              delay={0.7}
             />
           </div>
         </div>
