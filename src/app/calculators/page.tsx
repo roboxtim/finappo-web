@@ -128,6 +128,14 @@ const categories: Category[] = [
         keywords: ['real estate', 'home', 'investment', 'property', 'equity', 'appreciation', 'tax deduction', 'pmi', 'homeownership'],
       },
       {
+        id: 'home-equity-loan',
+        title: 'Home Equity Loan Calculator',
+        description: 'Calculate home equity loan payments, LTV ratios, and maximum borrowable amounts',
+        href: '/financial-calculators/home-equity-loan',
+        icon: <Home className="w-5 h-5" />,
+        keywords: ['home equity loan', 'heloc', 'second mortgage', 'ltv', 'cltv', 'equity', 'home loan', 'borrowing against home'],
+      },
+      {
         id: 'rent',
         title: 'Rent Calculator',
         description: 'Calculate total rental costs and affordability',
