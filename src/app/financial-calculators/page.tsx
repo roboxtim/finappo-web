@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 import Link from 'next/link';
 import { Navigation } from '@/components/Navigation';
 import { CalculatorCard } from '@/components/landing/CalculatorCard';
-import { Car, CircleDollarSign } from 'lucide-react';
+import { Car, CircleDollarSign, Percent, Calculator } from 'lucide-react';
 
 export default function FinancialCalculators() {
   return (
@@ -50,12 +50,20 @@ export default function FinancialCalculators() {
           {/* Calculators Grid */}
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
             <CalculatorCard
+              icon={<Calculator className="w-8 h-8 text-white" />}
+              title="Finance Calculator"
+              description="Advanced Time Value of Money calculator. Solve for any variable: payment amounts, interest rates, number of periods, present value, or future value."
+              gradient="bg-gradient-to-br from-blue-600 to-indigo-600"
+              href="/financial-calculators/finance"
+              delay={0}
+            />
+            <CalculatorCard
               icon={<Car className="w-8 h-8 text-white" />}
               title="Auto Loan Calculator"
               description="Calculate your monthly car payments, total interest, and loan payoff timeline. Compare different loan terms and interest rates to find the best deal."
               gradient="bg-gradient-to-br from-blue-500 to-cyan-500"
               href="/financial-calculators/auto-loan"
-              delay={0}
+              delay={0.1}
             />
             <CalculatorCard
               icon={<CircleDollarSign className="w-8 h-8 text-white" />}
@@ -63,7 +71,15 @@ export default function FinancialCalculators() {
               description="Calculate monthly payments for personal loans. Plan debt consolidation, home improvements, or any personal financing needs with accurate estimates."
               gradient="bg-gradient-to-br from-green-500 to-emerald-500"
               href="/financial-calculators/personal-loan"
-              delay={0.1}
+              delay={0.2}
+            />
+            <CalculatorCard
+              icon={<Percent className="w-8 h-8 text-white" />}
+              title="Interest Calculator"
+              description="Calculate simple or compound interest on investments. Plan your savings growth with regular contributions, various compounding frequencies, and tax considerations."
+              gradient="bg-gradient-to-br from-purple-500 to-pink-500"
+              href="/financial-calculators/interest"
+              delay={0.3}
             />
           </div>
         </div>
