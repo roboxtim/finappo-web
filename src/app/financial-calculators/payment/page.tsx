@@ -30,6 +30,8 @@ export default function PaymentCalculator() {
     principal: number;
     interest: number;
     balance: number;
+    cumulativePrincipal: number;
+    cumulativeInterest: number;
   }>>([]);
 
   // UI states
