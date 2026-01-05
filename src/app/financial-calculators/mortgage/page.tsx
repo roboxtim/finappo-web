@@ -268,7 +268,7 @@ export default function MortgageCalculator() {
               className="space-y-6"
             >
               {/* Basic Mortgage Parameters */}
-              <div className="bg-white rounded-3xl p-8 shadow-sm border border-gray-100 sticky top-24">
+              <div className="bg-white rounded-3xl p-8 shadow-sm border border-gray-100">
                 <h2 className="text-2xl font-bold text-gray-900 mb-6">
                   Mortgage Details
                 </h2>
@@ -1087,7 +1087,7 @@ export default function MortgageCalculator() {
                         <div className="max-h-96 overflow-y-auto">
                           {scheduleView === 'monthly' ? (
                             <table className="w-full text-sm">
-                              <thead className="bg-gray-50 sticky top-0">
+                              <thead className="bg-gray-50">
                                 <tr>
                                   <th className="px-4 py-3 text-left font-semibold text-gray-700">
                                     Month
@@ -1137,7 +1137,7 @@ export default function MortgageCalculator() {
                             </table>
                           ) : (
                             <table className="w-full text-sm">
-                              <thead className="bg-gray-50 sticky top-0">
+                              <thead className="bg-gray-50">
                                 <tr>
                                   <th className="px-4 py-3 text-left font-semibold text-gray-700">
                                     Year

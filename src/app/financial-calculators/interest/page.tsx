@@ -805,7 +805,7 @@ export default function InterestCalculator() {
                     </div>
                     <div className="overflow-x-auto">
                       <table className="w-full text-sm">
-                        <thead className="bg-gray-50 sticky top-0">
+                        <thead className="bg-gray-50">
                           <tr>
                             <th className="px-4 py-3 text-left font-semibold text-gray-700">
                               {interestType === 'simple' ? 'Year' : 'Period'}

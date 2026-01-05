@@ -359,7 +359,7 @@ export default function FinanceCalculator() {
               className="space-y-6"
             >
               {/* Result Card */}
-              <div className="bg-gradient-to-br from-blue-600 to-indigo-600 rounded-3xl p-8 text-white shadow-xl sticky top-24">
+              <div className="bg-gradient-to-br from-blue-600 to-indigo-600 rounded-3xl p-8 text-white shadow-xl">
                 <div className="text-sm font-medium opacity-90 mb-2">
                   Calculated {getSolveForLabel(solveFor)}
                 </div>
@@ -470,7 +470,7 @@ export default function FinanceCalculator() {
                     <div className="px-8 pb-8 max-h-96 overflow-y-auto">
                       <div className="overflow-x-auto">
                         <table className="w-full text-sm">
-                          <thead className="bg-gray-50 sticky top-0">
+                          <thead className="bg-gray-50">
                             <tr>
                               <th className="px-4 py-3 text-left font-semibold text-gray-700">
                                 Period
