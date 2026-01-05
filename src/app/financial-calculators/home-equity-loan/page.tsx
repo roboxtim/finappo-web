@@ -103,6 +103,7 @@ export default function HomeEquityLoanCalculator() {
       title="Home Equity Loan Calculator"
       description="Calculate your home equity loan payments, understand LTV ratios, and determine how much you can borrow against your home's equity."
       icon={<Home className="w-6 h-6" />}
+      gradient="from-blue-600 to-indigo-600"
     >
       <div className="space-y-8">
         {/* Tab Navigation */}
