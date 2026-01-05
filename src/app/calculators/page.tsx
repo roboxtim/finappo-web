@@ -16,6 +16,7 @@ import {
   ArrowRight,
   ChevronRight,
   CreditCard,
+  Shield,
 } from 'lucide-react';
 
 interface CalculatorItem {
@@ -109,6 +110,14 @@ const categories: Category[] = [
         href: '/financial-calculators/fha-loan',
         icon: <Home className="w-5 h-5" />,
         keywords: ['fha', 'fha loan', 'mortgage insurance', 'mip', 'ufmip', 'first-time homebuyer', 'low down payment', 'government loan', 'fha mortgage'],
+      },
+      {
+        id: 'va-loan',
+        title: 'VA Loan Calculator',
+        description: 'Calculate VA mortgage payments for veterans with no PMI required and 0% down options',
+        href: '/financial-calculators/va-loan',
+        icon: <Shield className="w-5 h-5" />,
+        keywords: ['va loan', 'va mortgage', 'veterans loan', 'military mortgage', 'funding fee', 'no pmi', 'disabled veteran', 'service member', 'no down payment', 'va benefits', 'va home loan'],
       },
       {
         id: 'real-estate',
