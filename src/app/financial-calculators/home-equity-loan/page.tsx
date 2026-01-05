@@ -19,7 +19,6 @@ import {
   calculateLoanDetails,
   calculateAmortizationSchedule,
   calculateEquityDetails,
-  calculateMaxBorrowable,
   checkQualification,
   getAnnualSummary,
   formatCurrency,
@@ -677,7 +676,7 @@ export default function HomeEquityLoanCalculator() {
                 <h4 className="font-semibold text-gray-900 mb-2">What is a Home Equity Loan?</h4>
                 <p className="text-sm text-gray-700">
                   A home equity loan, also known as a second mortgage, allows you to borrow money using
-                  your home's equity as collateral. You receive the loan amount as a lump sum and repay
+                  your home&apos;s equity as collateral. You receive the loan amount as a lump sum and repay
                   it over a fixed term with fixed monthly payments.
                 </p>
               </div>
@@ -712,14 +711,14 @@ export default function HomeEquityLoanCalculator() {
                   <div className="bg-white rounded-lg p-3">
                     <dt className="font-medium text-gray-800 text-sm">LTV (Loan-to-Value) Ratio</dt>
                     <dd className="text-sm text-gray-600 mt-1">
-                      The percentage of your home's value that you owe. Calculated as:
+                      The percentage of your home&apos;s value that you owe. Calculated as:
                       (Mortgage Balance ÷ Home Value) × 100
                     </dd>
                   </div>
                   <div className="bg-white rounded-lg p-3">
                     <dt className="font-medium text-gray-800 text-sm">CLTV (Combined Loan-to-Value) Ratio</dt>
                     <dd className="text-sm text-gray-600 mt-1">
-                      The total percentage of your home's value that you'll owe after taking the new loan.
+                      The total percentage of your home&apos;s value that you&apos;ll owe after taking the new loan.
                       Calculated as: (Current Mortgage + New Loan) ÷ Home Value × 100
                     </dd>
                   </div>
@@ -751,7 +750,7 @@ export default function HomeEquityLoanCalculator() {
                       <li>• Your home is collateral</li>
                       <li>• Closing costs can be expensive</li>
                       <li>• Reduces home equity</li>
-                      <li>• Risk of foreclosure if you can't pay</li>
+                      <li>• Risk of foreclosure if you can&apos;t pay</li>
                     </ul>
                   </div>
                 </div>
