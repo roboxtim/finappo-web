@@ -17,6 +17,7 @@ import {
   ChevronRight,
   CreditCard,
   Shield,
+  Banknote,
 } from 'lucide-react';
 
 interface CalculatorItem {
@@ -42,7 +43,8 @@ const categories: Category[] = [
   {
     id: 'financial',
     name: 'Financial Calculators',
-    description: 'Comprehensive tools for loans, mortgages, investments, and financial planning',
+    description:
+      'Comprehensive tools for loans, mortgages, investments, and financial planning',
     href: '/financial-calculators',
     icon: <TrendingUp className="w-6 h-6" />,
     gradient: 'from-blue-600 to-indigo-600',
@@ -50,7 +52,8 @@ const categories: Category[] = [
       {
         id: 'amortization',
         title: 'Amortization Calculator',
-        description: 'Calculate loan amortization with flexible payment frequencies',
+        description:
+          'Calculate loan amortization with flexible payment frequencies',
         href: '/financial-calculators/amortization',
         icon: <Calculator className="w-5 h-5" />,
         keywords: ['amortization', 'loan', 'payment schedule', 'payoff'],
@@ -61,7 +64,13 @@ const categories: Category[] = [
         description: 'Advanced Time Value of Money calculator',
         href: '/financial-calculators/finance',
         icon: <Calculator className="w-5 h-5" />,
-        keywords: ['tvm', 'time value', 'present value', 'future value', 'payment'],
+        keywords: [
+          'tvm',
+          'time value',
+          'present value',
+          'future value',
+          'payment',
+        ],
       },
       {
         id: 'auto-loan',
@@ -82,10 +91,19 @@ const categories: Category[] = [
       {
         id: 'payment',
         title: 'Payment Calculator',
-        description: 'Advanced payment calculator with compounding frequencies and balloon payments',
+        description:
+          'Advanced payment calculator with compounding frequencies and balloon payments',
         href: '/financial-calculators/payment',
         icon: <CreditCard className="w-5 h-5" />,
-        keywords: ['payment', 'loan', 'balloon', 'compounding', 'annuity', 'present value', 'future value'],
+        keywords: [
+          'payment',
+          'loan',
+          'balloon',
+          'compounding',
+          'annuity',
+          'present value',
+          'future value',
+        ],
       },
       {
         id: 'interest',
@@ -106,34 +124,96 @@ const categories: Category[] = [
       {
         id: 'fha-loan',
         title: 'FHA Loan Calculator',
-        description: 'Calculate FHA mortgage payments with mortgage insurance premiums (MIP)',
+        description:
+          'Calculate FHA mortgage payments with mortgage insurance premiums (MIP)',
         href: '/financial-calculators/fha-loan',
         icon: <Home className="w-5 h-5" />,
-        keywords: ['fha', 'fha loan', 'mortgage insurance', 'mip', 'ufmip', 'first-time homebuyer', 'low down payment', 'government loan', 'fha mortgage'],
+        keywords: [
+          'fha',
+          'fha loan',
+          'mortgage insurance',
+          'mip',
+          'ufmip',
+          'first-time homebuyer',
+          'low down payment',
+          'government loan',
+          'fha mortgage',
+        ],
       },
       {
         id: 'va-loan',
         title: 'VA Loan Calculator',
-        description: 'Calculate VA mortgage payments for veterans with no PMI required and 0% down options',
+        description:
+          'Calculate VA mortgage payments for veterans with no PMI required and 0% down options',
         href: '/financial-calculators/va-loan',
         icon: <Shield className="w-5 h-5" />,
-        keywords: ['va loan', 'va mortgage', 'veterans loan', 'military mortgage', 'funding fee', 'no pmi', 'disabled veteran', 'service member', 'no down payment', 'va benefits', 'va home loan'],
+        keywords: [
+          'va loan',
+          'va mortgage',
+          'veterans loan',
+          'military mortgage',
+          'funding fee',
+          'no pmi',
+          'disabled veteran',
+          'service member',
+          'no down payment',
+          'va benefits',
+          'va home loan',
+        ],
       },
       {
         id: 'real-estate',
         title: 'Real Estate Calculator',
-        description: 'Comprehensive home investment analysis with equity, appreciation, and tax savings',
+        description:
+          'Comprehensive home investment analysis with equity, appreciation, and tax savings',
         href: '/financial-calculators/real-estate',
         icon: <Home className="w-5 h-5" />,
-        keywords: ['real estate', 'home', 'investment', 'property', 'equity', 'appreciation', 'tax deduction', 'pmi', 'homeownership'],
+        keywords: [
+          'real estate',
+          'home',
+          'investment',
+          'property',
+          'equity',
+          'appreciation',
+          'tax deduction',
+          'pmi',
+          'homeownership',
+        ],
       },
       {
         id: 'home-equity-loan',
         title: 'Home Equity Loan Calculator',
-        description: 'Calculate home equity loan payments, LTV ratios, and maximum borrowable amounts',
+        description:
+          'Calculate home equity loan payments, LTV ratios, and maximum borrowable amounts',
         href: '/financial-calculators/home-equity-loan',
         icon: <Home className="w-5 h-5" />,
-        keywords: ['home equity loan', 'heloc', 'second mortgage', 'ltv', 'cltv', 'equity', 'home loan', 'borrowing against home'],
+        keywords: [
+          'home equity loan',
+          'heloc',
+          'second mortgage',
+          'ltv',
+          'cltv',
+          'equity',
+          'home loan',
+          'borrowing against home',
+        ],
+      },
+      {
+        id: 'heloc',
+        title: 'HELOC Calculator',
+        description: 'Calculate HELOC payments with draw and repayment periods',
+        href: '/financial-calculators/heloc',
+        icon: <Banknote className="w-5 h-5" />,
+        keywords: [
+          'heloc',
+          'home equity line of credit',
+          'draw period',
+          'repayment period',
+          'variable rate',
+          'credit line',
+          'home equity',
+          'interest-only',
+        ],
       },
       {
         id: 'rent',
@@ -151,17 +231,19 @@ export default function CalculatorsPage() {
   const [searchQuery, setSearchQuery] = useState('');
 
   // Filter calculators based on search query
-  const filteredCategories = categories.map((category) => ({
-    ...category,
-    calculators: category.calculators.filter(
-      (calc) =>
-        calc.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
-        calc.description.toLowerCase().includes(searchQuery.toLowerCase()) ||
-        calc.keywords.some((keyword) =>
-          keyword.toLowerCase().includes(searchQuery.toLowerCase())
-        )
-    ),
-  })).filter((category) => category.calculators.length > 0);
+  const filteredCategories = categories
+    .map((category) => ({
+      ...category,
+      calculators: category.calculators.filter(
+        (calc) =>
+          calc.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
+          calc.description.toLowerCase().includes(searchQuery.toLowerCase()) ||
+          calc.keywords.some((keyword) =>
+            keyword.toLowerCase().includes(searchQuery.toLowerCase())
+          )
+      ),
+    }))
+    .filter((category) => category.calculators.length > 0);
 
   const totalCalculators = categories.reduce(
     (sum, cat) => sum + cat.calculators.length,
@@ -208,8 +290,8 @@ export default function CalculatorsPage() {
 
             {/* Subheadline */}
             <p className="text-lg lg:text-xl text-gray-600 mb-10 leading-relaxed max-w-3xl mx-auto">
-              Make informed financial decisions with our comprehensive suite of free calculators.
-              No signup required, instant results.
+              Make informed financial decisions with our comprehensive suite of
+              free calculators. No signup required, instant results.
             </p>
 
             {/* Search Bar */}
@@ -247,9 +329,7 @@ export default function CalculatorsPage() {
               <h3 className="text-xl font-semibold text-gray-900 mb-2">
                 No calculators found
               </h3>
-              <p className="text-gray-600">
-                Try a different search term
-              </p>
+              <p className="text-gray-600">Try a different search term</p>
             </motion.div>
           ) : (
             <div className="space-y-16">
@@ -304,7 +384,9 @@ export default function CalculatorsPage() {
                         <Link href={calculator.href}>
                           <div className="group h-full bg-white rounded-2xl border border-gray-200 hover:border-blue-300 hover:shadow-lg transition-all duration-300 p-6">
                             <div className="flex items-start gap-4 mb-4">
-                              <div className={`w-12 h-12 rounded-xl bg-gradient-to-br ${category.gradient} flex items-center justify-center text-white shadow-md group-hover:scale-110 transition-transform`}>
+                              <div
+                                className={`w-12 h-12 rounded-xl bg-gradient-to-br ${category.gradient} flex items-center justify-center text-white shadow-md group-hover:scale-110 transition-transform`}
+                              >
                                 {calculator.icon}
                               </div>
                               <div className="flex-1">
@@ -349,7 +431,8 @@ export default function CalculatorsPage() {
               Why Use Our Calculators?
             </h2>
             <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-              Professional-grade financial tools designed for accuracy and ease of use
+              Professional-grade financial tools designed for accuracy and ease
+              of use
             </p>
           </div>
 
@@ -368,7 +451,8 @@ export default function CalculatorsPage() {
                 100% Free
               </h3>
               <p className="text-gray-600">
-                No hidden fees, no signup required. All calculators are completely free to use.
+                No hidden fees, no signup required. All calculators are
+                completely free to use.
               </p>
             </motion.div>
 
@@ -386,7 +470,8 @@ export default function CalculatorsPage() {
                 Accurate Results
               </h3>
               <p className="text-gray-600">
-                Calculations validated against industry standards with comprehensive test coverage.
+                Calculations validated against industry standards with
+                comprehensive test coverage.
               </p>
             </motion.div>
 
@@ -404,7 +489,8 @@ export default function CalculatorsPage() {
                 Easy to Use
               </h3>
               <p className="text-gray-600">
-                Intuitive interfaces with helpful tips and instant results as you type.
+                Intuitive interfaces with helpful tips and instant results as
+                you type.
               </p>
             </motion.div>
           </div>
