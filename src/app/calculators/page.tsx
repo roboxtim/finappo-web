@@ -216,6 +216,26 @@ const categories: Category[] = [
         ],
       },
       {
+        id: 'down-payment',
+        title: 'Down Payment Calculator',
+        description:
+          'Calculate required down payment, closing costs, and total cash needed for home purchase',
+        href: '/financial-calculators/down-payment',
+        icon: <Home className="w-5 h-5" />,
+        keywords: [
+          'down payment',
+          'home down payment',
+          'mortgage down payment',
+          '20 percent down',
+          'closing costs',
+          'cash needed at closing',
+          'PMI calculator',
+          'first time home buyer',
+          'FHA down payment',
+          'home purchase',
+        ],
+      },
+      {
         id: 'rent',
         title: 'Rent Calculator',
         description: 'Calculate total rental costs and affordability',
@@ -245,55 +265,22 @@ export default function CalculatorsPage() {
     }))
     .filter((category) => category.calculators.length > 0);
 
-  const totalCalculators = categories.reduce(
-    (sum, cat) => sum + cat.calculators.length,
-    0
-  );
-
   return (
     <div className="min-h-screen bg-gradient-to-b from-[#F5F8FF] via-white to-white">
       {/* Navigation */}
       <Navigation />
 
-      {/* Hero Section */}
-      <section className="relative pt-24 pb-12 lg:pt-32 lg:pb-16 overflow-hidden">
+      {/* Search Section */}
+      <section className="relative pt-24 pb-8 lg:pt-32 lg:pb-12 overflow-hidden">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{
-              duration: 0.8,
+              duration: 0.6,
               ease: [0.16, 1, 0.3, 1],
             }}
-            className="text-center"
           >
-            {/* Badge */}
-            <motion.div
-              initial={{ opacity: 0, scale: 0.9 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ delay: 0.1, duration: 0.6 }}
-              className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-50 border border-blue-100 mb-6"
-            >
-              <Calculator className="w-4 h-4 text-blue-600" />
-              <span className="text-sm font-medium text-blue-600">
-                {totalCalculators} Free Calculators
-              </span>
-            </motion.div>
-
-            {/* Headline */}
-            <h1 className="text-4xl sm:text-5xl lg:text-7xl font-bold tracking-tight text-gray-900 mb-6 leading-[1.1]">
-              Financial{' '}
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600">
-                Calculators
-              </span>
-            </h1>
-
-            {/* Subheadline */}
-            <p className="text-lg lg:text-xl text-gray-600 mb-10 leading-relaxed max-w-3xl mx-auto">
-              Make informed financial decisions with our comprehensive suite of
-              free calculators. No signup required, instant results.
-            </p>
-
             {/* Search Bar */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}

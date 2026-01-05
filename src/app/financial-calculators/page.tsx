@@ -16,6 +16,7 @@ import {
   Shield,
   TrendingUp,
   Banknote,
+  DollarSign,
 } from 'lucide-react';
 
 export default function FinancialCalculators() {
@@ -172,6 +173,14 @@ export default function FinancialCalculators() {
               gradient="bg-gradient-to-br from-teal-600 to-cyan-600"
               href="/financial-calculators/heloc"
               delay={1.3}
+            />
+            <CalculatorCard
+              icon={<DollarSign className="w-8 h-8 text-white" />}
+              title="Down Payment Calculator"
+              description="Calculate required down payment, closing costs, and total cash needed for home purchase. Compare different down payment scenarios and PMI requirements."
+              gradient="bg-gradient-to-br from-purple-600 to-pink-600"
+              href="/financial-calculators/down-payment"
+              delay={1.4}
             />
           </div>
         </div>
