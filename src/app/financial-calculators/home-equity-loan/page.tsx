@@ -465,7 +465,7 @@ export default function HomeEquityLoanCalculator() {
                     <div>
                       <div className="flex justify-between text-sm mb-2">
                         <span className="text-gray-600">Current Mortgage</span>
-                        <span className="font-medium text-xs">
+                        <span className="text-xs text-gray-700 font-semibold">
                           {formatCurrency(mortgageBalance)} (
                           {((mortgageBalance / homeValue) * 100).toFixed(1)}%)
                         </span>
@@ -485,7 +485,7 @@ export default function HomeEquityLoanCalculator() {
                     <div>
                       <div className="flex justify-between text-sm mb-2">
                         <span className="text-gray-600">New Loan Amount</span>
-                        <span className="font-medium text-xs">
+                        <span className="text-xs text-gray-700 font-semibold">
                           {formatCurrency(loanAmount)} (
                           {((loanAmount / homeValue) * 100).toFixed(1)}%)
                         </span>
@@ -505,7 +505,7 @@ export default function HomeEquityLoanCalculator() {
                     <div>
                       <div className="flex justify-between text-sm mb-2">
                         <span className="text-gray-600">Remaining Equity</span>
-                        <span className="font-medium text-xs">
+                        <span className="text-xs text-gray-700 font-semibold">
                           {formatCurrency(equityDetails.remainingEquity)} (
                           {(
                             (equityDetails.remainingEquity / homeValue) *
