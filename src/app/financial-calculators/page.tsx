@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 import Link from 'next/link';
 import { Navigation } from '@/components/Navigation';
 import { CalculatorCard } from '@/components/landing/CalculatorCard';
-import { Car, CircleDollarSign, Percent, Calculator } from 'lucide-react';
+import { Car, CircleDollarSign, Percent, Calculator, Home } from 'lucide-react';
 
 export default function FinancialCalculators() {
   return (
@@ -80,6 +80,14 @@ export default function FinancialCalculators() {
               gradient="bg-gradient-to-br from-purple-500 to-pink-500"
               href="/financial-calculators/interest"
               delay={0.3}
+            />
+            <CalculatorCard
+              icon={<Home className="w-8 h-8 text-white" />}
+              title="Mortgage Calculator"
+              description="Calculate monthly mortgage payments, total interest, and explore amortization schedules. Compare different scenarios with extra payments to save thousands in interest."
+              gradient="bg-gradient-to-br from-blue-600 to-indigo-600"
+              href="/financial-calculators/mortgage"
+              delay={0.4}
             />
           </div>
         </div>
