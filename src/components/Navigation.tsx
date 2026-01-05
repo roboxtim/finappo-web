@@ -36,7 +36,7 @@ export function Navigation() {
               Features
             </Link>
             <Link
-              href="/financial-calculators"
+              href="/calculators"
               className="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors"
             >
               Calculators
@@ -128,7 +128,7 @@ export function Navigation() {
                 Features
               </Link>
               <Link
-                href="/financial-calculators"
+                href="/calculators"
                 onClick={() => setMobileMenuOpen(false)}
                 className="block text-base font-medium text-gray-600 hover:text-gray-900 py-2 transition-colors"
               >
