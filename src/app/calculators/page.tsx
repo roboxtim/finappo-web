@@ -103,6 +103,14 @@ const categories: Category[] = [
         keywords: ['mortgage', 'home', 'loan', 'house', 'pmi'],
       },
       {
+        id: 'fha-loan',
+        title: 'FHA Loan Calculator',
+        description: 'Calculate FHA mortgage payments with mortgage insurance premiums (MIP)',
+        href: '/financial-calculators/fha-loan',
+        icon: <Home className="w-5 h-5" />,
+        keywords: ['fha', 'fha loan', 'mortgage insurance', 'mip', 'ufmip', 'first-time homebuyer', 'low down payment', 'government loan', 'fha mortgage'],
+      },
+      {
         id: 'real-estate',
         title: 'Real Estate Calculator',
         description: 'Comprehensive home investment analysis with equity, appreciation, and tax savings',
