@@ -4,7 +4,19 @@ import { motion } from 'framer-motion';
 import Link from 'next/link';
 import { Navigation } from '@/components/Navigation';
 import { CalculatorCard } from '@/components/landing/CalculatorCard';
-import { Car, CircleDollarSign, Percent, Calculator, Home, Wallet, CreditCard, Building2, Shield, TrendingUp } from 'lucide-react';
+import {
+  Car,
+  CircleDollarSign,
+  Percent,
+  Calculator,
+  Home,
+  Wallet,
+  CreditCard,
+  Building2,
+  Shield,
+  TrendingUp,
+  Banknote,
+} from 'lucide-react';
 
 export default function FinancialCalculators() {
   return (
@@ -152,6 +164,14 @@ export default function FinancialCalculators() {
               gradient="bg-gradient-to-br from-orange-600 to-red-600"
               href="/financial-calculators/home-equity-loan"
               delay={1.2}
+            />
+            <CalculatorCard
+              icon={<Banknote className="w-8 h-8 text-white" />}
+              title="HELOC Calculator"
+              description="Calculate HELOC payments with draw and repayment periods. Understand interest-only payments during draw period and amortized payments during repayment."
+              gradient="bg-gradient-to-br from-teal-600 to-cyan-600"
+              href="/financial-calculators/heloc"
+              delay={1.3}
             />
           </div>
         </div>
