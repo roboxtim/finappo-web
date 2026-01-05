@@ -97,6 +97,14 @@ export default function FinancialCalculators() {
               href="/financial-calculators/mortgage"
               delay={0.5}
             />
+            <CalculatorCard
+              icon={<Home className="w-8 h-8 text-white" />}
+              title="Rent Calculator"
+              description="Calculate total rental costs including utilities, insurance, parking, and more. Plan for annual rent increases and check affordability with the 30% rule."
+              gradient="bg-gradient-to-br from-blue-600 to-indigo-600"
+              href="/financial-calculators/rent"
+              delay={0.6}
+            />
           </div>
         </div>
       </section>
