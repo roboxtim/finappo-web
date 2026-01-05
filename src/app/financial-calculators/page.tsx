@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 import Link from 'next/link';
 import { Navigation } from '@/components/Navigation';
 import { CalculatorCard } from '@/components/landing/CalculatorCard';
-import { Car, CircleDollarSign, Percent, Calculator, Home } from 'lucide-react';
+import { Car, CircleDollarSign, Percent, Calculator, Home, Wallet, CreditCard, Building2, Shield, TrendingUp } from 'lucide-react';
 
 export default function FinancialCalculators() {
   return (
@@ -112,6 +112,46 @@ export default function FinancialCalculators() {
               gradient="bg-gradient-to-br from-blue-600 to-indigo-600"
               href="/financial-calculators/rent"
               delay={0.7}
+            />
+            <CalculatorCard
+              icon={<CreditCard className="w-8 h-8 text-white" />}
+              title="Payment Calculator"
+              description="Advanced payment calculator with balloon payments and multiple compounding frequencies. Calculate exact monthly payments for any loan scenario."
+              gradient="bg-gradient-to-br from-green-600 to-emerald-600"
+              href="/financial-calculators/payment"
+              delay={0.8}
+            />
+            <CalculatorCard
+              icon={<TrendingUp className="w-8 h-8 text-white" />}
+              title="Real Estate Calculator"
+              description="Comprehensive home investment analysis including appreciation, equity buildup, tax benefits, and total cost of ownership over time."
+              gradient="bg-gradient-to-br from-purple-600 to-pink-600"
+              href="/financial-calculators/real-estate"
+              delay={0.9}
+            />
+            <CalculatorCard
+              icon={<Building2 className="w-8 h-8 text-white" />}
+              title="FHA Loan Calculator"
+              description="Calculate FHA mortgage payments with mortgage insurance (MIP and UFMIP). Perfect for first-time homebuyers with lower down payments."
+              gradient="bg-gradient-to-br from-blue-600 to-cyan-600"
+              href="/financial-calculators/fha-loan"
+              delay={1.0}
+            />
+            <CalculatorCard
+              icon={<Shield className="w-8 h-8 text-white" />}
+              title="VA Loan Calculator"
+              description="Calculate VA mortgage payments for veterans and military. No PMI/MIP required, with VA funding fee options and comparison with conventional loans."
+              gradient="bg-gradient-to-br from-indigo-600 to-blue-600"
+              href="/financial-calculators/va-loan"
+              delay={1.1}
+            />
+            <CalculatorCard
+              icon={<Wallet className="w-8 h-8 text-white" />}
+              title="Home Equity Loan Calculator"
+              description="Calculate home equity loan payments and analyze your borrowing capacity. Check LTV and CLTV ratios to see how much you can borrow."
+              gradient="bg-gradient-to-br from-orange-600 to-red-600"
+              href="/financial-calculators/home-equity-loan"
+              delay={1.2}
             />
           </div>
         </div>
