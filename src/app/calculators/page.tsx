@@ -15,6 +15,7 @@ import {
   Search,
   ArrowRight,
   ChevronRight,
+  CreditCard,
 } from 'lucide-react';
 
 interface CalculatorItem {
@@ -76,6 +77,14 @@ const categories: Category[] = [
         href: '/financial-calculators/personal-loan',
         icon: <CircleDollarSign className="w-5 h-5" />,
         keywords: ['personal', 'loan', 'debt', 'consolidation'],
+      },
+      {
+        id: 'payment',
+        title: 'Payment Calculator',
+        description: 'Advanced payment calculator with compounding frequencies and balloon payments',
+        href: '/financial-calculators/payment',
+        icon: <CreditCard className="w-5 h-5" />,
+        keywords: ['payment', 'loan', 'balloon', 'compounding', 'annuity', 'present value', 'future value'],
       },
       {
         id: 'interest',
