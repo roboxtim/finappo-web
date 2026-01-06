@@ -18,6 +18,7 @@ import {
   Banknote,
   DollarSign,
   Scale,
+  Tag,
 } from 'lucide-react';
 
 export default function FinancialCalculators() {
@@ -86,6 +87,14 @@ export default function FinancialCalculators() {
               gradient="bg-gradient-to-br from-blue-500 to-cyan-500"
               href="/financial-calculators/auto-loan"
               delay={0.2}
+            />
+            <CalculatorCard
+              icon={<Car className="w-8 h-8 text-white" />}
+              title="Auto Lease Calculator"
+              description="Calculate monthly car lease payments including depreciation, finance fees, and taxes. Compare lease options and understand total lease costs."
+              gradient="bg-gradient-to-br from-blue-500 to-cyan-500"
+              href="/financial-calculators/auto-lease"
+              delay={0.25}
             />
             <CalculatorCard
               icon={<CircleDollarSign className="w-8 h-8 text-white" />}
@@ -190,6 +199,14 @@ export default function FinancialCalculators() {
               gradient="bg-gradient-to-br from-indigo-600 to-purple-600"
               href="/financial-calculators/rent-vs-buy"
               delay={1.5}
+            />
+            <CalculatorCard
+              icon={<Tag className="w-8 h-8 text-white" />}
+              title="Cash Back vs Low Interest Calculator"
+              description="Compare cash back rebates versus low interest financing offers. Calculate which auto loan deal saves you more money over the life of the loan."
+              gradient="bg-gradient-to-br from-emerald-600 to-teal-600"
+              href="/financial-calculators/cash-back-vs-low-interest"
+              delay={1.6}
             />
           </div>
         </div>

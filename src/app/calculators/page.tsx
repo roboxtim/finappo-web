@@ -19,6 +19,7 @@ import {
   Shield,
   Banknote,
   Scale,
+  Tag,
 } from 'lucide-react';
 
 interface CalculatorItem {
@@ -80,6 +81,26 @@ const categories: Category[] = [
         href: '/financial-calculators/auto-loan',
         icon: <Car className="w-5 h-5" />,
         keywords: ['auto', 'car', 'vehicle', 'loan', 'payment'],
+      },
+      {
+        id: 'auto-lease',
+        title: 'Auto Lease Calculator',
+        description:
+          'Calculate monthly car lease payments including depreciation and fees',
+        href: '/financial-calculators/auto-lease',
+        icon: <Car className="w-5 h-5" />,
+        keywords: [
+          'auto lease',
+          'car lease',
+          'lease payment',
+          'vehicle lease',
+          'lease calculator',
+          'residual value',
+          'money factor',
+          'cap cost',
+          'lease vs buy',
+          'leasing',
+        ],
       },
       {
         id: 'personal-loan',
@@ -264,6 +285,27 @@ const categories: Category[] = [
           'tax benefits',
           'home appreciation',
           'break-even',
+        ],
+      },
+      {
+        id: 'cash-back-vs-low-interest',
+        title: 'Cash Back vs Low Interest Calculator',
+        description:
+          'Compare cash back rebates versus low interest financing offers',
+        href: '/financial-calculators/cash-back-vs-low-interest',
+        icon: <Tag className="w-5 h-5" />,
+        keywords: [
+          'cash back vs low interest',
+          'auto loan incentive',
+          'dealer incentive calculator',
+          'cash rebate or low apr',
+          'car financing calculator',
+          '0 apr vs cash back',
+          'auto rebate',
+          'dealer cash back',
+          'financing incentive',
+          'auto loan deal',
+          'car incentive calculator',
         ],
       },
     ],
