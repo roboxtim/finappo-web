@@ -308,6 +308,26 @@ const categories: Category[] = [
           'car incentive calculator',
         ],
       },
+      {
+        id: 'investment',
+        title: 'Investment Calculator',
+        description:
+          'Calculate investment growth with compound interest and regular contributions',
+        href: '/financial-calculators/investment',
+        icon: <TrendingUp className="w-5 h-5" />,
+        keywords: [
+          'investment calculator',
+          'compound interest calculator',
+          'investment growth',
+          'retirement calculator',
+          'savings calculator',
+          'investment return',
+          'future value calculator',
+          'wealth calculator',
+          'portfolio growth',
+          'investment planning',
+        ],
+      },
     ],
   },
 ];

@@ -208,6 +208,14 @@ export default function FinancialCalculators() {
               href="/financial-calculators/cash-back-vs-low-interest"
               delay={1.6}
             />
+            <CalculatorCard
+              icon={<TrendingUp className="w-8 h-8 text-white" />}
+              title="Investment Calculator"
+              description="Calculate investment growth over time with compound interest and regular contributions. See year-by-year breakdown and plan your financial future."
+              gradient="bg-gradient-to-br from-indigo-600 to-purple-600"
+              href="/financial-calculators/investment"
+              delay={1.7}
+            />
           </div>
         </div>
       </section>
