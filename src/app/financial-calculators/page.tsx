@@ -232,6 +232,14 @@ export default function FinancialCalculators() {
               href="/financial-calculators/interest-rate"
               delay={1.9}
             />
+            <CalculatorCard
+              icon={<Wallet className="w-8 h-8 text-white" />}
+              title="Savings Calculator"
+              description="Calculate savings growth with compound interest and regular contributions. Plan your emergency fund, retirement savings, or any financial goal with detailed projections."
+              gradient="bg-gradient-to-br from-green-600 to-emerald-600"
+              href="/financial-calculators/savings"
+              delay={2.0}
+            />
           </div>
         </div>
       </section>
