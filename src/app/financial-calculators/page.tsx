@@ -216,6 +216,22 @@ export default function FinancialCalculators() {
               href="/financial-calculators/investment"
               delay={1.7}
             />
+            <CalculatorCard
+              icon={<Percent className="w-8 h-8 text-white" />}
+              title="Compound Interest Calculator"
+              description="Calculate compound interest with flexible compounding frequencies and contributions. See detailed growth schedule and understand the power of exponential growth."
+              gradient="bg-gradient-to-br from-purple-600 to-indigo-600"
+              href="/financial-calculators/compound-interest"
+              delay={1.8}
+            />
+            <CalculatorCard
+              icon={<Percent className="w-8 h-8 text-white" />}
+              title="Interest Rate Calculator"
+              description="Reverse calculator to find interest rate from loan amount, term, and payment. Perfect for verifying dealer quotes and comparing loan offers."
+              gradient="bg-gradient-to-br from-purple-600 to-indigo-600"
+              href="/financial-calculators/interest-rate"
+              delay={1.9}
+            />
           </div>
         </div>
       </section>
