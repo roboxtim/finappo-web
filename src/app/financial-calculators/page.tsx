@@ -256,6 +256,14 @@ export default function FinancialCalculators() {
               href="/financial-calculators/cd-calculator"
               delay={2.2}
             />
+            <CalculatorCard
+              icon={<TrendingUp className="w-8 h-8 text-white" />}
+              title="Bond Calculator"
+              description="Calculate bond prices, yield to maturity, and returns. Analyze government and corporate bonds with various coupon frequencies."
+              gradient="bg-gradient-to-br from-purple-600 to-indigo-600"
+              href="/financial-calculators/bond-calculator"
+              delay={2.3}
+            />
           </div>
         </div>
       </section>
