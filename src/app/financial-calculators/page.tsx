@@ -272,6 +272,14 @@ export default function FinancialCalculators() {
               href="/financial-calculators/average-return"
               delay={2.4}
             />
+            <CalculatorCard
+              icon={<TrendingUp className="w-8 h-8 text-white" />}
+              title="IRR Calculator"
+              description="Calculate Internal Rate of Return for investments with irregular cash flows. Includes MIRR, NPV analysis, and payback period for comprehensive investment evaluation."
+              gradient="bg-gradient-to-br from-purple-600 to-indigo-600"
+              href="/financial-calculators/irr-calculator"
+              delay={2.5}
+            />
           </div>
         </div>
       </section>
