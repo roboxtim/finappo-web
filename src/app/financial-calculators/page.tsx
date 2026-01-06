@@ -248,6 +248,14 @@ export default function FinancialCalculators() {
               href="/financial-calculators/simple-interest"
               delay={2.1}
             />
+            <CalculatorCard
+              icon={<TrendingUp className="w-8 h-8 text-white" />}
+              title="CD Calculator"
+              description="Calculate Certificate of Deposit returns with various compounding frequencies. Compare APY rates and see your savings grow over time."
+              gradient="bg-gradient-to-br from-teal-600 to-cyan-600"
+              href="/financial-calculators/cd-calculator"
+              delay={2.2}
+            />
           </div>
         </div>
       </section>
