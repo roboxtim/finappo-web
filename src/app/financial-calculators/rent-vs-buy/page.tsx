@@ -145,11 +145,13 @@ export default function RentVsBuyCalculator() {
       tooltip: {
         callbacks: {
           label: function (context: {
-            dataset: { label: string };
-            parsed: { y: number };
+            dataset: { label?: string };
+            parsed: { y: number | null };
           }) {
             return (
-              context.dataset.label + ': ' + formatCurrency(context.parsed.y)
+              (context.dataset.label || '') +
+              ': ' +
+              formatCurrency(context.parsed.y || 0)
             );
           },
         },

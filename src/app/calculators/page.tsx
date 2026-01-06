@@ -18,6 +18,7 @@ import {
   CreditCard,
   Shield,
   Banknote,
+  Scale,
 } from 'lucide-react';
 
 interface CalculatorItem {
@@ -242,6 +243,28 @@ const categories: Category[] = [
         href: '/financial-calculators/rent',
         icon: <Wallet className="w-5 h-5" />,
         keywords: ['rent', 'rental', 'apartment', 'housing', 'affordability'],
+      },
+      {
+        id: 'rent-vs-buy',
+        title: 'Rent vs Buy Calculator',
+        description:
+          'Compare the true costs of renting vs buying a home over time',
+        href: '/financial-calculators/rent-vs-buy',
+        icon: <Scale className="w-5 h-5" />,
+        keywords: [
+          'rent vs buy',
+          'rent or buy',
+          'renting vs buying',
+          'homeownership',
+          'rent vs own',
+          'should I buy a house',
+          'rent vs mortgage',
+          'home buying decision',
+          'opportunity cost',
+          'tax benefits',
+          'home appreciation',
+          'break-even',
+        ],
       },
     ],
   },

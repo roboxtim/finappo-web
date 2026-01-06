@@ -17,6 +17,7 @@ import {
   TrendingUp,
   Banknote,
   DollarSign,
+  Scale,
 } from 'lucide-react';
 
 export default function FinancialCalculators() {
@@ -181,6 +182,14 @@ export default function FinancialCalculators() {
               gradient="bg-gradient-to-br from-purple-600 to-pink-600"
               href="/financial-calculators/down-payment"
               delay={1.4}
+            />
+            <CalculatorCard
+              icon={<Scale className="w-8 h-8 text-white" />}
+              title="Rent vs Buy Calculator"
+              description="Compare the true costs of renting versus buying a home over time. Factor in mortgage, taxes, appreciation, opportunity costs, and tax benefits to make an informed decision."
+              gradient="bg-gradient-to-br from-indigo-600 to-purple-600"
+              href="/financial-calculators/rent-vs-buy"
+              delay={1.5}
             />
           </div>
         </div>
