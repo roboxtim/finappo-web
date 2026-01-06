@@ -392,6 +392,28 @@ const categories: Category[] = [
           'financial calculator',
         ],
       },
+      {
+        id: 'simple-interest',
+        title: 'Simple Interest Calculator',
+        description:
+          'Calculate simple interest on loans and investments with I = P × r × t formula',
+        href: '/financial-calculators/simple-interest',
+        icon: <Percent className="w-5 h-5" />,
+        keywords: [
+          'simple interest calculator',
+          'interest calculator',
+          'simple interest formula',
+          'calculate simple interest',
+          'investment interest',
+          'loan interest calculator',
+          'auto loan interest',
+          'simple vs compound interest',
+          'bond interest',
+          'straightforward interest',
+          'linear interest',
+          'non-compounding interest',
+        ],
+      },
     ],
   },
 ];

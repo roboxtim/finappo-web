@@ -240,6 +240,14 @@ export default function FinancialCalculators() {
               href="/financial-calculators/savings"
               delay={2.0}
             />
+            <CalculatorCard
+              icon={<Percent className="w-8 h-8 text-white" />}
+              title="Simple Interest Calculator"
+              description="Calculate simple interest on loans and investments. Perfect for auto loans, bonds, and short-term investments with straightforward interest calculations."
+              gradient="bg-gradient-to-br from-blue-600 to-indigo-600"
+              href="/financial-calculators/simple-interest"
+              delay={2.1}
+            />
           </div>
         </div>
       </section>
