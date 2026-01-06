@@ -264,6 +264,14 @@ export default function FinancialCalculators() {
               href="/financial-calculators/bond-calculator"
               delay={2.3}
             />
+            <CalculatorCard
+              icon={<TrendingUp className="w-8 h-8 text-white" />}
+              title="Average Return Calculator"
+              description="Calculate arithmetic mean, geometric mean (CAGR), and annualized returns for investment portfolios. Compare different averaging methods."
+              gradient="bg-gradient-to-br from-blue-600 to-cyan-600"
+              href="/financial-calculators/average-return"
+              delay={2.4}
+            />
           </div>
         </div>
       </section>
