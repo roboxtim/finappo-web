@@ -304,6 +304,14 @@ export default function FinancialCalculators() {
               href="/financial-calculators/present-value"
               delay={2.8}
             />
+            <CalculatorCard
+              icon={<TrendingUp className="w-8 h-8 text-white" />}
+              title="Future Value Calculator"
+              description="Calculate future value with compound growth. Includes lump sum, annuity, and growing annuity projections for retirement and investment planning."
+              gradient="bg-gradient-to-br from-indigo-600 to-purple-600"
+              href="/financial-calculators/future-value"
+              delay={2.9}
+            />
           </div>
         </div>
       </section>
