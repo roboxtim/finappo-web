@@ -280,6 +280,14 @@ export default function FinancialCalculators() {
               href="/financial-calculators/irr-calculator"
               delay={2.5}
             />
+            <CalculatorCard
+              icon={<TrendingUp className="w-8 h-8 text-white" />}
+              title="ROI Calculator"
+              description="Calculate Return on Investment to evaluate profitability. Includes annualized ROI, scenario comparison, and growth projections for smart investment decisions."
+              gradient="bg-gradient-to-br from-purple-600 to-indigo-600"
+              href="/financial-calculators/roi-calculator"
+              delay={2.6}
+            />
           </div>
         </div>
       </section>
