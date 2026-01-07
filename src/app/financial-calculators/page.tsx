@@ -296,6 +296,14 @@ export default function FinancialCalculators() {
               href="/financial-calculators/payback-period-calculator"
               delay={2.7}
             />
+            <CalculatorCard
+              icon={<TrendingUp className="w-8 h-8 text-white" />}
+              title="Present Value Calculator"
+              description="Calculate the present value of future cash flows. Includes lump sum, annuity, and growing annuity calculations with discount rate analysis."
+              gradient="bg-gradient-to-br from-blue-600 to-indigo-600"
+              href="/financial-calculators/present-value"
+              delay={2.8}
+            />
           </div>
         </div>
       </section>
