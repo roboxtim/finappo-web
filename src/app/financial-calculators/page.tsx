@@ -288,6 +288,14 @@ export default function FinancialCalculators() {
               href="/financial-calculators/roi-calculator"
               delay={2.6}
             />
+            <CalculatorCard
+              icon={<TrendingUp className="w-8 h-8 text-white" />}
+              title="Payback Period Calculator"
+              description="Calculate how long it takes to recover your investment. Includes simple and discounted payback period analysis with break-even visualization."
+              gradient="bg-gradient-to-br from-indigo-600 to-blue-600"
+              href="/financial-calculators/payback-period-calculator"
+              delay={2.7}
+            />
           </div>
         </div>
       </section>
