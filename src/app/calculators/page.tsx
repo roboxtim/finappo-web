@@ -735,7 +735,7 @@ export default function CalculatorsPage() {
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.3, duration: 0.6 }}
+              transition={{ delay: 0, duration: 0.6 }}
               className="max-w-2xl mx-auto"
             >
               <div className="relative">
@@ -770,13 +770,14 @@ export default function CalculatorsPage() {
             </motion.div>
           ) : (
             <div className="space-y-16">
-              {filteredCategories.map((category, categoryIndex) => (
+              {/* eslint-disable-next-line @typescript-eslint/no-unused-vars */}
+              {filteredCategories.map((category, _categoryIndex) => (
                 <motion.div
                   key={category.id}
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{
-                    delay: categoryIndex * 0.1,
+                    delay: 0,
                     duration: 0.6,
                   }}
                 >
@@ -808,13 +809,14 @@ export default function CalculatorsPage() {
 
                   {/* Calculators Grid */}
                   <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-                    {category.calculators.map((calculator, calcIndex) => (
+                    {/* eslint-disable-next-line @typescript-eslint/no-unused-vars */}
+                    {category.calculators.map((calculator, _calcIndex) => (
                       <motion.div
                         key={calculator.id}
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{
-                          delay: categoryIndex * 0.1 + calcIndex * 0.05,
+                          delay: 0,
                           duration: 0.5,
                         }}
                       >
@@ -897,7 +899,7 @@ export default function CalculatorsPage() {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ delay: 0.1, duration: 0.6 }}
+              transition={{ delay: 0, duration: 0.6 }}
               className="text-center"
             >
               <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-green-500 to-emerald-500 flex items-center justify-center text-white mx-auto mb-4">
@@ -916,7 +918,7 @@ export default function CalculatorsPage() {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ delay: 0.2, duration: 0.6 }}
+              transition={{ delay: 0, duration: 0.6 }}
               className="text-center"
             >
               <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-purple-500 to-pink-500 flex items-center justify-center text-white mx-auto mb-4">
