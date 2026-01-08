@@ -20,6 +20,7 @@ import {
   Scale,
   Tag,
   PiggyBank,
+  Landmark,
 } from 'lucide-react';
 
 export default function FinancialCalculators() {
@@ -328,6 +329,14 @@ export default function FinancialCalculators() {
               gradient="bg-gradient-to-br from-purple-600 to-pink-600"
               href="/financial-calculators/retirement"
               delay={3.1}
+            />
+            <CalculatorCard
+              icon={<Landmark className="w-8 h-8 text-white" />}
+              title="Pension Calculator"
+              description="Compare pension options and make informed retirement decisions. Analyze lump sum vs. monthly pension, single-life vs. joint-and-survivor, and early vs. delayed retirement."
+              gradient="bg-gradient-to-br from-purple-600 to-indigo-600"
+              href="/financial-calculators/pension-calculator"
+              delay={3.2}
             />
           </div>
         </div>
