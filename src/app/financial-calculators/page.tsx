@@ -80,7 +80,7 @@ export default function FinancialCalculators() {
               description="Advanced Time Value of Money calculator. Solve for any variable: payment amounts, interest rates, number of periods, present value, or future value."
               gradient="bg-gradient-to-br from-blue-600 to-indigo-600"
               href="/financial-calculators/finance"
-              delay={0.1}
+              delay={0}
             />
             <CalculatorCard
               icon={<Car className="w-8 h-8 text-white" />}
@@ -88,7 +88,7 @@ export default function FinancialCalculators() {
               description="Calculate your monthly car payments, total interest, and loan payoff timeline. Compare different loan terms and interest rates to find the best deal."
               gradient="bg-gradient-to-br from-blue-500 to-cyan-500"
               href="/financial-calculators/auto-loan"
-              delay={0.2}
+              delay={0}
             />
             <CalculatorCard
               icon={<Car className="w-8 h-8 text-white" />}
@@ -96,7 +96,7 @@ export default function FinancialCalculators() {
               description="Calculate monthly car lease payments including depreciation, finance fees, and taxes. Compare lease options and understand total lease costs."
               gradient="bg-gradient-to-br from-blue-500 to-cyan-500"
               href="/financial-calculators/auto-lease"
-              delay={0.25}
+              delay={0}
             />
             <CalculatorCard
               icon={<CircleDollarSign className="w-8 h-8 text-white" />}
@@ -104,7 +104,7 @@ export default function FinancialCalculators() {
               description="Calculate monthly payments for personal loans. Plan debt consolidation, home improvements, or any personal financing needs with accurate estimates."
               gradient="bg-gradient-to-br from-green-500 to-emerald-500"
               href="/financial-calculators/personal-loan"
-              delay={0.3}
+              delay={0}
             />
             <CalculatorCard
               icon={<Percent className="w-8 h-8 text-white" />}
@@ -112,7 +112,7 @@ export default function FinancialCalculators() {
               description="Calculate the true cost of a loan including all fees and interest. Compare nominal interest rate vs effective APR to understand what you're really paying."
               gradient="bg-gradient-to-br from-blue-600 to-indigo-600"
               href="/financial-calculators/apr-calculator"
-              delay={0.4}
+              delay={0}
             />
             <CalculatorCard
               icon={<Percent className="w-8 h-8 text-white" />}
@@ -120,7 +120,7 @@ export default function FinancialCalculators() {
               description="Calculate simple or compound interest on investments. Plan your savings growth with regular contributions, various compounding frequencies, and tax considerations."
               gradient="bg-gradient-to-br from-purple-500 to-pink-500"
               href="/financial-calculators/interest"
-              delay={0.5}
+              delay={0}
             />
             <CalculatorCard
               icon={<Home className="w-8 h-8 text-white" />}
@@ -128,7 +128,7 @@ export default function FinancialCalculators() {
               description="Calculate monthly mortgage payments, total interest, and explore amortization schedules. Compare different scenarios with extra payments to save thousands in interest."
               gradient="bg-gradient-to-br from-blue-600 to-indigo-600"
               href="/financial-calculators/mortgage"
-              delay={0.6}
+              delay={0}
             />
             <CalculatorCard
               icon={<Home className="w-8 h-8 text-white" />}
@@ -136,7 +136,7 @@ export default function FinancialCalculators() {
               description="Calculate total rental costs including utilities, insurance, parking, and more. Plan for annual rent increases and check affordability with the 30% rule."
               gradient="bg-gradient-to-br from-blue-600 to-indigo-600"
               href="/financial-calculators/rent"
-              delay={0.7}
+              delay={0}
             />
             <CalculatorCard
               icon={<CreditCard className="w-8 h-8 text-white" />}
@@ -144,7 +144,7 @@ export default function FinancialCalculators() {
               description="Advanced payment calculator with balloon payments and multiple compounding frequencies. Calculate exact monthly payments for any loan scenario."
               gradient="bg-gradient-to-br from-green-600 to-emerald-600"
               href="/financial-calculators/payment"
-              delay={0.8}
+              delay={0}
             />
             <CalculatorCard
               icon={<TrendingUp className="w-8 h-8 text-white" />}
@@ -152,7 +152,7 @@ export default function FinancialCalculators() {
               description="Comprehensive home investment analysis including appreciation, equity buildup, tax benefits, and total cost of ownership over time."
               gradient="bg-gradient-to-br from-purple-600 to-pink-600"
               href="/financial-calculators/real-estate"
-              delay={0.9}
+              delay={0}
             />
             <CalculatorCard
               icon={<Building2 className="w-8 h-8 text-white" />}
@@ -160,7 +160,7 @@ export default function FinancialCalculators() {
               description="Calculate FHA mortgage payments with mortgage insurance (MIP and UFMIP). Perfect for first-time homebuyers with lower down payments."
               gradient="bg-gradient-to-br from-blue-600 to-cyan-600"
               href="/financial-calculators/fha-loan"
-              delay={1.0}
+              delay={0}
             />
             <CalculatorCard
               icon={<Shield className="w-8 h-8 text-white" />}
@@ -168,7 +168,7 @@ export default function FinancialCalculators() {
               description="Calculate VA mortgage payments for veterans and military. No PMI/MIP required, with VA funding fee options and comparison with conventional loans."
               gradient="bg-gradient-to-br from-indigo-600 to-blue-600"
               href="/financial-calculators/va-loan"
-              delay={1.1}
+              delay={0}
             />
             <CalculatorCard
               icon={<Wallet className="w-8 h-8 text-white" />}
@@ -176,7 +176,7 @@ export default function FinancialCalculators() {
               description="Calculate home equity loan payments and analyze your borrowing capacity. Check LTV and CLTV ratios to see how much you can borrow."
               gradient="bg-gradient-to-br from-orange-600 to-red-600"
               href="/financial-calculators/home-equity-loan"
-              delay={1.2}
+              delay={0}
             />
             <CalculatorCard
               icon={<Banknote className="w-8 h-8 text-white" />}
@@ -184,7 +184,7 @@ export default function FinancialCalculators() {
               description="Calculate HELOC payments with draw and repayment periods. Understand interest-only payments during draw period and amortized payments during repayment."
               gradient="bg-gradient-to-br from-teal-600 to-cyan-600"
               href="/financial-calculators/heloc"
-              delay={1.3}
+              delay={0}
             />
             <CalculatorCard
               icon={<DollarSign className="w-8 h-8 text-white" />}
@@ -192,7 +192,7 @@ export default function FinancialCalculators() {
               description="Calculate required down payment, closing costs, and total cash needed for home purchase. Compare different down payment scenarios and PMI requirements."
               gradient="bg-gradient-to-br from-purple-600 to-pink-600"
               href="/financial-calculators/down-payment"
-              delay={1.4}
+              delay={0}
             />
             <CalculatorCard
               icon={<Scale className="w-8 h-8 text-white" />}
@@ -200,7 +200,7 @@ export default function FinancialCalculators() {
               description="Compare the true costs of renting versus buying a home over time. Factor in mortgage, taxes, appreciation, opportunity costs, and tax benefits to make an informed decision."
               gradient="bg-gradient-to-br from-indigo-600 to-purple-600"
               href="/financial-calculators/rent-vs-buy"
-              delay={1.5}
+              delay={0}
             />
             <CalculatorCard
               icon={<Tag className="w-8 h-8 text-white" />}
@@ -208,7 +208,7 @@ export default function FinancialCalculators() {
               description="Compare cash back rebates versus low interest financing offers. Calculate which auto loan deal saves you more money over the life of the loan."
               gradient="bg-gradient-to-br from-emerald-600 to-teal-600"
               href="/financial-calculators/cash-back-vs-low-interest"
-              delay={1.6}
+              delay={0}
             />
             <CalculatorCard
               icon={<TrendingUp className="w-8 h-8 text-white" />}
@@ -216,7 +216,7 @@ export default function FinancialCalculators() {
               description="Calculate investment growth over time with compound interest and regular contributions. See year-by-year breakdown and plan your financial future."
               gradient="bg-gradient-to-br from-indigo-600 to-purple-600"
               href="/financial-calculators/investment"
-              delay={1.7}
+              delay={0}
             />
             <CalculatorCard
               icon={<Percent className="w-8 h-8 text-white" />}
@@ -224,7 +224,7 @@ export default function FinancialCalculators() {
               description="Calculate compound interest with flexible compounding frequencies and contributions. See detailed growth schedule and understand the power of exponential growth."
               gradient="bg-gradient-to-br from-purple-600 to-indigo-600"
               href="/financial-calculators/compound-interest"
-              delay={1.8}
+              delay={0}
             />
             <CalculatorCard
               icon={<Percent className="w-8 h-8 text-white" />}
@@ -232,7 +232,7 @@ export default function FinancialCalculators() {
               description="Reverse calculator to find interest rate from loan amount, term, and payment. Perfect for verifying dealer quotes and comparing loan offers."
               gradient="bg-gradient-to-br from-purple-600 to-indigo-600"
               href="/financial-calculators/interest-rate"
-              delay={1.9}
+              delay={0}
             />
             <CalculatorCard
               icon={<Wallet className="w-8 h-8 text-white" />}
@@ -240,7 +240,7 @@ export default function FinancialCalculators() {
               description="Calculate savings growth with compound interest and regular contributions. Plan your emergency fund, retirement savings, or any financial goal with detailed projections."
               gradient="bg-gradient-to-br from-green-600 to-emerald-600"
               href="/financial-calculators/savings"
-              delay={2.0}
+              delay={0}
             />
             <CalculatorCard
               icon={<Percent className="w-8 h-8 text-white" />}
@@ -248,7 +248,7 @@ export default function FinancialCalculators() {
               description="Calculate simple interest on loans and investments. Perfect for auto loans, bonds, and short-term investments with straightforward interest calculations."
               gradient="bg-gradient-to-br from-blue-600 to-indigo-600"
               href="/financial-calculators/simple-interest"
-              delay={2.1}
+              delay={0}
             />
             <CalculatorCard
               icon={<TrendingUp className="w-8 h-8 text-white" />}
@@ -256,7 +256,7 @@ export default function FinancialCalculators() {
               description="Calculate Certificate of Deposit returns with various compounding frequencies. Compare APY rates and see your savings grow over time."
               gradient="bg-gradient-to-br from-teal-600 to-cyan-600"
               href="/financial-calculators/cd-calculator"
-              delay={2.2}
+              delay={0}
             />
             <CalculatorCard
               icon={<TrendingUp className="w-8 h-8 text-white" />}
@@ -264,7 +264,7 @@ export default function FinancialCalculators() {
               description="Calculate bond prices, yield to maturity, and returns. Analyze government and corporate bonds with various coupon frequencies."
               gradient="bg-gradient-to-br from-purple-600 to-indigo-600"
               href="/financial-calculators/bond-calculator"
-              delay={2.3}
+              delay={0}
             />
             <CalculatorCard
               icon={<TrendingUp className="w-8 h-8 text-white" />}
@@ -272,7 +272,7 @@ export default function FinancialCalculators() {
               description="Calculate arithmetic mean, geometric mean (CAGR), and annualized returns for investment portfolios. Compare different averaging methods."
               gradient="bg-gradient-to-br from-blue-600 to-cyan-600"
               href="/financial-calculators/average-return"
-              delay={2.4}
+              delay={0}
             />
             <CalculatorCard
               icon={<TrendingUp className="w-8 h-8 text-white" />}
@@ -280,7 +280,7 @@ export default function FinancialCalculators() {
               description="Calculate Internal Rate of Return for investments with irregular cash flows. Includes MIRR, NPV analysis, and payback period for comprehensive investment evaluation."
               gradient="bg-gradient-to-br from-purple-600 to-indigo-600"
               href="/financial-calculators/irr-calculator"
-              delay={2.5}
+              delay={0}
             />
             <CalculatorCard
               icon={<TrendingUp className="w-8 h-8 text-white" />}
@@ -288,7 +288,7 @@ export default function FinancialCalculators() {
               description="Calculate Return on Investment to evaluate profitability. Includes annualized ROI, scenario comparison, and growth projections for smart investment decisions."
               gradient="bg-gradient-to-br from-purple-600 to-indigo-600"
               href="/financial-calculators/roi-calculator"
-              delay={2.6}
+              delay={0}
             />
             <CalculatorCard
               icon={<TrendingUp className="w-8 h-8 text-white" />}
@@ -296,7 +296,7 @@ export default function FinancialCalculators() {
               description="Calculate how long it takes to recover your investment. Includes simple and discounted payback period analysis with break-even visualization."
               gradient="bg-gradient-to-br from-indigo-600 to-blue-600"
               href="/financial-calculators/payback-period-calculator"
-              delay={2.7}
+              delay={0}
             />
             <CalculatorCard
               icon={<TrendingUp className="w-8 h-8 text-white" />}
@@ -304,7 +304,7 @@ export default function FinancialCalculators() {
               description="Calculate the present value of future cash flows. Includes lump sum, annuity, and growing annuity calculations with discount rate analysis."
               gradient="bg-gradient-to-br from-blue-600 to-indigo-600"
               href="/financial-calculators/present-value"
-              delay={2.8}
+              delay={0}
             />
             <CalculatorCard
               icon={<TrendingUp className="w-8 h-8 text-white" />}
@@ -312,7 +312,7 @@ export default function FinancialCalculators() {
               description="Calculate future value with compound growth. Includes lump sum, annuity, and growing annuity projections for retirement and investment planning."
               gradient="bg-gradient-to-br from-indigo-600 to-purple-600"
               href="/financial-calculators/future-value"
-              delay={2.9}
+              delay={0}
             />
             <CalculatorCard
               icon={<PiggyBank className="w-8 h-8 text-white" />}
@@ -320,7 +320,7 @@ export default function FinancialCalculators() {
               description="Plan your employer-sponsored 401(k) retirement savings. Calculate growth with employer matching, contribution limits, and tax-deferred compounding over time."
               gradient="bg-gradient-to-br from-green-600 to-emerald-600"
               href="/financial-calculators/401k-calculator"
-              delay={3.0}
+              delay={0}
             />
             <CalculatorCard
               icon={<TrendingUp className="w-8 h-8 text-white" />}
@@ -328,7 +328,7 @@ export default function FinancialCalculators() {
               description="Plan your retirement with comprehensive projections. Calculate savings needed, monthly contributions, and income analysis with Social Security integration."
               gradient="bg-gradient-to-br from-purple-600 to-pink-600"
               href="/financial-calculators/retirement"
-              delay={3.1}
+              delay={0}
             />
             <CalculatorCard
               icon={<Landmark className="w-8 h-8 text-white" />}
@@ -336,7 +336,7 @@ export default function FinancialCalculators() {
               description="Compare pension options and make informed retirement decisions. Analyze lump sum vs. monthly pension, single-life vs. joint-and-survivor, and early vs. delayed retirement."
               gradient="bg-gradient-to-br from-purple-600 to-indigo-600"
               href="/financial-calculators/pension-calculator"
-              delay={3.2}
+              delay={0}
             />
           </div>
         </div>
