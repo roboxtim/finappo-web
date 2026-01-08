@@ -19,6 +19,7 @@ import {
   DollarSign,
   Scale,
   Tag,
+  PiggyBank,
 } from 'lucide-react';
 
 export default function FinancialCalculators() {
@@ -313,12 +314,20 @@ export default function FinancialCalculators() {
               delay={2.9}
             />
             <CalculatorCard
+              icon={<PiggyBank className="w-8 h-8 text-white" />}
+              title="401(k) Calculator"
+              description="Plan your employer-sponsored 401(k) retirement savings. Calculate growth with employer matching, contribution limits, and tax-deferred compounding over time."
+              gradient="bg-gradient-to-br from-green-600 to-emerald-600"
+              href="/financial-calculators/401k-calculator"
+              delay={3.0}
+            />
+            <CalculatorCard
               icon={<TrendingUp className="w-8 h-8 text-white" />}
               title="Retirement Calculator"
               description="Plan your retirement with comprehensive projections. Calculate savings needed, monthly contributions, and income analysis with Social Security integration."
               gradient="bg-gradient-to-br from-purple-600 to-pink-600"
               href="/financial-calculators/retirement"
-              delay={3.0}
+              delay={3.1}
             />
           </div>
         </div>

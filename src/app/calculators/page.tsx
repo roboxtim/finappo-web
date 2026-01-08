@@ -20,6 +20,7 @@ import {
   Banknote,
   Scale,
   Tag,
+  PiggyBank,
 } from 'lucide-react';
 
 interface CalculatorItem {
@@ -607,6 +608,32 @@ const categories: Category[] = [
         ],
       },
       {
+        id: '401k-calculator',
+        title: '401(k) Calculator',
+        description:
+          'Calculate your 401(k) retirement savings with employer matching, contribution limits, salary increases, and tax-deferred growth projections',
+        href: '/financial-calculators/401k-calculator',
+        icon: <PiggyBank className="w-5 h-5" />,
+        keywords: [
+          '401k calculator',
+          '401(k) calculator',
+          'employer match calculator',
+          '401k contribution calculator',
+          '401k growth calculator',
+          '401k retirement calculator',
+          'employer matching calculator',
+          '401k balance calculator',
+          '401k projection calculator',
+          'contribution limit calculator',
+          'tax deferred savings calculator',
+          '401k catch up contributions',
+          'roth 401k calculator',
+          'employer sponsored retirement',
+          '401k match calculator',
+          'retirement savings account calculator',
+        ],
+      },
+      {
         id: 'retirement',
         title: 'Retirement Calculator',
         description:
@@ -617,7 +644,6 @@ const categories: Category[] = [
           'retirement calculator',
           'retirement planning calculator',
           'retirement savings calculator',
-          '401k calculator',
           'retirement income calculator',
           'how much to retire',
           'retirement planner',
