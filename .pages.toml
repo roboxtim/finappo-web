@@ -1,0 +1,6 @@
+[build]
+  command = "npm run cf-build"
+  output_dir = ".worker-next"
+
+[build.environment]
+  NODE_VERSION = "23"
