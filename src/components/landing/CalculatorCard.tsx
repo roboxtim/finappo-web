@@ -42,7 +42,7 @@ export function CalculatorCard({
 
           {/* Icon */}
           <div
-            className={`relative w-16 h-16 rounded-2xl ${gradient} flex items-center justify-center mb-6 shadow-lg group-hover:scale-110 transition-transform duration-300`}
+            className={`relative w-16 h-16 rounded-2xl ${gradient} flex items-center justify-center mb-6 shadow-lg transition-transform duration-300`}
           >
             {icon}
           </div>
