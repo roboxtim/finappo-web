@@ -1,7 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { Navigation } from '@/components/Navigation';
+import { CalculatorLayout } from '@/components/CalculatorLayout';
 import { useState, useEffect, useCallback } from 'react';
 import {
   TrendingUp,
@@ -93,37 +93,12 @@ export default function AverageReturnCalculator() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white">
-      {/* Navigation */}
-      <Navigation />
-
-      {/* Hero Section */}
-      <section className="relative pt-24 pb-8 lg:pt-28 lg:pb-10 overflow-hidden bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-            className="text-center"
-          >
-            <div className="inline-flex items-center justify-center w-20 h-20 rounded-3xl bg-gradient-to-br from-blue-600 to-indigo-600 shadow-xl mb-6">
-              <TrendingUp className="w-10 h-10 text-white" />
-            </div>
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-gray-900 mb-4">
-              Average Return{' '}
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600">
-                Calculator
-              </span>
-            </h1>
-            <p className="text-lg lg:text-xl text-gray-600 max-w-3xl mx-auto">
-              Calculate arithmetic mean, geometric mean, and annualized returns
-              for your investments. Understand the true performance of your
-              portfolio across multiple periods.
-            </p>
-          </motion.div>
-        </div>
-      </section>
-
+    <CalculatorLayout
+      title="Average Return Calculator"
+      description="Calculate arithmetic mean, geometric mean, and annualized returns for your investments. Understand the true performance of your portfolio across multiple periods."
+      icon={<TrendingUp className="w-8 h-8 text-white" />}
+      gradient="bg-gradient-to-br from-blue-600 to-indigo-600"
+    >
       {/* Calculator Section */}
       <section className="py-8 lg:py-12">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
@@ -610,21 +585,6 @@ export default function AverageReturnCalculator() {
           </motion.div>
         </div>
       </section>
-
-      {/* Footer */}
-      <footer className="bg-white border-t border-gray-200">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8 py-12">
-          <div className="text-center text-gray-600 text-sm">
-            <p>
-              This calculator is for educational purposes only. Consult with a
-              financial advisor for investment decisions.
-            </p>
-            <p className="mt-2">
-              © {new Date().getFullYear()} Finappo. All rights reserved.
-            </p>
-          </div>
-        </div>
-      </footer>
-    </div>
+    </CalculatorLayout>
   );
 }

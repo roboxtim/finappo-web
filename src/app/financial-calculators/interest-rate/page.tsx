@@ -1,7 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { Navigation } from '@/components/Navigation';
+import { CalculatorLayout } from '@/components/CalculatorLayout';
 import { useState, useEffect, useCallback } from 'react';
 import { Percent } from 'lucide-react';
 import {
@@ -74,32 +74,12 @@ export default function InterestRateCalculator() {
     totalPayment > 0 ? (loanAmount / totalPayment) * 100 : 50;
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-purple-50 via-white to-white">
-      <Navigation />
-
-      {/* Hero Section */}
-      <section className="relative pt-32 pb-12 lg:pt-40 lg:pb-16">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8 text-center">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-          >
-            <div className="inline-flex items-center justify-center w-20 h-20 rounded-3xl bg-gradient-to-br from-purple-600 to-violet-600 mb-6 shadow-lg shadow-purple-500/30">
-              <Percent className="w-10 h-10 text-white" />
-            </div>
-            <h1 className="text-5xl lg:text-6xl font-bold text-gray-900 mb-6 leading-tight">
-              Interest Rate Calculator
-            </h1>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-              Find the interest rate on your loan when you know the loan amount,
-              term, and monthly payment. Perfect for verifying dealer quotes or
-              understanding your existing loans.
-            </p>
-          </motion.div>
-        </div>
-      </section>
-
+    <CalculatorLayout
+      title="Interest Rate Calculator"
+      description="Find the interest rate on your loan when you know the loan amount, term, and monthly payment. Perfect for verifying dealer quotes or understanding your existing loans."
+      icon={<Percent className="w-8 h-8 text-white" />}
+      gradient="bg-gradient-to-br from-purple-600 to-violet-600"
+    >
       {/* Calculator Section */}
       <section className="py-8 lg:py-12">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
@@ -502,17 +482,6 @@ export default function InterestRateCalculator() {
           </motion.div>
         </div>
       </section>
-
-      {/* Footer */}
-      <footer className="bg-gray-900 text-white py-12">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8">
-          <div className="text-center">
-            <p className="text-gray-400">
-              © 2026 Finappo. All rights reserved.
-            </p>
-          </div>
-        </div>
-      </footer>
-    </div>
+    </CalculatorLayout>
   );
 }
