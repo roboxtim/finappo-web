@@ -113,6 +113,24 @@ const categories: Category[] = [
         keywords: ['personal', 'loan', 'debt', 'consolidation'],
       },
       {
+        id: 'apr-calculator',
+        title: 'APR Calculator',
+        description:
+          'Calculate the true cost of a loan including all fees and interest',
+        href: '/financial-calculators/apr-calculator',
+        icon: <Percent className="w-5 h-5" />,
+        keywords: [
+          'apr',
+          'annual percentage rate',
+          'effective rate',
+          'loan cost',
+          'true cost',
+          'nominal rate',
+          'fees',
+          'apr vs interest rate',
+        ],
+      },
+      {
         id: 'payment',
         title: 'Payment Calculator',
         description:
