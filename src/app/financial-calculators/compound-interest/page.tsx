@@ -1,7 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { Navigation } from '@/components/Navigation';
+import { CalculatorLayout } from '@/components/CalculatorLayout';
 import { useState, useEffect, useCallback } from 'react';
 import {
   TrendingUp,
@@ -127,37 +127,12 @@ export default function CompoundInterestCalculator() {
       : 0;
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white">
-      {/* Navigation */}
-      <Navigation />
-
-      {/* Hero Section */}
-      <section className="relative pt-24 pb-8 lg:pt-28 lg:pb-10 overflow-hidden bg-gradient-to-br from-emerald-50 via-teal-50 to-cyan-50">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-            className="text-center"
-          >
-            <div className="inline-flex items-center justify-center w-20 h-20 rounded-3xl bg-gradient-to-br from-emerald-600 to-teal-600 shadow-xl mb-6">
-              <TrendingUp className="w-10 h-10 text-white" />
-            </div>
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-gray-900 mb-4">
-              Compound Interest{' '}
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-600 to-teal-600">
-                Calculator
-              </span>
-            </h1>
-            <p className="text-lg lg:text-xl text-gray-600 max-w-3xl mx-auto">
-              Calculate how your investments grow over time with compound
-              interest. Include regular contributions, compare compounding
-              frequencies, and see the impact of taxes and inflation.
-            </p>
-          </motion.div>
-        </div>
-      </section>
-
+    <CalculatorLayout
+      title="Compound Interest Calculator"
+      description="Calculate how your investments grow over time with compound interest and regular contributions"
+      icon={<TrendingUp className="w-8 h-8 text-white" />}
+      gradient="bg-gradient-to-br from-emerald-600 to-teal-600"
+    >
       {/* Calculator Section */}
       <section className="py-8 lg:py-12">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
@@ -1112,21 +1087,6 @@ export default function CompoundInterestCalculator() {
           </motion.div>
         </div>
       </section>
-
-      {/* Footer */}
-      <footer className="bg-gray-900 text-gray-300 py-12">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8">
-          <div className="text-center">
-            <p className="text-sm">
-              © {new Date().getFullYear()} Finappo. All rights reserved.
-            </p>
-            <p className="text-xs mt-2 text-gray-500">
-              This calculator provides estimates for informational purposes
-              only. Consult a financial advisor for personalized advice.
-            </p>
-          </div>
-        </div>
-      </footer>
-    </div>
+    </CalculatorLayout>
   );
 }
