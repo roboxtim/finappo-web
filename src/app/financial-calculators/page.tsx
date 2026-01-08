@@ -312,6 +312,14 @@ export default function FinancialCalculators() {
               href="/financial-calculators/future-value"
               delay={2.9}
             />
+            <CalculatorCard
+              icon={<TrendingUp className="w-8 h-8 text-white" />}
+              title="Retirement Calculator"
+              description="Plan your retirement with comprehensive projections. Calculate savings needed, monthly contributions, and income analysis with Social Security integration."
+              gradient="bg-gradient-to-br from-purple-600 to-pink-600"
+              href="/financial-calculators/retirement"
+              delay={3.0}
+            />
           </div>
         </div>
       </section>
