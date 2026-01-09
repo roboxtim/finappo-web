@@ -338,6 +338,14 @@ export default function FinancialCalculators() {
               href="/financial-calculators/pension-calculator"
               delay={0}
             />
+            <CalculatorCard
+              icon={<Shield className="w-8 h-8 text-white" />}
+              title="Social Security Calculator"
+              description="Calculate the optimal age to claim Social Security benefits and maximize your retirement income. Compare claiming at different ages from 62 to 70 to find the best strategy."
+              gradient="bg-gradient-to-br from-blue-600 to-indigo-600"
+              href="/financial-calculators/social-security"
+              delay={0}
+            />
           </div>
         </div>
       </section>
