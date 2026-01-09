@@ -39,7 +39,8 @@ export default function VALoanCalculator() {
 
   // Comparison settings
   const [showComparison, setShowComparison] = useState<boolean>(false);
-  const [conventionalInterestRate, setConventionalInterestRate] = useState<number>(6.0);
+  const [conventionalInterestRate, setConventionalInterestRate] =
+    useState<number>(6.0);
   const [fhaInterestRate, setFHAInterestRate] = useState<number>(6.5);
 
   // Start date
@@ -48,12 +49,15 @@ export default function VALoanCalculator() {
 
   // Results
   const [results, setResults] = useState<VALoanResults | null>(null);
-  const [conventionalResults, setConventionalResults] = useState<ConventionalLoanResults | null>(null);
+  const [conventionalResults, setConventionalResults] =
+    useState<ConventionalLoanResults | null>(null);
   const [fhaResults, setFHAResults] = useState<FHALoanResults | null>(null);
 
   // UI state
   const [isScheduleOpen, setIsScheduleOpen] = useState<boolean>(false);
-  const [scheduleView, setScheduleView] = useState<'monthly' | 'annual'>('monthly');
+  const [scheduleView, setScheduleView] = useState<'monthly' | 'annual'>(
+    'monthly'
+  );
   const [hoveredMonth, setHoveredMonth] = useState<number | null>(null);
 
   // Calculate loan amount from home price and down payment
@@ -250,7 +254,7 @@ export default function VALoanCalculator() {
       gradient="bg-gradient-to-br from-blue-600 to-indigo-600"
     >
       {/* Calculator Section */}
-      <section className="py-8 lg:py-12">
+      <section className="pb-8 lg:pb-12">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <div className="grid lg:grid-cols-[40%_60%] gap-8">
             {/* Left Column - Input Form */}
@@ -307,7 +311,9 @@ export default function VALoanCalculator() {
                           inputMode="numeric"
                           value={formatInputValue(downPayment)}
                           onChange={(e) => {
-                            handleDownPaymentChange(parseInputValue(e.target.value));
+                            handleDownPaymentChange(
+                              parseInputValue(e.target.value)
+                            );
                           }}
                           className="w-full pl-8 pr-4 py-3 rounded-xl border-2 border-gray-200 focus:border-blue-500 focus:outline-none transition-colors text-gray-900 font-medium"
                         />
@@ -318,7 +324,10 @@ export default function VALoanCalculator() {
                           inputMode="decimal"
                           value={downPaymentPercent.toFixed(1)}
                           onChange={(e) => {
-                            const value = e.target.value.replace(/[^0-9.]/g, '');
+                            const value = e.target.value.replace(
+                              /[^0-9.]/g,
+                              ''
+                            );
                             const num = value ? Number(value) : 0;
                             if (num >= 0 && num <= 100) {
                               handleDownPaymentPercentChange(num);
@@ -386,7 +395,9 @@ export default function VALoanCalculator() {
                     </label>
                     <select
                       value={serviceType}
-                      onChange={(e) => setServiceType(e.target.value as ServiceType)}
+                      onChange={(e) =>
+                        setServiceType(e.target.value as ServiceType)
+                      }
                       className="w-full px-4 py-3 rounded-xl border-2 border-gray-200 focus:border-blue-500 focus:outline-none transition-colors text-gray-900 font-medium"
                     >
                       <option value="regular">Regular Military</option>
@@ -401,7 +412,9 @@ export default function VALoanCalculator() {
                     </label>
                     <select
                       value={loanUsage}
-                      onChange={(e) => setLoanUsage(e.target.value as LoanUsage)}
+                      onChange={(e) =>
+                        setLoanUsage(e.target.value as LoanUsage)
+                      }
                       className="w-full px-4 py-3 rounded-xl border-2 border-gray-200 focus:border-blue-500 focus:outline-none transition-colors text-gray-900 font-medium"
                     >
                       <option value="first">First-Time Use</option>
@@ -439,7 +452,9 @@ export default function VALoanCalculator() {
                         <input
                           type="checkbox"
                           checked={financeFundingFee}
-                          onChange={(e) => setFinanceFundingFee(e.target.checked)}
+                          onChange={(e) =>
+                            setFinanceFundingFee(e.target.checked)
+                          }
                           className="w-5 h-5 rounded border-gray-300 text-blue-600 focus:ring-blue-500"
                         />
                         <div>
@@ -448,7 +463,11 @@ export default function VALoanCalculator() {
                           </span>
                           {results && (
                             <p className="text-xs text-gray-500 mt-1">
-                              Add ${formatInputValue(Math.round(results.loanDetails.fundingFeeAmount))} to loan
+                              Add $
+                              {formatInputValue(
+                                Math.round(results.loanDetails.fundingFeeAmount)
+                              )}{' '}
+                              to loan
                             </p>
                           )}
                         </div>
@@ -467,18 +486,31 @@ export default function VALoanCalculator() {
                         onChange={(e) => setStartMonth(Number(e.target.value))}
                         className="px-4 py-3 rounded-xl border-2 border-gray-200 focus:border-blue-500 focus:outline-none transition-colors text-gray-900 font-medium"
                       >
-                        {['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'].map(
-                          (month, i) => (
-                            <option key={i} value={i}>
-                              {month}
-                            </option>
-                          )
-                        )}
+                        {[
+                          'Jan',
+                          'Feb',
+                          'Mar',
+                          'Apr',
+                          'May',
+                          'Jun',
+                          'Jul',
+                          'Aug',
+                          'Sep',
+                          'Oct',
+                          'Nov',
+                          'Dec',
+                        ].map((month, i) => (
+                          <option key={i} value={i}>
+                            {month}
+                          </option>
+                        ))}
                       </select>
                       <input
                         type="number"
                         value={startYear}
-                        onChange={(e) => setStartYear(Number(e.target.value) || 2026)}
+                        onChange={(e) =>
+                          setStartYear(Number(e.target.value) || 2026)
+                        }
                         className="px-4 py-3 rounded-xl border-2 border-gray-200 focus:border-blue-500 focus:outline-none transition-colors text-gray-900 font-medium"
                       />
                     </div>
@@ -629,8 +661,13 @@ export default function VALoanCalculator() {
                           inputMode="decimal"
                           value={conventionalInterestRate || ''}
                           onChange={(e) => {
-                            const value = e.target.value.replace(/[^0-9.]/g, '');
-                            setConventionalInterestRate(value ? Number(value) : 0);
+                            const value = e.target.value.replace(
+                              /[^0-9.]/g,
+                              ''
+                            );
+                            setConventionalInterestRate(
+                              value ? Number(value) : 0
+                            );
                           }}
                           className="w-full pl-4 pr-8 py-3 rounded-xl border-2 border-gray-200 focus:border-blue-500 focus:outline-none transition-colors text-gray-900 font-medium"
                         />
@@ -653,7 +690,10 @@ export default function VALoanCalculator() {
                           inputMode="decimal"
                           value={fhaInterestRate || ''}
                           onChange={(e) => {
-                            const value = e.target.value.replace(/[^0-9.]/g, '');
+                            const value = e.target.value.replace(
+                              /[^0-9.]/g,
+                              ''
+                            );
                             setFHAInterestRate(value ? Number(value) : 0);
                           }}
                           className="w-full pl-4 pr-8 py-3 rounded-xl border-2 border-gray-200 focus:border-blue-500 focus:outline-none transition-colors text-gray-900 font-medium"
@@ -694,13 +734,13 @@ export default function VALoanCalculator() {
                           Principal & Interest
                         </div>
                         <div className="text-xl font-semibold mt-1">
-                          {formatCurrency(results.monthlyPayment.principalAndInterest)}
+                          {formatCurrency(
+                            results.monthlyPayment.principalAndInterest
+                          )}
                         </div>
                       </div>
                       <div>
-                        <div className="text-sm opacity-75">
-                          NO PMI/MIP
-                        </div>
+                        <div className="text-sm opacity-75">NO PMI/MIP</div>
                         <div className="text-xl font-semibold mt-1 text-green-300">
                           $0
                         </div>
@@ -718,7 +758,9 @@ export default function VALoanCalculator() {
                         </p>
                         <ul className="space-y-1 text-green-700">
                           <li>• No down payment required (0% allowed)</li>
-                          <li className="font-semibold">• NO PMI or MIP ever required</li>
+                          <li className="font-semibold">
+                            • NO PMI or MIP ever required
+                          </li>
                           <li>• Competitive interest rates for veterans</li>
                           <li>• No prepayment penalties</li>
                           <li>
@@ -727,7 +769,10 @@ export default function VALoanCalculator() {
                           </li>
                           {results.loanDetails.fundingFeeAmount > 0 && (
                             <li>
-                              • Funding Fee Amount: {formatCurrency(results.loanDetails.fundingFeeAmount)}
+                              • Funding Fee Amount:{' '}
+                              {formatCurrency(
+                                results.loanDetails.fundingFeeAmount
+                              )}
                               {financeFundingFee && ' (financed into loan)'}
                             </li>
                           )}
@@ -746,24 +791,39 @@ export default function VALoanCalculator() {
                         </p>
                         <ul className="space-y-1 text-indigo-700">
                           <li>
-                            Loan-to-Value (LTV): {results.loanDetails.ltv.toFixed(1)}%
+                            Loan-to-Value (LTV):{' '}
+                            {results.loanDetails.ltv.toFixed(1)}%
                           </li>
                           <li>
-                            Base Loan: {formatCurrency(results.loanDetails.baseLoanAmount)}
+                            Base Loan:{' '}
+                            {formatCurrency(results.loanDetails.baseLoanAmount)}
                           </li>
-                          {results.loanDetails.fundingFeeAmount > 0 && financeFundingFee && (
-                            <li>
-                              Funding Fee: {formatCurrency(results.loanDetails.fundingFeeAmount)}
-                            </li>
-                          )}
+                          {results.loanDetails.fundingFeeAmount > 0 &&
+                            financeFundingFee && (
+                              <li>
+                                Funding Fee:{' '}
+                                {formatCurrency(
+                                  results.loanDetails.fundingFeeAmount
+                                )}
+                              </li>
+                            )}
                           <li>
-                            Total Loan: {formatCurrency(results.loanDetails.totalLoanAmount)}
+                            Total Loan:{' '}
+                            {formatCurrency(
+                              results.loanDetails.totalLoanAmount
+                            )}
                           </li>
                           <li>
-                            Service Type: {serviceType === 'regular' ? 'Regular Military' : 'Reserves/National Guard'}
+                            Service Type:{' '}
+                            {serviceType === 'regular'
+                              ? 'Regular Military'
+                              : 'Reserves/National Guard'}
                           </li>
                           <li>
-                            Usage: {loanUsage === 'first' ? 'First-Time' : 'Subsequent'}
+                            Usage:{' '}
+                            {loanUsage === 'first'
+                              ? 'First-Time'
+                              : 'Subsequent'}
                           </li>
                         </ul>
                       </div>
@@ -794,7 +854,8 @@ export default function VALoanCalculator() {
                                 backgroundColor: item.color,
                               }}
                             >
-                              {item.percentage > 10 && `${item.percentage.toFixed(1)}%`}
+                              {item.percentage > 10 &&
+                                `${item.percentage.toFixed(1)}%`}
                             </div>
                           </div>
                         </div>
@@ -811,10 +872,13 @@ export default function VALoanCalculator() {
                       </div>
                       <div className="flex justify-between">
                         <span className="text-gray-600">
-                          Total of {results.amortizationSchedule.length} Payments
+                          Total of {results.amortizationSchedule.length}{' '}
+                          Payments
                         </span>
                         <span className="font-semibold text-gray-900">
-                          {formatCurrency(results.totalPayments.totalOfAllPayments)}
+                          {formatCurrency(
+                            results.totalPayments.totalOfAllPayments
+                          )}
                         </span>
                       </div>
                       <div className="flex justify-between">
@@ -850,7 +914,9 @@ export default function VALoanCalculator() {
                               VA Loan ({downPaymentPercent.toFixed(1)}% down)
                             </div>
                             <div className="text-2xl font-bold text-blue-900">
-                              {formatCurrency(results.monthlyPayment.principalAndInterest)}
+                              {formatCurrency(
+                                results.monthlyPayment.principalAndInterest
+                              )}
                             </div>
                             <div className="text-xs text-blue-600 mt-1">
                               /month (NO PMI!)
@@ -863,7 +929,9 @@ export default function VALoanCalculator() {
                               Conventional (20% down)
                             </div>
                             <div className="text-2xl font-bold text-gray-900">
-                              {formatCurrency(conventionalResults.monthlyPayment)}
+                              {formatCurrency(
+                                conventionalResults.monthlyPayment
+                              )}
                             </div>
                             <div className="text-xs text-gray-600 mt-1">
                               /month (no PMI)
@@ -876,7 +944,10 @@ export default function VALoanCalculator() {
                               FHA (3.5% down)
                             </div>
                             <div className="text-2xl font-bold text-gray-900">
-                              {formatCurrency(fhaResults.monthlyPayment + fhaResults.monthlyMIP)}
+                              {formatCurrency(
+                                fhaResults.monthlyPayment +
+                                  fhaResults.monthlyMIP
+                              )}
                             </div>
                             <div className="text-xs text-gray-600 mt-1">
                               /month (with MIP)
@@ -892,7 +963,8 @@ export default function VALoanCalculator() {
                             </div>
                             <div className="grid grid-cols-3 gap-3">
                               <div className="text-blue-600 font-semibold">
-                                VA: {formatCurrency(downPayment)} ({downPaymentPercent.toFixed(1)}%)
+                                VA: {formatCurrency(downPayment)} (
+                                {downPaymentPercent.toFixed(1)}%)
                               </div>
                               <div className="text-gray-600">
                                 Conv: {formatCurrency(homePrice * 0.2)} (20%)
@@ -926,11 +998,13 @@ export default function VALoanCalculator() {
                             </div>
                             <div className="grid grid-cols-3 gap-3">
                               <div className="text-blue-600">
-                                VA: {formatCurrency(results.loanDetails.fundingFeeAmount)} (funding fee)
+                                VA:{' '}
+                                {formatCurrency(
+                                  results.loanDetails.fundingFeeAmount
+                                )}{' '}
+                                (funding fee)
                               </div>
-                              <div className="text-gray-600">
-                                Conv: $0
-                              </div>
+                              <div className="text-gray-600">Conv: $0</div>
                               <div className="text-orange-600">
                                 FHA: {formatCurrency(fhaResults.ufmip)} (UFMIP)
                               </div>
@@ -944,9 +1018,14 @@ export default function VALoanCalculator() {
                           </p>
                           <p className="text-sm text-green-700">
                             No monthly PMI/MIP means you save{' '}
-                            <strong>{formatCurrency(fhaResults.monthlyMIP)}/month</strong>{' '}
+                            <strong>
+                              {formatCurrency(fhaResults.monthlyMIP)}/month
+                            </strong>{' '}
                             compared to FHA, which equals{' '}
-                            <strong>{formatCurrency(fhaResults.monthlyMIP * 12)}/year</strong> in savings!
+                            <strong>
+                              {formatCurrency(fhaResults.monthlyMIP * 12)}/year
+                            </strong>{' '}
+                            in savings!
                           </p>
                         </div>
                       </div>
@@ -967,14 +1046,19 @@ export default function VALoanCalculator() {
                         preserveAspectRatio="none"
                         onMouseMove={(e) => {
                           const rect = e.currentTarget.getBoundingClientRect();
-                          const x = ((e.clientX - rect.left) / rect.width) * 800;
+                          const x =
+                            ((e.clientX - rect.left) / rect.width) * 800;
                           const monthIndex = Math.round(
-                            (x / 800) * (results.amortizationSchedule.length - 1)
+                            (x / 800) *
+                              (results.amortizationSchedule.length - 1)
                           );
                           setHoveredMonth(
                             Math.max(
                               0,
-                              Math.min(monthIndex, results.amortizationSchedule.length - 1)
+                              Math.min(
+                                monthIndex,
+                                results.amortizationSchedule.length - 1
+                              )
                             )
                           );
                         }}
@@ -997,9 +1081,23 @@ export default function VALoanCalculator() {
 
                         {/* Balance area */}
                         <defs>
-                          <linearGradient id="balanceGradient" x1="0" y1="0" x2="0" y2="1">
-                            <stop offset="0%" stopColor="#3B82F6" stopOpacity="0.6" />
-                            <stop offset="100%" stopColor="#3B82F6" stopOpacity="0.2" />
+                          <linearGradient
+                            id="balanceGradient"
+                            x1="0"
+                            y1="0"
+                            x2="0"
+                            y2="1"
+                          >
+                            <stop
+                              offset="0%"
+                              stopColor="#3B82F6"
+                              stopOpacity="0.6"
+                            />
+                            <stop
+                              offset="100%"
+                              stopColor="#3B82F6"
+                              stopOpacity="0.2"
+                            />
                           </linearGradient>
                         </defs>
 
@@ -1008,10 +1106,14 @@ export default function VALoanCalculator() {
                             const points = results.amortizationSchedule
                               .map((row, i) => {
                                 const x =
-                                  (i / (results.amortizationSchedule.length - 1)) * 800;
+                                  (i /
+                                    (results.amortizationSchedule.length - 1)) *
+                                  800;
                                 const y =
                                   256 -
-                                  (row.balance / results.loanDetails.totalLoanAmount) * 256;
+                                  (row.balance /
+                                    results.loanDetails.totalLoanAmount) *
+                                    256;
                                 return `${x},${y}`;
                               })
                               .join(' L ');
@@ -1025,10 +1127,14 @@ export default function VALoanCalculator() {
                           points={results.amortizationSchedule
                             .map((row, i) => {
                               const x =
-                                (i / (results.amortizationSchedule.length - 1)) * 800;
+                                (i /
+                                  (results.amortizationSchedule.length - 1)) *
+                                800;
                               const y =
                                 256 -
-                                (row.balance / results.loanDetails.totalLoanAmount) * 256;
+                                (row.balance /
+                                  results.loanDetails.totalLoanAmount) *
+                                  256;
                               return `${x},${y}`;
                             })
                             .join(' ')}
@@ -1041,11 +1147,15 @@ export default function VALoanCalculator() {
                         {hoveredMonth !== null && (
                           <line
                             x1={
-                              (hoveredMonth / (results.amortizationSchedule.length - 1)) * 800
+                              (hoveredMonth /
+                                (results.amortizationSchedule.length - 1)) *
+                              800
                             }
                             y1="0"
                             x2={
-                              (hoveredMonth / (results.amortizationSchedule.length - 1)) * 800
+                              (hoveredMonth /
+                                (results.amortizationSchedule.length - 1)) *
+                              800
                             }
                             y2="256"
                             stroke="#6B7280"
@@ -1062,33 +1172,53 @@ export default function VALoanCalculator() {
                           className="absolute bg-gray-900 text-white px-4 py-3 rounded-lg text-sm pointer-events-none z-10 shadow-xl"
                           style={{
                             left: `${
-                              (hoveredMonth / (results.amortizationSchedule.length - 1)) * 100
+                              (hoveredMonth /
+                                (results.amortizationSchedule.length - 1)) *
+                              100
                             }%`,
                             top: '50%',
                             transform:
-                              hoveredMonth > results.amortizationSchedule.length / 2
+                              hoveredMonth >
+                              results.amortizationSchedule.length / 2
                                 ? 'translate(-100%, -50%)'
                                 : 'translate(10px, -50%)',
                           }}
                         >
-                          <div className="font-bold mb-2 text-base">Month {hoveredMonth + 1}</div>
+                          <div className="font-bold mb-2 text-base">
+                            Month {hoveredMonth + 1}
+                          </div>
                           <div className="space-y-1.5">
                             <div>
-                              <span className="text-gray-300 text-xs">Balance:</span>
+                              <span className="text-gray-300 text-xs">
+                                Balance:
+                              </span>
                               <span className="font-semibold ml-2">
-                                {formatCurrency(results.amortizationSchedule[hoveredMonth].balance)}
+                                {formatCurrency(
+                                  results.amortizationSchedule[hoveredMonth]
+                                    .balance
+                                )}
                               </span>
                             </div>
                             <div>
-                              <span className="text-gray-300 text-xs">Principal:</span>
+                              <span className="text-gray-300 text-xs">
+                                Principal:
+                              </span>
                               <span className="font-semibold ml-2">
-                                {formatCurrency(results.amortizationSchedule[hoveredMonth].principal)}
+                                {formatCurrency(
+                                  results.amortizationSchedule[hoveredMonth]
+                                    .principal
+                                )}
                               </span>
                             </div>
                             <div>
-                              <span className="text-gray-300 text-xs">Interest:</span>
+                              <span className="text-gray-300 text-xs">
+                                Interest:
+                              </span>
                               <span className="font-semibold ml-2">
-                                {formatCurrency(results.amortizationSchedule[hoveredMonth].interest)}
+                                {formatCurrency(
+                                  results.amortizationSchedule[hoveredMonth]
+                                    .interest
+                                )}
                               </span>
                             </div>
                           </div>
@@ -1099,7 +1229,10 @@ export default function VALoanCalculator() {
                     {/* X-axis labels */}
                     <div className="flex justify-between text-xs text-gray-500">
                       <span>Start</span>
-                      <span>{Math.floor(results.amortizationSchedule.length / 2)} months</span>
+                      <span>
+                        {Math.floor(results.amortizationSchedule.length / 2)}{' '}
+                        months
+                      </span>
                       <span>Payoff</span>
                     </div>
                   </div>
@@ -1170,7 +1303,10 @@ export default function VALoanCalculator() {
                               </thead>
                               <tbody className="divide-y divide-gray-100">
                                 {results.amortizationSchedule.map((row) => (
-                                  <tr key={row.month} className="hover:bg-gray-50 transition-colors">
+                                  <tr
+                                    key={row.month}
+                                    className="hover:bg-gray-50 transition-colors"
+                                  >
                                     <td className="px-4 py-3 text-gray-900 font-medium">
                                       {row.month}
                                     </td>
@@ -1210,7 +1346,10 @@ export default function VALoanCalculator() {
                               </thead>
                               <tbody className="divide-y divide-gray-100">
                                 {getAnnualSummary().map((row) => (
-                                  <tr key={row.year} className="hover:bg-gray-50 transition-colors">
+                                  <tr
+                                    key={row.year}
+                                    className="hover:bg-gray-50 transition-colors"
+                                  >
                                     <td className="px-4 py-3 text-gray-900 font-medium">
                                       {row.year}
                                     </td>
@@ -1258,26 +1397,37 @@ export default function VALoanCalculator() {
                   What is a VA Loan?
                 </h3>
                 <p className="mb-4">
-                  A VA (Veterans Affairs) loan is a mortgage option available to eligible veterans, active-duty service members, and certain surviving spouses. Backed by the U.S. Department of Veterans Affairs, VA loans offer exceptional benefits that make homeownership more accessible and affordable for those who have served our country.
+                  A VA (Veterans Affairs) loan is a mortgage option available to
+                  eligible veterans, active-duty service members, and certain
+                  surviving spouses. Backed by the U.S. Department of Veterans
+                  Affairs, VA loans offer exceptional benefits that make
+                  homeownership more accessible and affordable for those who
+                  have served our country.
                 </p>
                 <ul className="space-y-2">
                   <li>
-                    <strong>No Down Payment Required:</strong> Purchase a home with 0% down
+                    <strong>No Down Payment Required:</strong> Purchase a home
+                    with 0% down
                   </li>
                   <li>
-                    <strong>No PMI/MIP Ever:</strong> Save hundreds per month compared to other loan types
+                    <strong>No PMI/MIP Ever:</strong> Save hundreds per month
+                    compared to other loan types
                   </li>
                   <li>
-                    <strong>Competitive Interest Rates:</strong> Often lower than conventional loans
+                    <strong>Competitive Interest Rates:</strong> Often lower
+                    than conventional loans
                   </li>
                   <li>
-                    <strong>No Prepayment Penalties:</strong> Pay off your loan early without fees
+                    <strong>No Prepayment Penalties:</strong> Pay off your loan
+                    early without fees
                   </li>
                   <li>
-                    <strong>Flexible Credit Requirements:</strong> More lenient than conventional loans
+                    <strong>Flexible Credit Requirements:</strong> More lenient
+                    than conventional loans
                   </li>
                   <li>
-                    <strong>Disabled Veteran Benefits:</strong> Funding fee waived for veterans with service-related disabilities
+                    <strong>Disabled Veteran Benefits:</strong> Funding fee
+                    waived for veterans with service-related disabilities
                   </li>
                 </ul>
               </div>
@@ -1287,38 +1437,68 @@ export default function VALoanCalculator() {
                   VA Funding Fee Explained
                 </h3>
                 <p className="mb-4">
-                  The VA funding fee is a one-time payment that helps offset the cost of the VA loan program to taxpayers. The fee varies based on your service type, down payment amount, and whether it&apos;s your first or subsequent use of a VA loan.
+                  The VA funding fee is a one-time payment that helps offset the
+                  cost of the VA loan program to taxpayers. The fee varies based
+                  on your service type, down payment amount, and whether
+                  it&apos;s your first or subsequent use of a VA loan.
                 </p>
                 <div className="overflow-x-auto">
                   <table className="w-full text-sm border-collapse">
                     <thead>
                       <tr className="bg-gray-50">
-                        <th className="border border-gray-200 px-4 py-2 text-left">Down Payment</th>
-                        <th className="border border-gray-200 px-4 py-2 text-left">First-Time Use</th>
-                        <th className="border border-gray-200 px-4 py-2 text-left">Subsequent Use</th>
+                        <th className="border border-gray-200 px-4 py-2 text-left">
+                          Down Payment
+                        </th>
+                        <th className="border border-gray-200 px-4 py-2 text-left">
+                          First-Time Use
+                        </th>
+                        <th className="border border-gray-200 px-4 py-2 text-left">
+                          Subsequent Use
+                        </th>
                       </tr>
                     </thead>
                     <tbody>
                       <tr>
-                        <td className="border border-gray-200 px-4 py-2">0% - 5%</td>
-                        <td className="border border-gray-200 px-4 py-2">2.15%</td>
-                        <td className="border border-gray-200 px-4 py-2">3.30%</td>
+                        <td className="border border-gray-200 px-4 py-2">
+                          0% - 5%
+                        </td>
+                        <td className="border border-gray-200 px-4 py-2">
+                          2.15%
+                        </td>
+                        <td className="border border-gray-200 px-4 py-2">
+                          3.30%
+                        </td>
                       </tr>
                       <tr>
-                        <td className="border border-gray-200 px-4 py-2">5% - 10%</td>
-                        <td className="border border-gray-200 px-4 py-2">1.50%</td>
-                        <td className="border border-gray-200 px-4 py-2">1.50%</td>
+                        <td className="border border-gray-200 px-4 py-2">
+                          5% - 10%
+                        </td>
+                        <td className="border border-gray-200 px-4 py-2">
+                          1.50%
+                        </td>
+                        <td className="border border-gray-200 px-4 py-2">
+                          1.50%
+                        </td>
                       </tr>
                       <tr>
-                        <td className="border border-gray-200 px-4 py-2">10%+</td>
-                        <td className="border border-gray-200 px-4 py-2">1.25%</td>
-                        <td className="border border-gray-200 px-4 py-2">1.25%</td>
+                        <td className="border border-gray-200 px-4 py-2">
+                          10%+
+                        </td>
+                        <td className="border border-gray-200 px-4 py-2">
+                          1.25%
+                        </td>
+                        <td className="border border-gray-200 px-4 py-2">
+                          1.25%
+                        </td>
                       </tr>
                     </tbody>
                   </table>
                 </div>
                 <p className="mt-4 text-sm bg-green-50 p-3 rounded-lg border border-green-100">
-                  <strong>Disabled Veteran Benefit:</strong> If you receive VA compensation for a service-related disability of 10% or higher, the funding fee is completely waived, saving you thousands of dollars.
+                  <strong>Disabled Veteran Benefit:</strong> If you receive VA
+                  compensation for a service-related disability of 10% or
+                  higher, the funding fee is completely waived, saving you
+                  thousands of dollars.
                 </p>
               </div>
 
@@ -1327,18 +1507,28 @@ export default function VALoanCalculator() {
                   The Huge Advantage: No PMI/MIP
                 </h3>
                 <p className="mb-4">
-                  The biggest financial benefit of a VA loan is the absence of Private Mortgage Insurance (PMI) or Mortgage Insurance Premium (MIP), regardless of your down payment amount. This can save you hundreds of dollars per month compared to conventional or FHA loans.
+                  The biggest financial benefit of a VA loan is the absence of
+                  Private Mortgage Insurance (PMI) or Mortgage Insurance Premium
+                  (MIP), regardless of your down payment amount. This can save
+                  you hundreds of dollars per month compared to conventional or
+                  FHA loans.
                 </p>
                 <div className="bg-blue-50 p-4 rounded-lg border border-blue-100">
-                  <p className="font-semibold text-blue-900 mb-2">Example Savings:</p>
+                  <p className="font-semibold text-blue-900 mb-2">
+                    Example Savings:
+                  </p>
                   <p className="text-blue-700">
                     On a $400,000 loan with 3.5% down:
                   </p>
                   <ul className="mt-2 space-y-1 text-blue-700">
                     <li>• FHA with MIP: ~$220/month in mortgage insurance</li>
                     <li>• VA Loan: $0/month in mortgage insurance</li>
-                    <li className="font-semibold text-green-700">• Annual Savings: $2,640</li>
-                    <li className="font-semibold text-green-700">• 30-Year Savings: $79,200</li>
+                    <li className="font-semibold text-green-700">
+                      • Annual Savings: $2,640
+                    </li>
+                    <li className="font-semibold text-green-700">
+                      • 30-Year Savings: $79,200
+                    </li>
                   </ul>
                 </div>
               </div>
@@ -1349,20 +1539,27 @@ export default function VALoanCalculator() {
                 </h3>
                 <ul className="space-y-3">
                   <li>
-                    <strong>Veterans:</strong> Those who served on active duty and were discharged under conditions other than dishonorable
+                    <strong>Veterans:</strong> Those who served on active duty
+                    and were discharged under conditions other than dishonorable
                   </li>
                   <li>
-                    <strong>Active-Duty Service Members:</strong> Currently serving and meeting minimum service requirements
+                    <strong>Active-Duty Service Members:</strong> Currently
+                    serving and meeting minimum service requirements
                   </li>
                   <li>
-                    <strong>National Guard & Reserves:</strong> Members who have completed at least 6 years of service
+                    <strong>National Guard & Reserves:</strong> Members who have
+                    completed at least 6 years of service
                   </li>
                   <li>
-                    <strong>Surviving Spouses:</strong> Un-remarried spouses of veterans who died in service or from a service-related disability
+                    <strong>Surviving Spouses:</strong> Un-remarried spouses of
+                    veterans who died in service or from a service-related
+                    disability
                   </li>
                 </ul>
                 <p className="mt-4 text-sm bg-blue-50 p-3 rounded-lg border border-blue-100">
-                  <strong>Note:</strong> You&apos;ll need a Certificate of Eligibility (COE) from the VA to apply for a VA loan. Your lender can often help you obtain this.
+                  <strong>Note:</strong> You&apos;ll need a Certificate of
+                  Eligibility (COE) from the VA to apply for a VA loan. Your
+                  lender can often help you obtain this.
                 </p>
               </div>
 
@@ -1371,14 +1568,19 @@ export default function VALoanCalculator() {
                   VA Loan Limits and Property Requirements
                 </h3>
                 <p className="mb-4">
-                  As of 2020, there is no maximum loan amount for veterans with full entitlement. However, lenders may have their own limits, and you&apos;ll need to meet certain property requirements:
+                  As of 2020, there is no maximum loan amount for veterans with
+                  full entitlement. However, lenders may have their own limits,
+                  and you&apos;ll need to meet certain property requirements:
                 </p>
                 <ul className="space-y-2">
                   <li>• Property must be your primary residence</li>
                   <li>• Must meet VA minimum property requirements (MPRs)</li>
                   <li>• Property must be move-in ready and safe</li>
                   <li>• VA appraisal required to ensure fair market value</li>
-                  <li>• Most residential property types eligible (single-family, condos, townhomes)</li>
+                  <li>
+                    • Most residential property types eligible (single-family,
+                    condos, townhomes)
+                  </li>
                 </ul>
               </div>
 
@@ -1388,25 +1590,32 @@ export default function VALoanCalculator() {
                 </h3>
                 <ul className="space-y-3">
                   <li>
-                    <strong>Check your COE early:</strong> Obtain your Certificate of Eligibility before house hunting
+                    <strong>Check your COE early:</strong> Obtain your
+                    Certificate of Eligibility before house hunting
                   </li>
                   <li>
-                    <strong>Improve your credit score:</strong> While VA loans are flexible, better credit means better rates
+                    <strong>Improve your credit score:</strong> While VA loans
+                    are flexible, better credit means better rates
                   </li>
                   <li>
-                    <strong>Consider a down payment:</strong> Even 5-10% down reduces your funding fee significantly
+                    <strong>Consider a down payment:</strong> Even 5-10% down
+                    reduces your funding fee significantly
                   </li>
                   <li>
-                    <strong>Shop multiple lenders:</strong> VA-approved lenders compete for your business
+                    <strong>Shop multiple lenders:</strong> VA-approved lenders
+                    compete for your business
                   </li>
                   <li>
-                    <strong>Understand your entitlement:</strong> Know if you have full or partial entitlement available
+                    <strong>Understand your entitlement:</strong> Know if you
+                    have full or partial entitlement available
                   </li>
                   <li>
-                    <strong>Factor in all costs:</strong> Remember property taxes, insurance, HOA fees, and maintenance
+                    <strong>Factor in all costs:</strong> Remember property
+                    taxes, insurance, HOA fees, and maintenance
                   </li>
                   <li>
-                    <strong>Use your benefit wisely:</strong> VA loans can be used multiple times, even for refinancing
+                    <strong>Use your benefit wisely:</strong> VA loans can be
+                    used multiple times, even for refinancing
                   </li>
                 </ul>
               </div>
@@ -1416,15 +1625,24 @@ export default function VALoanCalculator() {
                   Why Choose a VA Loan?
                 </h3>
                 <p className="mb-4">
-                  For eligible veterans and service members, VA loans represent one of the best mortgage options available:
+                  For eligible veterans and service members, VA loans represent
+                  one of the best mortgage options available:
                 </p>
                 <ul className="space-y-2 text-gray-700">
-                  <li>✓ Save thousands on closing costs with no down payment required</li>
+                  <li>
+                    ✓ Save thousands on closing costs with no down payment
+                    required
+                  </li>
                   <li>✓ Save hundreds monthly with no PMI/MIP payments</li>
                   <li>✓ Build equity faster with competitive interest rates</li>
-                  <li>✓ Achieve homeownership sooner with flexible qualifying standards</li>
+                  <li>
+                    ✓ Achieve homeownership sooner with flexible qualifying
+                    standards
+                  </li>
                   <li>✓ Enjoy peace of mind with no prepayment penalties</li>
-                  <li>✓ Honor your service with a benefit you&apos;ve earned</li>
+                  <li>
+                    ✓ Honor your service with a benefit you&apos;ve earned
+                  </li>
                 </ul>
               </div>
 
@@ -1434,22 +1652,22 @@ export default function VALoanCalculator() {
                 </h3>
                 <ul className="space-y-2">
                   <li>
-                    • This calculator provides estimates based on current VA guidelines (2024)
+                    • This calculator provides estimates based on current VA
+                    guidelines (2024)
                   </li>
                   <li>
-                    • Actual rates and terms vary based on credit score, debt ratios, and lender
+                    • Actual rates and terms vary based on credit score, debt
+                    ratios, and lender
+                  </li>
+                  <li>• Funding fee rates are subject to change by the VA</li>
+                  <li>• Property must meet VA minimum property requirements</li>
+                  <li>
+                    • Consult with a VA-approved lender for accurate quotes and
+                    personalized advice
                   </li>
                   <li>
-                    • Funding fee rates are subject to change by the VA
-                  </li>
-                  <li>
-                    • Property must meet VA minimum property requirements
-                  </li>
-                  <li>
-                    • Consult with a VA-approved lender for accurate quotes and personalized advice
-                  </li>
-                  <li>
-                    • Consider all aspects of homeownership beyond just the mortgage payment
+                    • Consider all aspects of homeownership beyond just the
+                    mortgage payment
                   </li>
                 </ul>
               </div>

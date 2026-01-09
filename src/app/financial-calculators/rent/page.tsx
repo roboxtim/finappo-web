@@ -69,7 +69,8 @@ export default function RentCalculator() {
     setAnnualTotal(annual);
 
     // Calculate cost breakdown (proportional to monthly total)
-    const baseTotal = monthlyRent + utilities + insurance + parking + otherCosts;
+    const baseTotal =
+      monthlyRent + utilities + insurance + parking + otherCosts;
     const factor = baseTotal > 0 ? total / baseTotal : 0;
 
     setCostBreakdown({
@@ -153,7 +154,7 @@ export default function RentCalculator() {
       gradient="bg-gradient-to-br from-blue-600 to-indigo-600"
     >
       {/* Calculator Section */}
-      <section className="py-8 lg:py-12">
+      <section className="pb-8 lg:pb-12">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <div className="grid lg:grid-cols-[40%_60%] gap-8">
             {/* Left Column - Input Form */}
@@ -422,9 +423,7 @@ export default function RentCalculator() {
                     </div>
                   </div>
                   <div>
-                    <div className="text-sm opacity-75">
-                      {years}-Year Total
-                    </div>
+                    <div className="text-sm opacity-75">{years}-Year Total</div>
                     <div className="text-xl font-semibold mt-1">
                       {formatCurrency(
                         yearlyProjection.reduce(
@@ -455,7 +454,9 @@ export default function RentCalculator() {
                     </span>
                     <span className="text-gray-500">of monthly income</span>
                   </div>
-                  <p className={`text-sm font-medium ${getAffordabilityColor(affordabilityRatio)}`}>
+                  <p
+                    className={`text-sm font-medium ${getAffordabilityColor(affordabilityRatio)}`}
+                  >
                     {getAffordabilityMessage(affordabilityRatio)}
                   </p>
                 </div>
@@ -487,8 +488,8 @@ export default function RentCalculator() {
                 <div className="mt-6 p-4 bg-blue-50 rounded-xl">
                   <p className="text-sm text-gray-700">
                     Financial experts recommend spending no more than{' '}
-                    <strong>30% of your gross monthly income</strong> on
-                    housing costs to maintain a healthy budget.
+                    <strong>30% of your gross monthly income</strong> on housing
+                    costs to maintain a healthy budget.
                   </p>
                 </div>
               </div>
@@ -509,7 +510,8 @@ export default function RentCalculator() {
                           width: `${(costBreakdown.rent / monthlyTotal) * 100}%`,
                         }}
                       >
-                        {((costBreakdown.rent / monthlyTotal) * 100) > 10 && 'Rent'}
+                        {(costBreakdown.rent / monthlyTotal) * 100 > 10 &&
+                          'Rent'}
                       </div>
                     )}
                     {costBreakdown.utilities > 0 && (
@@ -519,7 +521,8 @@ export default function RentCalculator() {
                           width: `${(costBreakdown.utilities / monthlyTotal) * 100}%`,
                         }}
                       >
-                        {((costBreakdown.utilities / monthlyTotal) * 100) > 8 && 'Util'}
+                        {(costBreakdown.utilities / monthlyTotal) * 100 > 8 &&
+                          'Util'}
                       </div>
                     )}
                     {costBreakdown.insurance > 0 && (
@@ -529,7 +532,8 @@ export default function RentCalculator() {
                           width: `${(costBreakdown.insurance / monthlyTotal) * 100}%`,
                         }}
                       >
-                        {((costBreakdown.insurance / monthlyTotal) * 100) > 5 && 'Ins'}
+                        {(costBreakdown.insurance / monthlyTotal) * 100 > 5 &&
+                          'Ins'}
                       </div>
                     )}
                     {costBreakdown.parking > 0 && (
@@ -539,7 +543,8 @@ export default function RentCalculator() {
                           width: `${(costBreakdown.parking / monthlyTotal) * 100}%`,
                         }}
                       >
-                        {((costBreakdown.parking / monthlyTotal) * 100) > 6 && 'Park'}
+                        {(costBreakdown.parking / monthlyTotal) * 100 > 6 &&
+                          'Park'}
                       </div>
                     )}
                     {costBreakdown.other > 0 && (
@@ -549,7 +554,8 @@ export default function RentCalculator() {
                           width: `${(costBreakdown.other / monthlyTotal) * 100}%`,
                         }}
                       >
-                        {((costBreakdown.other / monthlyTotal) * 100) > 5 && 'Other'}
+                        {(costBreakdown.other / monthlyTotal) * 100 > 5 &&
+                          'Other'}
                       </div>
                     )}
                   </div>
@@ -853,9 +859,7 @@ export default function RentCalculator() {
                           </span>
                         </div>
                         <div>
-                          <span className="text-gray-300 text-xs">
-                            Annual:
-                          </span>
+                          <span className="text-gray-300 text-xs">Annual:</span>
                           <span className="font-semibold ml-2">
                             {formatCurrency(hoveredPoint.annualTotal)}
                           </span>
@@ -1046,9 +1050,9 @@ export default function RentCalculator() {
                 </p>
                 <div className="bg-blue-50 p-4 rounded-xl">
                   <p className="text-sm">
-                    <strong>Example:</strong> If you earn $5,000 per month,
-                    your total housing costs should ideally not exceed $1,500
-                    per month.
+                    <strong>Example:</strong> If you earn $5,000 per month, your
+                    total housing costs should ideally not exceed $1,500 per
+                    month.
                   </p>
                 </div>
               </div>
@@ -1063,16 +1067,14 @@ export default function RentCalculator() {
                   essential for long-term budgeting.
                 </p>
                 <ul className="space-y-2">
-                  <li>
-                    • Check your lease for maximum allowed rent increases
-                  </li>
+                  <li>• Check your lease for maximum allowed rent increases</li>
                   <li>
                     • Many states and cities have rent control laws limiting
                     increases
                   </li>
                   <li>
-                    • Factor in annual increases when planning multi-year
-                    living arrangements
+                    • Factor in annual increases when planning multi-year living
+                    arrangements
                   </li>
                   <li>
                     • Consider negotiating longer leases with fixed rent terms
@@ -1090,8 +1092,8 @@ export default function RentCalculator() {
                     with high vacancy rates
                   </li>
                   <li>
-                    <strong>Pay upfront:</strong> Some landlords offer
-                    discounts for 6-12 months paid in advance
+                    <strong>Pay upfront:</strong> Some landlords offer discounts
+                    for 6-12 months paid in advance
                   </li>
                   <li>
                     <strong>Reduce utility costs:</strong> Use energy-efficient
@@ -1117,9 +1119,9 @@ export default function RentCalculator() {
                   Renting vs. Buying Considerations
                 </h3>
                 <p className="mb-4">
-                  While this calculator focuses on rental costs, it&apos;s
-                  worth considering the long-term financial implications of
-                  renting versus buying:
+                  While this calculator focuses on rental costs, it&apos;s worth
+                  considering the long-term financial implications of renting
+                  versus buying:
                 </p>
                 <div className="grid md:grid-cols-2 gap-4">
                   <div>

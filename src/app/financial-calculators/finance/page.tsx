@@ -140,7 +140,7 @@ export default function FinanceCalculator() {
       gradient="bg-gradient-to-br from-blue-600 to-indigo-600"
     >
       {/* Calculator Section */}
-      <section className="py-8 lg:py-12">
+      <section className="pb-8 lg:pb-12">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <div className="grid lg:grid-cols-[45%_55%] gap-8">
             {/* Left Column - Input Form */}
@@ -647,8 +647,8 @@ export default function FinanceCalculator() {
                         out (payments, investments, loan amounts received)
                       </li>
                       <li>
-                        • <strong>Positive values</strong> represent money coming
-                        in (receipts, loan payoffs, future values)
+                        • <strong>Positive values</strong> represent money
+                        coming in (receipts, loan payoffs, future values)
                       </li>
                     </ul>
                   </div>

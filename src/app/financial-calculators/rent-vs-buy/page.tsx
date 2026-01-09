@@ -176,7 +176,7 @@ export default function RentVsBuyCalculator() {
       icon={<Scale className="w-8 h-8 text-white" />}
       gradient="bg-gradient-to-br from-indigo-600 to-purple-600"
     >
-      <section className="py-8 lg:py-12">
+      <section className="pb-8 lg:pb-12">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-5 gap-8">
             {/* Input Form - Left Column (40%) */}

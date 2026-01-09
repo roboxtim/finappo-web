@@ -57,7 +57,14 @@ export default function APRCalculator() {
       totalMonths
     );
     setAmortizationSchedule(schedule);
-  }, [loanAmount, interestRate, loanTermYears, loanTermMonths, loanedFees, upfrontFees]);
+  }, [
+    loanAmount,
+    interestRate,
+    loanTermYears,
+    loanTermMonths,
+    loanedFees,
+    upfrontFees,
+  ]);
 
   useEffect(() => {
     calculateResults();
@@ -90,9 +97,10 @@ export default function APRCalculator() {
   const aprDifference = results
     ? results.effectiveAPR - results.nominalRate
     : 0;
-  const aprDifferencePercent = results && results.nominalRate > 0
-    ? (aprDifference / results.nominalRate) * 100
-    : 0;
+  const aprDifferencePercent =
+    results && results.nominalRate > 0
+      ? (aprDifference / results.nominalRate) * 100
+      : 0;
 
   return (
     <CalculatorLayout
@@ -102,7 +110,7 @@ export default function APRCalculator() {
       gradient="bg-gradient-to-br from-blue-600 to-indigo-600"
     >
       {/* Calculator Section */}
-      <section className="py-8 lg:py-12">
+      <section className="pb-8 lg:pb-12">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <div className="grid lg:grid-cols-[40%_60%] gap-8">
             {/* Left Column - Input Form */}
@@ -293,9 +301,8 @@ export default function APRCalculator() {
                     </div>
                     {aprDifference > 0 && (
                       <div className="mt-4 text-sm bg-white/10 rounded-xl px-4 py-3">
-                        Your effective APR is{' '}
-                        {aprDifferencePercent.toFixed(1)}% higher than the
-                        nominal rate due to fees
+                        Your effective APR is {aprDifferencePercent.toFixed(1)}%
+                        higher than the nominal rate due to fees
                       </div>
                     )}
                   </div>
@@ -341,9 +348,7 @@ export default function APRCalculator() {
                     <div className="space-y-4 mb-6">
                       <div>
                         <div className="flex justify-between text-sm mb-2">
-                          <span className="text-gray-600">
-                            Amount Financed
-                          </span>
+                          <span className="text-gray-600">Amount Financed</span>
                           <span className="font-semibold text-gray-900">
                             {formatCurrency(results.amountFinanced)}
                           </span>
@@ -435,7 +440,8 @@ export default function APRCalculator() {
                           <div className="w-2 h-2 rounded-full bg-blue-500 mt-2"></div>
                           <div>
                             <div className="font-semibold text-gray-900 mb-1">
-                              Interest Rate: {formatPercent(results.nominalRate, 2)}
+                              Interest Rate:{' '}
+                              {formatPercent(results.nominalRate, 2)}
                             </div>
                             <div className="text-sm text-gray-600">
                               The base annual rate charged on the principal
@@ -449,7 +455,8 @@ export default function APRCalculator() {
                           <div className="w-2 h-2 rounded-full bg-indigo-500 mt-2"></div>
                           <div>
                             <div className="font-semibold text-gray-900 mb-1">
-                              Effective APR: {formatPercent(results.effectiveAPR)}
+                              Effective APR:{' '}
+                              {formatPercent(results.effectiveAPR)}
                             </div>
                             <div className="text-sm text-gray-600">
                               The true cost including all fees and charges
@@ -677,8 +684,8 @@ export default function APRCalculator() {
                     reduce certain fees
                   </li>
                   <li>
-                    <strong>Consider shorter terms:</strong> Shorter loans
-                    often have lower rates and fees
+                    <strong>Consider shorter terms:</strong> Shorter loans often
+                    have lower rates and fees
                   </li>
                   <li>
                     <strong>Read the fine print:</strong> Understand all fees
@@ -729,8 +736,7 @@ export default function APRCalculator() {
                     lender
                   </li>
                   <li>
-                    • Federal law requires lenders to disclose APR on most
-                    loans
+                    • Federal law requires lenders to disclose APR on most loans
                   </li>
                   <li>
                     • Always read the loan agreement carefully before signing

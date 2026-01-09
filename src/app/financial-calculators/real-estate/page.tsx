@@ -26,7 +26,9 @@ export default function RealEstateCalculator() {
   const [homePrice, setHomePrice] = useState<number>(400000);
   const [downPaymentPercent, setDownPaymentPercent] = useState<number>(20);
   const [downPaymentDollar, setDownPaymentDollar] = useState<number>(80000);
-  const [downPaymentMode, setDownPaymentMode] = useState<'percent' | 'dollar'>('percent');
+  const [downPaymentMode, setDownPaymentMode] = useState<'percent' | 'dollar'>(
+    'percent'
+  );
 
   // Loan Details
   const [loanTermYears, setLoanTermYears] = useState<number>(30);
@@ -40,8 +42,10 @@ export default function RealEstateCalculator() {
 
   // Rates & Appreciation
   const [appreciationRate, setAppreciationRate] = useState<number>(3.0);
-  const [propertyTaxIncreaseRate, setPropertyTaxIncreaseRate] = useState<number>(2.0);
-  const [insuranceIncreaseRate, setInsuranceIncreaseRate] = useState<number>(3.0);
+  const [propertyTaxIncreaseRate, setPropertyTaxIncreaseRate] =
+    useState<number>(2.0);
+  const [insuranceIncreaseRate, setInsuranceIncreaseRate] =
+    useState<number>(3.0);
   const [incomeTaxRate, setIncomeTaxRate] = useState<number>(22.0);
 
   // Calculated results
@@ -75,8 +79,9 @@ export default function RealEstateCalculator() {
     const monthlyRate = interestRate / 100 / 12;
     const numberOfPayments = loanTermYears * 12;
 
-    const payment = principal *
-      (monthlyRate * Math.pow(1 + monthlyRate, numberOfPayments)) /
+    const payment =
+      (principal *
+        (monthlyRate * Math.pow(1 + monthlyRate, numberOfPayments))) /
       (Math.pow(1 + monthlyRate, numberOfPayments) - 1);
 
     return payment;
@@ -121,17 +126,19 @@ export default function RealEstateCalculator() {
       }
 
       // Apply appreciation and increases
-      currentHomeValue *= (1 + appreciationRate / 100);
+      currentHomeValue *= 1 + appreciationRate / 100;
 
       // Tax deduction (only on mortgage interest)
       const taxDeduction = yearlyInterest * (incomeTaxRate / 100);
 
       // Calculate equity
       const totalPrincipalPaid = principal - remainingBalance;
-      const equity = downPaymentDollar + totalPrincipalPaid + (currentHomeValue - homePrice);
+      const equity =
+        downPaymentDollar + totalPrincipalPaid + (currentHomeValue - homePrice);
 
       // PMI stops when equity reaches 20% of current home value
-      const equityPercent = ((downPaymentDollar + totalPrincipalPaid) / homePrice) * 100;
+      const equityPercent =
+        ((downPaymentDollar + totalPrincipalPaid) / homePrice) * 100;
       const yearlyPMI = equityPercent >= 20 ? 0 : pmi * 12;
 
       data.push({
@@ -143,25 +150,44 @@ export default function RealEstateCalculator() {
         propertyTax: currentPropertyTax,
         insurance: currentInsurance,
         pmi: yearlyPMI,
-        maintenance: maintenanceAnnual * Math.pow(1 + propertyTaxIncreaseRate / 100, year - 1),
-        totalCost: mortgage * 12 + currentPropertyTax + currentInsurance + yearlyPMI +
-                   hoaMonthly * 12 + maintenanceAnnual * Math.pow(1 + propertyTaxIncreaseRate / 100, year - 1),
+        maintenance:
+          maintenanceAnnual *
+          Math.pow(1 + propertyTaxIncreaseRate / 100, year - 1),
+        totalCost:
+          mortgage * 12 +
+          currentPropertyTax +
+          currentInsurance +
+          yearlyPMI +
+          hoaMonthly * 12 +
+          maintenanceAnnual *
+            Math.pow(1 + propertyTaxIncreaseRate / 100, year - 1),
         homeValue: currentHomeValue,
         loanBalance: remainingBalance,
         equity,
       });
 
       // Apply increases for next year
-      currentPropertyTax *= (1 + propertyTaxIncreaseRate / 100);
-      currentInsurance *= (1 + insuranceIncreaseRate / 100);
+      currentPropertyTax *= 1 + propertyTaxIncreaseRate / 100;
+      currentInsurance *= 1 + insuranceIncreaseRate / 100;
     }
 
     return data;
   }, [
-    homePrice, downPaymentDollar, interestRate, loanTermYears, propertyTaxAnnual,
-    homeInsuranceAnnual, hoaMonthly, maintenanceAnnual, appreciationRate,
-    propertyTaxIncreaseRate, insuranceIncreaseRate, incomeTaxRate, analysisYears,
-    calculateMortgage, calculatePMI
+    homePrice,
+    downPaymentDollar,
+    interestRate,
+    loanTermYears,
+    propertyTaxAnnual,
+    homeInsuranceAnnual,
+    hoaMonthly,
+    maintenanceAnnual,
+    appreciationRate,
+    propertyTaxIncreaseRate,
+    insuranceIncreaseRate,
+    incomeTaxRate,
+    analysisYears,
+    calculateMortgage,
+    calculatePMI,
   ]);
 
   useEffect(() => {
@@ -173,8 +199,13 @@ export default function RealEstateCalculator() {
     const monthlyInsurance = homeInsuranceAnnual / 12;
     const monthlyMaintenance = maintenanceAnnual / 12;
 
-    const total = mortgage + pmi + monthlyPropertyTax + monthlyInsurance +
-                  hoaMonthly + monthlyMaintenance;
+    const total =
+      mortgage +
+      pmi +
+      monthlyPropertyTax +
+      monthlyInsurance +
+      hoaMonthly +
+      monthlyMaintenance;
 
     setLoanAmount(principal);
     setMonthlyMortgage(mortgage);
@@ -184,9 +215,17 @@ export default function RealEstateCalculator() {
     const data = calculateYearlyData();
     setYearlyData(data);
   }, [
-    homePrice, downPaymentDollar, interestRate, loanTermYears, propertyTaxAnnual,
-    homeInsuranceAnnual, hoaMonthly, maintenanceAnnual, calculateMortgage,
-    calculatePMI, calculateYearlyData
+    homePrice,
+    downPaymentDollar,
+    interestRate,
+    loanTermYears,
+    propertyTaxAnnual,
+    homeInsuranceAnnual,
+    hoaMonthly,
+    maintenanceAnnual,
+    calculateMortgage,
+    calculatePMI,
+    calculateYearlyData,
   ]);
 
   const formatCurrency = (value: number) => {
@@ -217,11 +256,22 @@ export default function RealEstateCalculator() {
     return cleaned ? Number(cleaned) : 0;
   };
 
-  const totalInterest = yearlyData.reduce((sum, year) => sum + year.interestPaid, 0);
-  const totalTaxSavings = yearlyData.reduce((sum, year) => sum + year.taxDeduction, 0);
-  const finalHomeValue = yearlyData[yearlyData.length - 1]?.homeValue || homePrice;
-  const finalEquity = yearlyData[yearlyData.length - 1]?.equity || downPaymentDollar;
-  const totalCostPaid = yearlyData.reduce((sum, year) => sum + year.totalCost, 0);
+  const totalInterest = yearlyData.reduce(
+    (sum, year) => sum + year.interestPaid,
+    0
+  );
+  const totalTaxSavings = yearlyData.reduce(
+    (sum, year) => sum + year.taxDeduction,
+    0
+  );
+  const finalHomeValue =
+    yearlyData[yearlyData.length - 1]?.homeValue || homePrice;
+  const finalEquity =
+    yearlyData[yearlyData.length - 1]?.equity || downPaymentDollar;
+  const totalCostPaid = yearlyData.reduce(
+    (sum, year) => sum + year.totalCost,
+    0
+  );
   const netCost = totalCostPaid - finalHomeValue - totalTaxSavings;
 
   return (
@@ -232,7 +282,7 @@ export default function RealEstateCalculator() {
       gradient="bg-gradient-to-br from-blue-600 to-indigo-600"
     >
       {/* Calculator Section */}
-      <section className="py-8 lg:py-12">
+      <section className="pb-8 lg:pb-12">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <div className="grid lg:grid-cols-[40%_60%] gap-8">
             {/* Left Column - Input Form */}
@@ -262,7 +312,9 @@ export default function RealEstateCalculator() {
                         type="text"
                         inputMode="numeric"
                         value={formatInputValue(homePrice)}
-                        onChange={(e) => setHomePrice(parseInputValue(e.target.value))}
+                        onChange={(e) =>
+                          setHomePrice(parseInputValue(e.target.value))
+                        }
                         className="w-full pl-8 pr-4 py-3 rounded-xl border-2 border-gray-200 focus:border-blue-500 focus:outline-none transition-colors text-gray-900 font-medium"
                       />
                     </div>
@@ -302,7 +354,10 @@ export default function RealEstateCalculator() {
                           inputMode="decimal"
                           value={downPaymentPercent || ''}
                           onChange={(e) => {
-                            const value = e.target.value.replace(/[^0-9.]/g, '');
+                            const value = e.target.value.replace(
+                              /[^0-9.]/g,
+                              ''
+                            );
                             setDownPaymentPercent(value ? Number(value) : 0);
                           }}
                           className="w-full pl-4 pr-8 py-3 rounded-xl border-2 border-gray-200 focus:border-blue-500 focus:outline-none transition-colors text-gray-900 font-medium"
@@ -320,7 +375,11 @@ export default function RealEstateCalculator() {
                           type="text"
                           inputMode="numeric"
                           value={formatInputValue(downPaymentDollar)}
-                          onChange={(e) => setDownPaymentDollar(parseInputValue(e.target.value))}
+                          onChange={(e) =>
+                            setDownPaymentDollar(
+                              parseInputValue(e.target.value)
+                            )
+                          }
                           className="w-full pl-8 pr-4 py-3 rounded-xl border-2 border-gray-200 focus:border-blue-500 focus:outline-none transition-colors text-gray-900 font-medium"
                         />
                       </div>
@@ -394,7 +453,9 @@ export default function RealEstateCalculator() {
                         type="text"
                         inputMode="numeric"
                         value={formatInputValue(propertyTaxAnnual)}
-                        onChange={(e) => setPropertyTaxAnnual(parseInputValue(e.target.value))}
+                        onChange={(e) =>
+                          setPropertyTaxAnnual(parseInputValue(e.target.value))
+                        }
                         className="w-full pl-8 pr-4 py-3 rounded-xl border-2 border-gray-200 focus:border-blue-500 focus:outline-none transition-colors text-gray-900 font-medium"
                       />
                     </div>
@@ -416,7 +477,11 @@ export default function RealEstateCalculator() {
                         type="text"
                         inputMode="numeric"
                         value={formatInputValue(homeInsuranceAnnual)}
-                        onChange={(e) => setHomeInsuranceAnnual(parseInputValue(e.target.value))}
+                        onChange={(e) =>
+                          setHomeInsuranceAnnual(
+                            parseInputValue(e.target.value)
+                          )
+                        }
                         className="w-full pl-8 pr-4 py-3 rounded-xl border-2 border-gray-200 focus:border-blue-500 focus:outline-none transition-colors text-gray-900 font-medium"
                       />
                     </div>
@@ -438,7 +503,9 @@ export default function RealEstateCalculator() {
                         type="text"
                         inputMode="numeric"
                         value={formatInputValue(hoaMonthly)}
-                        onChange={(e) => setHoaMonthly(parseInputValue(e.target.value))}
+                        onChange={(e) =>
+                          setHoaMonthly(parseInputValue(e.target.value))
+                        }
                         className="w-full pl-8 pr-4 py-3 rounded-xl border-2 border-gray-200 focus:border-blue-500 focus:outline-none transition-colors text-gray-900 font-medium"
                       />
                     </div>
@@ -457,7 +524,9 @@ export default function RealEstateCalculator() {
                         type="text"
                         inputMode="numeric"
                         value={formatInputValue(maintenanceAnnual)}
-                        onChange={(e) => setMaintenanceAnnual(parseInputValue(e.target.value))}
+                        onChange={(e) =>
+                          setMaintenanceAnnual(parseInputValue(e.target.value))
+                        }
                         className="w-full pl-8 pr-4 py-3 rounded-xl border-2 border-gray-200 focus:border-blue-500 focus:outline-none transition-colors text-gray-900 font-medium"
                       />
                     </div>
@@ -677,7 +746,9 @@ export default function RealEstateCalculator() {
                     </span>
                   </div>
                   <div className="flex justify-between items-center pt-3 border-t border-gray-200">
-                    <span className="font-bold text-gray-900">Total Monthly</span>
+                    <span className="font-bold text-gray-900">
+                      Total Monthly
+                    </span>
                     <span className="font-bold text-blue-600 text-lg">
                       {formatCurrency(totalMonthlyPayment)}
                     </span>
@@ -728,7 +799,9 @@ export default function RealEstateCalculator() {
 
                   <div className="grid grid-cols-2 gap-4">
                     <div className="p-3 bg-gray-50 rounded-xl">
-                      <div className="text-xs text-gray-600">Total Interest</div>
+                      <div className="text-xs text-gray-600">
+                        Total Interest
+                      </div>
                       <div className="text-lg font-bold text-gray-900 mt-1">
                         {formatCurrency(totalInterest)}
                       </div>
@@ -772,8 +845,13 @@ export default function RealEstateCalculator() {
                       if (yearlyData.length === 0) return;
                       const rect = e.currentTarget.getBoundingClientRect();
                       const x = ((e.clientX - rect.left) / rect.width) * 800;
-                      const index = Math.round((x / 800) * (yearlyData.length - 1));
-                      const validIndex = Math.max(0, Math.min(index, yearlyData.length - 1));
+                      const index = Math.round(
+                        (x / 800) * (yearlyData.length - 1)
+                      );
+                      const validIndex = Math.max(
+                        0,
+                        Math.min(index, yearlyData.length - 1)
+                      );
                       setHoveredYear(validIndex);
                     }}
                     onMouseLeave={() => setHoveredYear(null)}
@@ -795,13 +873,41 @@ export default function RealEstateCalculator() {
 
                     {/* Gradients */}
                     <defs>
-                      <linearGradient id="equityGradient" x1="0" y1="0" x2="0" y2="1">
-                        <stop offset="0%" stopColor="#3B82F6" stopOpacity="0.6" />
-                        <stop offset="100%" stopColor="#3B82F6" stopOpacity="0.1" />
+                      <linearGradient
+                        id="equityGradient"
+                        x1="0"
+                        y1="0"
+                        x2="0"
+                        y2="1"
+                      >
+                        <stop
+                          offset="0%"
+                          stopColor="#3B82F6"
+                          stopOpacity="0.6"
+                        />
+                        <stop
+                          offset="100%"
+                          stopColor="#3B82F6"
+                          stopOpacity="0.1"
+                        />
                       </linearGradient>
-                      <linearGradient id="valueGradient" x1="0" y1="0" x2="0" y2="1">
-                        <stop offset="0%" stopColor="#10B981" stopOpacity="0.6" />
-                        <stop offset="100%" stopColor="#10B981" stopOpacity="0.1" />
+                      <linearGradient
+                        id="valueGradient"
+                        x1="0"
+                        y1="0"
+                        x2="0"
+                        y2="1"
+                      >
+                        <stop
+                          offset="0%"
+                          stopColor="#10B981"
+                          stopOpacity="0.6"
+                        />
+                        <stop
+                          offset="100%"
+                          stopColor="#10B981"
+                          stopOpacity="0.1"
+                        />
                       </linearGradient>
                     </defs>
 
@@ -810,11 +916,14 @@ export default function RealEstateCalculator() {
                         {/* Home Value Area */}
                         <path
                           d={(() => {
-                            const maxValue = Math.max(...yearlyData.map(d => d.homeValue));
+                            const maxValue = Math.max(
+                              ...yearlyData.map((d) => d.homeValue)
+                            );
                             const points = yearlyData
                               .map((data, i) => {
                                 const x = (i / (yearlyData.length - 1)) * 800;
-                                const y = 256 - (data.homeValue / maxValue) * 200;
+                                const y =
+                                  256 - (data.homeValue / maxValue) * 200;
                                 return `${x},${y}`;
                               })
                               .join(' L ');
@@ -826,11 +935,14 @@ export default function RealEstateCalculator() {
                         {/* Home Value Line */}
                         <polyline
                           points={(() => {
-                            const maxValue = Math.max(...yearlyData.map(d => d.homeValue));
+                            const maxValue = Math.max(
+                              ...yearlyData.map((d) => d.homeValue)
+                            );
                             return yearlyData
                               .map((data, i) => {
                                 const x = (i / (yearlyData.length - 1)) * 800;
-                                const y = 256 - (data.homeValue / maxValue) * 200;
+                                const y =
+                                  256 - (data.homeValue / maxValue) * 200;
                                 return `${x},${y}`;
                               })
                               .join(' ');
@@ -843,7 +955,9 @@ export default function RealEstateCalculator() {
                         {/* Equity Area */}
                         <path
                           d={(() => {
-                            const maxValue = Math.max(...yearlyData.map(d => d.homeValue));
+                            const maxValue = Math.max(
+                              ...yearlyData.map((d) => d.homeValue)
+                            );
                             const points = yearlyData
                               .map((data, i) => {
                                 const x = (i / (yearlyData.length - 1)) * 800;
@@ -859,7 +973,9 @@ export default function RealEstateCalculator() {
                         {/* Equity Line */}
                         <polyline
                           points={(() => {
-                            const maxValue = Math.max(...yearlyData.map(d => d.homeValue));
+                            const maxValue = Math.max(
+                              ...yearlyData.map((d) => d.homeValue)
+                            );
                             return yearlyData
                               .map((data, i) => {
                                 const x = (i / (yearlyData.length - 1)) * 800;
@@ -897,16 +1013,21 @@ export default function RealEstateCalculator() {
                       style={{
                         left: `${(hoveredYear / (yearlyData.length - 1)) * 100}%`,
                         top: '10%',
-                        transform: hoveredYear > yearlyData.length / 2
-                          ? 'translateX(-100%)'
-                          : 'translateX(10px)',
+                        transform:
+                          hoveredYear > yearlyData.length / 2
+                            ? 'translateX(-100%)'
+                            : 'translateX(10px)',
                       }}
                     >
-                      <div className="font-bold mb-2">Year {yearlyData[hoveredYear].year}</div>
+                      <div className="font-bold mb-2">
+                        Year {yearlyData[hoveredYear].year}
+                      </div>
                       <div className="space-y-1.5">
                         <div className="flex items-center gap-2">
                           <div className="w-3 h-3 rounded bg-green-500"></div>
-                          <span className="text-gray-300 text-xs">Home Value:</span>
+                          <span className="text-gray-300 text-xs">
+                            Home Value:
+                          </span>
                           <span className="font-semibold ml-auto">
                             {formatCurrency(yearlyData[hoveredYear].homeValue)}
                           </span>
@@ -920,9 +1041,13 @@ export default function RealEstateCalculator() {
                         </div>
                         <div className="flex items-center gap-2">
                           <div className="w-3 h-3 rounded bg-gray-500"></div>
-                          <span className="text-gray-300 text-xs">Loan Balance:</span>
+                          <span className="text-gray-300 text-xs">
+                            Loan Balance:
+                          </span>
                           <span className="font-semibold ml-auto">
-                            {formatCurrency(yearlyData[hoveredYear].loanBalance)}
+                            {formatCurrency(
+                              yearlyData[hoveredYear].loanBalance
+                            )}
                           </span>
                         </div>
                       </div>
@@ -997,7 +1122,10 @@ export default function RealEstateCalculator() {
                         </thead>
                         <tbody className="divide-y divide-gray-100">
                           {yearlyData.map((data) => (
-                            <tr key={data.year} className="hover:bg-gray-50 transition-colors">
+                            <tr
+                              key={data.year}
+                              className="hover:bg-gray-50 transition-colors"
+                            >
                               <td className="px-4 py-3 text-gray-900 font-medium">
                                 {data.year}
                               </td>
@@ -1048,15 +1176,35 @@ export default function RealEstateCalculator() {
                   How Home Ownership Costs Are Calculated
                 </h3>
                 <p className="mb-4">
-                  The total cost of homeownership extends beyond just your monthly mortgage payment. This calculator provides a comprehensive view of all costs involved:
+                  The total cost of homeownership extends beyond just your
+                  monthly mortgage payment. This calculator provides a
+                  comprehensive view of all costs involved:
                 </p>
                 <ul className="space-y-2">
-                  <li><strong>Monthly Mortgage (P&I):</strong> Principal and interest calculated using the standard amortization formula</li>
-                  <li><strong>PMI:</strong> Private Mortgage Insurance (typically 0.5% annually) required when down payment is less than 20%</li>
-                  <li><strong>Property Tax:</strong> Annual property taxes divided into monthly payments, with optional annual increase rate</li>
-                  <li><strong>Home Insurance:</strong> Homeowners insurance with optional annual increase rate</li>
-                  <li><strong>HOA Fees:</strong> Monthly homeowners association fees (if applicable)</li>
-                  <li><strong>Maintenance:</strong> Typical rule is 1% of home value annually, adjusted for inflation</li>
+                  <li>
+                    <strong>Monthly Mortgage (P&I):</strong> Principal and
+                    interest calculated using the standard amortization formula
+                  </li>
+                  <li>
+                    <strong>PMI:</strong> Private Mortgage Insurance (typically
+                    0.5% annually) required when down payment is less than 20%
+                  </li>
+                  <li>
+                    <strong>Property Tax:</strong> Annual property taxes divided
+                    into monthly payments, with optional annual increase rate
+                  </li>
+                  <li>
+                    <strong>Home Insurance:</strong> Homeowners insurance with
+                    optional annual increase rate
+                  </li>
+                  <li>
+                    <strong>HOA Fees:</strong> Monthly homeowners association
+                    fees (if applicable)
+                  </li>
+                  <li>
+                    <strong>Maintenance:</strong> Typical rule is 1% of home
+                    value annually, adjusted for inflation
+                  </li>
                 </ul>
               </div>
 
@@ -1064,16 +1212,24 @@ export default function RealEstateCalculator() {
                 <h3 className="text-xl font-bold text-gray-900 mb-3">
                   Building Home Equity
                 </h3>
-                <p className="mb-4">
-                  Your home equity grows in three ways:
-                </p>
+                <p className="mb-4">Your home equity grows in three ways:</p>
                 <ul className="space-y-2">
-                  <li><strong>Down Payment:</strong> Your initial equity starts with your down payment</li>
-                  <li><strong>Principal Paydown:</strong> Each mortgage payment reduces your loan balance and increases equity</li>
-                  <li><strong>Home Appreciation:</strong> As your property value increases, so does your equity</li>
+                  <li>
+                    <strong>Down Payment:</strong> Your initial equity starts
+                    with your down payment
+                  </li>
+                  <li>
+                    <strong>Principal Paydown:</strong> Each mortgage payment
+                    reduces your loan balance and increases equity
+                  </li>
+                  <li>
+                    <strong>Home Appreciation:</strong> As your property value
+                    increases, so does your equity
+                  </li>
                 </ul>
                 <p className="mt-4">
-                  The calculator tracks all three components to show your total equity growth over time.
+                  The calculator tracks all three components to show your total
+                  equity growth over time.
                 </p>
               </div>
 
@@ -1082,15 +1238,27 @@ export default function RealEstateCalculator() {
                   Tax Benefits of Homeownership
                 </h3>
                 <p className="mb-4">
-                  One of the key advantages of owning a home is the mortgage interest tax deduction. The calculator estimates your annual tax savings based on:
+                  One of the key advantages of owning a home is the mortgage
+                  interest tax deduction. The calculator estimates your annual
+                  tax savings based on:
                 </p>
                 <ul className="space-y-2">
-                  <li><strong>Mortgage Interest Paid:</strong> The interest portion of your mortgage payment is typically tax-deductible</li>
-                  <li><strong>Your Tax Rate:</strong> The deduction value depends on your marginal income tax rate</li>
-                  <li><strong>Standard Deduction:</strong> You benefit only if your itemized deductions exceed the standard deduction</li>
+                  <li>
+                    <strong>Mortgage Interest Paid:</strong> The interest
+                    portion of your mortgage payment is typically tax-deductible
+                  </li>
+                  <li>
+                    <strong>Your Tax Rate:</strong> The deduction value depends
+                    on your marginal income tax rate
+                  </li>
+                  <li>
+                    <strong>Standard Deduction:</strong> You benefit only if
+                    your itemized deductions exceed the standard deduction
+                  </li>
                 </ul>
                 <p className="mt-4 text-sm text-gray-500">
-                  Note: Tax laws change frequently. Consult a tax professional for personalized advice.
+                  Note: Tax laws change frequently. Consult a tax professional
+                  for personalized advice.
                 </p>
               </div>
 
@@ -1099,13 +1267,26 @@ export default function RealEstateCalculator() {
                   Understanding PMI
                 </h3>
                 <p className="mb-4">
-                  Private Mortgage Insurance (PMI) protects the lender if you default on your loan. Here&apos;s what you need to know:
+                  Private Mortgage Insurance (PMI) protects the lender if you
+                  default on your loan. Here&apos;s what you need to know:
                 </p>
                 <ul className="space-y-2">
-                  <li><strong>When Required:</strong> Typically required when your down payment is less than 20% of the home price</li>
-                  <li><strong>Cost:</strong> Usually 0.5% to 1% of the loan amount annually, paid monthly</li>
-                  <li><strong>Removal:</strong> Can often be removed once you reach 20% equity in your home</li>
-                  <li><strong>FHA vs Conventional:</strong> FHA loans have different PMI rules than conventional loans</li>
+                  <li>
+                    <strong>When Required:</strong> Typically required when your
+                    down payment is less than 20% of the home price
+                  </li>
+                  <li>
+                    <strong>Cost:</strong> Usually 0.5% to 1% of the loan amount
+                    annually, paid monthly
+                  </li>
+                  <li>
+                    <strong>Removal:</strong> Can often be removed once you
+                    reach 20% equity in your home
+                  </li>
+                  <li>
+                    <strong>FHA vs Conventional:</strong> FHA loans have
+                    different PMI rules than conventional loans
+                  </li>
                 </ul>
               </div>
 
@@ -1114,13 +1295,26 @@ export default function RealEstateCalculator() {
                   Home Appreciation Rates
                 </h3>
                 <p className="mb-4">
-                  Historical home appreciation varies significantly by location and time period:
+                  Historical home appreciation varies significantly by location
+                  and time period:
                 </p>
                 <ul className="space-y-2">
-                  <li><strong>Long-term Average:</strong> Historically around 3-4% annually in the US</li>
-                  <li><strong>Location Matters:</strong> Urban areas may see higher appreciation than rural areas</li>
-                  <li><strong>Economic Cycles:</strong> Appreciation rates vary with economic conditions</li>
-                  <li><strong>Not Guaranteed:</strong> Past performance doesn&apos;t guarantee future results</li>
+                  <li>
+                    <strong>Long-term Average:</strong> Historically around 3-4%
+                    annually in the US
+                  </li>
+                  <li>
+                    <strong>Location Matters:</strong> Urban areas may see
+                    higher appreciation than rural areas
+                  </li>
+                  <li>
+                    <strong>Economic Cycles:</strong> Appreciation rates vary
+                    with economic conditions
+                  </li>
+                  <li>
+                    <strong>Not Guaranteed:</strong> Past performance
+                    doesn&apos;t guarantee future results
+                  </li>
                 </ul>
               </div>
 
@@ -1129,12 +1323,29 @@ export default function RealEstateCalculator() {
                   Important Considerations
                 </h3>
                 <ul className="space-y-2">
-                  <li>• This calculator provides estimates based on the information you enter</li>
-                  <li>• Actual costs may vary based on your specific situation and location</li>
-                  <li>• Interest rates and property values fluctuate over time</li>
-                  <li>• Consider additional costs like moving expenses, closing costs, and renovations</li>
-                  <li>• Homeownership includes both financial and non-financial benefits</li>
-                  <li>• Always consult with financial and tax professionals for personalized advice</li>
+                  <li>
+                    • This calculator provides estimates based on the
+                    information you enter
+                  </li>
+                  <li>
+                    • Actual costs may vary based on your specific situation and
+                    location
+                  </li>
+                  <li>
+                    • Interest rates and property values fluctuate over time
+                  </li>
+                  <li>
+                    • Consider additional costs like moving expenses, closing
+                    costs, and renovations
+                  </li>
+                  <li>
+                    • Homeownership includes both financial and non-financial
+                    benefits
+                  </li>
+                  <li>
+                    • Always consult with financial and tax professionals for
+                    personalized advice
+                  </li>
                 </ul>
               </div>
 
@@ -1144,24 +1355,32 @@ export default function RealEstateCalculator() {
                 </h3>
                 <div className="space-y-4">
                   <div>
-                    <h4 className="font-bold text-gray-900 mb-2">Monthly Mortgage Payment:</h4>
+                    <h4 className="font-bold text-gray-900 mb-2">
+                      Monthly Mortgage Payment:
+                    </h4>
                     <div className="p-4 bg-gray-50 rounded-xl font-mono text-sm">
                       M = P × [r(1 + r)^n] / [(1 + r)^n - 1]
                     </div>
                     <p className="mt-2 text-sm">
-                      Where M = monthly payment, P = principal, r = monthly interest rate, n = number of payments
+                      Where M = monthly payment, P = principal, r = monthly
+                      interest rate, n = number of payments
                     </p>
                   </div>
                   <div>
-                    <h4 className="font-bold text-gray-900 mb-2">Home Value After N Years:</h4>
+                    <h4 className="font-bold text-gray-900 mb-2">
+                      Home Value After N Years:
+                    </h4>
                     <div className="p-4 bg-gray-50 rounded-xl font-mono text-sm">
                       Value = Initial Price × (1 + appreciation rate)^years
                     </div>
                   </div>
                   <div>
-                    <h4 className="font-bold text-gray-900 mb-2">Total Equity:</h4>
+                    <h4 className="font-bold text-gray-900 mb-2">
+                      Total Equity:
+                    </h4>
                     <div className="p-4 bg-gray-50 rounded-xl font-mono text-sm">
-                      Equity = Down Payment + Principal Paid + (Current Value - Purchase Price)
+                      Equity = Down Payment + Principal Paid + (Current Value -
+                      Purchase Price)
                     </div>
                   </div>
                 </div>

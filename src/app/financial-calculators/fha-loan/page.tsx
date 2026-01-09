@@ -160,8 +160,7 @@ export default function FHALoanCalculator() {
       {
         label: 'Principal & Interest',
         value: results.monthlyPayment.principalAndInterest,
-        percentage:
-          (results.monthlyPayment.principalAndInterest / total) * 100,
+        percentage: (results.monthlyPayment.principalAndInterest / total) * 100,
         color: '#3B82F6',
       },
       {
@@ -215,14 +214,8 @@ export default function FHALoanCalculator() {
       year++
     ) {
       const startMonth = (year - 1) * 12;
-      const endMonth = Math.min(
-        year * 12,
-        results.amortizationSchedule.length
-      );
-      const yearData = results.amortizationSchedule.slice(
-        startMonth,
-        endMonth
-      );
+      const endMonth = Math.min(year * 12, results.amortizationSchedule.length);
+      const yearData = results.amortizationSchedule.slice(startMonth, endMonth);
 
       annual.push({
         year,
@@ -244,7 +237,7 @@ export default function FHALoanCalculator() {
       gradient="bg-gradient-to-br from-blue-600 to-indigo-600"
     >
       {/* Calculator Section */}
-      <section className="py-8 lg:py-12">
+      <section className="pb-8 lg:pb-12">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <div className="grid lg:grid-cols-[40%_60%] gap-8">
             {/* Left Column - Input Form */}
@@ -314,7 +307,10 @@ export default function FHALoanCalculator() {
                           inputMode="decimal"
                           value={downPaymentPercent.toFixed(1)}
                           onChange={(e) => {
-                            const value = e.target.value.replace(/[^0-9.]/g, '');
+                            const value = e.target.value.replace(
+                              /[^0-9.]/g,
+                              ''
+                            );
                             const num = value ? Number(value) : 0;
                             if (num >= 0 && num <= 100) {
                               handleDownPaymentPercentChange(num);
@@ -662,18 +658,24 @@ export default function FHALoanCalculator() {
                             {results.loanDetails.ltv.toFixed(1)}%
                           </li>
                           <li>
-                            Base Loan: {formatCurrency(results.loanDetails.baseLoanAmount)}
+                            Base Loan:{' '}
+                            {formatCurrency(results.loanDetails.baseLoanAmount)}
                           </li>
                           {financeUFMIP && (
                             <li>
-                              UFMIP Financed: {formatCurrency(results.loanDetails.ufmipAmount)}
+                              UFMIP Financed:{' '}
+                              {formatCurrency(results.loanDetails.ufmipAmount)}
                             </li>
                           )}
                           <li>
-                            Total Loan: {formatCurrency(results.loanDetails.totalLoanAmount)}
+                            Total Loan:{' '}
+                            {formatCurrency(
+                              results.loanDetails.totalLoanAmount
+                            )}
                           </li>
                           <li>
-                            Annual MIP Rate: {results.loanDetails.annualMIPRate}%
+                            Annual MIP Rate: {results.loanDetails.annualMIPRate}
+                            %
                           </li>
                           {results.loanDetails.baseLoanAmount >
                             FHA_CONFORMING_LIMIT && (
@@ -893,8 +895,7 @@ export default function FHALoanCalculator() {
                         viewBox="0 0 800 256"
                         preserveAspectRatio="none"
                         onMouseMove={(e) => {
-                          const rect =
-                            e.currentTarget.getBoundingClientRect();
+                          const rect = e.currentTarget.getBoundingClientRect();
                           const x =
                             ((e.clientX - rect.left) / rect.width) * 800;
                           const monthIndex = Math.round(
@@ -956,8 +957,7 @@ export default function FHALoanCalculator() {
                               .map((row, i) => {
                                 const x =
                                   (i /
-                                    (results.amortizationSchedule.length -
-                                      1)) *
+                                    (results.amortizationSchedule.length - 1)) *
                                   800;
                                 const y =
                                   256 -
@@ -1306,8 +1306,8 @@ export default function FHALoanCalculator() {
                 </p>
                 <ul className="space-y-3">
                   <li>
-                    <strong>Upfront MIP (UFMIP):</strong> 1.75% of the base
-                    loan amount, typically financed into the loan
+                    <strong>Upfront MIP (UFMIP):</strong> 1.75% of the base loan
+                    amount, typically financed into the loan
                   </li>
                   <li>
                     <strong>Annual MIP:</strong> 0.15% to 0.75% depending on
@@ -1459,7 +1459,9 @@ export default function FHALoanCalculator() {
                     • Property must meet FHA appraisal standards and be your
                     primary residence
                   </li>
-                  <li>• Consult with an FHA-approved lender for accurate quotes</li>
+                  <li>
+                    • Consult with an FHA-approved lender for accurate quotes
+                  </li>
                 </ul>
               </div>
             </div>

@@ -229,14 +229,21 @@ export default function MortgageCalculator() {
       totalPayments: number;
     }> = [];
 
-    for (let year = 1; year <= Math.ceil(results.amortizationSchedule.length / 12); year++) {
+    for (
+      let year = 1;
+      year <= Math.ceil(results.amortizationSchedule.length / 12);
+      year++
+    ) {
       const startMonth = (year - 1) * 12;
       const endMonth = Math.min(year * 12, results.amortizationSchedule.length);
       const yearData = results.amortizationSchedule.slice(startMonth, endMonth);
 
       annual.push({
         year,
-        principal: yearData.reduce((sum, m) => sum + m.principal + m.extraPayment, 0),
+        principal: yearData.reduce(
+          (sum, m) => sum + m.principal + m.extraPayment,
+          0
+        ),
         interest: yearData.reduce((sum, m) => sum + m.interest, 0),
         balance: yearData[yearData.length - 1]?.balance || 0,
         totalPayments: yearData.reduce(
@@ -257,7 +264,7 @@ export default function MortgageCalculator() {
       gradient="bg-gradient-to-br from-blue-600 to-indigo-600"
     >
       {/* Calculator Section */}
-      <section className="py-8 lg:py-12">
+      <section className="pb-8 lg:pb-12">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <div className="grid lg:grid-cols-[40%_60%] gap-8">
             {/* Left Column - Input Form */}
@@ -327,7 +334,10 @@ export default function MortgageCalculator() {
                           inputMode="decimal"
                           value={downPaymentPercent.toFixed(1)}
                           onChange={(e) => {
-                            const value = e.target.value.replace(/[^0-9.]/g, '');
+                            const value = e.target.value.replace(
+                              /[^0-9.]/g,
+                              ''
+                            );
                             const num = value ? Number(value) : 0;
                             if (num >= 0 && num <= 100) {
                               handleDownPaymentPercentChange(num);
@@ -520,8 +530,8 @@ export default function MortgageCalculator() {
                           />
                         </div>
                         <div className="mt-1 text-xs text-gray-500">
-                          {formatCurrency(pmi / 12)}/month • Required with
-                          less than 20% down
+                          {formatCurrency(pmi / 12)}/month • Required with less
+                          than 20% down
                         </div>
                       </div>
                     )}
@@ -763,7 +773,9 @@ export default function MortgageCalculator() {
                     </div>
                     <div className="grid grid-cols-2 gap-4 pt-6 border-t border-white/20">
                       <div>
-                        <div className="text-sm opacity-75">Principal & Interest</div>
+                        <div className="text-sm opacity-75">
+                          Principal & Interest
+                        </div>
                         <div className="text-xl font-semibold mt-1">
                           {formatCurrency(
                             results.monthlyPayment.principalAndInterest
@@ -859,9 +871,11 @@ export default function MortgageCalculator() {
                         preserveAspectRatio="none"
                         onMouseMove={(e) => {
                           const rect = e.currentTarget.getBoundingClientRect();
-                          const x = ((e.clientX - rect.left) / rect.width) * 800;
+                          const x =
+                            ((e.clientX - rect.left) / rect.width) * 800;
                           const monthIndex = Math.round(
-                            (x / 800) * (results.amortizationSchedule.length - 1)
+                            (x / 800) *
+                              (results.amortizationSchedule.length - 1)
                           );
                           setHoveredMonth(
                             Math.max(
@@ -936,7 +950,8 @@ export default function MortgageCalculator() {
                           points={results.amortizationSchedule
                             .map((row, i) => {
                               const x =
-                                (i / (results.amortizationSchedule.length - 1)) *
+                                (i /
+                                  (results.amortizationSchedule.length - 1)) *
                                 800;
                               const y =
                                 256 - (row.balance / results.loanAmount) * 256;
@@ -1220,7 +1235,8 @@ export default function MortgageCalculator() {
                     <strong>P</strong> = Principal loan amount
                   </li>
                   <li>
-                    <strong>r</strong> = Monthly interest rate (annual rate / 12)
+                    <strong>r</strong> = Monthly interest rate (annual rate /
+                    12)
                   </li>
                   <li>
                     <strong>n</strong> = Total number of payments
@@ -1280,8 +1296,8 @@ export default function MortgageCalculator() {
                   </li>
                   <li>
                     <strong>One-Time Payments:</strong> Windfalls like
-                    inheritances or investment gains can dramatically reduce your
-                    interest
+                    inheritances or investment gains can dramatically reduce
+                    your interest
                   </li>
                 </ul>
               </div>
@@ -1320,8 +1336,8 @@ export default function MortgageCalculator() {
                 </h3>
                 <ul className="space-y-2">
                   <li>
-                    • This calculator provides estimates based on the information
-                    you enter
+                    • This calculator provides estimates based on the
+                    information you enter
                   </li>
                   <li>
                     • Actual rates and terms may vary based on credit score,

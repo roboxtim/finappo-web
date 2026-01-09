@@ -17,22 +17,25 @@ export default function PaymentCalculator() {
   const [futureValue, setFutureValue] = useState<number>(0);
   const [annualInterestRate, setAnnualInterestRate] = useState<number>(6);
   const [years, setYears] = useState<number>(15);
-  const [compounding, setCompounding] = useState<CompoundingFrequency>('monthly');
+  const [compounding, setCompounding] =
+    useState<CompoundingFrequency>('monthly');
   const [paymentType, setPaymentType] = useState<PaymentType>('end');
 
   // Calculated results
   const [monthlyPayment, setMonthlyPayment] = useState<number>(0);
   const [totalPayments, setTotalPayments] = useState<number>(0);
   const [totalInterest, setTotalInterest] = useState<number>(0);
-  const [schedule, setSchedule] = useState<Array<{
-    period: number;
-    payment: number;
-    principal: number;
-    interest: number;
-    balance: number;
-    cumulativePrincipal: number;
-    cumulativeInterest: number;
-  }>>([]);
+  const [schedule, setSchedule] = useState<
+    Array<{
+      period: number;
+      payment: number;
+      principal: number;
+      interest: number;
+      balance: number;
+      cumulativePrincipal: number;
+      cumulativeInterest: number;
+    }>
+  >([]);
 
   // UI states
   const [isScheduleOpen, setIsScheduleOpen] = useState<boolean>(false);
@@ -60,7 +63,14 @@ export default function PaymentCalculator() {
     setTotalPayments(result.totalPayments);
     setTotalInterest(result.totalInterest);
     setSchedule(result.schedule);
-  }, [presentValue, futureValue, annualInterestRate, years, compounding, paymentType]);
+  }, [
+    presentValue,
+    futureValue,
+    annualInterestRate,
+    years,
+    compounding,
+    paymentType,
+  ]);
 
   useEffect(() => {
     calculatePayments();
@@ -96,7 +106,7 @@ export default function PaymentCalculator() {
       gradient="bg-gradient-to-br from-blue-500 to-indigo-600"
     >
       {/* Calculator Section */}
-      <section className="py-8 lg:py-12">
+      <section className="pb-8 lg:pb-12">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <div className="grid lg:grid-cols-[40%_60%] gap-8">
             {/* Left Column - Input Form */}
@@ -145,8 +155,8 @@ export default function PaymentCalculator() {
                   </label>
                   {showBalloonInfo && (
                     <div className="mb-2 p-3 bg-blue-50 rounded-lg text-sm text-gray-700">
-                      A balloon payment is a large payment due at the end of the loan.
-                      Leave at $0 for standard loans.
+                      A balloon payment is a large payment due at the end of the
+                      loan. Leave at $0 for standard loans.
                     </div>
                   )}
                   <div className="relative">
@@ -182,7 +192,9 @@ export default function PaymentCalculator() {
                           parts.length > 2
                             ? parts[0] + '.' + parts.slice(1).join('')
                             : value;
-                        setAnnualInterestRate(formatted ? Number(formatted) : 0);
+                        setAnnualInterestRate(
+                          formatted ? Number(formatted) : 0
+                        );
                       }}
                       className="w-full pl-4 pr-8 py-3 rounded-xl border-2 border-gray-200 focus:border-blue-500 focus:outline-none transition-colors text-gray-900 font-medium"
                     />
@@ -217,7 +229,9 @@ export default function PaymentCalculator() {
                   </label>
                   <select
                     value={compounding}
-                    onChange={(e) => setCompounding(e.target.value as CompoundingFrequency)}
+                    onChange={(e) =>
+                      setCompounding(e.target.value as CompoundingFrequency)
+                    }
                     className="w-full px-4 py-3 rounded-xl border-2 border-gray-200 focus:border-blue-500 focus:outline-none transition-colors text-gray-900 font-medium"
                   >
                     <option value="monthly">Monthly</option>
@@ -234,7 +248,9 @@ export default function PaymentCalculator() {
                   </label>
                   <select
                     value={paymentType}
-                    onChange={(e) => setPaymentType(e.target.value as PaymentType)}
+                    onChange={(e) =>
+                      setPaymentType(e.target.value as PaymentType)
+                    }
                     className="w-full px-4 py-3 rounded-xl border-2 border-gray-200 focus:border-blue-500 focus:outline-none transition-colors text-gray-900 font-medium"
                   >
                     <option value="end">End of Period</option>
@@ -367,9 +383,15 @@ export default function PaymentCalculator() {
                   {/* Y-axis labels */}
                   <div className="absolute left-0 top-0 h-full flex flex-col justify-between text-xs text-gray-500 -ml-16 w-14 text-right">
                     <span>{formatCurrency(totalPayments + futureValue)}</span>
-                    <span>{formatCurrency((totalPayments + futureValue) * 0.75)}</span>
-                    <span>{formatCurrency((totalPayments + futureValue) * 0.5)}</span>
-                    <span>{formatCurrency((totalPayments + futureValue) * 0.25)}</span>
+                    <span>
+                      {formatCurrency((totalPayments + futureValue) * 0.75)}
+                    </span>
+                    <span>
+                      {formatCurrency((totalPayments + futureValue) * 0.5)}
+                    </span>
+                    <span>
+                      {formatCurrency((totalPayments + futureValue) * 0.25)}
+                    </span>
                     <span>$0</span>
                   </div>
 
@@ -391,8 +413,7 @@ export default function PaymentCalculator() {
                       );
 
                       const row = schedule[validIndex];
-                      const pointX =
-                        (validIndex / (schedule.length - 1)) * 800;
+                      const pointX = (validIndex / (schedule.length - 1)) * 800;
 
                       setHoveredPoint({
                         period: row.period,
@@ -487,7 +508,8 @@ export default function PaymentCalculator() {
                               .map((row, i) => {
                                 const x = (i / (schedule.length - 1)) * 800;
                                 const y =
-                                  256 - (row.cumulativePrincipal / maxValue) * 256;
+                                  256 -
+                                  (row.cumulativePrincipal / maxValue) * 256;
                                 return `${x},${y}`;
                               })
                               .join(' L ');
@@ -505,7 +527,8 @@ export default function PaymentCalculator() {
                                 const x = (i / (schedule.length - 1)) * 800;
                                 const y =
                                   256 -
-                                  ((row.cumulativePrincipal + row.cumulativeInterest) /
+                                  ((row.cumulativePrincipal +
+                                    row.cumulativeInterest) /
                                     maxValue) *
                                     256;
                                 return `${x},${y}`;
@@ -516,7 +539,8 @@ export default function PaymentCalculator() {
                               .map((row, i) => {
                                 const x = (i / (schedule.length - 1)) * 800;
                                 const y =
-                                  256 - (row.cumulativePrincipal / maxValue) * 256;
+                                  256 -
+                                  (row.cumulativePrincipal / maxValue) * 256;
                                 return `${x},${y}`;
                               })
                               .reverse()
@@ -550,7 +574,8 @@ export default function PaymentCalculator() {
                                 const x = (i / (schedule.length - 1)) * 800;
                                 const y =
                                   256 -
-                                  ((row.cumulativePrincipal + row.cumulativeInterest) /
+                                  ((row.cumulativePrincipal +
+                                    row.cumulativeInterest) /
                                     maxValue) *
                                     256;
                                 return `${x},${y}`;
@@ -570,7 +595,8 @@ export default function PaymentCalculator() {
                               const maxValue = totalPayments + futureValue;
                               const x = (i / (schedule.length - 1)) * 800;
                               const y =
-                                256 - (row.cumulativePrincipal / maxValue) * 256;
+                                256 -
+                                (row.cumulativePrincipal / maxValue) * 256;
                               return `${x},${y}`;
                             })
                             .join(' ')}
@@ -586,7 +612,8 @@ export default function PaymentCalculator() {
                               const x = (i / (schedule.length - 1)) * 800;
                               const y =
                                 256 -
-                                ((row.cumulativePrincipal + row.cumulativeInterest) /
+                                ((row.cumulativePrincipal +
+                                  row.cumulativeInterest) /
                                   maxValue) *
                                   256;
                               return `${x},${y}`;
@@ -827,14 +854,16 @@ export default function PaymentCalculator() {
                 </p>
                 <ul className="space-y-2">
                   <li>
-                    <strong>Monthly:</strong> Interest compounds 12 times per year
-                  </li>
-                  <li>
-                    <strong>Quarterly:</strong> Interest compounds 4 times per year
-                  </li>
-                  <li>
-                    <strong>Semi-Annually:</strong> Interest compounds 2 times per
+                    <strong>Monthly:</strong> Interest compounds 12 times per
                     year
+                  </li>
+                  <li>
+                    <strong>Quarterly:</strong> Interest compounds 4 times per
+                    year
+                  </li>
+                  <li>
+                    <strong>Semi-Annually:</strong> Interest compounds 2 times
+                    per year
                   </li>
                   <li>
                     <strong>Annually:</strong> Interest compounds once per year
@@ -856,9 +885,9 @@ export default function PaymentCalculator() {
                     of each period (most common for loans)
                   </li>
                   <li>
-                    <strong>Beginning of Period:</strong> Payments are made at the
-                    start of each period, resulting in slightly lower payment
-                    amounts
+                    <strong>Beginning of Period:</strong> Payments are made at
+                    the start of each period, resulting in slightly lower
+                    payment amounts
                   </li>
                 </ul>
               </div>
@@ -876,11 +905,10 @@ export default function PaymentCalculator() {
                   <li>
                     • The balloon amount is paid in full at the final payment
                   </li>
+                  <li>• Common in commercial loans and some auto financing</li>
                   <li>
-                    • Common in commercial loans and some auto financing
-                  </li>
-                  <li>
-                    • Requires planning to ensure funds are available at maturity
+                    • Requires planning to ensure funds are available at
+                    maturity
                   </li>
                 </ul>
               </div>
@@ -894,8 +922,8 @@ export default function PaymentCalculator() {
                     Enter the <strong>Present Value</strong> (total loan amount)
                   </li>
                   <li>
-                    Optionally enter a <strong>Future Value</strong> if you have a
-                    balloon payment
+                    Optionally enter a <strong>Future Value</strong> if you have
+                    a balloon payment
                   </li>
                   <li>
                     Input the <strong>Annual Interest Rate</strong> as a
@@ -912,9 +940,7 @@ export default function PaymentCalculator() {
                     Choose the <strong>Payment Type</strong> (end of period is
                     standard)
                   </li>
-                  <li>
-                    Review the calculated monthly payment and total costs
-                  </li>
+                  <li>Review the calculated monthly payment and total costs</li>
                   <li>
                     Examine the amortization schedule to see payment breakdowns
                   </li>
@@ -941,8 +967,8 @@ export default function PaymentCalculator() {
                     financial decisions
                   </li>
                   <li>
-                    • Consider factors like origination fees, insurance, and taxes
-                    in your total cost
+                    • Consider factors like origination fees, insurance, and
+                    taxes in your total cost
                   </li>
                 </ul>
               </div>

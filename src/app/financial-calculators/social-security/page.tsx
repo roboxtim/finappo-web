@@ -344,7 +344,7 @@ export default function SocialSecurityCalculator() {
       gradient="bg-gradient-to-br from-blue-600 to-indigo-600"
     >
       {/* Calculator Section */}
-      <section className="py-8 lg:py-12">
+      <section className="pb-8 lg:pb-12">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           {/* Mode Selector */}
           <div className="flex justify-center mb-8">

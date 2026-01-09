@@ -19,7 +19,8 @@ export default function AmortizationCalculator() {
   const [loanTermYears, setLoanTermYears] = useState<number>(2);
   const [loanTermMonths, setLoanTermMonths] = useState<number>(0);
   const [interestRate, setInterestRate] = useState<number>(6);
-  const [compoundPeriod, setCompoundPeriod] = useState<CompoundPeriod>('monthly');
+  const [compoundPeriod, setCompoundPeriod] =
+    useState<CompoundPeriod>('monthly');
   const [paymentFrequency, setPaymentFrequency] =
     useState<PaymentFrequency>('monthly');
 
@@ -152,20 +153,20 @@ export default function AmortizationCalculator() {
       paymentFrequency === 'monthly'
         ? 12
         : paymentFrequency === 'quarterly'
-        ? 4
-        : paymentFrequency === 'semi-annually'
-        ? 2
-        : paymentFrequency === 'annually'
-        ? 1
-        : paymentFrequency === 'bi-weekly'
-        ? 26
-        : paymentFrequency === 'weekly'
-        ? 52
-        : paymentFrequency === 'semi-monthly'
-        ? 24
-        : paymentFrequency === 'daily'
-        ? 365
-        : 12;
+          ? 4
+          : paymentFrequency === 'semi-annually'
+            ? 2
+            : paymentFrequency === 'annually'
+              ? 1
+              : paymentFrequency === 'bi-weekly'
+                ? 26
+                : paymentFrequency === 'weekly'
+                  ? 52
+                  : paymentFrequency === 'semi-monthly'
+                    ? 24
+                    : paymentFrequency === 'daily'
+                      ? 365
+                      : 12;
 
     const annual: Array<{
       year: number;
@@ -211,7 +212,8 @@ export default function AmortizationCalculator() {
   // Calculate breakdown percentages
   const principalPercentage =
     results && results.loanAmount + results.totalInterest > 0
-      ? (results.loanAmount / (results.loanAmount + results.totalInterest)) * 100
+      ? (results.loanAmount / (results.loanAmount + results.totalInterest)) *
+        100
       : 50;
 
   return (
@@ -222,7 +224,7 @@ export default function AmortizationCalculator() {
       gradient="bg-gradient-to-br from-blue-600 to-indigo-600"
     >
       {/* Calculator Section */}
-      <section className="py-8 lg:py-12">
+      <section className="pb-8 lg:pb-12">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <div className="grid lg:grid-cols-[40%_60%] gap-8">
             {/* Left Column - Input Form */}
@@ -696,9 +698,11 @@ export default function AmortizationCalculator() {
                         preserveAspectRatio="none"
                         onMouseMove={(e) => {
                           const rect = e.currentTarget.getBoundingClientRect();
-                          const x = ((e.clientX - rect.left) / rect.width) * 800;
+                          const x =
+                            ((e.clientX - rect.left) / rect.width) * 800;
                           const paymentIndex = Math.round(
-                            (x / 800) * (results.amortizationSchedule.length - 1)
+                            (x / 800) *
+                              (results.amortizationSchedule.length - 1)
                           );
                           setHoveredPayment(
                             Math.max(
@@ -773,7 +777,8 @@ export default function AmortizationCalculator() {
                           points={results.amortizationSchedule
                             .map((row, i) => {
                               const x =
-                                (i / (results.amortizationSchedule.length - 1)) *
+                                (i /
+                                  (results.amortizationSchedule.length - 1)) *
                                 800;
                               const y =
                                 256 - (row.balance / results.loanAmount) * 256;
@@ -1056,9 +1061,10 @@ export default function AmortizationCalculator() {
                   How Compound and Payment Frequencies Work
                 </h3>
                 <p className="mb-4">
-                  The compound period determines how often interest is calculated
-                  and added to your balance. The payment frequency determines how
-                  often you make payments. These can be different:
+                  The compound period determines how often interest is
+                  calculated and added to your balance. The payment frequency
+                  determines how often you make payments. These can be
+                  different:
                 </p>
                 <ul className="space-y-2">
                   <li>
@@ -1092,8 +1098,8 @@ export default function AmortizationCalculator() {
                     you pay over the life of the loan
                   </li>
                   <li>
-                    <strong>Shorten Loan Term:</strong> Paying extra can help you
-                    become debt-free months or even years earlier
+                    <strong>Shorten Loan Term:</strong> Paying extra can help
+                    you become debt-free months or even years earlier
                   </li>
                   <li>
                     <strong>Build Equity Faster:</strong> For secured loans like
