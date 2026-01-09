@@ -323,6 +323,14 @@ export default function FinancialCalculators() {
               delay={0}
             />
             <CalculatorCard
+              icon={<Banknote className="w-8 h-8 text-white" />}
+              title="Annuity Payout Calculator"
+              description="Calculate annuity payout amounts and income streams. Plan your retirement income with immediate and deferred annuity payment projections and amortization schedules."
+              gradient="bg-gradient-to-br from-blue-600 to-cyan-600"
+              href="/financial-calculators/annuity-payout"
+              delay={0}
+            />
+            <CalculatorCard
               icon={<PiggyBank className="w-8 h-8 text-white" />}
               title="401(k) Calculator"
               description="Plan your employer-sponsored 401(k) retirement savings. Calculate growth with employer matching, contribution limits, and tax-deferred compounding over time."

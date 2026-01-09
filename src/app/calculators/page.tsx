@@ -655,6 +655,30 @@ const categories: Category[] = [
         ],
       },
       {
+        id: 'annuity-payout',
+        title: 'Annuity Payout Calculator',
+        description:
+          'Calculate annuity payout amounts and income streams. Plan your retirement income with immediate and deferred annuity payment projections',
+        href: '/financial-calculators/annuity-payout',
+        icon: <Banknote className="w-5 h-5" />,
+        keywords: [
+          'annuity payout calculator',
+          'annuity payment calculator',
+          'retirement income calculator',
+          'annuity income calculator',
+          'immediate annuity payout',
+          'deferred annuity payout',
+          'annuity withdrawal calculator',
+          'pension payout calculator',
+          'annuity amortization calculator',
+          'fixed annuity payout',
+          'retirement payout calculator',
+          'annuity distribution calculator',
+          'periodic payment annuity',
+          'annuity income stream',
+        ],
+      },
+      {
         id: '401k-calculator',
         title: '401(k) Calculator',
         description:
