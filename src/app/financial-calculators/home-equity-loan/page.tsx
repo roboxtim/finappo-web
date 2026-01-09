@@ -157,7 +157,7 @@ export default function HomeEquityLoanCalculator() {
                       onChange={(e) =>
                         handleNumericInput(e.target.value, setHomeValue)
                       }
-                      className="w-full pl-8 pr-4 py-3 rounded-xl border-2 border-gray-200 focus:border-orange-500 focus:outline-none transition-colors text-gray-900 font-medium"
+                      className="w-full pl-8 pr-4 py-3 rounded-xl text-gray-900 border-2 border-gray-200 focus:border-orange-500 focus:outline-none transition-colors  font-medium"
                       placeholder="500,000"
                     />
                   </div>
@@ -179,7 +179,7 @@ export default function HomeEquityLoanCalculator() {
                       onChange={(e) =>
                         handleNumericInput(e.target.value, setMortgageBalance)
                       }
-                      className="w-full pl-8 pr-4 py-3 rounded-xl border-2 border-gray-200 focus:border-orange-500 focus:outline-none transition-colors text-gray-900 font-medium"
+                      className="w-full pl-8 pr-4 py-3 rounded-xl text-gray-900 border-2 border-gray-200 focus:border-orange-500 focus:outline-none transition-colors  font-medium"
                       placeholder="200,000"
                     />
                   </div>
@@ -201,7 +201,7 @@ export default function HomeEquityLoanCalculator() {
                       onChange={(e) =>
                         handleNumericInput(e.target.value, setLoanAmount)
                       }
-                      className="w-full pl-8 pr-4 py-3 rounded-xl border-2 border-gray-200 focus:border-orange-500 focus:outline-none transition-colors text-gray-900 font-medium"
+                      className="w-full pl-8 pr-4 py-3 rounded-xl text-gray-900 border-2 border-gray-200 focus:border-orange-500 focus:outline-none transition-colors  font-medium"
                       placeholder="100,000"
                     />
                   </div>
@@ -226,7 +226,7 @@ export default function HomeEquityLoanCalculator() {
                             : value;
                         setInterestRate(formatted ? Number(formatted) : 0);
                       }}
-                      className="w-full pl-4 pr-8 py-3 rounded-xl border-2 border-gray-200 focus:border-orange-500 focus:outline-none transition-colors text-gray-900 font-medium"
+                      className="w-full pl-4 pr-8 py-3 rounded-xl text-gray-900 border-2 border-gray-200 focus:border-orange-500 focus:outline-none transition-colors  font-medium"
                       placeholder="7.5"
                     />
                     <span className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-500">
@@ -243,7 +243,7 @@ export default function HomeEquityLoanCalculator() {
                   <select
                     value={loanTerm}
                     onChange={(e) => setLoanTerm(Number(e.target.value))}
-                    className="w-full px-4 py-3 rounded-xl border-2 border-gray-200 focus:border-orange-500 focus:outline-none transition-colors text-gray-900 font-medium"
+                    className="w-full px-4 py-3 rounded-xl text-gray-900 border-2 border-gray-200 focus:border-orange-500 focus:outline-none transition-colors  font-medium"
                   >
                     <option value={5}>5 years</option>
                     <option value={10}>10 years</option>
@@ -262,7 +262,7 @@ export default function HomeEquityLoanCalculator() {
                   <select
                     value={maxLTV}
                     onChange={(e) => setMaxLTV(Number(e.target.value))}
-                    className="w-full px-4 py-3 rounded-xl border-2 border-gray-200 focus:border-orange-500 focus:outline-none transition-colors text-gray-900 font-medium"
+                    className="w-full px-4 py-3 rounded-xl text-gray-900 border-2 border-gray-200 focus:border-orange-500 focus:outline-none transition-colors  font-medium"
                   >
                     <option value={60}>60%</option>
                     <option value={70}>70%</option>

@@ -246,7 +246,7 @@ export default function AnnuityCalculatorPage() {
                         onChange={(e) =>
                           handleInputChange('startingPrincipal', e.target.value)
                         }
-                        className="w-full pl-10 pr-3 py-3 border border-gray-200 rounded-xl focus:ring-2 focus:ring-emerald-500 focus:border-transparent transition-all"
+                        className="w-full pl-10 pr-3 py-3 text-gray-900 border border-gray-200 rounded-xl focus:ring-2 focus:ring-emerald-500 focus:border-transparent transition-all"
                         placeholder="20,000"
                         min="0"
                         step="1000"
@@ -276,7 +276,7 @@ export default function AnnuityCalculatorPage() {
                         onChange={(e) =>
                           handleInputChange('annualAddition', e.target.value)
                         }
-                        className="w-full pl-10 pr-3 py-3 border border-gray-200 rounded-xl focus:ring-2 focus:ring-emerald-500 focus:border-transparent transition-all"
+                        className="w-full pl-10 pr-3 py-3 text-gray-900 border border-gray-200 rounded-xl focus:ring-2 focus:ring-emerald-500 focus:border-transparent transition-all"
                         placeholder="10,000"
                         min="0"
                         step="1000"
@@ -296,7 +296,7 @@ export default function AnnuityCalculatorPage() {
                         onChange={(e) =>
                           handleInputChange('monthlyAddition', e.target.value)
                         }
-                        className="w-full pl-10 pr-3 py-3 border border-gray-200 rounded-xl focus:ring-2 focus:ring-emerald-500 focus:border-transparent transition-all"
+                        className="w-full pl-10 pr-3 py-3 text-gray-900 border border-gray-200 rounded-xl focus:ring-2 focus:ring-emerald-500 focus:border-transparent transition-all"
                         placeholder="500"
                         min="0"
                         step="100"
@@ -363,7 +363,7 @@ export default function AnnuityCalculatorPage() {
                         onChange={(e) =>
                           handleInputChange('annualGrowthRate', e.target.value)
                         }
-                        className="w-full pl-10 pr-3 py-3 border border-gray-200 rounded-xl focus:ring-2 focus:ring-emerald-500 focus:border-transparent transition-all"
+                        className="w-full pl-10 pr-3 py-3 text-gray-900 border border-gray-200 rounded-xl focus:ring-2 focus:ring-emerald-500 focus:border-transparent transition-all"
                         placeholder="11"
                         min="0"
                         max="50"
@@ -384,7 +384,7 @@ export default function AnnuityCalculatorPage() {
                         onChange={(e) =>
                           handleInputChange('years', e.target.value)
                         }
-                        className="w-full pl-10 pr-3 py-3 border border-gray-200 rounded-xl focus:ring-2 focus:ring-emerald-500 focus:border-transparent transition-all"
+                        className="w-full pl-10 pr-3 py-3 text-gray-900 border border-gray-200 rounded-xl focus:ring-2 focus:ring-emerald-500 focus:border-transparent transition-all"
                         placeholder="10"
                         min="1"
                         max="50"

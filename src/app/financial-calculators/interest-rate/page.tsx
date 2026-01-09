@@ -112,7 +112,7 @@ export default function InterestRateCalculator() {
                       onChange={(e) => {
                         setLoanAmount(parseInputValue(e.target.value));
                       }}
-                      className="w-full pl-8 pr-4 py-3 rounded-xl border-2 border-gray-200 focus:border-purple-500 focus:outline-none transition-colors text-gray-900 font-medium"
+                      className="w-full pl-8 pr-4 py-3 rounded-xl text-gray-900 border-2 border-gray-200 focus:border-purple-500 focus:outline-none transition-colors  font-medium"
                     />
                   </div>
                   <p className="mt-1 text-xs text-gray-500">
@@ -128,7 +128,7 @@ export default function InterestRateCalculator() {
                   <select
                     value={loanTermMonths}
                     onChange={(e) => setLoanTermMonths(Number(e.target.value))}
-                    className="w-full px-4 py-3 rounded-xl border-2 border-gray-200 focus:border-purple-500 focus:outline-none transition-colors text-gray-900 font-medium"
+                    className="w-full px-4 py-3 rounded-xl text-gray-900 border-2 border-gray-200 focus:border-purple-500 focus:outline-none transition-colors  font-medium"
                   >
                     <option value={6}>6 months</option>
                     <option value={12}>12 months (1 year)</option>
@@ -167,7 +167,7 @@ export default function InterestRateCalculator() {
                       onChange={(e) => {
                         setMonthlyPayment(parseInputValue(e.target.value));
                       }}
-                      className="w-full pl-8 pr-4 py-3 rounded-xl border-2 border-gray-200 focus:border-purple-500 focus:outline-none transition-colors text-gray-900 font-medium"
+                      className="w-full pl-8 pr-4 py-3 rounded-xl text-gray-900 border-2 border-gray-200 focus:border-purple-500 focus:outline-none transition-colors  font-medium"
                     />
                   </div>
                   <p className="mt-1 text-xs text-gray-500">

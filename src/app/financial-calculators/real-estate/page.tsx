@@ -315,7 +315,7 @@ export default function RealEstateCalculator() {
                         onChange={(e) =>
                           setHomePrice(parseInputValue(e.target.value))
                         }
-                        className="w-full pl-8 pr-4 py-3 rounded-xl border-2 border-gray-200 focus:border-blue-500 focus:outline-none transition-colors text-gray-900 font-medium"
+                        className="w-full pl-8 pr-4 py-3 rounded-xl text-gray-900 border-2 border-gray-200 focus:border-blue-500 focus:outline-none transition-colors  font-medium"
                       />
                     </div>
                   </div>
@@ -360,7 +360,7 @@ export default function RealEstateCalculator() {
                             );
                             setDownPaymentPercent(value ? Number(value) : 0);
                           }}
-                          className="w-full pl-4 pr-8 py-3 rounded-xl border-2 border-gray-200 focus:border-blue-500 focus:outline-none transition-colors text-gray-900 font-medium"
+                          className="w-full pl-4 pr-8 py-3 rounded-xl text-gray-900 border-2 border-gray-200 focus:border-blue-500 focus:outline-none transition-colors  font-medium"
                         />
                         <span className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-500">
                           %
@@ -380,7 +380,7 @@ export default function RealEstateCalculator() {
                               parseInputValue(e.target.value)
                             )
                           }
-                          className="w-full pl-8 pr-4 py-3 rounded-xl border-2 border-gray-200 focus:border-blue-500 focus:outline-none transition-colors text-gray-900 font-medium"
+                          className="w-full pl-8 pr-4 py-3 rounded-xl text-gray-900 border-2 border-gray-200 focus:border-blue-500 focus:outline-none transition-colors  font-medium"
                         />
                       </div>
                     )}
@@ -399,7 +399,7 @@ export default function RealEstateCalculator() {
                     <select
                       value={loanTermYears}
                       onChange={(e) => setLoanTermYears(Number(e.target.value))}
-                      className="w-full px-4 py-3 rounded-xl border-2 border-gray-200 focus:border-blue-500 focus:outline-none transition-colors text-gray-900 font-medium"
+                      className="w-full px-4 py-3 rounded-xl text-gray-900 border-2 border-gray-200 focus:border-blue-500 focus:outline-none transition-colors  font-medium"
                     >
                       <option value={10}>10 years</option>
                       <option value={15}>15 years</option>
@@ -423,7 +423,7 @@ export default function RealEstateCalculator() {
                           const value = e.target.value.replace(/[^0-9.]/g, '');
                           setInterestRate(value ? Number(value) : 0);
                         }}
-                        className="w-full pl-4 pr-8 py-3 rounded-xl border-2 border-gray-200 focus:border-blue-500 focus:outline-none transition-colors text-gray-900 font-medium"
+                        className="w-full pl-4 pr-8 py-3 rounded-xl text-gray-900 border-2 border-gray-200 focus:border-blue-500 focus:outline-none transition-colors  font-medium"
                       />
                       <span className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-500">
                         %
@@ -456,7 +456,7 @@ export default function RealEstateCalculator() {
                         onChange={(e) =>
                           setPropertyTaxAnnual(parseInputValue(e.target.value))
                         }
-                        className="w-full pl-8 pr-4 py-3 rounded-xl border-2 border-gray-200 focus:border-blue-500 focus:outline-none transition-colors text-gray-900 font-medium"
+                        className="w-full pl-8 pr-4 py-3 rounded-xl text-gray-900 border-2 border-gray-200 focus:border-blue-500 focus:outline-none transition-colors  font-medium"
                       />
                     </div>
                     <div className="mt-1 text-xs text-gray-500">
@@ -482,7 +482,7 @@ export default function RealEstateCalculator() {
                             parseInputValue(e.target.value)
                           )
                         }
-                        className="w-full pl-8 pr-4 py-3 rounded-xl border-2 border-gray-200 focus:border-blue-500 focus:outline-none transition-colors text-gray-900 font-medium"
+                        className="w-full pl-8 pr-4 py-3 rounded-xl text-gray-900 border-2 border-gray-200 focus:border-blue-500 focus:outline-none transition-colors  font-medium"
                       />
                     </div>
                     <div className="mt-1 text-xs text-gray-500">
@@ -506,7 +506,7 @@ export default function RealEstateCalculator() {
                         onChange={(e) =>
                           setHoaMonthly(parseInputValue(e.target.value))
                         }
-                        className="w-full pl-8 pr-4 py-3 rounded-xl border-2 border-gray-200 focus:border-blue-500 focus:outline-none transition-colors text-gray-900 font-medium"
+                        className="w-full pl-8 pr-4 py-3 rounded-xl text-gray-900 border-2 border-gray-200 focus:border-blue-500 focus:outline-none transition-colors  font-medium"
                       />
                     </div>
                   </div>
@@ -527,7 +527,7 @@ export default function RealEstateCalculator() {
                         onChange={(e) =>
                           setMaintenanceAnnual(parseInputValue(e.target.value))
                         }
-                        className="w-full pl-8 pr-4 py-3 rounded-xl border-2 border-gray-200 focus:border-blue-500 focus:outline-none transition-colors text-gray-900 font-medium"
+                        className="w-full pl-8 pr-4 py-3 rounded-xl text-gray-900 border-2 border-gray-200 focus:border-blue-500 focus:outline-none transition-colors  font-medium"
                       />
                     </div>
                     <div className="mt-1 text-xs text-gray-500">
@@ -558,7 +558,7 @@ export default function RealEstateCalculator() {
                           const value = e.target.value.replace(/[^0-9.]/g, '');
                           setAppreciationRate(value ? Number(value) : 0);
                         }}
-                        className="w-full pl-4 pr-8 py-3 rounded-xl border-2 border-gray-200 focus:border-blue-500 focus:outline-none transition-colors text-gray-900 font-medium"
+                        className="w-full pl-4 pr-8 py-3 rounded-xl text-gray-900 border-2 border-gray-200 focus:border-blue-500 focus:outline-none transition-colors  font-medium"
                       />
                       <span className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-500">
                         %
@@ -580,7 +580,7 @@ export default function RealEstateCalculator() {
                           const value = e.target.value.replace(/[^0-9.]/g, '');
                           setPropertyTaxIncreaseRate(value ? Number(value) : 0);
                         }}
-                        className="w-full pl-4 pr-8 py-3 rounded-xl border-2 border-gray-200 focus:border-blue-500 focus:outline-none transition-colors text-gray-900 font-medium"
+                        className="w-full pl-4 pr-8 py-3 rounded-xl text-gray-900 border-2 border-gray-200 focus:border-blue-500 focus:outline-none transition-colors  font-medium"
                       />
                       <span className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-500">
                         %
@@ -602,7 +602,7 @@ export default function RealEstateCalculator() {
                           const value = e.target.value.replace(/[^0-9.]/g, '');
                           setInsuranceIncreaseRate(value ? Number(value) : 0);
                         }}
-                        className="w-full pl-4 pr-8 py-3 rounded-xl border-2 border-gray-200 focus:border-blue-500 focus:outline-none transition-colors text-gray-900 font-medium"
+                        className="w-full pl-4 pr-8 py-3 rounded-xl text-gray-900 border-2 border-gray-200 focus:border-blue-500 focus:outline-none transition-colors  font-medium"
                       />
                       <span className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-500">
                         %
@@ -624,7 +624,7 @@ export default function RealEstateCalculator() {
                           const value = e.target.value.replace(/[^0-9.]/g, '');
                           setIncomeTaxRate(value ? Number(value) : 0);
                         }}
-                        className="w-full pl-4 pr-8 py-3 rounded-xl border-2 border-gray-200 focus:border-blue-500 focus:outline-none transition-colors text-gray-900 font-medium"
+                        className="w-full pl-4 pr-8 py-3 rounded-xl text-gray-900 border-2 border-gray-200 focus:border-blue-500 focus:outline-none transition-colors  font-medium"
                       />
                       <span className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-500">
                         %
@@ -643,7 +643,7 @@ export default function RealEstateCalculator() {
                     <select
                       value={analysisYears}
                       onChange={(e) => setAnalysisYears(Number(e.target.value))}
-                      className="w-full px-4 py-3 rounded-xl border-2 border-gray-200 focus:border-blue-500 focus:outline-none transition-colors text-gray-900 font-medium"
+                      className="w-full px-4 py-3 rounded-xl text-gray-900 border-2 border-gray-200 focus:border-blue-500 focus:outline-none transition-colors  font-medium"
                     >
                       <option value={5}>5 years</option>
                       <option value={10}>10 years</option>

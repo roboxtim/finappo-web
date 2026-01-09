@@ -124,7 +124,7 @@ export default function AutoLeaseCalculator() {
                       onChange={(e) => {
                         setMsrp(parseInputValue(e.target.value));
                       }}
-                      className="w-full pl-8 pr-4 py-3 rounded-xl border-2 border-gray-200 focus:border-blue-500 focus:outline-none transition-colors text-gray-900 font-medium"
+                      className="w-full pl-8 pr-4 py-3 rounded-xl text-gray-900 border-2 border-gray-200 focus:border-blue-500 focus:outline-none transition-colors  font-medium"
                     />
                   </div>
                 </div>
@@ -145,7 +145,7 @@ export default function AutoLeaseCalculator() {
                       onChange={(e) => {
                         setNegotiatedPrice(parseInputValue(e.target.value));
                       }}
-                      className="w-full pl-8 pr-4 py-3 rounded-xl border-2 border-gray-200 focus:border-blue-500 focus:outline-none transition-colors text-gray-900 font-medium"
+                      className="w-full pl-8 pr-4 py-3 rounded-xl text-gray-900 border-2 border-gray-200 focus:border-blue-500 focus:outline-none transition-colors  font-medium"
                     />
                   </div>
                 </div>
@@ -166,7 +166,7 @@ export default function AutoLeaseCalculator() {
                       onChange={(e) => {
                         setDownPayment(parseInputValue(e.target.value));
                       }}
-                      className="w-full pl-8 pr-4 py-3 rounded-xl border-2 border-gray-200 focus:border-blue-500 focus:outline-none transition-colors text-gray-900 font-medium"
+                      className="w-full pl-8 pr-4 py-3 rounded-xl text-gray-900 border-2 border-gray-200 focus:border-blue-500 focus:outline-none transition-colors  font-medium"
                     />
                   </div>
                 </div>
@@ -187,7 +187,7 @@ export default function AutoLeaseCalculator() {
                       onChange={(e) => {
                         setTradeInValue(parseInputValue(e.target.value));
                       }}
-                      className="w-full pl-8 pr-4 py-3 rounded-xl border-2 border-gray-200 focus:border-blue-500 focus:outline-none transition-colors text-gray-900 font-medium"
+                      className="w-full pl-8 pr-4 py-3 rounded-xl text-gray-900 border-2 border-gray-200 focus:border-blue-500 focus:outline-none transition-colors  font-medium"
                     />
                   </div>
                 </div>
@@ -208,7 +208,7 @@ export default function AutoLeaseCalculator() {
                       onChange={(e) => {
                         setAmountOwedOnTradeIn(parseInputValue(e.target.value));
                       }}
-                      className="w-full pl-8 pr-4 py-3 rounded-xl border-2 border-gray-200 focus:border-blue-500 focus:outline-none transition-colors text-gray-900 font-medium"
+                      className="w-full pl-8 pr-4 py-3 rounded-xl text-gray-900 border-2 border-gray-200 focus:border-blue-500 focus:outline-none transition-colors  font-medium"
                     />
                   </div>
                 </div>
@@ -221,7 +221,7 @@ export default function AutoLeaseCalculator() {
                   <select
                     value={leaseTerm}
                     onChange={(e) => setLeaseTerm(Number(e.target.value))}
-                    className="w-full px-4 py-3 rounded-xl border-2 border-gray-200 focus:border-blue-500 focus:outline-none transition-colors text-gray-900 font-medium"
+                    className="w-full px-4 py-3 rounded-xl text-gray-900 border-2 border-gray-200 focus:border-blue-500 focus:outline-none transition-colors  font-medium"
                   >
                     <option value={24}>24 months (2 years)</option>
                     <option value={36}>36 months (3 years)</option>
@@ -243,7 +243,7 @@ export default function AutoLeaseCalculator() {
                       onChange={(e) => {
                         setInterestRate(parseDecimalValue(e.target.value));
                       }}
-                      className="w-full pl-4 pr-8 py-3 rounded-xl border-2 border-gray-200 focus:border-blue-500 focus:outline-none transition-colors text-gray-900 font-medium"
+                      className="w-full pl-4 pr-8 py-3 rounded-xl text-gray-900 border-2 border-gray-200 focus:border-blue-500 focus:outline-none transition-colors  font-medium"
                     />
                     <span className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-500">
                       %
@@ -264,7 +264,7 @@ export default function AutoLeaseCalculator() {
                       onChange={(e) => {
                         setResidualPercent(parseDecimalValue(e.target.value));
                       }}
-                      className="w-full pl-4 pr-8 py-3 rounded-xl border-2 border-gray-200 focus:border-blue-500 focus:outline-none transition-colors text-gray-900 font-medium"
+                      className="w-full pl-4 pr-8 py-3 rounded-xl text-gray-900 border-2 border-gray-200 focus:border-blue-500 focus:outline-none transition-colors  font-medium"
                     />
                     <span className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-500">
                       %
@@ -285,7 +285,7 @@ export default function AutoLeaseCalculator() {
                       onChange={(e) => {
                         setSalesTaxRate(parseDecimalValue(e.target.value));
                       }}
-                      className="w-full pl-4 pr-8 py-3 rounded-xl border-2 border-gray-200 focus:border-blue-500 focus:outline-none transition-colors text-gray-900 font-medium"
+                      className="w-full pl-4 pr-8 py-3 rounded-xl text-gray-900 border-2 border-gray-200 focus:border-blue-500 focus:outline-none transition-colors  font-medium"
                     />
                     <span className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-500">
                       %
@@ -309,7 +309,7 @@ export default function AutoLeaseCalculator() {
                       onChange={(e) => {
                         setFees(parseInputValue(e.target.value));
                       }}
-                      className="w-full pl-8 pr-4 py-3 rounded-xl border-2 border-gray-200 focus:border-blue-500 focus:outline-none transition-colors text-gray-900 font-medium"
+                      className="w-full pl-8 pr-4 py-3 rounded-xl text-gray-900 border-2 border-gray-200 focus:border-blue-500 focus:outline-none transition-colors  font-medium"
                     />
                   </div>
                 </div>

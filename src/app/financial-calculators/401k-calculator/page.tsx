@@ -442,7 +442,7 @@ export default function K401Calculator() {
                         const value = e.target.value.replace(/[^0-9]/g, '');
                         setCurrentAge(value ? Number(value) : 0);
                       }}
-                      className="w-full px-4 py-3 rounded-xl border-2 border-gray-200 focus:border-green-500 focus:outline-none transition-colors text-gray-900 font-medium"
+                      className="w-full px-4 py-3 rounded-xl text-gray-900 border-2 border-gray-200 focus:border-green-500 focus:outline-none transition-colors  font-medium"
                       placeholder="35"
                     />
                   </div>
@@ -459,7 +459,7 @@ export default function K401Calculator() {
                         const value = e.target.value.replace(/[^0-9]/g, '');
                         setRetirementAge(value ? Number(value) : 0);
                       }}
-                      className="w-full px-4 py-3 rounded-xl border-2 border-gray-200 focus:border-green-500 focus:outline-none transition-colors text-gray-900 font-medium"
+                      className="w-full px-4 py-3 rounded-xl text-gray-900 border-2 border-gray-200 focus:border-green-500 focus:outline-none transition-colors  font-medium"
                       placeholder="65"
                     />
                   </div>
@@ -476,7 +476,7 @@ export default function K401Calculator() {
                         const value = e.target.value.replace(/[^0-9]/g, '');
                         setLifeExpectancy(value ? Number(value) : 0);
                       }}
-                      className="w-full px-4 py-3 rounded-xl border-2 border-gray-200 focus:border-green-500 focus:outline-none transition-colors text-gray-900 font-medium"
+                      className="w-full px-4 py-3 rounded-xl text-gray-900 border-2 border-gray-200 focus:border-green-500 focus:outline-none transition-colors  font-medium"
                       placeholder="85"
                     />
                   </div>
@@ -498,7 +498,7 @@ export default function K401Calculator() {
                             parseInputValue(e.target.value)
                           )
                         }
-                        className="w-full pl-10 pr-4 py-3 rounded-xl border-2 border-gray-200 focus:border-green-500 focus:outline-none transition-colors text-gray-900 font-medium"
+                        className="w-full pl-10 pr-4 py-3 rounded-xl text-gray-900 border-2 border-gray-200 focus:border-green-500 focus:outline-none transition-colors  font-medium"
                         placeholder="75,000"
                       />
                     </div>
@@ -528,7 +528,7 @@ export default function K401Calculator() {
                         onChange={(e) =>
                           setCurrent401kBalance(parseInputValue(e.target.value))
                         }
-                        className="w-full pl-10 pr-4 py-3 rounded-xl border-2 border-gray-200 focus:border-green-500 focus:outline-none transition-colors text-gray-900 font-medium"
+                        className="w-full pl-10 pr-4 py-3 rounded-xl text-gray-900 border-2 border-gray-200 focus:border-green-500 focus:outline-none transition-colors  font-medium"
                         placeholder="50,000"
                       />
                     </div>
@@ -549,7 +549,7 @@ export default function K401Calculator() {
                             value ? Number(value) : 0
                           );
                         }}
-                        className="w-full pl-4 pr-8 py-3 rounded-xl border-2 border-gray-200 focus:border-green-500 focus:outline-none transition-colors text-gray-900 font-medium"
+                        className="w-full pl-4 pr-8 py-3 rounded-xl text-gray-900 border-2 border-gray-200 focus:border-green-500 focus:outline-none transition-colors  font-medium"
                         placeholder="10"
                       />
                       <span className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-500">
@@ -585,7 +585,7 @@ export default function K401Calculator() {
                           const value = e.target.value.replace(/[^0-9.]/g, '');
                           setEmployerMatch1Percent(value ? Number(value) : 0);
                         }}
-                        className="w-full pl-4 pr-8 py-3 rounded-xl border-2 border-gray-200 focus:border-green-500 focus:outline-none transition-colors text-gray-900 font-medium"
+                        className="w-full pl-4 pr-8 py-3 rounded-xl text-gray-900 border-2 border-gray-200 focus:border-green-500 focus:outline-none transition-colors  font-medium"
                         placeholder="100"
                       />
                       <span className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-500">
@@ -610,7 +610,7 @@ export default function K401Calculator() {
                           const value = e.target.value.replace(/[^0-9.]/g, '');
                           setEmployerMatch1Limit(value ? Number(value) : 0);
                         }}
-                        className="w-full pl-4 pr-8 py-3 rounded-xl border-2 border-gray-200 focus:border-green-500 focus:outline-none transition-colors text-gray-900 font-medium"
+                        className="w-full pl-4 pr-8 py-3 rounded-xl text-gray-900 border-2 border-gray-200 focus:border-green-500 focus:outline-none transition-colors  font-medium"
                         placeholder="5"
                       />
                       <span className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-500">
@@ -643,7 +643,7 @@ export default function K401Calculator() {
                                 value ? Number(value) : 0
                               );
                             }}
-                            className="w-full pl-4 pr-8 py-3 rounded-xl border-2 border-gray-200 focus:border-green-500 focus:outline-none transition-colors text-gray-900 font-medium"
+                            className="w-full pl-4 pr-8 py-3 rounded-xl text-gray-900 border-2 border-gray-200 focus:border-green-500 focus:outline-none transition-colors  font-medium"
                             placeholder="0"
                           />
                           <span className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-500">
@@ -668,7 +668,7 @@ export default function K401Calculator() {
                               );
                               setEmployerMatch2Limit(value ? Number(value) : 0);
                             }}
-                            className="w-full pl-4 pr-8 py-3 rounded-xl border-2 border-gray-200 focus:border-green-500 focus:outline-none transition-colors text-gray-900 font-medium"
+                            className="w-full pl-4 pr-8 py-3 rounded-xl text-gray-900 border-2 border-gray-200 focus:border-green-500 focus:outline-none transition-colors  font-medium"
                             placeholder="0"
                           />
                           <span className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-500">
@@ -701,7 +701,7 @@ export default function K401Calculator() {
                           const value = e.target.value.replace(/[^0-9.]/g, '');
                           setExpectedSalaryIncrease(value ? Number(value) : 0);
                         }}
-                        className="w-full pl-4 pr-8 py-3 rounded-xl border-2 border-gray-200 focus:border-green-500 focus:outline-none transition-colors text-gray-900 font-medium"
+                        className="w-full pl-4 pr-8 py-3 rounded-xl text-gray-900 border-2 border-gray-200 focus:border-green-500 focus:outline-none transition-colors  font-medium"
                         placeholder="3"
                       />
                       <span className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-500">
@@ -726,7 +726,7 @@ export default function K401Calculator() {
                           const value = e.target.value.replace(/[^0-9.]/g, '');
                           setExpectedAnnualReturn(value ? Number(value) : 0);
                         }}
-                        className="w-full pl-4 pr-8 py-3 rounded-xl border-2 border-gray-200 focus:border-green-500 focus:outline-none transition-colors text-gray-900 font-medium"
+                        className="w-full pl-4 pr-8 py-3 rounded-xl text-gray-900 border-2 border-gray-200 focus:border-green-500 focus:outline-none transition-colors  font-medium"
                         placeholder="7"
                       />
                       <span className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-500">
@@ -751,7 +751,7 @@ export default function K401Calculator() {
                           const value = e.target.value.replace(/[^0-9.]/g, '');
                           setExpectedInflation(value ? Number(value) : 0);
                         }}
-                        className="w-full pl-4 pr-8 py-3 rounded-xl border-2 border-gray-200 focus:border-green-500 focus:outline-none transition-colors text-gray-900 font-medium"
+                        className="w-full pl-4 pr-8 py-3 rounded-xl text-gray-900 border-2 border-gray-200 focus:border-green-500 focus:outline-none transition-colors  font-medium"
                         placeholder="3"
                       />
                       <span className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-500">

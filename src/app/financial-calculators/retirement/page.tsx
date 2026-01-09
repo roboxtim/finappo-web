@@ -428,7 +428,7 @@ export default function RetirementCalculator() {
                         const value = e.target.value.replace(/[^0-9]/g, '');
                         setCurrentAge(value ? Number(value) : 0);
                       }}
-                      className="w-full px-4 py-3 rounded-xl border-2 border-gray-200 focus:border-purple-500 focus:outline-none transition-colors text-gray-900 font-medium"
+                      className="w-full px-4 py-3 rounded-xl text-gray-900 border-2 border-gray-200 focus:border-purple-500 focus:outline-none transition-colors  font-medium"
                       placeholder="35"
                     />
                   </div>
@@ -445,7 +445,7 @@ export default function RetirementCalculator() {
                         const value = e.target.value.replace(/[^0-9]/g, '');
                         setRetirementAge(value ? Number(value) : 0);
                       }}
-                      className="w-full px-4 py-3 rounded-xl border-2 border-gray-200 focus:border-purple-500 focus:outline-none transition-colors text-gray-900 font-medium"
+                      className="w-full px-4 py-3 rounded-xl text-gray-900 border-2 border-gray-200 focus:border-purple-500 focus:outline-none transition-colors  font-medium"
                       placeholder="65"
                     />
                   </div>
@@ -462,7 +462,7 @@ export default function RetirementCalculator() {
                         const value = e.target.value.replace(/[^0-9]/g, '');
                         setLifeExpectancy(value ? Number(value) : 0);
                       }}
-                      className="w-full px-4 py-3 rounded-xl border-2 border-gray-200 focus:border-purple-500 focus:outline-none transition-colors text-gray-900 font-medium"
+                      className="w-full px-4 py-3 rounded-xl text-gray-900 border-2 border-gray-200 focus:border-purple-500 focus:outline-none transition-colors  font-medium"
                       placeholder="90"
                     />
                   </div>
@@ -491,7 +491,7 @@ export default function RetirementCalculator() {
                         onChange={(e) =>
                           setCurrentSavings(parseInputValue(e.target.value))
                         }
-                        className="w-full pl-10 pr-4 py-3 rounded-xl border-2 border-gray-200 focus:border-purple-500 focus:outline-none transition-colors text-gray-900 font-medium"
+                        className="w-full pl-10 pr-4 py-3 rounded-xl text-gray-900 border-2 border-gray-200 focus:border-purple-500 focus:outline-none transition-colors  font-medium"
                         placeholder="50,000"
                       />
                     </div>
@@ -512,7 +512,7 @@ export default function RetirementCalculator() {
                         onChange={(e) =>
                           setAnnualContribution(parseInputValue(e.target.value))
                         }
-                        className="w-full pl-10 pr-4 py-3 rounded-xl border-2 border-gray-200 focus:border-purple-500 focus:outline-none transition-colors text-gray-900 font-medium"
+                        className="w-full pl-10 pr-4 py-3 rounded-xl text-gray-900 border-2 border-gray-200 focus:border-purple-500 focus:outline-none transition-colors  font-medium"
                         placeholder="12,000"
                       />
                     </div>
@@ -534,7 +534,7 @@ export default function RetirementCalculator() {
                           const value = e.target.value.replace(/[^0-9.]/g, '');
                           setEmployerMatchPercentage(value ? Number(value) : 0);
                         }}
-                        className="w-full pl-4 pr-8 py-3 rounded-xl border-2 border-gray-200 focus:border-purple-500 focus:outline-none transition-colors text-gray-900 font-medium"
+                        className="w-full pl-4 pr-8 py-3 rounded-xl text-gray-900 border-2 border-gray-200 focus:border-purple-500 focus:outline-none transition-colors  font-medium"
                         placeholder="50"
                       />
                       <span className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-500">
@@ -570,7 +570,7 @@ export default function RetirementCalculator() {
                         onChange={(e) =>
                           setCurrentIncome(parseInputValue(e.target.value))
                         }
-                        className="w-full pl-10 pr-4 py-3 rounded-xl border-2 border-gray-200 focus:border-purple-500 focus:outline-none transition-colors text-gray-900 font-medium"
+                        className="w-full pl-10 pr-4 py-3 rounded-xl text-gray-900 border-2 border-gray-200 focus:border-purple-500 focus:outline-none transition-colors  font-medium"
                         placeholder="75,000"
                       />
                     </div>
@@ -593,7 +593,7 @@ export default function RetirementCalculator() {
                             parseInputValue(e.target.value)
                           )
                         }
-                        className="w-full pl-10 pr-4 py-3 rounded-xl border-2 border-gray-200 focus:border-purple-500 focus:outline-none transition-colors text-gray-900 font-medium"
+                        className="w-full pl-10 pr-4 py-3 rounded-xl text-gray-900 border-2 border-gray-200 focus:border-purple-500 focus:outline-none transition-colors  font-medium"
                         placeholder="60,000"
                       />
                     </div>
@@ -620,7 +620,7 @@ export default function RetirementCalculator() {
                             parseInputValue(e.target.value)
                           )
                         }
-                        className="w-full pl-10 pr-4 py-3 rounded-xl border-2 border-gray-200 focus:border-purple-500 focus:outline-none transition-colors text-gray-900 font-medium"
+                        className="w-full pl-10 pr-4 py-3 rounded-xl text-gray-900 border-2 border-gray-200 focus:border-purple-500 focus:outline-none transition-colors  font-medium"
                         placeholder="24,000"
                       />
                     </div>
@@ -644,7 +644,7 @@ export default function RetirementCalculator() {
                         onChange={(e) =>
                           setOtherIncome(parseInputValue(e.target.value))
                         }
-                        className="w-full pl-10 pr-4 py-3 rounded-xl border-2 border-gray-200 focus:border-purple-500 focus:outline-none transition-colors text-gray-900 font-medium"
+                        className="w-full pl-10 pr-4 py-3 rounded-xl text-gray-900 border-2 border-gray-200 focus:border-purple-500 focus:outline-none transition-colors  font-medium"
                         placeholder="0"
                       />
                     </div>
@@ -675,7 +675,7 @@ export default function RetirementCalculator() {
                           const value = e.target.value.replace(/[^0-9.]/g, '');
                           setPreRetirementReturn(value ? Number(value) : 0);
                         }}
-                        className="w-full pl-4 pr-8 py-3 rounded-xl border-2 border-gray-200 focus:border-purple-500 focus:outline-none transition-colors text-gray-900 font-medium"
+                        className="w-full pl-4 pr-8 py-3 rounded-xl text-gray-900 border-2 border-gray-200 focus:border-purple-500 focus:outline-none transition-colors  font-medium"
                         placeholder="7"
                       />
                       <span className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-500">
@@ -700,7 +700,7 @@ export default function RetirementCalculator() {
                           const value = e.target.value.replace(/[^0-9.]/g, '');
                           setPostRetirementReturn(value ? Number(value) : 0);
                         }}
-                        className="w-full pl-4 pr-8 py-3 rounded-xl border-2 border-gray-200 focus:border-purple-500 focus:outline-none transition-colors text-gray-900 font-medium"
+                        className="w-full pl-4 pr-8 py-3 rounded-xl text-gray-900 border-2 border-gray-200 focus:border-purple-500 focus:outline-none transition-colors  font-medium"
                         placeholder="5"
                       />
                       <span className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-500">
@@ -725,7 +725,7 @@ export default function RetirementCalculator() {
                           const value = e.target.value.replace(/[^0-9.]/g, '');
                           setInflationRate(value ? Number(value) : 0);
                         }}
-                        className="w-full pl-4 pr-8 py-3 rounded-xl border-2 border-gray-200 focus:border-purple-500 focus:outline-none transition-colors text-gray-900 font-medium"
+                        className="w-full pl-4 pr-8 py-3 rounded-xl text-gray-900 border-2 border-gray-200 focus:border-purple-500 focus:outline-none transition-colors  font-medium"
                         placeholder="3"
                       />
                       <span className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-500">

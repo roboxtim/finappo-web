@@ -185,7 +185,7 @@ export default function RentCalculator() {
                       onChange={(e) =>
                         setMonthlyRent(parseInputValue(e.target.value))
                       }
-                      className="w-full pl-8 pr-4 py-3 rounded-xl border-2 border-gray-200 focus:border-blue-500 focus:outline-none transition-colors text-gray-900 font-medium"
+                      className="w-full pl-8 pr-4 py-3 rounded-xl text-gray-900 border-2 border-gray-200 focus:border-blue-500 focus:outline-none transition-colors  font-medium"
                     />
                   </div>
                 </div>
@@ -206,7 +206,7 @@ export default function RentCalculator() {
                       onChange={(e) =>
                         setUtilities(parseInputValue(e.target.value))
                       }
-                      className="w-full pl-8 pr-4 py-3 rounded-xl border-2 border-gray-200 focus:border-blue-500 focus:outline-none transition-colors text-gray-900 font-medium"
+                      className="w-full pl-8 pr-4 py-3 rounded-xl text-gray-900 border-2 border-gray-200 focus:border-blue-500 focus:outline-none transition-colors  font-medium"
                     />
                   </div>
                 </div>
@@ -227,7 +227,7 @@ export default function RentCalculator() {
                       onChange={(e) =>
                         setInsurance(parseInputValue(e.target.value))
                       }
-                      className="w-full pl-8 pr-4 py-3 rounded-xl border-2 border-gray-200 focus:border-blue-500 focus:outline-none transition-colors text-gray-900 font-medium"
+                      className="w-full pl-8 pr-4 py-3 rounded-xl text-gray-900 border-2 border-gray-200 focus:border-blue-500 focus:outline-none transition-colors  font-medium"
                     />
                   </div>
                 </div>
@@ -248,7 +248,7 @@ export default function RentCalculator() {
                       onChange={(e) =>
                         setParking(parseInputValue(e.target.value))
                       }
-                      className="w-full pl-8 pr-4 py-3 rounded-xl border-2 border-gray-200 focus:border-blue-500 focus:outline-none transition-colors text-gray-900 font-medium"
+                      className="w-full pl-8 pr-4 py-3 rounded-xl text-gray-900 border-2 border-gray-200 focus:border-blue-500 focus:outline-none transition-colors  font-medium"
                     />
                   </div>
                 </div>
@@ -269,7 +269,7 @@ export default function RentCalculator() {
                       onChange={(e) =>
                         setOtherCosts(parseInputValue(e.target.value))
                       }
-                      className="w-full pl-8 pr-4 py-3 rounded-xl border-2 border-gray-200 focus:border-blue-500 focus:outline-none transition-colors text-gray-900 font-medium"
+                      className="w-full pl-8 pr-4 py-3 rounded-xl text-gray-900 border-2 border-gray-200 focus:border-blue-500 focus:outline-none transition-colors  font-medium"
                     />
                   </div>
                 </div>
@@ -293,7 +293,7 @@ export default function RentCalculator() {
                             : value;
                         setDiscount(formatted ? Number(formatted) : 0);
                       }}
-                      className="w-full pl-4 pr-8 py-3 rounded-xl border-2 border-gray-200 focus:border-blue-500 focus:outline-none transition-colors text-gray-900 font-medium"
+                      className="w-full pl-4 pr-8 py-3 rounded-xl text-gray-900 border-2 border-gray-200 focus:border-blue-500 focus:outline-none transition-colors  font-medium"
                       placeholder="0"
                     />
                     <span className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-500">
@@ -321,7 +321,7 @@ export default function RentCalculator() {
                             : value;
                         setTaxRate(formatted ? Number(formatted) : 0);
                       }}
-                      className="w-full pl-4 pr-8 py-3 rounded-xl border-2 border-gray-200 focus:border-blue-500 focus:outline-none transition-colors text-gray-900 font-medium"
+                      className="w-full pl-4 pr-8 py-3 rounded-xl text-gray-900 border-2 border-gray-200 focus:border-blue-500 focus:outline-none transition-colors  font-medium"
                       placeholder="0"
                     />
                     <span className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-500">
@@ -349,7 +349,7 @@ export default function RentCalculator() {
                             : value;
                         setAnnualIncrease(formatted ? Number(formatted) : 0);
                       }}
-                      className="w-full pl-4 pr-8 py-3 rounded-xl border-2 border-gray-200 focus:border-blue-500 focus:outline-none transition-colors text-gray-900 font-medium"
+                      className="w-full pl-4 pr-8 py-3 rounded-xl text-gray-900 border-2 border-gray-200 focus:border-blue-500 focus:outline-none transition-colors  font-medium"
                     />
                     <span className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-500">
                       %
@@ -365,7 +365,7 @@ export default function RentCalculator() {
                   <select
                     value={years}
                     onChange={(e) => setYears(Number(e.target.value))}
-                    className="w-full px-4 py-3 rounded-xl border-2 border-gray-200 focus:border-blue-500 focus:outline-none transition-colors text-gray-900 font-medium"
+                    className="w-full px-4 py-3 rounded-xl text-gray-900 border-2 border-gray-200 focus:border-blue-500 focus:outline-none transition-colors  font-medium"
                   >
                     <option value={1}>1 year</option>
                     <option value={2}>2 years</option>
@@ -393,7 +393,7 @@ export default function RentCalculator() {
                       onChange={(e) =>
                         setMonthlyIncome(parseInputValue(e.target.value))
                       }
-                      className="w-full pl-8 pr-4 py-3 rounded-xl border-2 border-gray-200 focus:border-blue-500 focus:outline-none transition-colors text-gray-900 font-medium"
+                      className="w-full pl-8 pr-4 py-3 rounded-xl text-gray-900 border-2 border-gray-200 focus:border-blue-500 focus:outline-none transition-colors  font-medium"
                     />
                   </div>
                 </div>

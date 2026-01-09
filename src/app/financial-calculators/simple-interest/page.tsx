@@ -133,7 +133,7 @@ export default function SimpleInterestCalculator() {
                       onChange={(e) => {
                         setPrincipal(parseInputValue(e.target.value));
                       }}
-                      className="w-full pl-8 pr-4 py-3 rounded-xl border-2 border-gray-200 focus:border-blue-500 focus:outline-none transition-colors text-gray-900 font-medium"
+                      className="w-full pl-8 pr-4 py-3 rounded-xl text-gray-900 border-2 border-gray-200 focus:border-blue-500 focus:outline-none transition-colors  font-medium"
                     />
                   </div>
                   <div className="mt-1 text-xs text-gray-500">
@@ -160,7 +160,7 @@ export default function SimpleInterestCalculator() {
                             : value;
                         setInterestRate(formatted ? Number(formatted) : 0);
                       }}
-                      className="w-full pl-4 pr-8 py-3 rounded-xl border-2 border-gray-200 focus:border-blue-500 focus:outline-none transition-colors text-gray-900 font-medium"
+                      className="w-full pl-4 pr-8 py-3 rounded-xl text-gray-900 border-2 border-gray-200 focus:border-blue-500 focus:outline-none transition-colors  font-medium"
                     />
                     <span className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-500">
                       %
@@ -184,7 +184,7 @@ export default function SimpleInterestCalculator() {
                       const value = e.target.value.replace(/[^0-9]/g, '');
                       setYears(value ? Number(value) : 0);
                     }}
-                    className="w-full px-4 py-3 rounded-xl border-2 border-gray-200 focus:border-blue-500 focus:outline-none transition-colors text-gray-900 font-medium"
+                    className="w-full px-4 py-3 rounded-xl text-gray-900 border-2 border-gray-200 focus:border-blue-500 focus:outline-none transition-colors  font-medium"
                   />
                 </div>
 
@@ -196,7 +196,7 @@ export default function SimpleInterestCalculator() {
                   <select
                     value={months}
                     onChange={(e) => setMonths(Number(e.target.value))}
-                    className="w-full px-4 py-3 rounded-xl border-2 border-gray-200 focus:border-blue-500 focus:outline-none transition-colors text-gray-900 font-medium"
+                    className="w-full px-4 py-3 rounded-xl text-gray-900 border-2 border-gray-200 focus:border-blue-500 focus:outline-none transition-colors  font-medium"
                   >
                     {Array.from({ length: 12 }, (_, i) => (
                       <option key={i} value={i}>

@@ -257,7 +257,7 @@ export default function AmortizationCalculator() {
                         onChange={(e) => {
                           setLoanAmount(parseInputValue(e.target.value));
                         }}
-                        className="w-full pl-8 pr-4 py-3 rounded-xl border-2 border-gray-200 focus:border-blue-500 focus:outline-none transition-colors text-gray-900 font-medium"
+                        className="w-full pl-8 pr-4 py-3 rounded-xl text-gray-900 border-2 border-gray-200 focus:border-blue-500 focus:outline-none transition-colors  font-medium"
                       />
                     </div>
                   </div>
@@ -277,7 +277,7 @@ export default function AmortizationCalculator() {
                           }
                           min="0"
                           max="50"
-                          className="w-full px-4 py-3 rounded-xl border-2 border-gray-200 focus:border-blue-500 focus:outline-none transition-colors text-gray-900 font-medium"
+                          className="w-full px-4 py-3 rounded-xl text-gray-900 border-2 border-gray-200 focus:border-blue-500 focus:outline-none transition-colors  font-medium"
                           placeholder="Years"
                         />
                         <div className="text-xs text-gray-500 mt-1">Years</div>
@@ -291,7 +291,7 @@ export default function AmortizationCalculator() {
                           }
                           min="0"
                           max="11"
-                          className="w-full px-4 py-3 rounded-xl border-2 border-gray-200 focus:border-blue-500 focus:outline-none transition-colors text-gray-900 font-medium"
+                          className="w-full px-4 py-3 rounded-xl text-gray-900 border-2 border-gray-200 focus:border-blue-500 focus:outline-none transition-colors  font-medium"
                           placeholder="Months"
                         />
                         <div className="text-xs text-gray-500 mt-1">Months</div>
@@ -318,7 +318,7 @@ export default function AmortizationCalculator() {
                               : value;
                           setInterestRate(formatted ? Number(formatted) : 0);
                         }}
-                        className="w-full pl-4 pr-8 py-3 rounded-xl border-2 border-gray-200 focus:border-blue-500 focus:outline-none transition-colors text-gray-900 font-medium"
+                        className="w-full pl-4 pr-8 py-3 rounded-xl text-gray-900 border-2 border-gray-200 focus:border-blue-500 focus:outline-none transition-colors  font-medium"
                       />
                       <span className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-500">
                         %
@@ -336,7 +336,7 @@ export default function AmortizationCalculator() {
                       onChange={(e) =>
                         setCompoundPeriod(e.target.value as CompoundPeriod)
                       }
-                      className="w-full px-4 py-3 rounded-xl border-2 border-gray-200 focus:border-blue-500 focus:outline-none transition-colors text-gray-900 font-medium"
+                      className="w-full px-4 py-3 rounded-xl text-gray-900 border-2 border-gray-200 focus:border-blue-500 focus:outline-none transition-colors  font-medium"
                     >
                       <option value="monthly">Monthly</option>
                       <option value="semi-monthly">Semi-Monthly</option>
@@ -360,7 +360,7 @@ export default function AmortizationCalculator() {
                       onChange={(e) =>
                         setPaymentFrequency(e.target.value as PaymentFrequency)
                       }
-                      className="w-full px-4 py-3 rounded-xl border-2 border-gray-200 focus:border-blue-500 focus:outline-none transition-colors text-gray-900 font-medium"
+                      className="w-full px-4 py-3 rounded-xl text-gray-900 border-2 border-gray-200 focus:border-blue-500 focus:outline-none transition-colors  font-medium"
                     >
                       <option value="monthly">Monthly</option>
                       <option value="semi-monthly">Semi-Monthly</option>
@@ -382,7 +382,7 @@ export default function AmortizationCalculator() {
                       <select
                         value={startMonth}
                         onChange={(e) => setStartMonth(Number(e.target.value))}
-                        className="px-4 py-3 rounded-xl border-2 border-gray-200 focus:border-blue-500 focus:outline-none transition-colors text-gray-900 font-medium"
+                        className="px-4 py-3 rounded-xl text-gray-900 border-2 border-gray-200 focus:border-blue-500 focus:outline-none transition-colors  font-medium"
                       >
                         {[
                           'Jan',
@@ -409,7 +409,7 @@ export default function AmortizationCalculator() {
                         onChange={(e) =>
                           setStartYear(Number(e.target.value) || 2026)
                         }
-                        className="px-4 py-3 rounded-xl border-2 border-gray-200 focus:border-blue-500 focus:outline-none transition-colors text-gray-900 font-medium"
+                        className="px-4 py-3 rounded-xl text-gray-900 border-2 border-gray-200 focus:border-blue-500 focus:outline-none transition-colors  font-medium"
                       />
                     </div>
                   </div>
@@ -450,7 +450,7 @@ export default function AmortizationCalculator() {
                           onChange={(e) => {
                             setMonthlyExtra(parseInputValue(e.target.value));
                           }}
-                          className="w-full pl-8 pr-4 py-3 rounded-xl border-2 border-gray-200 focus:border-blue-500 focus:outline-none transition-colors text-gray-900 font-medium"
+                          className="w-full pl-8 pr-4 py-3 rounded-xl text-gray-900 border-2 border-gray-200 focus:border-blue-500 focus:outline-none transition-colors  font-medium"
                         />
                       </div>
                       {monthlyExtra > 0 && (
@@ -467,7 +467,7 @@ export default function AmortizationCalculator() {
                               )
                             }
                             min="1"
-                            className="w-32 px-3 py-2 rounded-lg border-2 border-gray-200 focus:border-blue-500 focus:outline-none transition-colors text-sm"
+                            className="w-32 px-3 py-2 rounded-lg text-gray-900 border-2 border-gray-200 focus:border-blue-500 focus:outline-none transition-colors text-sm"
                           />
                         </div>
                       )}
@@ -489,7 +489,7 @@ export default function AmortizationCalculator() {
                           onChange={(e) => {
                             setYearlyExtra(parseInputValue(e.target.value));
                           }}
-                          className="w-full pl-8 pr-4 py-3 rounded-xl border-2 border-gray-200 focus:border-blue-500 focus:outline-none transition-colors text-gray-900 font-medium"
+                          className="w-full pl-8 pr-4 py-3 rounded-xl text-gray-900 border-2 border-gray-200 focus:border-blue-500 focus:outline-none transition-colors  font-medium"
                         />
                       </div>
                       {yearlyExtra > 0 && (
@@ -506,7 +506,7 @@ export default function AmortizationCalculator() {
                               )
                             }
                             min="1"
-                            className="w-32 px-3 py-2 rounded-lg border-2 border-gray-200 focus:border-blue-500 focus:outline-none transition-colors text-sm"
+                            className="w-32 px-3 py-2 rounded-lg text-gray-900 border-2 border-gray-200 focus:border-blue-500 focus:outline-none transition-colors text-sm"
                           />
                         </div>
                       )}
@@ -550,7 +550,7 @@ export default function AmortizationCalculator() {
                                       parseInputValue(e.target.value)
                                     )
                                   }
-                                  className="w-full pl-7 pr-3 py-2 rounded-lg border-2 border-gray-200 focus:border-blue-500 focus:outline-none transition-colors text-sm"
+                                  className="w-full pl-7 pr-3 py-2 rounded-lg text-gray-900 border-2 border-gray-200 focus:border-blue-500 focus:outline-none transition-colors text-sm"
                                 />
                               </div>
                               <input
@@ -565,7 +565,7 @@ export default function AmortizationCalculator() {
                                   )
                                 }
                                 min="1"
-                                className="w-24 px-3 py-2 rounded-lg border-2 border-gray-200 focus:border-blue-500 focus:outline-none transition-colors text-sm"
+                                className="w-24 px-3 py-2 rounded-lg text-gray-900 border-2 border-gray-200 focus:border-blue-500 focus:outline-none transition-colors text-sm"
                               />
                               <button
                                 onClick={() => removeOneTimePayment(index)}

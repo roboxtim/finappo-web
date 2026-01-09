@@ -149,7 +149,7 @@ export default function AverageReturnCalculator() {
                             onChange={(e) =>
                               updateReturn(index, e.target.value)
                             }
-                            className="w-full pl-4 pr-8 py-2.5 rounded-xl border-2 border-gray-200 focus:border-blue-500 focus:outline-none transition-colors text-gray-900 font-medium text-sm"
+                            className="w-full pl-4 pr-8 py-2.5 rounded-xl text-gray-900 border-2 border-gray-200 focus:border-blue-500 focus:outline-none transition-colors  font-medium text-sm"
                             placeholder="0"
                           />
                           <span className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-500 text-sm">
@@ -172,7 +172,7 @@ export default function AverageReturnCalculator() {
                                 updateYears(index, Number(e.target.value) || 0)
                               }
                               min="0"
-                              className="w-full px-3 py-2.5 rounded-xl border-2 border-gray-200 focus:border-blue-500 focus:outline-none transition-colors text-gray-900 font-medium text-sm"
+                              className="w-full px-3 py-2.5 rounded-xl text-gray-900 border-2 border-gray-200 focus:border-blue-500 focus:outline-none transition-colors  font-medium text-sm"
                             />
                             <span className="text-xs text-gray-500 mt-1 block text-center">
                               Years
@@ -187,7 +187,7 @@ export default function AverageReturnCalculator() {
                               }
                               min="0"
                               max="11"
-                              className="w-full px-3 py-2.5 rounded-xl border-2 border-gray-200 focus:border-blue-500 focus:outline-none transition-colors text-gray-900 font-medium text-sm"
+                              className="w-full px-3 py-2.5 rounded-xl text-gray-900 border-2 border-gray-200 focus:border-blue-500 focus:outline-none transition-colors  font-medium text-sm"
                             />
                             <span className="text-xs text-gray-500 mt-1 block text-center">
                               Months

@@ -291,7 +291,7 @@ export default function VALoanCalculator() {
                             setDownPayment((value * downPaymentPercent) / 100);
                           }
                         }}
-                        className="w-full pl-8 pr-4 py-3 rounded-xl border-2 border-gray-200 focus:border-blue-500 focus:outline-none transition-colors text-gray-900 font-medium"
+                        className="w-full pl-8 pr-4 py-3 rounded-xl text-gray-900 border-2 border-gray-200 focus:border-blue-500 focus:outline-none transition-colors  font-medium"
                       />
                     </div>
                   </div>
@@ -315,7 +315,7 @@ export default function VALoanCalculator() {
                               parseInputValue(e.target.value)
                             );
                           }}
-                          className="w-full pl-8 pr-4 py-3 rounded-xl border-2 border-gray-200 focus:border-blue-500 focus:outline-none transition-colors text-gray-900 font-medium"
+                          className="w-full pl-8 pr-4 py-3 rounded-xl text-gray-900 border-2 border-gray-200 focus:border-blue-500 focus:outline-none transition-colors  font-medium"
                         />
                       </div>
                       <div className="relative">
@@ -333,7 +333,7 @@ export default function VALoanCalculator() {
                               handleDownPaymentPercentChange(num);
                             }
                           }}
-                          className="w-full pl-4 pr-8 py-3 rounded-xl border-2 border-gray-200 focus:border-blue-500 focus:outline-none transition-colors text-gray-900 font-medium"
+                          className="w-full pl-4 pr-8 py-3 rounded-xl text-gray-900 border-2 border-gray-200 focus:border-blue-500 focus:outline-none transition-colors  font-medium"
                         />
                         <span className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-500">
                           %
@@ -353,7 +353,7 @@ export default function VALoanCalculator() {
                     <select
                       value={loanTerm}
                       onChange={(e) => setLoanTerm(Number(e.target.value))}
-                      className="w-full px-4 py-3 rounded-xl border-2 border-gray-200 focus:border-blue-500 focus:outline-none transition-colors text-gray-900 font-medium"
+                      className="w-full px-4 py-3 rounded-xl text-gray-900 border-2 border-gray-200 focus:border-blue-500 focus:outline-none transition-colors  font-medium"
                     >
                       <option value={15}>15 years</option>
                       <option value={20}>20 years</option>
@@ -380,7 +380,7 @@ export default function VALoanCalculator() {
                               : value;
                           setInterestRate(formatted ? Number(formatted) : 0);
                         }}
-                        className="w-full pl-4 pr-8 py-3 rounded-xl border-2 border-gray-200 focus:border-blue-500 focus:outline-none transition-colors text-gray-900 font-medium"
+                        className="w-full pl-4 pr-8 py-3 rounded-xl text-gray-900 border-2 border-gray-200 focus:border-blue-500 focus:outline-none transition-colors  font-medium"
                       />
                       <span className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-500">
                         %
@@ -398,7 +398,7 @@ export default function VALoanCalculator() {
                       onChange={(e) =>
                         setServiceType(e.target.value as ServiceType)
                       }
-                      className="w-full px-4 py-3 rounded-xl border-2 border-gray-200 focus:border-blue-500 focus:outline-none transition-colors text-gray-900 font-medium"
+                      className="w-full px-4 py-3 rounded-xl text-gray-900 border-2 border-gray-200 focus:border-blue-500 focus:outline-none transition-colors  font-medium"
                     >
                       <option value="regular">Regular Military</option>
                       <option value="reserves">Reserves/National Guard</option>
@@ -415,7 +415,7 @@ export default function VALoanCalculator() {
                       onChange={(e) =>
                         setLoanUsage(e.target.value as LoanUsage)
                       }
-                      className="w-full px-4 py-3 rounded-xl border-2 border-gray-200 focus:border-blue-500 focus:outline-none transition-colors text-gray-900 font-medium"
+                      className="w-full px-4 py-3 rounded-xl text-gray-900 border-2 border-gray-200 focus:border-blue-500 focus:outline-none transition-colors  font-medium"
                     >
                       <option value="first">First-Time Use</option>
                       <option value="subsequent">Subsequent Use</option>
@@ -484,7 +484,7 @@ export default function VALoanCalculator() {
                       <select
                         value={startMonth}
                         onChange={(e) => setStartMonth(Number(e.target.value))}
-                        className="px-4 py-3 rounded-xl border-2 border-gray-200 focus:border-blue-500 focus:outline-none transition-colors text-gray-900 font-medium"
+                        className="px-4 py-3 rounded-xl text-gray-900 border-2 border-gray-200 focus:border-blue-500 focus:outline-none transition-colors  font-medium"
                       >
                         {[
                           'Jan',
@@ -511,7 +511,7 @@ export default function VALoanCalculator() {
                         onChange={(e) =>
                           setStartYear(Number(e.target.value) || 2026)
                         }
-                        className="px-4 py-3 rounded-xl border-2 border-gray-200 focus:border-blue-500 focus:outline-none transition-colors text-gray-900 font-medium"
+                        className="px-4 py-3 rounded-xl text-gray-900 border-2 border-gray-200 focus:border-blue-500 focus:outline-none transition-colors  font-medium"
                       />
                     </div>
                   </div>
@@ -553,7 +553,7 @@ export default function VALoanCalculator() {
                           onChange={(e) => {
                             setPropertyTax(parseInputValue(e.target.value));
                           }}
-                          className="w-full pl-8 pr-4 py-3 rounded-xl border-2 border-gray-200 focus:border-blue-500 focus:outline-none transition-colors text-gray-900 font-medium"
+                          className="w-full pl-8 pr-4 py-3 rounded-xl text-gray-900 border-2 border-gray-200 focus:border-blue-500 focus:outline-none transition-colors  font-medium"
                         />
                       </div>
                       <div className="mt-1 text-xs text-gray-500">
@@ -577,7 +577,7 @@ export default function VALoanCalculator() {
                           onChange={(e) => {
                             setHomeInsurance(parseInputValue(e.target.value));
                           }}
-                          className="w-full pl-8 pr-4 py-3 rounded-xl border-2 border-gray-200 focus:border-blue-500 focus:outline-none transition-colors text-gray-900 font-medium"
+                          className="w-full pl-8 pr-4 py-3 rounded-xl text-gray-900 border-2 border-gray-200 focus:border-blue-500 focus:outline-none transition-colors  font-medium"
                         />
                       </div>
                       <div className="mt-1 text-xs text-gray-500">
@@ -601,7 +601,7 @@ export default function VALoanCalculator() {
                           onChange={(e) => {
                             setHoaFee(parseInputValue(e.target.value));
                           }}
-                          className="w-full pl-8 pr-4 py-3 rounded-xl border-2 border-gray-200 focus:border-blue-500 focus:outline-none transition-colors text-gray-900 font-medium"
+                          className="w-full pl-8 pr-4 py-3 rounded-xl text-gray-900 border-2 border-gray-200 focus:border-blue-500 focus:outline-none transition-colors  font-medium"
                         />
                       </div>
                     </div>
@@ -622,7 +622,7 @@ export default function VALoanCalculator() {
                           onChange={(e) => {
                             setOtherCosts(parseInputValue(e.target.value));
                           }}
-                          className="w-full pl-8 pr-4 py-3 rounded-xl border-2 border-gray-200 focus:border-blue-500 focus:outline-none transition-colors text-gray-900 font-medium"
+                          className="w-full pl-8 pr-4 py-3 rounded-xl text-gray-900 border-2 border-gray-200 focus:border-blue-500 focus:outline-none transition-colors  font-medium"
                         />
                       </div>
                       <div className="mt-1 text-xs text-gray-500">
@@ -669,7 +669,7 @@ export default function VALoanCalculator() {
                               value ? Number(value) : 0
                             );
                           }}
-                          className="w-full pl-4 pr-8 py-3 rounded-xl border-2 border-gray-200 focus:border-blue-500 focus:outline-none transition-colors text-gray-900 font-medium"
+                          className="w-full pl-4 pr-8 py-3 rounded-xl text-gray-900 border-2 border-gray-200 focus:border-blue-500 focus:outline-none transition-colors  font-medium"
                         />
                         <span className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-500">
                           %
@@ -696,7 +696,7 @@ export default function VALoanCalculator() {
                             );
                             setFHAInterestRate(value ? Number(value) : 0);
                           }}
-                          className="w-full pl-4 pr-8 py-3 rounded-xl border-2 border-gray-200 focus:border-blue-500 focus:outline-none transition-colors text-gray-900 font-medium"
+                          className="w-full pl-4 pr-8 py-3 rounded-xl text-gray-900 border-2 border-gray-200 focus:border-blue-500 focus:outline-none transition-colors  font-medium"
                         />
                         <span className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-500">
                           %

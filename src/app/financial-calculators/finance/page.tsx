@@ -191,7 +191,7 @@ export default function FinanceCalculator() {
                       value={N || ''}
                       onChange={(e) => setN(Number(e.target.value))}
                       disabled={solveFor === 'N'}
-                      className="w-full px-4 py-3 rounded-xl border-2 border-gray-200 focus:border-blue-500 focus:outline-none transition-colors text-gray-900 font-medium disabled:bg-gray-50 disabled:text-gray-500"
+                      className="w-full px-4 py-3 rounded-xl text-gray-900 border-2 border-gray-200 focus:border-blue-500 focus:outline-none transition-colors  font-medium disabled:bg-gray-50 disabled:text-gray-500"
                     />
                   </div>
 
@@ -207,7 +207,7 @@ export default function FinanceCalculator() {
                         value={IY || ''}
                         onChange={(e) => setIY(Number(e.target.value))}
                         disabled={solveFor === 'IY'}
-                        className="w-full pl-4 pr-8 py-3 rounded-xl border-2 border-gray-200 focus:border-blue-500 focus:outline-none transition-colors text-gray-900 font-medium disabled:bg-gray-50 disabled:text-gray-500"
+                        className="w-full pl-4 pr-8 py-3 rounded-xl text-gray-900 border-2 border-gray-200 focus:border-blue-500 focus:outline-none transition-colors  font-medium disabled:bg-gray-50 disabled:text-gray-500"
                       />
                       <span className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-500">
                         %
@@ -229,7 +229,7 @@ export default function FinanceCalculator() {
                         value={PV || ''}
                         onChange={(e) => setPV(Number(e.target.value))}
                         disabled={solveFor === 'PV'}
-                        className="w-full pl-8 pr-4 py-3 rounded-xl border-2 border-gray-200 focus:border-blue-500 focus:outline-none transition-colors text-gray-900 font-medium disabled:bg-gray-50 disabled:text-gray-500"
+                        className="w-full pl-8 pr-4 py-3 rounded-xl text-gray-900 border-2 border-gray-200 focus:border-blue-500 focus:outline-none transition-colors  font-medium disabled:bg-gray-50 disabled:text-gray-500"
                       />
                     </div>
                   </div>
@@ -248,7 +248,7 @@ export default function FinanceCalculator() {
                         value={PMT || ''}
                         onChange={(e) => setPMT(Number(e.target.value))}
                         disabled={solveFor === 'PMT'}
-                        className="w-full pl-8 pr-4 py-3 rounded-xl border-2 border-gray-200 focus:border-blue-500 focus:outline-none transition-colors text-gray-900 font-medium disabled:bg-gray-50 disabled:text-gray-500"
+                        className="w-full pl-8 pr-4 py-3 rounded-xl text-gray-900 border-2 border-gray-200 focus:border-blue-500 focus:outline-none transition-colors  font-medium disabled:bg-gray-50 disabled:text-gray-500"
                       />
                     </div>
                   </div>
@@ -267,7 +267,7 @@ export default function FinanceCalculator() {
                         value={FV || ''}
                         onChange={(e) => setFV(Number(e.target.value))}
                         disabled={solveFor === 'FV'}
-                        className="w-full pl-8 pr-4 py-3 rounded-xl border-2 border-gray-200 focus:border-blue-500 focus:outline-none transition-colors text-gray-900 font-medium disabled:bg-gray-50 disabled:text-gray-500"
+                        className="w-full pl-8 pr-4 py-3 rounded-xl text-gray-900 border-2 border-gray-200 focus:border-blue-500 focus:outline-none transition-colors  font-medium disabled:bg-gray-50 disabled:text-gray-500"
                       />
                     </div>
                   </div>
@@ -289,7 +289,7 @@ export default function FinanceCalculator() {
                     <select
                       value={PY}
                       onChange={(e) => setPY(Number(e.target.value))}
-                      className="w-full px-4 py-3 rounded-xl border-2 border-gray-200 focus:border-blue-500 focus:outline-none transition-colors text-gray-900 font-medium"
+                      className="w-full px-4 py-3 rounded-xl text-gray-900 border-2 border-gray-200 focus:border-blue-500 focus:outline-none transition-colors  font-medium"
                     >
                       <option value={1}>1 (Annual)</option>
                       <option value={2}>2 (Semi-annual)</option>
@@ -308,7 +308,7 @@ export default function FinanceCalculator() {
                     <select
                       value={CY}
                       onChange={(e) => setCY(Number(e.target.value))}
-                      className="w-full px-4 py-3 rounded-xl border-2 border-gray-200 focus:border-blue-500 focus:outline-none transition-colors text-gray-900 font-medium"
+                      className="w-full px-4 py-3 rounded-xl text-gray-900 border-2 border-gray-200 focus:border-blue-500 focus:outline-none transition-colors  font-medium"
                     >
                       <option value={1}>1 (Annual)</option>
                       <option value={2}>2 (Semi-annual)</option>

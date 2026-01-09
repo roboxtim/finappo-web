@@ -203,7 +203,7 @@ export default function RentVsBuyCalculator() {
                         onChange={(e) =>
                           handleInputChange('homePrice', e.target.value)
                         }
-                        className="w-full pl-8 pr-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-indigo-500 focus:border-transparent text-gray-900 font-medium"
+                        className="w-full pl-8 pr-4 py-2 text-gray-900 border border-gray-300 rounded-md focus:ring-2 focus:ring-indigo-500 focus:border-transparent  font-medium"
                       />
                     </div>
                   </div>
@@ -223,7 +223,7 @@ export default function RentVsBuyCalculator() {
                               e.target.value
                             )
                           }
-                          className="w-full pl-4 pr-8 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-indigo-500 focus:border-transparent text-gray-900 font-medium"
+                          className="w-full pl-4 pr-8 py-2 text-gray-900 border border-gray-300 rounded-md focus:ring-2 focus:ring-indigo-500 focus:border-transparent  font-medium"
                         />
                         <span className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-500">
                           %
@@ -245,7 +245,7 @@ export default function RentVsBuyCalculator() {
                             (inputs.homePrice * inputs.downPaymentPercent) / 100
                           ).toLocaleString()}
                           disabled
-                          className="w-full pl-8 pr-4 py-2 border border-gray-200 rounded-md bg-gray-50 text-gray-700"
+                          className="w-full pl-8 pr-4 py-2 text-gray-900 border border-gray-200 rounded-md bg-gray-50 text-gray-700"
                         />
                       </div>
                     </div>
@@ -264,7 +264,7 @@ export default function RentVsBuyCalculator() {
                             handleInputChange('mortgageRate', e.target.value)
                           }
                           step="0.1"
-                          className="w-full pl-4 pr-8 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-indigo-500 focus:border-transparent text-gray-900 font-medium"
+                          className="w-full pl-4 pr-8 py-2 text-gray-900 border border-gray-300 rounded-md focus:ring-2 focus:ring-indigo-500 focus:border-transparent  font-medium"
                         />
                         <span className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-500">
                           %
@@ -283,7 +283,7 @@ export default function RentVsBuyCalculator() {
                           onChange={(e) =>
                             handleInputChange('loanTermYears', e.target.value)
                           }
-                          className="w-full pl-4 pr-12 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-indigo-500 focus:border-transparent text-gray-900 font-medium"
+                          className="w-full pl-4 pr-12 py-2 text-gray-900 border border-gray-300 rounded-md focus:ring-2 focus:ring-indigo-500 focus:border-transparent  font-medium"
                         />
                         <span className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-500">
                           years
@@ -309,7 +309,7 @@ export default function RentVsBuyCalculator() {
                             e.target.value
                           )
                         }
-                        className="w-full pl-8 pr-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-indigo-500 focus:border-transparent text-gray-900 font-medium"
+                        className="w-full pl-8 pr-4 py-2 text-gray-900 border border-gray-300 rounded-md focus:ring-2 focus:ring-indigo-500 focus:border-transparent  font-medium"
                       />
                     </div>
                   </div>
@@ -327,7 +327,7 @@ export default function RentVsBuyCalculator() {
                             handleInputChange('propertyTaxRate', e.target.value)
                           }
                           step="0.1"
-                          className="w-full pl-4 pr-8 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-indigo-500 focus:border-transparent text-gray-900 font-medium"
+                          className="w-full pl-4 pr-8 py-2 text-gray-900 border border-gray-300 rounded-md focus:ring-2 focus:ring-indigo-500 focus:border-transparent  font-medium"
                         />
                         <span className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-500">
                           %
@@ -352,7 +352,7 @@ export default function RentVsBuyCalculator() {
                               e.target.value
                             )
                           }
-                          className="w-full pl-8 pr-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-indigo-500 focus:border-transparent text-gray-900 font-medium"
+                          className="w-full pl-8 pr-4 py-2 text-gray-900 border border-gray-300 rounded-md focus:ring-2 focus:ring-indigo-500 focus:border-transparent  font-medium"
                         />
                       </div>
                     </div>
@@ -373,7 +373,7 @@ export default function RentVsBuyCalculator() {
                           onChange={(e) =>
                             handleInputChange('hoaFeesMonthly', e.target.value)
                           }
-                          className="w-full pl-8 pr-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-indigo-500 focus:border-transparent text-gray-900 font-medium"
+                          className="w-full pl-8 pr-4 py-2 text-gray-900 border border-gray-300 rounded-md focus:ring-2 focus:ring-indigo-500 focus:border-transparent  font-medium"
                         />
                       </div>
                     </div>
@@ -393,7 +393,7 @@ export default function RentVsBuyCalculator() {
                             )
                           }
                           step="0.1"
-                          className="w-full pl-4 pr-8 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-indigo-500 focus:border-transparent text-gray-900 font-medium"
+                          className="w-full pl-4 pr-8 py-2 text-gray-900 border border-gray-300 rounded-md focus:ring-2 focus:ring-indigo-500 focus:border-transparent  font-medium"
                         />
                         <span className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-500">
                           %
@@ -418,7 +418,7 @@ export default function RentVsBuyCalculator() {
                             )
                           }
                           step="0.1"
-                          className="w-full pl-4 pr-8 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-indigo-500 focus:border-transparent text-gray-900 font-medium"
+                          className="w-full pl-4 pr-8 py-2 text-gray-900 border border-gray-300 rounded-md focus:ring-2 focus:ring-indigo-500 focus:border-transparent  font-medium"
                         />
                         <span className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-500">
                           %
@@ -441,7 +441,7 @@ export default function RentVsBuyCalculator() {
                             )
                           }
                           step="0.1"
-                          className="w-full pl-4 pr-8 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-indigo-500 focus:border-transparent text-gray-900 font-medium"
+                          className="w-full pl-4 pr-8 py-2 text-gray-900 border border-gray-300 rounded-md focus:ring-2 focus:ring-indigo-500 focus:border-transparent  font-medium"
                         />
                         <span className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-500">
                           %
@@ -474,7 +474,7 @@ export default function RentVsBuyCalculator() {
                         onChange={(e) =>
                           handleInputChange('monthlyRent', e.target.value)
                         }
-                        className="w-full pl-8 pr-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-indigo-500 focus:border-transparent text-gray-900 font-medium"
+                        className="w-full pl-8 pr-4 py-2 text-gray-900 border border-gray-300 rounded-md focus:ring-2 focus:ring-indigo-500 focus:border-transparent  font-medium"
                       />
                     </div>
                   </div>
@@ -495,7 +495,7 @@ export default function RentVsBuyCalculator() {
                             )
                           }
                           step="0.1"
-                          className="w-full pl-4 pr-8 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-indigo-500 focus:border-transparent text-gray-900 font-medium"
+                          className="w-full pl-4 pr-8 py-2 text-gray-900 border border-gray-300 rounded-md focus:ring-2 focus:ring-indigo-500 focus:border-transparent  font-medium"
                         />
                         <span className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-500">
                           %
@@ -517,7 +517,7 @@ export default function RentVsBuyCalculator() {
                           onChange={(e) =>
                             handleInputChange('securityDeposit', e.target.value)
                           }
-                          className="w-full pl-8 pr-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-indigo-500 focus:border-transparent text-gray-900 font-medium"
+                          className="w-full pl-8 pr-4 py-2 text-gray-900 border border-gray-300 rounded-md focus:ring-2 focus:ring-indigo-500 focus:border-transparent  font-medium"
                         />
                       </div>
                     </div>
@@ -540,7 +540,7 @@ export default function RentVsBuyCalculator() {
                             e.target.value
                           )
                         }
-                        className="w-full pl-8 pr-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-indigo-500 focus:border-transparent text-gray-900 font-medium"
+                        className="w-full pl-8 pr-4 py-2 text-gray-900 border border-gray-300 rounded-md focus:ring-2 focus:ring-indigo-500 focus:border-transparent  font-medium"
                       />
                     </div>
                   </div>
@@ -566,7 +566,7 @@ export default function RentVsBuyCalculator() {
                         onChange={(e) =>
                           handleInputChange('yearsToStay', e.target.value)
                         }
-                        className="w-full pl-4 pr-12 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-indigo-500 focus:border-transparent text-gray-900 font-medium"
+                        className="w-full pl-4 pr-12 py-2 text-gray-900 border border-gray-300 rounded-md focus:ring-2 focus:ring-indigo-500 focus:border-transparent  font-medium"
                       />
                       <span className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-500">
                         years
@@ -587,7 +587,7 @@ export default function RentVsBuyCalculator() {
                             handleInputChange('marginalTaxRate', e.target.value)
                           }
                           step="1"
-                          className="w-full pl-4 pr-8 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-indigo-500 focus:border-transparent text-gray-900 font-medium"
+                          className="w-full pl-4 pr-8 py-2 text-gray-900 border border-gray-300 rounded-md focus:ring-2 focus:ring-indigo-500 focus:border-transparent  font-medium"
                         />
                         <span className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-500">
                           %
@@ -610,7 +610,7 @@ export default function RentVsBuyCalculator() {
                             )
                           }
                           step="0.1"
-                          className="w-full pl-4 pr-8 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-indigo-500 focus:border-transparent text-gray-900 font-medium"
+                          className="w-full pl-4 pr-8 py-2 text-gray-900 border border-gray-300 rounded-md focus:ring-2 focus:ring-indigo-500 focus:border-transparent  font-medium"
                         />
                         <span className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-500">
                           %

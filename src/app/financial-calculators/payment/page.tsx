@@ -137,7 +137,7 @@ export default function PaymentCalculator() {
                       onChange={(e) => {
                         setPresentValue(parseInputValue(e.target.value));
                       }}
-                      className="w-full pl-8 pr-4 py-3 rounded-xl border-2 border-gray-200 focus:border-blue-500 focus:outline-none transition-colors text-gray-900 font-medium"
+                      className="w-full pl-8 pr-4 py-3 rounded-xl text-gray-900 border-2 border-gray-200 focus:border-blue-500 focus:outline-none transition-colors  font-medium"
                     />
                   </div>
                 </div>
@@ -170,7 +170,7 @@ export default function PaymentCalculator() {
                       onChange={(e) => {
                         setFutureValue(parseInputValue(e.target.value));
                       }}
-                      className="w-full pl-8 pr-4 py-3 rounded-xl border-2 border-gray-200 focus:border-blue-500 focus:outline-none transition-colors text-gray-900 font-medium"
+                      className="w-full pl-8 pr-4 py-3 rounded-xl text-gray-900 border-2 border-gray-200 focus:border-blue-500 focus:outline-none transition-colors  font-medium"
                     />
                   </div>
                 </div>
@@ -196,7 +196,7 @@ export default function PaymentCalculator() {
                           formatted ? Number(formatted) : 0
                         );
                       }}
-                      className="w-full pl-4 pr-8 py-3 rounded-xl border-2 border-gray-200 focus:border-blue-500 focus:outline-none transition-colors text-gray-900 font-medium"
+                      className="w-full pl-4 pr-8 py-3 rounded-xl text-gray-900 border-2 border-gray-200 focus:border-blue-500 focus:outline-none transition-colors  font-medium"
                     />
                     <span className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-500">
                       %
@@ -215,7 +215,7 @@ export default function PaymentCalculator() {
                     max="50"
                     value={years}
                     onChange={(e) => setYears(Number(e.target.value))}
-                    className="w-full px-4 py-3 rounded-xl border-2 border-gray-200 focus:border-blue-500 focus:outline-none transition-colors text-gray-900 font-medium"
+                    className="w-full px-4 py-3 rounded-xl text-gray-900 border-2 border-gray-200 focus:border-blue-500 focus:outline-none transition-colors  font-medium"
                   />
                   <div className="mt-2 text-sm text-gray-500">
                     Total periods: {years * 12} months
@@ -232,7 +232,7 @@ export default function PaymentCalculator() {
                     onChange={(e) =>
                       setCompounding(e.target.value as CompoundingFrequency)
                     }
-                    className="w-full px-4 py-3 rounded-xl border-2 border-gray-200 focus:border-blue-500 focus:outline-none transition-colors text-gray-900 font-medium"
+                    className="w-full px-4 py-3 rounded-xl text-gray-900 border-2 border-gray-200 focus:border-blue-500 focus:outline-none transition-colors  font-medium"
                   >
                     <option value="monthly">Monthly</option>
                     <option value="quarterly">Quarterly</option>
@@ -251,7 +251,7 @@ export default function PaymentCalculator() {
                     onChange={(e) =>
                       setPaymentType(e.target.value as PaymentType)
                     }
-                    className="w-full px-4 py-3 rounded-xl border-2 border-gray-200 focus:border-blue-500 focus:outline-none transition-colors text-gray-900 font-medium"
+                    className="w-full px-4 py-3 rounded-xl text-gray-900 border-2 border-gray-200 focus:border-blue-500 focus:outline-none transition-colors  font-medium"
                   >
                     <option value="end">End of Period</option>
                     <option value="beginning">Beginning of Period</option>

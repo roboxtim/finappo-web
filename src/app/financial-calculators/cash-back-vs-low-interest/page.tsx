@@ -116,7 +116,7 @@ export default function CashBackVsLowInterestCalculator() {
                     onChange={(e) =>
                       handleInputChange(e.target.value, setPurchasePrice, 1000)
                     }
-                    className="w-full pl-8 pr-4 py-3 text-gray-900 font-medium border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-emerald-500 focus:border-transparent transition-all"
+                    className="w-full pl-8 pr-4 py-3 text-gray-900 font-medium  border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-emerald-500 focus:border-transparent transition-all"
                   />
                 </div>
                 <input
@@ -150,7 +150,7 @@ export default function CashBackVsLowInterestCalculator() {
                         purchasePrice
                       )
                     }
-                    className="w-full pl-8 pr-4 py-3 text-gray-900 font-medium border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-emerald-500 focus:border-transparent transition-all"
+                    className="w-full pl-8 pr-4 py-3 text-gray-900 font-medium  border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-emerald-500 focus:border-transparent transition-all"
                   />
                 </div>
                 <input
@@ -189,7 +189,7 @@ export default function CashBackVsLowInterestCalculator() {
                         purchasePrice
                       )
                     }
-                    className="w-full pl-8 pr-4 py-3 text-gray-900 font-medium border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-emerald-500 focus:border-transparent transition-all"
+                    className="w-full pl-8 pr-4 py-3 text-gray-900 font-medium  border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-emerald-500 focus:border-transparent transition-all"
                   />
                 </div>
                 <input
@@ -216,7 +216,7 @@ export default function CashBackVsLowInterestCalculator() {
                       handleInputChange(e.target.value, setStandardRate, 0, 30)
                     }
                     step="0.1"
-                    className="w-full pl-4 pr-8 py-3 text-gray-900 font-medium border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-emerald-500 focus:border-transparent transition-all"
+                    className="w-full pl-4 pr-8 py-3 text-gray-900 font-medium  border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-emerald-500 focus:border-transparent transition-all"
                   />
                   <span className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-500 font-medium">
                     %
@@ -246,7 +246,7 @@ export default function CashBackVsLowInterestCalculator() {
                       handleInputChange(e.target.value, setReducedRate, 0, 30)
                     }
                     step="0.1"
-                    className="w-full pl-4 pr-8 py-3 text-gray-900 font-medium border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-emerald-500 focus:border-transparent transition-all"
+                    className="w-full pl-4 pr-8 py-3 text-gray-900 font-medium  border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-emerald-500 focus:border-transparent transition-all"
                   />
                   <span className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-500 font-medium">
                     %
@@ -281,7 +281,7 @@ export default function CashBackVsLowInterestCalculator() {
                         120
                       )
                     }
-                    className="w-full pl-12 pr-4 py-3 text-gray-900 font-medium border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-emerald-500 focus:border-transparent transition-all"
+                    className="w-full pl-12 pr-4 py-3 text-gray-900 font-medium  border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-emerald-500 focus:border-transparent transition-all"
                   />
                 </div>
                 <div className="flex gap-2 mt-3">

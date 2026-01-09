@@ -416,7 +416,7 @@ export default function SocialSecurityCalculator() {
                             const value = e.target.value.replace(/[^0-9]/g, '');
                             setBirthYear(value ? Number(value) : 0);
                           }}
-                          className="w-full px-4 py-3 rounded-xl border-2 border-gray-200 focus:border-blue-500 focus:outline-none transition-colors text-gray-900 font-medium"
+                          className="w-full px-4 py-3 rounded-xl text-gray-900 border-2 border-gray-200 focus:border-blue-500 focus:outline-none transition-colors  font-medium"
                           placeholder="1960"
                         />
                         <p className="mt-1 text-xs text-gray-500">
@@ -436,7 +436,7 @@ export default function SocialSecurityCalculator() {
                             const value = e.target.value.replace(/[^0-9]/g, '');
                             setLifeExpectancy(value ? Number(value) : 0);
                           }}
-                          className="w-full px-4 py-3 rounded-xl border-2 border-gray-200 focus:border-blue-500 focus:outline-none transition-colors text-gray-900 font-medium"
+                          className="w-full px-4 py-3 rounded-xl text-gray-900 border-2 border-gray-200 focus:border-blue-500 focus:outline-none transition-colors  font-medium"
                           placeholder="85"
                         />
                         <p className="mt-1 text-xs text-gray-500">
@@ -468,7 +468,7 @@ export default function SocialSecurityCalculator() {
                               );
                               setInvestmentReturn(value ? Number(value) : 0);
                             }}
-                            className="w-full pl-4 pr-8 py-3 rounded-xl border-2 border-gray-200 focus:border-blue-500 focus:outline-none transition-colors text-gray-900 font-medium"
+                            className="w-full pl-4 pr-8 py-3 rounded-xl text-gray-900 border-2 border-gray-200 focus:border-blue-500 focus:outline-none transition-colors  font-medium"
                             placeholder="5"
                           />
                           <span className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-500">
@@ -496,7 +496,7 @@ export default function SocialSecurityCalculator() {
                               );
                               setCola(value ? Number(value) : 0);
                             }}
-                            className="w-full pl-4 pr-8 py-3 rounded-xl border-2 border-gray-200 focus:border-blue-500 focus:outline-none transition-colors text-gray-900 font-medium"
+                            className="w-full pl-4 pr-8 py-3 rounded-xl text-gray-900 border-2 border-gray-200 focus:border-blue-500 focus:outline-none transition-colors  font-medium"
                             placeholder="2"
                           />
                           <span className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-500">
@@ -531,7 +531,7 @@ export default function SocialSecurityCalculator() {
                             const value = e.target.value.replace(/[^0-9]/g, '');
                             setClaimAge1(value ? Number(value) : 0);
                           }}
-                          className="w-full px-4 py-3 rounded-xl border-2 border-gray-200 focus:border-blue-500 focus:outline-none transition-colors text-gray-900 font-medium"
+                          className="w-full px-4 py-3 rounded-xl text-gray-900 border-2 border-gray-200 focus:border-blue-500 focus:outline-none transition-colors  font-medium"
                           placeholder="62"
                         />
                         <p className="mt-1 text-xs text-gray-500">
@@ -556,7 +556,7 @@ export default function SocialSecurityCalculator() {
                                 parseInputValue(e.target.value)
                               )
                             }
-                            className="w-full pl-10 pr-4 py-3 rounded-xl border-2 border-gray-200 focus:border-blue-500 focus:outline-none transition-colors text-gray-900 font-medium"
+                            className="w-full pl-10 pr-4 py-3 rounded-xl text-gray-900 border-2 border-gray-200 focus:border-blue-500 focus:outline-none transition-colors  font-medium"
                             placeholder="2,000"
                           />
                         </div>
@@ -585,7 +585,7 @@ export default function SocialSecurityCalculator() {
                             const value = e.target.value.replace(/[^0-9]/g, '');
                             setClaimAge2(value ? Number(value) : 0);
                           }}
-                          className="w-full px-4 py-3 rounded-xl border-2 border-gray-200 focus:border-blue-500 focus:outline-none transition-colors text-gray-900 font-medium"
+                          className="w-full px-4 py-3 rounded-xl text-gray-900 border-2 border-gray-200 focus:border-blue-500 focus:outline-none transition-colors  font-medium"
                           placeholder="67"
                         />
                         <p className="mt-1 text-xs text-gray-500">
@@ -610,7 +610,7 @@ export default function SocialSecurityCalculator() {
                                 parseInputValue(e.target.value)
                               )
                             }
-                            className="w-full pl-10 pr-4 py-3 rounded-xl border-2 border-gray-200 focus:border-blue-500 focus:outline-none transition-colors text-gray-900 font-medium"
+                            className="w-full pl-10 pr-4 py-3 rounded-xl text-gray-900 border-2 border-gray-200 focus:border-blue-500 focus:outline-none transition-colors  font-medium"
                             placeholder="3,000"
                           />
                         </div>
@@ -645,7 +645,7 @@ export default function SocialSecurityCalculator() {
                                 value ? Number(value) : 0
                               );
                             }}
-                            className="w-full pl-4 pr-8 py-3 rounded-xl border-2 border-gray-200 focus:border-blue-500 focus:outline-none transition-colors text-gray-900 font-medium"
+                            className="w-full pl-4 pr-8 py-3 rounded-xl text-gray-900 border-2 border-gray-200 focus:border-blue-500 focus:outline-none transition-colors  font-medium"
                             placeholder="6"
                           />
                           <span className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-500">
@@ -673,7 +673,7 @@ export default function SocialSecurityCalculator() {
                               );
                               setCompareCola(value ? Number(value) : 0);
                             }}
-                            className="w-full pl-4 pr-8 py-3 rounded-xl border-2 border-gray-200 focus:border-blue-500 focus:outline-none transition-colors text-gray-900 font-medium"
+                            className="w-full pl-4 pr-8 py-3 rounded-xl text-gray-900 border-2 border-gray-200 focus:border-blue-500 focus:outline-none transition-colors  font-medium"
                             placeholder="2.5"
                           />
                           <span className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-500">

@@ -415,7 +415,7 @@ export default function PaybackPeriodCalculator() {
                         onChange={(e) =>
                           setInitialInvestment(parseInputValue(e.target.value))
                         }
-                        className="w-full pl-10 pr-4 py-3 rounded-xl border-2 border-gray-200 focus:border-purple-500 focus:outline-none transition-colors text-gray-900 font-medium"
+                        className="w-full pl-10 pr-4 py-3 rounded-xl text-gray-900 border-2 border-gray-200 focus:border-purple-500 focus:outline-none transition-colors  font-medium"
                         placeholder="100,000"
                       />
                     </div>
@@ -437,7 +437,7 @@ export default function PaybackPeriodCalculator() {
                           const value = e.target.value.replace(/[^0-9.]/g, '');
                           setDiscountRate(value ? Number(value) : 0);
                         }}
-                        className="w-full pl-4 pr-8 py-3 rounded-xl border-2 border-gray-200 focus:border-purple-500 focus:outline-none transition-colors text-gray-900 font-medium"
+                        className="w-full pl-4 pr-8 py-3 rounded-xl text-gray-900 border-2 border-gray-200 focus:border-purple-500 focus:outline-none transition-colors  font-medium"
                         placeholder="10"
                       />
                       <span className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-500">
@@ -458,7 +458,7 @@ export default function PaybackPeriodCalculator() {
                       onChange={(e) =>
                         setPeriodType(e.target.value as PeriodType)
                       }
-                      className="w-full px-4 py-3 rounded-xl border-2 border-gray-200 focus:border-purple-500 focus:outline-none transition-colors text-gray-900 font-medium bg-white"
+                      className="w-full px-4 py-3 rounded-xl text-gray-900 border-2 border-gray-200 focus:border-purple-500 focus:outline-none transition-colors  font-medium bg-white"
                     >
                       <option value="annual">Annual</option>
                       <option value="monthly">Monthly</option>
@@ -502,7 +502,7 @@ export default function PaybackPeriodCalculator() {
                             onChange={(e) =>
                               updateCashFlow(index, 'period', e.target.value)
                             }
-                            className="w-full px-3 py-2 rounded-lg border-2 border-gray-200 focus:border-purple-500 focus:outline-none transition-colors text-gray-900 font-medium text-sm"
+                            className="w-full px-3 py-2 rounded-lg text-gray-900 border-2 border-gray-200 focus:border-purple-500 focus:outline-none transition-colors  font-medium text-sm"
                           />
                         </div>
                         <div>
@@ -524,7 +524,7 @@ export default function PaybackPeriodCalculator() {
                                   parseInputValue(e.target.value)
                                 )
                               }
-                              className="w-full pl-7 pr-3 py-2 rounded-lg border-2 border-gray-200 focus:border-purple-500 focus:outline-none transition-colors text-gray-900 font-medium text-sm"
+                              className="w-full pl-7 pr-3 py-2 rounded-lg text-gray-900 border-2 border-gray-200 focus:border-purple-500 focus:outline-none transition-colors  font-medium text-sm"
                             />
                           </div>
                         </div>
@@ -539,7 +539,7 @@ export default function PaybackPeriodCalculator() {
                               updateCashFlow(index, 'label', e.target.value)
                             }
                             placeholder={`Period ${cf.period}`}
-                            className="w-full px-3 py-2 rounded-lg border-2 border-gray-200 focus:border-purple-500 focus:outline-none transition-colors text-gray-900 text-sm"
+                            className="w-full px-3 py-2 rounded-lg text-gray-900 border-2 border-gray-200 focus:border-purple-500 focus:outline-none transition-colors  text-sm"
                           />
                         </div>
                       </div>

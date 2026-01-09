@@ -211,7 +211,7 @@ export default function AnnuityPayoutCalculator() {
                         onChange={(e) =>
                           setPrincipal(formatNumberInput(e.target.value))
                         }
-                        className="w-full pl-8 pr-3 py-2 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                        className="w-full pl-8 pr-3 py-2 text-gray-900 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
                         placeholder="500,000"
                       />
                     </div>
@@ -227,7 +227,7 @@ export default function AnnuityPayoutCalculator() {
                         type="number"
                         value={interestRate}
                         onChange={(e) => setInterestRate(e.target.value)}
-                        className="w-full pr-8 pl-3 py-2 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                        className="w-full pr-8 pl-3 py-2 text-gray-900 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
                         placeholder="5"
                         step="0.1"
                         min="0"
@@ -249,7 +249,7 @@ export default function AnnuityPayoutCalculator() {
                         type="number"
                         value={years}
                         onChange={(e) => setYears(e.target.value)}
-                        className="w-full px-3 py-2 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                        className="w-full px-3 py-2 text-gray-900 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
                         placeholder="10"
                         step="1"
                         min="1"
@@ -271,7 +271,7 @@ export default function AnnuityPayoutCalculator() {
                           onChange={(e) =>
                             setPayoutAmount(formatNumberInput(e.target.value))
                           }
-                          className="w-full pl-8 pr-3 py-2 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                          className="w-full pl-8 pr-3 py-2 text-gray-900 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
                           placeholder="5,000"
                         />
                       </div>
@@ -288,7 +288,7 @@ export default function AnnuityPayoutCalculator() {
                       onChange={(e) =>
                         setFrequency(e.target.value as PaymentFrequency)
                       }
-                      className="w-full px-3 py-2 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                      className="w-full px-3 py-2 text-gray-900 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
                     >
                       <option value="annually">Annually</option>
                       <option value="semiannually">Semi-annually</option>

@@ -401,7 +401,7 @@ export default function PensionCalculator() {
                             const value = e.target.value.replace(/[^0-9]/g, '');
                             setLumpSumRetirementAge(value ? Number(value) : 0);
                           }}
-                          className="w-full px-4 py-3 rounded-xl border-2 border-gray-200 focus:border-purple-500 focus:outline-none transition-colors text-gray-900 font-medium"
+                          className="w-full px-4 py-3 rounded-xl text-gray-900 border-2 border-gray-200 focus:border-purple-500 focus:outline-none transition-colors  font-medium"
                           placeholder="65"
                         />
                       </div>
@@ -418,7 +418,7 @@ export default function PensionCalculator() {
                             const value = e.target.value.replace(/[^0-9]/g, '');
                             setLumpSumLifeExpectancy(value ? Number(value) : 0);
                           }}
-                          className="w-full px-4 py-3 rounded-xl border-2 border-gray-200 focus:border-purple-500 focus:outline-none transition-colors text-gray-900 font-medium"
+                          className="w-full px-4 py-3 rounded-xl text-gray-900 border-2 border-gray-200 focus:border-purple-500 focus:outline-none transition-colors  font-medium"
                           placeholder="85"
                         />
                       </div>
@@ -446,7 +446,7 @@ export default function PensionCalculator() {
                             onChange={(e) =>
                               setLumpSumAmount(parseInputValue(e.target.value))
                             }
-                            className="w-full pl-10 pr-4 py-3 rounded-xl border-2 border-gray-200 focus:border-purple-500 focus:outline-none transition-colors text-gray-900 font-medium"
+                            className="w-full pl-10 pr-4 py-3 rounded-xl text-gray-900 border-2 border-gray-200 focus:border-purple-500 focus:outline-none transition-colors  font-medium"
                             placeholder="500,000"
                           />
                         </div>
@@ -469,7 +469,7 @@ export default function PensionCalculator() {
                                 parseInputValue(e.target.value)
                               )
                             }
-                            className="w-full pl-10 pr-4 py-3 rounded-xl border-2 border-gray-200 focus:border-purple-500 focus:outline-none transition-colors text-gray-900 font-medium"
+                            className="w-full pl-10 pr-4 py-3 rounded-xl text-gray-900 border-2 border-gray-200 focus:border-purple-500 focus:outline-none transition-colors  font-medium"
                             placeholder="3,000"
                           />
                         </div>
@@ -501,7 +501,7 @@ export default function PensionCalculator() {
                                 value ? Number(value) : 0
                               );
                             }}
-                            className="w-full pl-4 pr-8 py-3 rounded-xl border-2 border-gray-200 focus:border-purple-500 focus:outline-none transition-colors text-gray-900 font-medium"
+                            className="w-full pl-4 pr-8 py-3 rounded-xl text-gray-900 border-2 border-gray-200 focus:border-purple-500 focus:outline-none transition-colors  font-medium"
                             placeholder="7"
                           />
                           <span className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-500">
@@ -529,7 +529,7 @@ export default function PensionCalculator() {
                               );
                               setLumpSumCola(value ? Number(value) : 0);
                             }}
-                            className="w-full pl-4 pr-8 py-3 rounded-xl border-2 border-gray-200 focus:border-purple-500 focus:outline-none transition-colors text-gray-900 font-medium"
+                            className="w-full pl-4 pr-8 py-3 rounded-xl text-gray-900 border-2 border-gray-200 focus:border-purple-500 focus:outline-none transition-colors  font-medium"
                             placeholder="2"
                           />
                           <span className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-500">
@@ -568,7 +568,7 @@ export default function PensionCalculator() {
                               value ? Number(value) : 0
                             );
                           }}
-                          className="w-full px-4 py-3 rounded-xl border-2 border-gray-200 focus:border-purple-500 focus:outline-none transition-colors text-gray-900 font-medium"
+                          className="w-full px-4 py-3 rounded-xl text-gray-900 border-2 border-gray-200 focus:border-purple-500 focus:outline-none transition-colors  font-medium"
                           placeholder="65"
                         />
                       </div>
@@ -585,7 +585,7 @@ export default function PensionCalculator() {
                             const value = e.target.value.replace(/[^0-9]/g, '');
                             setSingleLifeExpectancy(value ? Number(value) : 0);
                           }}
-                          className="w-full px-4 py-3 rounded-xl border-2 border-gray-200 focus:border-purple-500 focus:outline-none transition-colors text-gray-900 font-medium"
+                          className="w-full px-4 py-3 rounded-xl text-gray-900 border-2 border-gray-200 focus:border-purple-500 focus:outline-none transition-colors  font-medium"
                           placeholder="85"
                         />
                       </div>
@@ -610,7 +610,7 @@ export default function PensionCalculator() {
                             const value = e.target.value.replace(/[^0-9]/g, '');
                             setSpouseAgeAtRetirement(value ? Number(value) : 0);
                           }}
-                          className="w-full px-4 py-3 rounded-xl border-2 border-gray-200 focus:border-purple-500 focus:outline-none transition-colors text-gray-900 font-medium"
+                          className="w-full px-4 py-3 rounded-xl text-gray-900 border-2 border-gray-200 focus:border-purple-500 focus:outline-none transition-colors  font-medium"
                           placeholder="63"
                         />
                       </div>
@@ -627,7 +627,7 @@ export default function PensionCalculator() {
                             const value = e.target.value.replace(/[^0-9]/g, '');
                             setSpouseLifeExpectancy(value ? Number(value) : 0);
                           }}
-                          className="w-full px-4 py-3 rounded-xl border-2 border-gray-200 focus:border-purple-500 focus:outline-none transition-colors text-gray-900 font-medium"
+                          className="w-full px-4 py-3 rounded-xl text-gray-900 border-2 border-gray-200 focus:border-purple-500 focus:outline-none transition-colors  font-medium"
                           placeholder="88"
                         />
                       </div>
@@ -657,7 +657,7 @@ export default function PensionCalculator() {
                                 parseInputValue(e.target.value)
                               )
                             }
-                            className="w-full pl-10 pr-4 py-3 rounded-xl border-2 border-gray-200 focus:border-purple-500 focus:outline-none transition-colors text-gray-900 font-medium"
+                            className="w-full pl-10 pr-4 py-3 rounded-xl text-gray-900 border-2 border-gray-200 focus:border-purple-500 focus:outline-none transition-colors  font-medium"
                             placeholder="4,000"
                           />
                         </div>
@@ -683,7 +683,7 @@ export default function PensionCalculator() {
                                 parseInputValue(e.target.value)
                               )
                             }
-                            className="w-full pl-10 pr-4 py-3 rounded-xl border-2 border-gray-200 focus:border-purple-500 focus:outline-none transition-colors text-gray-900 font-medium"
+                            className="w-full pl-10 pr-4 py-3 rounded-xl text-gray-900 border-2 border-gray-200 focus:border-purple-500 focus:outline-none transition-colors  font-medium"
                             placeholder="3,600"
                           />
                         </div>
@@ -710,7 +710,7 @@ export default function PensionCalculator() {
                                 value ? Number(value) : 0
                               );
                             }}
-                            className="w-full pl-4 pr-8 py-3 rounded-xl border-2 border-gray-200 focus:border-purple-500 focus:outline-none transition-colors text-gray-900 font-medium"
+                            className="w-full pl-4 pr-8 py-3 rounded-xl text-gray-900 border-2 border-gray-200 focus:border-purple-500 focus:outline-none transition-colors  font-medium"
                             placeholder="50"
                           />
                           <span className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-500">
@@ -749,7 +749,7 @@ export default function PensionCalculator() {
                                 value ? Number(value) : 0
                               );
                             }}
-                            className="w-full pl-4 pr-8 py-3 rounded-xl border-2 border-gray-200 focus:border-purple-500 focus:outline-none transition-colors text-gray-900 font-medium"
+                            className="w-full pl-4 pr-8 py-3 rounded-xl text-gray-900 border-2 border-gray-200 focus:border-purple-500 focus:outline-none transition-colors  font-medium"
                             placeholder="6"
                           />
                           <span className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-500">
@@ -774,7 +774,7 @@ export default function PensionCalculator() {
                               );
                               setSingleLifeCola(value ? Number(value) : 0);
                             }}
-                            className="w-full pl-4 pr-8 py-3 rounded-xl border-2 border-gray-200 focus:border-purple-500 focus:outline-none transition-colors text-gray-900 font-medium"
+                            className="w-full pl-4 pr-8 py-3 rounded-xl text-gray-900 border-2 border-gray-200 focus:border-purple-500 focus:outline-none transition-colors  font-medium"
                             placeholder="2"
                           />
                           <span className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-500">
@@ -808,7 +808,7 @@ export default function PensionCalculator() {
                             const value = e.target.value.replace(/[^0-9]/g, '');
                             setCurrentAge(value ? Number(value) : 0);
                           }}
-                          className="w-full px-4 py-3 rounded-xl border-2 border-gray-200 focus:border-purple-500 focus:outline-none transition-colors text-gray-900 font-medium"
+                          className="w-full px-4 py-3 rounded-xl text-gray-900 border-2 border-gray-200 focus:border-purple-500 focus:outline-none transition-colors  font-medium"
                           placeholder="55"
                         />
                       </div>
@@ -827,7 +827,7 @@ export default function PensionCalculator() {
                               value ? Number(value) : 0
                             );
                           }}
-                          className="w-full px-4 py-3 rounded-xl border-2 border-gray-200 focus:border-purple-500 focus:outline-none transition-colors text-gray-900 font-medium"
+                          className="w-full px-4 py-3 rounded-xl text-gray-900 border-2 border-gray-200 focus:border-purple-500 focus:outline-none transition-colors  font-medium"
                           placeholder="85"
                         />
                       </div>
@@ -852,7 +852,7 @@ export default function PensionCalculator() {
                             const value = e.target.value.replace(/[^0-9]/g, '');
                             setOption1RetirementAge(value ? Number(value) : 0);
                           }}
-                          className="w-full px-4 py-3 rounded-xl border-2 border-gray-200 focus:border-purple-500 focus:outline-none transition-colors text-gray-900 font-medium"
+                          className="w-full px-4 py-3 rounded-xl text-gray-900 border-2 border-gray-200 focus:border-purple-500 focus:outline-none transition-colors  font-medium"
                           placeholder="62"
                         />
                       </div>
@@ -874,7 +874,7 @@ export default function PensionCalculator() {
                                 parseInputValue(e.target.value)
                               )
                             }
-                            className="w-full pl-10 pr-4 py-3 rounded-xl border-2 border-gray-200 focus:border-purple-500 focus:outline-none transition-colors text-gray-900 font-medium"
+                            className="w-full pl-10 pr-4 py-3 rounded-xl text-gray-900 border-2 border-gray-200 focus:border-purple-500 focus:outline-none transition-colors  font-medium"
                             placeholder="2,500"
                           />
                         </div>
@@ -900,7 +900,7 @@ export default function PensionCalculator() {
                             const value = e.target.value.replace(/[^0-9]/g, '');
                             setOption2RetirementAge(value ? Number(value) : 0);
                           }}
-                          className="w-full px-4 py-3 rounded-xl border-2 border-gray-200 focus:border-purple-500 focus:outline-none transition-colors text-gray-900 font-medium"
+                          className="w-full px-4 py-3 rounded-xl text-gray-900 border-2 border-gray-200 focus:border-purple-500 focus:outline-none transition-colors  font-medium"
                           placeholder="67"
                         />
                       </div>
@@ -922,7 +922,7 @@ export default function PensionCalculator() {
                                 parseInputValue(e.target.value)
                               )
                             }
-                            className="w-full pl-10 pr-4 py-3 rounded-xl border-2 border-gray-200 focus:border-purple-500 focus:outline-none transition-colors text-gray-900 font-medium"
+                            className="w-full pl-10 pr-4 py-3 rounded-xl text-gray-900 border-2 border-gray-200 focus:border-purple-500 focus:outline-none transition-colors  font-medium"
                             placeholder="3,500"
                           />
                         </div>
@@ -954,7 +954,7 @@ export default function PensionCalculator() {
                                 value ? Number(value) : 0
                               );
                             }}
-                            className="w-full pl-4 pr-8 py-3 rounded-xl border-2 border-gray-200 focus:border-purple-500 focus:outline-none transition-colors text-gray-900 font-medium"
+                            className="w-full pl-4 pr-8 py-3 rounded-xl text-gray-900 border-2 border-gray-200 focus:border-purple-500 focus:outline-none transition-colors  font-medium"
                             placeholder="6"
                           />
                           <span className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-500">
@@ -979,7 +979,7 @@ export default function PensionCalculator() {
                               );
                               setWorkLongerCola(value ? Number(value) : 0);
                             }}
-                            className="w-full pl-4 pr-8 py-3 rounded-xl border-2 border-gray-200 focus:border-purple-500 focus:outline-none transition-colors text-gray-900 font-medium"
+                            className="w-full pl-4 pr-8 py-3 rounded-xl text-gray-900 border-2 border-gray-200 focus:border-purple-500 focus:outline-none transition-colors  font-medium"
                             placeholder="2"
                           />
                           <span className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-500">

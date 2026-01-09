@@ -119,7 +119,7 @@ export default function HELOCCalculator() {
                       onChange={(e) => {
                         setLoanAmount(parseInputValue(e.target.value));
                       }}
-                      className="w-full pl-8 pr-4 py-3 rounded-xl border-2 border-gray-200 focus:border-teal-500 focus:outline-none transition-colors text-gray-900 font-medium"
+                      className="w-full pl-8 pr-4 py-3 rounded-xl text-gray-900 border-2 border-gray-200 focus:border-teal-500 focus:outline-none transition-colors  font-medium"
                     />
                   </div>
                 </div>
@@ -143,7 +143,7 @@ export default function HELOCCalculator() {
                             : value;
                         setInterestRate(formatted ? Number(formatted) : 0);
                       }}
-                      className="w-full pl-4 pr-8 py-3 rounded-xl border-2 border-gray-200 focus:border-teal-500 focus:outline-none transition-colors text-gray-900 font-medium"
+                      className="w-full pl-4 pr-8 py-3 rounded-xl text-gray-900 border-2 border-gray-200 focus:border-teal-500 focus:outline-none transition-colors  font-medium"
                     />
                     <span className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-500">
                       %
@@ -159,7 +159,7 @@ export default function HELOCCalculator() {
                   <select
                     value={drawPeriod}
                     onChange={(e) => setDrawPeriod(Number(e.target.value))}
-                    className="w-full px-4 py-3 rounded-xl border-2 border-gray-200 focus:border-teal-500 focus:outline-none transition-colors text-gray-900 font-medium"
+                    className="w-full px-4 py-3 rounded-xl text-gray-900 border-2 border-gray-200 focus:border-teal-500 focus:outline-none transition-colors  font-medium"
                   >
                     <option value={5}>5 years</option>
                     <option value={10}>10 years</option>
@@ -178,7 +178,7 @@ export default function HELOCCalculator() {
                   <select
                     value={repaymentPeriod}
                     onChange={(e) => setRepaymentPeriod(Number(e.target.value))}
-                    className="w-full px-4 py-3 rounded-xl border-2 border-gray-200 focus:border-teal-500 focus:outline-none transition-colors text-gray-900 font-medium"
+                    className="w-full px-4 py-3 rounded-xl text-gray-900 border-2 border-gray-200 focus:border-teal-500 focus:outline-none transition-colors  font-medium"
                   >
                     <option value={10}>10 years</option>
                     <option value={15}>15 years</option>

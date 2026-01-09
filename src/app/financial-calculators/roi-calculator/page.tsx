@@ -383,7 +383,7 @@ export default function ROICalculator() {
                         onChange={(e) =>
                           setInitialInvestment(parseInputValue(e.target.value))
                         }
-                        className="w-full pl-10 pr-4 py-3 rounded-xl border-2 border-gray-200 focus:border-purple-500 focus:outline-none transition-colors text-gray-900 font-medium"
+                        className="w-full pl-10 pr-4 py-3 rounded-xl text-gray-900 border-2 border-gray-200 focus:border-purple-500 focus:outline-none transition-colors  font-medium"
                         placeholder="10,000"
                       />
                     </div>
@@ -407,7 +407,7 @@ export default function ROICalculator() {
                         onChange={(e) =>
                           setFinalValue(parseInputValue(e.target.value))
                         }
-                        className="w-full pl-10 pr-4 py-3 rounded-xl border-2 border-gray-200 focus:border-purple-500 focus:outline-none transition-colors text-gray-900 font-medium"
+                        className="w-full pl-10 pr-4 py-3 rounded-xl text-gray-900 border-2 border-gray-200 focus:border-purple-500 focus:outline-none transition-colors  font-medium"
                         placeholder="15,000"
                       />
                     </div>
@@ -429,7 +429,7 @@ export default function ROICalculator() {
                           const value = e.target.value.replace(/[^0-9.]/g, '');
                           setInvestmentPeriod(value ? Number(value) : 0);
                         }}
-                        className="w-full px-4 py-3 rounded-xl border-2 border-gray-200 focus:border-purple-500 focus:outline-none transition-colors text-gray-900 font-medium"
+                        className="w-full px-4 py-3 rounded-xl text-gray-900 border-2 border-gray-200 focus:border-purple-500 focus:outline-none transition-colors  font-medium"
                         placeholder="1"
                       />
                     </div>
@@ -443,7 +443,7 @@ export default function ROICalculator() {
                         onChange={(e) =>
                           setPeriodType(e.target.value as PeriodType)
                         }
-                        className="w-full px-4 py-3 rounded-xl border-2 border-gray-200 focus:border-purple-500 focus:outline-none transition-colors text-gray-900 font-medium bg-white"
+                        className="w-full px-4 py-3 rounded-xl text-gray-900 border-2 border-gray-200 focus:border-purple-500 focus:outline-none transition-colors  font-medium bg-white"
                       >
                         <option value="years">Years</option>
                         <option value="months">Months</option>
@@ -476,7 +476,7 @@ export default function ROICalculator() {
                         onChange={(e) =>
                           setAdditionalCosts(parseInputValue(e.target.value))
                         }
-                        className="w-full pl-10 pr-4 py-3 rounded-xl border-2 border-gray-200 focus:border-purple-500 focus:outline-none transition-colors text-gray-900 font-medium"
+                        className="w-full pl-10 pr-4 py-3 rounded-xl text-gray-900 border-2 border-gray-200 focus:border-purple-500 focus:outline-none transition-colors  font-medium"
                         placeholder="0"
                       />
                     </div>
@@ -500,7 +500,7 @@ export default function ROICalculator() {
                         onChange={(e) =>
                           setAdditionalGains(parseInputValue(e.target.value))
                         }
-                        className="w-full pl-10 pr-4 py-3 rounded-xl border-2 border-gray-200 focus:border-purple-500 focus:outline-none transition-colors text-gray-900 font-medium"
+                        className="w-full pl-10 pr-4 py-3 rounded-xl text-gray-900 border-2 border-gray-200 focus:border-purple-500 focus:outline-none transition-colors  font-medium"
                         placeholder="0"
                       />
                     </div>
@@ -570,7 +570,7 @@ export default function ROICalculator() {
                                       parseInputValue(e.target.value)
                                     )
                                   }
-                                  className="w-full pl-6 pr-2 py-1 rounded border border-gray-300 text-sm"
+                                  className="w-full pl-6 pr-2 py-1 rounded text-gray-900 border border-gray-300 text-sm"
                                 />
                               </div>
                             </div>
@@ -593,7 +593,7 @@ export default function ROICalculator() {
                                       parseInputValue(e.target.value)
                                     )
                                   }
-                                  className="w-full pl-6 pr-2 py-1 rounded border border-gray-300 text-sm"
+                                  className="w-full pl-6 pr-2 py-1 rounded text-gray-900 border border-gray-300 text-sm"
                                 />
                               </div>
                             </div>
@@ -612,7 +612,7 @@ export default function ROICalculator() {
                                     Number(e.target.value) || 0
                                   )
                                 }
-                                className="w-full px-2 py-1 rounded border border-gray-300 text-sm"
+                                className="w-full px-2 py-1 rounded text-gray-900 border border-gray-300 text-sm"
                               />
                             </div>
                             <div>
@@ -628,7 +628,7 @@ export default function ROICalculator() {
                                     e.target.value
                                   )
                                 }
-                                className="w-full px-2 py-1 rounded border border-gray-300 text-sm bg-white"
+                                className="w-full px-2 py-1 rounded text-gray-900 border border-gray-300 text-sm bg-white"
                               >
                                 <option value="years">Years</option>
                                 <option value="months">Months</option>

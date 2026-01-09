@@ -166,7 +166,7 @@ export default function CompoundInterestCalculator() {
                       onChange={(e) =>
                         setInitialInvestment(parseInputValue(e.target.value))
                       }
-                      className="w-full pl-8 pr-4 py-3 rounded-xl border-2 border-gray-200 focus:border-emerald-500 focus:outline-none transition-colors text-gray-900 font-medium"
+                      className="w-full pl-8 pr-4 py-3 rounded-xl text-gray-900 border-2 border-gray-200 focus:border-emerald-500 focus:outline-none transition-colors  font-medium"
                     />
                   </div>
                 </div>
@@ -184,7 +184,7 @@ export default function CompoundInterestCalculator() {
                       onChange={(e) =>
                         setInterestRate(parseDecimalInput(e.target.value))
                       }
-                      className="w-full pl-4 pr-8 py-3 rounded-xl border-2 border-gray-200 focus:border-emerald-500 focus:outline-none transition-colors text-gray-900 font-medium"
+                      className="w-full pl-4 pr-8 py-3 rounded-xl text-gray-900 border-2 border-gray-200 focus:border-emerald-500 focus:outline-none transition-colors  font-medium"
                     />
                     <span className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-500">
                       %
@@ -204,7 +204,7 @@ export default function CompoundInterestCalculator() {
                         value={years}
                         onChange={(e) => setYears(Number(e.target.value) || 0)}
                         min="0"
-                        className="w-full px-4 py-3 rounded-xl border-2 border-gray-200 focus:border-emerald-500 focus:outline-none transition-colors text-gray-900 font-medium"
+                        className="w-full px-4 py-3 rounded-xl text-gray-900 border-2 border-gray-200 focus:border-emerald-500 focus:outline-none transition-colors  font-medium"
                       />
                       <span className="text-xs text-gray-500 mt-1 block text-center">
                         Years
@@ -219,7 +219,7 @@ export default function CompoundInterestCalculator() {
                         }
                         min="0"
                         max="11"
-                        className="w-full px-4 py-3 rounded-xl border-2 border-gray-200 focus:border-emerald-500 focus:outline-none transition-colors text-gray-900 font-medium"
+                        className="w-full px-4 py-3 rounded-xl text-gray-900 border-2 border-gray-200 focus:border-emerald-500 focus:outline-none transition-colors  font-medium"
                       />
                       <span className="text-xs text-gray-500 mt-1 block text-center">
                         Months
@@ -240,7 +240,7 @@ export default function CompoundInterestCalculator() {
                         e.target.value as CompoundingFrequency
                       )
                     }
-                    className="w-full px-4 py-3 rounded-xl border-2 border-gray-200 focus:border-emerald-500 focus:outline-none transition-colors text-gray-900 font-medium"
+                    className="w-full px-4 py-3 rounded-xl text-gray-900 border-2 border-gray-200 focus:border-emerald-500 focus:outline-none transition-colors  font-medium"
                   >
                     <option value="annually">Annually</option>
                     <option value="semiannually">Semi-annually</option>
@@ -280,7 +280,7 @@ export default function CompoundInterestCalculator() {
                               parseInputValue(e.target.value)
                             )
                           }
-                          className="w-full pl-8 pr-4 py-2.5 rounded-lg border-2 border-gray-200 focus:border-emerald-500 focus:outline-none transition-colors text-gray-900 font-medium text-sm"
+                          className="w-full pl-8 pr-4 py-2.5 rounded-lg text-gray-900 border-2 border-gray-200 focus:border-emerald-500 focus:outline-none transition-colors  font-medium text-sm"
                         />
                       </div>
                     </div>
@@ -303,7 +303,7 @@ export default function CompoundInterestCalculator() {
                               parseInputValue(e.target.value)
                             )
                           }
-                          className="w-full pl-8 pr-4 py-2.5 rounded-lg border-2 border-gray-200 focus:border-emerald-500 focus:outline-none transition-colors text-gray-900 font-medium text-sm"
+                          className="w-full pl-8 pr-4 py-2.5 rounded-lg text-gray-900 border-2 border-gray-200 focus:border-emerald-500 focus:outline-none transition-colors  font-medium text-sm"
                         />
                       </div>
                     </div>
@@ -320,7 +320,7 @@ export default function CompoundInterestCalculator() {
                             e.target.value as ContributionTiming
                           )
                         }
-                        className="w-full px-3 py-2.5 rounded-lg border-2 border-gray-200 focus:border-emerald-500 focus:outline-none transition-colors text-gray-900 font-medium text-sm"
+                        className="w-full px-3 py-2.5 rounded-lg text-gray-900 border-2 border-gray-200 focus:border-emerald-500 focus:outline-none transition-colors  font-medium text-sm"
                       >
                         <option value="beginning">Beginning of period</option>
                         <option value="end">End of period</option>
@@ -349,7 +349,7 @@ export default function CompoundInterestCalculator() {
                           onChange={(e) =>
                             setTaxRate(parseDecimalInput(e.target.value))
                           }
-                          className="w-full pl-3 pr-7 py-2.5 rounded-lg border-2 border-gray-200 focus:border-emerald-500 focus:outline-none transition-colors text-gray-900 font-medium text-sm"
+                          className="w-full pl-3 pr-7 py-2.5 rounded-lg text-gray-900 border-2 border-gray-200 focus:border-emerald-500 focus:outline-none transition-colors  font-medium text-sm"
                         />
                         <span className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-500 text-sm">
                           %
@@ -368,7 +368,7 @@ export default function CompoundInterestCalculator() {
                           onChange={(e) =>
                             setInflationRate(parseDecimalInput(e.target.value))
                           }
-                          className="w-full pl-3 pr-7 py-2.5 rounded-lg border-2 border-gray-200 focus:border-emerald-500 focus:outline-none transition-colors text-gray-900 font-medium text-sm"
+                          className="w-full pl-3 pr-7 py-2.5 rounded-lg text-gray-900 border-2 border-gray-200 focus:border-emerald-500 focus:outline-none transition-colors  font-medium text-sm"
                         />
                         <span className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-500 text-sm">
                           %
