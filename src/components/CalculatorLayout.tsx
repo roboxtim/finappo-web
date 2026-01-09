@@ -69,9 +69,7 @@ export function CalculatorLayout({
       </section>
 
       {/* Calculator Content */}
-      <section className="py-8 lg:py-12">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8">{children}</div>
-      </section>
+      {children}
 
       {/* Footer */}
       <footer className="border-t border-gray-200 bg-white">
