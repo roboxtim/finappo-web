@@ -221,7 +221,7 @@ export default function AnnuityCalculatorPage() {
       icon={<TrendingUp className="w-8 h-8 text-white" />}
       gradient="bg-gradient-to-br from-emerald-600 to-teal-600"
     >
-      <div className="grid md:grid-cols-2 gap-8">
+      <div className="grid lg:grid-cols-[40%_60%] gap-8">
         {/* Left Column - Input Form */}
         <div className="space-y-6">
           {/* Principal Section */}
