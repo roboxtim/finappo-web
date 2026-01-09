@@ -315,6 +315,14 @@ export default function FinancialCalculators() {
               delay={0}
             />
             <CalculatorCard
+              icon={<Landmark className="w-8 h-8 text-white" />}
+              title="Annuity Calculator"
+              description="Calculate annuity payments, future value, and retirement income projections. Compare immediate vs deferred annuities with inflation adjustments and growth projections."
+              gradient="bg-gradient-to-br from-emerald-600 to-teal-600"
+              href="/financial-calculators/annuity"
+              delay={0}
+            />
+            <CalculatorCard
               icon={<PiggyBank className="w-8 h-8 text-white" />}
               title="401(k) Calculator"
               description="Plan your employer-sponsored 401(k) retirement savings. Calculate growth with employer matching, contribution limits, and tax-deferred compounding over time."
