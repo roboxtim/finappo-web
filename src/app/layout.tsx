@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import { Geist, Geist_Mono } from 'next/font/google';
+import { GoogleAnalytics } from '@/components/GoogleAnalytics';
 import './globals.css';
 
 const geistSans = Geist({
@@ -80,6 +81,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
           />
         </noscript>
         {/* End Google Tag Manager (noscript) */}
+        <GoogleAnalytics />
         {children}
       </body>
     </html>
