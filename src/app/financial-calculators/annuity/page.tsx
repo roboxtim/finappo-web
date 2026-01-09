@@ -550,16 +550,16 @@ export default function AnnuityCalculatorPage() {
                       {scheduleView === 'annual' ? (
                         result.annualSchedule.map((item, idx) => (
                           <tr key={idx} className="hover:bg-gray-50">
-                            <td className="px-3 py-2 text-left font-medium">
+                            <td className="px-3 py-2 text-left font-medium text-gray-900">
                               {item.year}
                             </td>
-                            <td className="px-3 py-2 text-right">
+                            <td className="px-3 py-2 text-right text-gray-900">
                               {formatCurrency(item.additions)}
                             </td>
                             <td className="px-3 py-2 text-right text-emerald-600">
                               {formatCurrency(item.interest)}
                             </td>
-                            <td className="px-3 py-2 text-right font-medium">
+                            <td className="px-3 py-2 text-right font-medium text-gray-900">
                               {formatCurrency(item.balance)}
                             </td>
                           </tr>
@@ -570,16 +570,16 @@ export default function AnnuityCalculatorPage() {
                             .slice(0, showFullSchedule ? undefined : 12)
                             .map((item, idx) => (
                               <tr key={idx} className="hover:bg-gray-50">
-                                <td className="px-3 py-2 text-left font-medium">
+                                <td className="px-3 py-2 text-left font-medium text-gray-900">
                                   {item.month}
                                 </td>
-                                <td className="px-3 py-2 text-right">
+                                <td className="px-3 py-2 text-right text-gray-900">
                                   {formatCurrency(item.addition)}
                                 </td>
                                 <td className="px-3 py-2 text-right text-emerald-600">
                                   {formatCurrency(item.interest)}
                                 </td>
-                                <td className="px-3 py-2 text-right font-medium">
+                                <td className="px-3 py-2 text-right font-medium text-gray-900">
                                   {formatCurrency(item.balance)}
                                 </td>
                               </tr>
