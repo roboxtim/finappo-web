@@ -115,7 +115,7 @@ export default function AverageReturnCalculator() {
                 Investment Returns
               </h2>
 
-              <div className="space-y-4 max-h-[600px] overflow-y-auto pr-2">
+              <div className="space-y-4">
                 {periods.map((period, index) => (
                   <div
                     key={index}
