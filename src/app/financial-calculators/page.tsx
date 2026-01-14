@@ -21,6 +21,7 @@ import {
   Tag,
   PiggyBank,
   Landmark,
+  Receipt,
 } from 'lucide-react';
 
 export default function FinancialCalculators() {
@@ -384,6 +385,14 @@ export default function FinancialCalculators() {
               description="Calculate your Required Minimum Distribution from retirement accounts using IRS life expectancy tables. Plan your withdrawals and understand tax implications."
               gradient="bg-gradient-to-br from-purple-600 to-indigo-600"
               href="/financial-calculators/rmd-calculator"
+              delay={0}
+            />
+            <CalculatorCard
+              icon={<Receipt className="w-8 h-8 text-white" />}
+              title="Tax Calculator"
+              description="Calculate your 2025 federal income tax, estimate refunds, and optimize deductions. Includes latest IRS tax brackets, child tax credits, and earned income credits."
+              gradient="bg-gradient-to-br from-blue-600 to-indigo-600"
+              href="/financial-calculators/tax-calculator"
               delay={0}
             />
           </div>

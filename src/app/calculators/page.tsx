@@ -22,6 +22,7 @@ import {
   Tag,
   PiggyBank,
   Landmark,
+  Receipt,
 } from 'lucide-react';
 
 interface CalculatorItem {
@@ -867,6 +868,31 @@ const categories: Category[] = [
           'retirement account calculator',
           'ira growth calculator',
           'tax-deferred growth',
+        ],
+      },
+      {
+        id: 'tax-calculator',
+        title: 'Tax Calculator',
+        description:
+          'Calculate your 2025 federal income tax, estimate refunds, and optimize deductions with latest IRS tax brackets',
+        href: '/financial-calculators/tax-calculator',
+        icon: <Receipt className="w-5 h-5" />,
+        keywords: [
+          'tax calculator',
+          'income tax calculator',
+          'federal tax calculator',
+          'tax estimator',
+          'tax refund calculator',
+          '2025 tax brackets',
+          'effective tax rate',
+          'marginal tax rate',
+          'tax deductions',
+          'tax credits',
+          'child tax credit',
+          'earned income tax credit',
+          'standard deduction',
+          'itemized deductions',
+          'tax withholding',
         ],
       },
     ],
