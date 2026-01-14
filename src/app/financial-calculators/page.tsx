@@ -339,6 +339,14 @@ export default function FinancialCalculators() {
               delay={0}
             />
             <CalculatorCard
+              icon={<Shield className="w-8 h-8 text-white" />}
+              title="Roth IRA Calculator"
+              description="Plan tax-free retirement savings with a Roth IRA. Compare Roth vs taxable accounts, calculate growth with 2025 contribution limits, and see your tax advantage."
+              gradient="bg-gradient-to-br from-green-600 to-emerald-600"
+              href="/financial-calculators/roth-ira-calculator"
+              delay={0}
+            />
+            <CalculatorCard
               icon={<TrendingUp className="w-8 h-8 text-white" />}
               title="Retirement Calculator"
               description="Plan your retirement with comprehensive projections. Calculate savings needed, monthly contributions, and income analysis with Social Security integration."
