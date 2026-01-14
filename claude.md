@@ -36,10 +36,126 @@
 
 ### Обязательные файлы:
 
-1. **page.tsx** - основная страница калькулятора
+1. **page.tsx** - основная страница калькулятора (ОБЯЗАТЕЛЬНО по шаблону!)
 2. **layout.tsx** - layout с метаданными (SEO)
 3. **calculations.ts** - логика расчетов
 4. **__tests__/calculations.test.ts** - тесты для расчетов
+
+## ВАЖНО! СТАНДАРТНЫЙ ШАБЛОН UI
+
+### Эталонный пример: `/src/app/financial-calculators/roth-ira-calculator/page.tsx`
+
+**ВСЕГДА используй эту структуру для page.tsx:**
+
+### 1. Hero Section
+```tsx
+<section className="relative pt-24 pb-6 lg:pt-28 lg:pb-8">
+  <div className="max-w-7xl mx-auto px-6 lg:px-8">
+    <Link href="/financial-calculators" className="...">Back to Calculators</Link>
+
+    <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}>
+      <div className="flex items-center gap-4 mb-4">
+        <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-color-600 to-color-600 flex items-center justify-center shadow-lg">
+          <Icon className="w-8 h-8 text-white" />
+        </div>
+        <div>
+          <h1 className="text-4xl sm:text-5xl font-bold tracking-tight text-gray-900">
+            Calculator Title
+          </h1>
+          <p className="text-lg text-gray-600 mt-2">Description</p>
+        </div>
+      </div>
+    </motion.div>
+  </div>
+</section>
+```
+
+### 2. Calculator Section - ДВЕ КОЛОНКИ (40% / 60%)
+```tsx
+<section className="pb-8 lg:pb-12">
+  <div className="max-w-7xl mx-auto px-6 lg:px-8">
+    <div className="grid lg:grid-cols-[40%_60%] gap-8">
+
+      {/* LEFT COLUMN - INPUT FORMS */}
+      <motion.div initial={{ opacity: 0, x: -20 }} animate={{ opacity: 1, x: 0 }} className="space-y-6">
+
+        {/* Card 1 */}
+        <div className="bg-white rounded-3xl p-8 shadow-sm border border-gray-100">
+          <h2 className="text-2xl font-bold text-gray-900 mb-6">Section Title</h2>
+
+          <div className="space-y-6">
+            <div>
+              <label className="block text-sm font-semibold text-gray-700 mb-2">
+                Field Label
+              </label>
+              <input
+                type="text"
+                className="w-full px-4 py-3 rounded-xl text-gray-900 border-2 border-gray-200 focus:border-green-500 focus:outline-none transition-colors font-medium"
+                placeholder="Placeholder"
+              />
+            </div>
+          </div>
+        </div>
+
+      </motion.div>
+
+      {/* RIGHT COLUMN - RESULTS */}
+      <motion.div initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} className="space-y-6">
+
+        {/* Main Result Card */}
+        <div className="rounded-3xl p-8 text-white shadow-xl bg-gradient-to-br from-color-600 to-color-600">
+          <div className="flex items-center gap-2 text-sm font-medium opacity-90 mb-2">
+            <Icon className="w-4 h-4" />
+            Result Label
+          </div>
+          <div className="text-5xl font-bold mb-2">$123,456</div>
+          <div className="text-sm opacity-75 mb-6">Additional info</div>
+        </div>
+
+        {/* Additional Results */}
+        <div className="bg-white rounded-3xl p-8 shadow-sm border border-gray-100">
+          <h3 className="text-xl font-bold text-gray-900 mb-6">Results Title</h3>
+          {/* Content */}
+        </div>
+
+      </motion.div>
+
+    </div>
+  </div>
+</section>
+```
+
+### 3. Educational Section
+```tsx
+<section className="py-16 lg:py-24 bg-gray-50">
+  <div className="max-w-4xl mx-auto px-6 lg:px-8">
+    <h2 className="text-3xl font-bold text-gray-900 mb-8">Understanding [Topic]</h2>
+    {/* Educational content */}
+  </div>
+</section>
+```
+
+### Стилизация элементов:
+
+**Белые карточки:**
+```tsx
+className="bg-white rounded-3xl p-8 shadow-sm border border-gray-100"
+```
+
+**Инпуты:**
+```tsx
+className="w-full px-4 py-3 rounded-xl text-gray-900 border-2 border-gray-200 focus:border-purple-500 focus:outline-none transition-colors font-medium"
+```
+
+**Лейблы:**
+```tsx
+className="block text-sm font-semibold text-gray-700 mb-2"
+```
+
+**Градиентная карточка результата:**
+```tsx
+className="rounded-3xl p-8 text-white shadow-xl bg-gradient-to-br from-purple-600 to-indigo-600"
+```
 
 ### Layout.tsx - Обязательная структура:
 
