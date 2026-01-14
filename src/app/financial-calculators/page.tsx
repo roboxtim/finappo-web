@@ -291,6 +291,14 @@ export default function FinancialCalculators() {
               delay={0}
             />
             <CalculatorCard
+              icon={<Shield className="w-8 h-8 text-white" />}
+              title="IRA Calculator"
+              description="Compare Traditional and Roth IRA retirement savings options. Calculate future balances, tax benefits, and determine which IRA type is best for your retirement planning."
+              gradient="bg-gradient-to-br from-green-600 to-emerald-600"
+              href="/financial-calculators/ira-calculator"
+              delay={0}
+            />
+            <CalculatorCard
               icon={<TrendingUp className="w-8 h-8 text-white" />}
               title="Payback Period Calculator"
               description="Calculate how long it takes to recover your investment. Includes simple and discounted payback period analysis with break-even visualization."
