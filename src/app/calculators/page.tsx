@@ -822,6 +822,29 @@ const categories: Category[] = [
         ],
       },
       {
+        id: 'rmd-calculator',
+        title: 'RMD Calculator',
+        description:
+          'Calculate Required Minimum Distributions from retirement accounts using IRS tables',
+        href: '/financial-calculators/rmd-calculator',
+        icon: <Landmark className="w-5 h-5" />,
+        keywords: [
+          'rmd calculator',
+          'required minimum distribution',
+          'ira rmd',
+          '401k rmd',
+          'retirement distribution',
+          'irs life expectancy table',
+          'uniform lifetime table',
+          'retirement withdrawal',
+          'rmd age 73',
+          'rmd age 75',
+          'secure act 2.0',
+          'retirement planning',
+          'tax planning',
+        ],
+      },
+      {
         id: 'ira-calculator',
         title: 'IRA Calculator',
         description:

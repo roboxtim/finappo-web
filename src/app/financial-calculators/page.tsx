@@ -378,6 +378,14 @@ export default function FinancialCalculators() {
               href="/financial-calculators/social-security"
               delay={0}
             />
+            <CalculatorCard
+              icon={<Landmark className="w-8 h-8 text-white" />}
+              title="RMD Calculator"
+              description="Calculate your Required Minimum Distribution from retirement accounts using IRS life expectancy tables. Plan your withdrawals and understand tax implications."
+              gradient="bg-gradient-to-br from-purple-600 to-indigo-600"
+              href="/financial-calculators/rmd-calculator"
+              delay={0}
+            />
           </div>
         </div>
       </section>
