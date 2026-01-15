@@ -23,6 +23,7 @@ import {
   Landmark,
   Receipt,
   Heart,
+  Globe,
 } from 'lucide-react';
 
 export default function FinancialCalculators() {
@@ -106,6 +107,14 @@ export default function FinancialCalculators() {
               description="Calculate monthly payments, total interest, and create detailed amortization schedules. See how extra payments can save you money and pay off your loan faster."
               gradient="bg-gradient-to-br from-indigo-600 to-purple-600"
               href="/financial-calculators/loan-calculator"
+              delay={0}
+            />
+            <CalculatorCard
+              icon={<Globe className="w-8 h-8 text-white" />}
+              title="Currency Calculator"
+              description="Convert between 20+ world currencies including USD, EUR, GBP, JPY, and more. Get instant exchange rates and compare multiple currencies at once."
+              gradient="bg-gradient-to-br from-green-600 to-emerald-600"
+              href="/financial-calculators/currency-calculator"
               delay={0}
             />
             <CalculatorCard

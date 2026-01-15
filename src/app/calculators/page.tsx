@@ -25,6 +25,7 @@ import {
   Receipt,
   Heart,
   Building2,
+  Globe,
 } from 'lucide-react';
 
 interface CalculatorItem {
@@ -123,6 +124,26 @@ const categories: Category[] = [
           'payoff',
           'mortgage',
           'auto loan',
+        ],
+      },
+      {
+        id: 'currency-calculator',
+        title: 'Currency Calculator',
+        description:
+          'Convert between world currencies with real-time exchange rates for USD, EUR, GBP, JPY, and more',
+        href: '/financial-calculators/currency-calculator',
+        icon: <Globe className="w-5 h-5" />,
+        keywords: [
+          'currency calculator',
+          'currency converter',
+          'exchange rate',
+          'forex',
+          'usd to eur',
+          'usd to gbp',
+          'currency exchange',
+          'money converter',
+          'fx calculator',
+          'foreign exchange',
         ],
       },
       {
