@@ -24,6 +24,7 @@ import {
   Receipt,
   Heart,
   Globe,
+  ShoppingCart,
 } from 'lucide-react';
 
 export default function FinancialCalculators() {
@@ -123,6 +124,14 @@ export default function FinancialCalculators() {
               description="Calculate monthly payments for personal loans. Plan debt consolidation, home improvements, or any personal financing needs with accurate estimates."
               gradient="bg-gradient-to-br from-green-500 to-emerald-500"
               href="/financial-calculators/personal-loan"
+              delay={0}
+            />
+            <CalculatorCard
+              icon={<CreditCard className="w-8 h-8 text-white" />}
+              title="Credit Card Calculator"
+              description="Calculate payoff time, total interest charges, and create a debt-free plan. Compare payment strategies and see how extra payments can save thousands in interest."
+              gradient="bg-gradient-to-br from-red-600 to-pink-600"
+              href="/financial-calculators/credit-card-calculator"
               delay={0}
             />
             <CalculatorCard
@@ -451,6 +460,14 @@ export default function FinancialCalculators() {
               description="Calculate your 2025 federal income tax, estimate refunds, and optimize deductions. Includes latest IRS tax brackets, child tax credits, and earned income credits."
               gradient="bg-gradient-to-br from-blue-600 to-indigo-600"
               href="/financial-calculators/tax-calculator"
+              delay={0}
+            />
+            <CalculatorCard
+              icon={<ShoppingCart className="w-8 h-8 text-white" />}
+              title="Sales Tax Calculator"
+              description="Calculate sales tax, find price before tax, or determine tax rates for all US states. Features 2025 state rates, reverse calculation, and local tax options."
+              gradient="bg-gradient-to-br from-violet-600 to-purple-600"
+              href="/financial-calculators/sales-tax-calculator"
               delay={0}
             />
           </div>
