@@ -558,6 +558,29 @@ const categories: Category[] = [
         ],
       },
       {
+        id: 'take-home-pay',
+        title: 'Take Home Pay Calculator',
+        description:
+          'Calculate net salary after federal tax, FICA, state tax, and deductions with 2025 tax brackets',
+        href: '/financial-calculators/take-home-pay-calculator',
+        icon: <Wallet className="w-5 h-5" />,
+        keywords: [
+          'take home pay',
+          'net pay',
+          'paycheck calculator',
+          'salary after tax',
+          'gross to net',
+          'paycheck',
+          'federal tax',
+          'fica',
+          'state tax',
+          'net income',
+          'after tax income',
+          'pay stub',
+          'wage calculator',
+        ],
+      },
+      {
         id: 'marriage-calculator',
         title: 'Marriage Tax Calculator',
         description:

@@ -293,6 +293,14 @@ export default function FinancialCalculators() {
               delay={0}
             />
             <CalculatorCard
+              icon={<Wallet className="w-8 h-8 text-white" />}
+              title="Take Home Pay Calculator"
+              description="Calculate your net salary after federal tax, FICA, state tax, and deductions. See your take-home pay by pay period with accurate 2025 tax calculations."
+              gradient="bg-gradient-to-br from-cyan-600 to-blue-600"
+              href="/financial-calculators/take-home-pay-calculator"
+              delay={0}
+            />
+            <CalculatorCard
               icon={<Heart className="w-8 h-8 text-white" />}
               title="Marriage Tax Calculator"
               description="Compare taxes when filing jointly vs separately. Calculate marriage penalty or bonus with 2025 tax brackets and see how marriage affects your tax situation."
