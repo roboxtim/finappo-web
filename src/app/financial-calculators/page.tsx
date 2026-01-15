@@ -246,6 +246,14 @@ export default function FinancialCalculators() {
               delay={0}
             />
             <CalculatorCard
+              icon={<TrendingUp className="w-8 h-8 text-white" />}
+              title="Inflation Calculator"
+              description="Calculate purchasing power and see how inflation impacts your money over time. Understand future value adjustments and real value depreciation."
+              gradient="bg-gradient-to-br from-orange-600 to-red-600"
+              href="/financial-calculators/inflation-calculator"
+              delay={0}
+            />
+            <CalculatorCard
               icon={<Percent className="w-8 h-8 text-white" />}
               title="Interest Rate Calculator"
               description="Reverse calculator to find interest rate from loan amount, term, and payment. Perfect for verifying dealer quotes and comparing loan offers."

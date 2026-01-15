@@ -411,6 +411,26 @@ const categories: Category[] = [
         ],
       },
       {
+        id: 'inflation-calculator',
+        title: 'Inflation Calculator',
+        description:
+          'Calculate purchasing power and see how inflation impacts your money over time',
+        href: '/financial-calculators/inflation-calculator',
+        icon: <TrendingUp className="w-5 h-5" />,
+        keywords: [
+          'inflation calculator',
+          'purchasing power calculator',
+          'inflation rate calculator',
+          'cpi calculator',
+          'cost of living calculator',
+          'inflation adjusted calculator',
+          'real value calculator',
+          'money value calculator',
+          'inflation impact',
+          'historical inflation',
+        ],
+      },
+      {
         id: 'interest-rate',
         title: 'Interest Rate Calculator',
         description:
