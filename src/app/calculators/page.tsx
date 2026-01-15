@@ -23,6 +23,7 @@ import {
   PiggyBank,
   Landmark,
   Receipt,
+  Heart,
 } from 'lucide-react';
 
 interface CalculatorItem {
@@ -553,6 +554,26 @@ const categories: Category[] = [
           'roi analysis',
           'return calculator',
           'investment roi',
+        ],
+      },
+      {
+        id: 'marriage-calculator',
+        title: 'Marriage Tax Calculator',
+        description:
+          'Compare taxes when filing jointly vs separately. Calculate marriage penalty or bonus with 2025 tax brackets',
+        href: '/financial-calculators/marriage-calculator',
+        icon: <Heart className="w-5 h-5" />,
+        keywords: [
+          'marriage calculator',
+          'marriage penalty calculator',
+          'marriage tax calculator',
+          'marriage bonus',
+          'tax marriage penalty',
+          'married filing jointly vs separately',
+          'marriage tax benefits',
+          'wedding tax calculator',
+          'tax implications of marriage',
+          '2025 marriage tax',
         ],
       },
       {

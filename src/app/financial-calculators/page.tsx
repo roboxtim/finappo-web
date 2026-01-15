@@ -22,6 +22,7 @@ import {
   PiggyBank,
   Landmark,
   Receipt,
+  Heart,
 } from 'lucide-react';
 
 export default function FinancialCalculators() {
@@ -289,6 +290,14 @@ export default function FinancialCalculators() {
               description="Calculate Return on Investment to evaluate profitability. Includes annualized ROI, scenario comparison, and growth projections for smart investment decisions."
               gradient="bg-gradient-to-br from-purple-600 to-indigo-600"
               href="/financial-calculators/roi-calculator"
+              delay={0}
+            />
+            <CalculatorCard
+              icon={<Heart className="w-8 h-8 text-white" />}
+              title="Marriage Tax Calculator"
+              description="Compare taxes when filing jointly vs separately. Calculate marriage penalty or bonus with 2025 tax brackets and see how marriage affects your tax situation."
+              gradient="bg-gradient-to-br from-pink-600 to-rose-600"
+              href="/financial-calculators/marriage-calculator"
               delay={0}
             />
             <CalculatorCard
