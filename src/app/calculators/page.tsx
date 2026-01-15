@@ -706,6 +706,31 @@ const categories: Category[] = [
         ],
       },
       {
+        id: 'salary-calculator',
+        title: 'Salary Calculator',
+        description:
+          'Calculate your take-home pay, taxes, and deductions. Convert between hourly, weekly, monthly, and annual salary with federal & state tax withholdings',
+        href: '/financial-calculators/salary-calculator',
+        icon: <Banknote className="w-5 h-5" />,
+        keywords: [
+          'salary calculator',
+          'paycheck calculator',
+          'hourly to salary',
+          'salary to hourly',
+          'net pay calculator',
+          'gross to net',
+          'take home pay',
+          'salary conversion',
+          'wage calculator',
+          'income calculator',
+          '2025 salary calculator',
+          'federal tax calculator',
+          'state tax calculator',
+          'FICA calculator',
+          'tax withholding calculator',
+        ],
+      },
+      {
         id: 'roth-ira-calculator',
         title: 'Roth IRA Calculator',
         description:
