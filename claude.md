@@ -1,5 +1,38 @@
 # Claude - Правила добавления калькуляторов
 
+## ⚠️ ПЕРВЫЙ ШАГ: ПРОВЕРИТЬ СУЩЕСТВУЮЩИЕ КАЛЬКУЛЯТОРЫ!
+
+**ПЕРЕД созданием нового калькулятора ОБЯЗАТЕЛЬНО проверь, нет ли уже такого же!**
+
+### Как проверить:
+
+1. **Поиск в файловой системе:**
+```bash
+ls src/app/financial-calculators/
+```
+
+2. **Поиск в категории:**
+```bash
+grep -i "calculator-name" src/app/financial-calculators/page.tsx
+```
+
+3. **Поиск в архиве:**
+```bash
+grep -i "calculator-name" src/app/calculators/page.tsx
+```
+
+**Примеры существующих калькуляторов:**
+- amortization, auto-loan, auto-lease, personal-loan, payment
+- mortgage, fha-loan, va-loan, heloc, home-equity-loan
+- investment, compound-interest, savings, retirement, 401k
+- tax, salary, marriage, estate-tax, take-home-pay
+- loan, roth-ira, ira, rmd
+- И другие...
+
+**Если калькулятор уже существует - НЕ создавай дубликат!**
+
+---
+
 ## ВАЖНО! Каждый калькулятор добавляется В ДВА МЕСТА:
 
 ### 1. В основной архив калькуляторов
