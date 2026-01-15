@@ -101,6 +101,14 @@ export default function FinancialCalculators() {
               delay={0}
             />
             <CalculatorCard
+              icon={<Calculator className="w-8 h-8 text-white" />}
+              title="Loan Calculator"
+              description="Calculate monthly payments, total interest, and create detailed amortization schedules. See how extra payments can save you money and pay off your loan faster."
+              gradient="bg-gradient-to-br from-indigo-600 to-purple-600"
+              href="/financial-calculators/loan-calculator"
+              delay={0}
+            />
+            <CalculatorCard
               icon={<CircleDollarSign className="w-8 h-8 text-white" />}
               title="Personal Loan Calculator"
               description="Calculate monthly payments for personal loans. Plan debt consolidation, home improvements, or any personal financing needs with accurate estimates."

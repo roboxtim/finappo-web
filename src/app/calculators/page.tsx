@@ -108,6 +108,24 @@ const categories: Category[] = [
         ],
       },
       {
+        id: 'loan-calculator',
+        title: 'Loan Calculator',
+        description:
+          'Calculate monthly payments, total interest, and amortization schedules with extra payment options',
+        href: '/financial-calculators/loan-calculator',
+        icon: <Calculator className="w-5 h-5" />,
+        keywords: [
+          'loan',
+          'monthly payment',
+          'amortization',
+          'interest',
+          'extra payment',
+          'payoff',
+          'mortgage',
+          'auto loan',
+        ],
+      },
+      {
         id: 'personal-loan',
         title: 'Personal Loan Calculator',
         description: 'Calculate monthly payments for personal loans',
