@@ -373,6 +373,14 @@ export default function FinancialCalculators() {
               delay={0}
             />
             <CalculatorCard
+              icon={<Building2 className="w-8 h-8 text-white" />}
+              title="Estate Tax Calculator"
+              description="Calculate federal and state estate taxes for 2025. Plan your legacy with $13.99M exemption, minimize taxes for heirs, and explore estate planning strategies."
+              gradient="bg-gradient-to-br from-amber-600 to-orange-600"
+              href="/financial-calculators/estate-tax-calculator"
+              delay={0}
+            />
+            <CalculatorCard
               icon={<TrendingUp className="w-8 h-8 text-white" />}
               title="Retirement Calculator"
               description="Plan your retirement with comprehensive projections. Calculate savings needed, monthly contributions, and income analysis with Social Security integration."

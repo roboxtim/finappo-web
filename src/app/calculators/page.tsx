@@ -24,6 +24,7 @@ import {
   Landmark,
   Receipt,
   Heart,
+  Building2,
 } from 'lucide-react';
 
 interface CalculatorItem {
@@ -777,6 +778,35 @@ const categories: Category[] = [
           'tax-free growth',
           'roth ira benefits',
           'retirement account calculator',
+        ],
+      },
+      {
+        id: 'estate-tax-calculator',
+        title: 'Estate Tax Calculator',
+        description:
+          'Calculate federal and state estate taxes for 2025. Plan your legacy with $13.99M exemption, minimize taxes, and maximize inheritance for heirs',
+        href: '/financial-calculators/estate-tax-calculator',
+        icon: <Building2 className="w-5 h-5" />,
+        keywords: [
+          'estate tax calculator',
+          'federal estate tax',
+          'estate tax exemption',
+          'inheritance tax calculator',
+          'estate planning calculator',
+          '2025 estate tax',
+          'estate tax rates',
+          'gift tax exemption',
+          'estate planning',
+          'wealth transfer tax',
+          'death tax calculator',
+          'estate tax brackets',
+          'marital deduction',
+          'portability',
+          'state estate tax',
+          'charitable bequest',
+          'lifetime gifts',
+          'inheritance planning',
+          'wealth transfer',
         ],
       },
       {
