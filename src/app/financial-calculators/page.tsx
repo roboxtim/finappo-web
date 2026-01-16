@@ -520,6 +520,14 @@ export default function FinancialCalculators() {
               href="/financial-calculators/vat-calculator"
               delay={0}
             />
+            <CalculatorCard
+              icon={<TrendingDown className="w-8 h-8 text-white" />}
+              title="Depreciation Calculator"
+              description="Calculate asset depreciation using straight-line, declining balance, double declining balance, or sum of years' digits methods. Get detailed year-by-year depreciation schedules."
+              gradient="bg-gradient-to-br from-amber-600 to-orange-600"
+              href="/financial-calculators/depreciation-calculator"
+              delay={0}
+            />
           </div>
         </div>
       </section>

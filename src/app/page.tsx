@@ -1213,6 +1213,26 @@ const categories: Category[] = [
           'tax calculator',
         ],
       },
+      {
+        id: 'depreciation-calculator',
+        title: 'Depreciation Calculator',
+        description:
+          "Calculate asset depreciation using straight-line, declining balance, double declining balance, or sum of years' digits methods. Get detailed year-by-year schedules",
+        href: '/financial-calculators/depreciation-calculator',
+        icon: <TrendingDown className="w-5 h-5" />,
+        keywords: [
+          'depreciation calculator',
+          'asset depreciation',
+          'straight line depreciation',
+          'declining balance',
+          'double declining balance',
+          'sum of years digits',
+          'depreciation schedule',
+          'book value',
+          'salvage value',
+          'tax depreciation',
+        ],
+      },
     ],
   },
 ];
