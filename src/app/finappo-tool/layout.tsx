@@ -23,7 +23,7 @@ export const metadata: Metadata = {
     type: 'website',
     locale: 'en_US',
     siteName: 'Finappo',
-    url: 'https://finappo.com/finappo-app',
+    url: 'https://finappo.com/finappo-tool',
   },
   twitter: {
     card: 'summary_large_image',
@@ -32,7 +32,7 @@ export const metadata: Metadata = {
       'Beautiful, powerful expense tracking designed for families who want to spend smarter together.',
   },
   alternates: {
-    canonical: 'https://finappo.com/finappo-app',
+    canonical: 'https://finappo.com/finappo-tool',
   },
 };
 

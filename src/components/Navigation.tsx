@@ -33,25 +33,25 @@ export function Navigation() {
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center gap-6">
             <Link
-              href="/finappo-app"
+              href="/finappo-tool"
               className="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors"
             >
               App
             </Link>
             <Link
-              href="/finappo-app#features"
+              href="/finappo-tool#features"
               className="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors"
             >
               Features
             </Link>
             <Link
-              href="/finappo-app#download"
+              href="/finappo-tool#download"
               className="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors"
             >
               Download
             </Link>
             <Link
-              href="/finappo-app#contact"
+              href="/finappo-tool#contact"
               className="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors"
             >
               Contact
@@ -102,28 +102,28 @@ export function Navigation() {
           >
             <div className="max-w-7xl mx-auto px-6 py-6 space-y-4">
               <Link
-                href="/finappo-app"
+                href="/finappo-tool"
                 onClick={() => setMobileMenuOpen(false)}
                 className="block text-base font-medium text-gray-600 hover:text-gray-900 py-2 transition-colors"
               >
                 App
               </Link>
               <Link
-                href="/finappo-app#features"
+                href="/finappo-tool#features"
                 onClick={() => setMobileMenuOpen(false)}
                 className="block text-base font-medium text-gray-600 hover:text-gray-900 py-2 transition-colors"
               >
                 Features
               </Link>
               <Link
-                href="/finappo-app#download"
+                href="/finappo-tool#download"
                 onClick={() => setMobileMenuOpen(false)}
                 className="block text-base font-medium text-gray-600 hover:text-gray-900 py-2 transition-colors"
               >
                 Download
               </Link>
               <Link
-                href="/finappo-app#contact"
+                href="/finappo-tool#contact"
                 onClick={() => setMobileMenuOpen(false)}
                 className="block text-base font-medium text-gray-600 hover:text-gray-900 py-2 transition-colors"
               >
