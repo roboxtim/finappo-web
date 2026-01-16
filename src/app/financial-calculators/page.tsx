@@ -544,6 +544,14 @@ export default function FinancialCalculators() {
               href="/financial-calculators/discount-calculator"
               delay={0.1}
             />
+            <CalculatorCard
+              icon={<Building2 className="w-8 h-8 text-white" />}
+              title="Business Loan Calculator"
+              description="Calculate business loan payments, true APR, and total costs including all fees. Get accurate estimates for SBA loans, term loans, and commercial financing with comprehensive breakdown of interest and fees."
+              gradient="bg-gradient-to-br from-indigo-600 to-blue-600"
+              href="/financial-calculators/business-loan-calculator"
+              delay={0.2}
+            />
           </div>
         </div>
       </section>

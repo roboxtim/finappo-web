@@ -1273,6 +1273,26 @@ const categories: Category[] = [
           'promotional pricing',
         ],
       },
+      {
+        id: 'business-loan-calculator',
+        title: 'Business Loan Calculator',
+        description:
+          'Calculate business loan payments, APR, and total costs including fees. Get accurate estimates for SBA loans, term loans, and commercial financing with detailed breakdown',
+        href: '/financial-calculators/business-loan-calculator',
+        icon: <Building2 className="w-5 h-5" />,
+        keywords: [
+          'business loan calculator',
+          'business loan payment',
+          'SBA loan calculator',
+          'small business loan',
+          'commercial loan calculator',
+          'APR calculator',
+          'business financing',
+          'equipment loan',
+          'term loan calculator',
+          'loan with fees',
+        ],
+      },
     ],
   },
 ];
