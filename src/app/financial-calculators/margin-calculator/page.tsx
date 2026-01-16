@@ -338,40 +338,46 @@ export default function MarginCalculator() {
                       </div>
                     </div>
                   </div>
-
-                  {/* Information Card */}
-                  <div className="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-3xl p-8 border border-blue-100">
-                    <h3 className="text-xl font-bold text-gray-900 mb-4">
-                      Understanding Margin & Markup
-                    </h3>
-
-                    <div className="space-y-3 text-sm text-gray-700">
-                      <p>
-                        <span className="font-semibold">Profit Margin:</span>{' '}
-                        The percentage of revenue that becomes profit. Shows how
-                        much profit you make from each dollar of sales.
-                      </p>
-                      <p>
-                        <span className="font-semibold">Markup:</span> The
-                        percentage added to cost to determine selling price.
-                        Shows how much you&apos;re marking up your costs.
-                      </p>
-                      <div className="mt-4 p-4 bg-white rounded-lg">
-                        <p className="text-xs text-gray-600 font-mono">
-                          Margin = (Profit / Revenue) × 100%
-                        </p>
-                        <p className="text-xs text-gray-600 font-mono mt-1">
-                          Markup = (Profit / Cost) × 100%
-                        </p>
-                      </div>
-                    </div>
-                  </div>
                 </>
               )}
             </motion.div>
           </div>
         </div>
       </section>
+
+      {/* Understanding Section */}
+      {results && (
+        <section className="pb-16 lg:pb-24">
+          <div className="max-w-7xl mx-auto px-6 lg:px-8">
+            <div className="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-3xl p-8 border border-blue-100">
+              <h3 className="text-xl font-bold text-gray-900 mb-4">
+                Understanding Margin & Markup
+              </h3>
+
+              <div className="space-y-3 text-sm text-gray-700">
+                <p>
+                  <span className="font-semibold">Profit Margin:</span> The
+                  percentage of revenue that becomes profit. Shows how much
+                  profit you make from each dollar of sales.
+                </p>
+                <p>
+                  <span className="font-semibold">Markup:</span> The percentage
+                  added to cost to determine selling price. Shows how much
+                  you&apos;re marking up your costs.
+                </p>
+                <div className="mt-4 p-4 bg-white rounded-lg">
+                  <p className="text-xs text-gray-600 font-mono">
+                    Margin = (Profit / Revenue) × 100%
+                  </p>
+                  <p className="text-xs text-gray-600 font-mono mt-1">
+                    Markup = (Profit / Cost) × 100%
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      )}
     </div>
   );
 }

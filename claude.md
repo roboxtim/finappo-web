@@ -158,7 +158,14 @@ grep -i "calculator-name" src/app/page.tsx
 </section>
 ```
 
-### 3. Educational Section - Understanding (ВАЖНО ДЛЯ SEO!)
+### 3. Understanding Section - ОТДЕЛЬНАЯ СЕКЦИЯ ВНИЗУ (ВАЖНО ДЛЯ SEO!)
+
+**⚠️ КРИТИЧЕСКИ ВАЖНО: Understanding секция должна быть ВНИЗУ страницы, НЕ в правой колонке!**
+
+**Правильная структура:**
+1. Hero Section
+2. Calculator Section (две колонки: inputs слева, results справа)
+3. **Understanding Section (отдельно, внизу, 100% ширины контейнера)**
 
 **ОБЯЗАТЕЛЬНО делай раздел "Understanding" подробным и детальным!**
 
@@ -173,70 +180,96 @@ grep -i "calculator-name" src/app/page.tsx
 
 Минимум 4-6 подразделов с детальными объяснениями!
 
+**ПРАВИЛЬНАЯ СТРУКТУРА РАЗМЕЩЕНИЯ:**
+
 ```tsx
-<div className="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-3xl p-8 border border-blue-100">
-  <h3 className="text-xl font-bold text-gray-900 mb-4">
-    Understanding [Topic]: A Complete Guide
-  </h3>
+      {/* RIGHT COLUMN - RESULTS */}
+      <motion.div initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} className="space-y-6">
+        {/* Main Result Card */}
+        <div className="rounded-3xl p-8 text-white shadow-xl bg-gradient-to-br from-color-600 to-color-600">
+          {/* Results */}
+        </div>
+        {/* Additional Results Cards */}
+      </motion.div>
 
-  <div className="space-y-4 text-sm text-gray-700">
-    <div>
-      <h4 className="font-semibold text-gray-900 mb-2">
-        What is [Topic]?
-      </h4>
-      <p>
-        Детальное объяснение концепции...
-      </p>
-    </div>
+    </div> {/* Close grid */}
+  </div> {/* Close max-w-7xl container */}
+</section> {/* Close Calculator Section */}
 
-    <div>
-      <h4 className="font-semibold text-gray-900 mb-2">
-        Types of [Topic]
-      </h4>
-      <ul className="list-disc list-inside space-y-1 ml-2">
-        <li><span className="font-semibold">Type 1:</span> Description...</li>
-        <li><span className="font-semibold">Type 2:</span> Description...</li>
-      </ul>
-    </div>
+{/* Understanding Section - ОТДЕЛЬНАЯ СЕКЦИЯ! */}
+{results && (
+  <section className="pb-16 lg:pb-24">
+    <div className="max-w-7xl mx-auto px-6 lg:px-8">
+      <div className="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-3xl p-8 border border-blue-100">
+        <h3 className="text-xl font-bold text-gray-900 mb-4">
+          Understanding [Topic]: A Complete Guide
+        </h3>
 
-    <div>
-      <h4 className="font-semibold text-gray-900 mb-2">
-        How to Calculate
-      </h4>
-      <p className="mb-2">Explanation...</p>
-      <div className="bg-white rounded-lg p-4">
-        <p className="font-mono text-xs">
-          Formula 1: ...
-        </p>
-      </div>
-    </div>
+        <div className="space-y-4 text-sm text-gray-700">
+          <div>
+            <h4 className="font-semibold text-gray-900 mb-2">
+              What is [Topic]?
+            </h4>
+            <p>
+              Детальное объяснение концепции...
+            </p>
+          </div>
 
-    <div>
-      <h4 className="font-semibold text-gray-900 mb-2">
-        Real-World Examples
-      </h4>
-      <div className="space-y-2">
-        <div className="bg-white rounded-lg p-3">
-          <p className="font-semibold text-xs mb-1">Example 1: ...</p>
-          <p className="text-xs">Detailed scenario...</p>
+          <div>
+            <h4 className="font-semibold text-gray-900 mb-2">
+              Types of [Topic]
+            </h4>
+            <ul className="list-disc list-inside space-y-1 ml-2">
+              <li><span className="font-semibold">Type 1:</span> Description...</li>
+              <li><span className="font-semibold">Type 2:</span> Description...</li>
+            </ul>
+          </div>
+
+          <div>
+            <h4 className="font-semibold text-gray-900 mb-2">
+              How to Calculate
+            </h4>
+            <p className="mb-2">Explanation...</p>
+            <div className="bg-white rounded-lg p-4">
+              <p className="font-mono text-xs">
+                Formula 1: ...
+              </p>
+            </div>
+          </div>
+
+          <div>
+            <h4 className="font-semibold text-gray-900 mb-2">
+              Real-World Examples
+            </h4>
+            <div className="space-y-2">
+              <div className="bg-white rounded-lg p-3">
+                <p className="font-semibold text-xs mb-1">Example 1: ...</p>
+                <p className="text-xs">Detailed scenario...</p>
+              </div>
+            </div>
+          </div>
+
+          <div>
+            <h4 className="font-semibold text-gray-900 mb-2">
+              Tips & Strategies
+            </h4>
+            <ul className="list-disc list-inside space-y-1 ml-2">
+              <li>Practical tip 1...</li>
+              <li>Practical tip 2...</li>
+            </ul>
+          </div>
         </div>
       </div>
     </div>
+  </section>
+)}
 
-    <div>
-      <h4 className="font-semibold text-gray-900 mb-2">
-        Tips & Strategies
-      </h4>
-      <ul className="list-disc list-inside space-y-1 ml-2">
-        <li>Practical tip 1...</li>
-        <li>Practical tip 2...</li>
-      </ul>
-    </div>
-  </div>
-</div>
+</div> {/* Close main page container */}
 ```
 
-**Пример хорошего Understanding раздела:** `/src/app/financial-calculators/discount-calculator/page.tsx`
+**Пример правильного Understanding раздела:** `/src/app/financial-calculators/discount-calculator/page.tsx`
+
+**ЗАПОМНИ: Understanding ВСЕГДА в отдельной секции внизу, НЕ в правой колонке!**
 
 ### Стилизация элементов:
 

@@ -385,192 +385,191 @@ export default function DiscountCalculator() {
                       </div>
                     </div>
                   </div>
-
-                  {/* Information Card - Enhanced for SEO */}
-                  <div className="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-3xl p-8 border border-blue-100">
-                    <h3 className="text-xl font-bold text-gray-900 mb-4">
-                      Understanding Discounts: A Complete Guide
-                    </h3>
-
-                    <div className="space-y-4 text-sm text-gray-700">
-                      <div>
-                        <h4 className="font-semibold text-gray-900 mb-2">
-                          What is a Discount?
-                        </h4>
-                        <p>
-                          A discount is a reduction in the original price of a
-                          product or service. Discounts are commonly offered by
-                          retailers during sales events, promotions, or to
-                          incentivize purchases. Understanding how discounts
-                          work helps you calculate the true value of sales and
-                          make informed purchasing decisions.
-                        </p>
-                      </div>
-
-                      <div>
-                        <h4 className="font-semibold text-gray-900 mb-2">
-                          Types of Discounts
-                        </h4>
-                        <ul className="list-disc list-inside space-y-1 ml-2">
-                          <li>
-                            <span className="font-semibold">
-                              Percentage Discount:
-                            </span>{' '}
-                            A discount expressed as a percentage of the original
-                            price (e.g., 20% off, 50% off). This is the most
-                            common type of discount in retail.
-                          </li>
-                          <li>
-                            <span className="font-semibold">
-                              Fixed Amount Discount:
-                            </span>{' '}
-                            A specific dollar amount deducted from the original
-                            price (e.g., $10 off, $25 off). Often used in
-                            promotions and coupons.
-                          </li>
-                          <li>
-                            <span className="font-semibold">
-                              Buy One Get One (BOGO):
-                            </span>{' '}
-                            A promotional offer where purchasing one item
-                            results in a second item at a reduced price or free.
-                          </li>
-                          <li>
-                            <span className="font-semibold">
-                              Volume Discounts:
-                            </span>{' '}
-                            Reduced prices when buying larger quantities, common
-                            in wholesale and bulk purchases.
-                          </li>
-                        </ul>
-                      </div>
-
-                      <div>
-                        <h4 className="font-semibold text-gray-900 mb-2">
-                          How to Calculate Discounts
-                        </h4>
-                        <p className="mb-2">
-                          The basic discount formula depends on the type of
-                          discount being applied:
-                        </p>
-                        <div className="bg-white rounded-lg p-4 space-y-2">
-                          <p className="font-mono text-xs">
-                            <span className="font-semibold">
-                              Percentage Discount:
-                            </span>
-                            <br />
-                            Discount Amount = Original Price × (Discount % ÷
-                            100)
-                            <br />
-                            Final Price = Original Price - Discount Amount
-                          </p>
-                          <p className="font-mono text-xs">
-                            <span className="font-semibold">
-                              Fixed Discount:
-                            </span>
-                            <br />
-                            Final Price = Original Price - Discount Amount
-                            <br />
-                            Discount % = (Discount Amount ÷ Original Price) ×
-                            100
-                          </p>
-                        </div>
-                      </div>
-
-                      <div>
-                        <h4 className="font-semibold text-gray-900 mb-2">
-                          Real-World Examples
-                        </h4>
-                        <div className="space-y-2">
-                          <div className="bg-white rounded-lg p-3">
-                            <p className="font-semibold text-xs mb-1">
-                              Example 1: Black Friday Sale
-                            </p>
-                            <p className="text-xs">
-                              A $200 jacket is on sale for 30% off. The discount
-                              amount is $200 × 0.30 = $60. Your final price is
-                              $200 - $60 = $140. You save $60.
-                            </p>
-                          </div>
-                          <div className="bg-white rounded-lg p-3">
-                            <p className="font-semibold text-xs mb-1">
-                              Example 2: Coupon Code
-                            </p>
-                            <p className="text-xs">
-                              You have a $25 off coupon for a $150 purchase. The
-                              discount percentage is ($25 ÷ $150) × 100 =
-                              16.67%. Your final price is $150 - $25 = $125.
-                            </p>
-                          </div>
-                        </div>
-                      </div>
-
-                      <div>
-                        <h4 className="font-semibold text-gray-900 mb-2">
-                          Stacking Discounts
-                        </h4>
-                        <p>
-                          Some retailers allow multiple discounts to be applied
-                          to a single purchase. When stacking discounts, they
-                          are typically applied sequentially, not added
-                          together. For example, a 20% discount followed by a
-                          10% discount on a $100 item results in: $100 - $20 =
-                          $80, then $80 - $8 = $72 (not $100 - $30 = $70).
-                        </p>
-                      </div>
-
-                      <div>
-                        <h4 className="font-semibold text-gray-900 mb-2">
-                          Tips for Smart Shopping
-                        </h4>
-                        <ul className="list-disc list-inside space-y-1 ml-2">
-                          <li>
-                            Compare percentage discounts on different priced
-                            items - a 50% discount on a $20 item saves less than
-                            20% off a $100 item
-                          </li>
-                          <li>
-                            Watch for &quot;original price&quot; inflation where
-                            retailers artificially raise prices before applying
-                            discounts
-                          </li>
-                          <li>
-                            Calculate the actual price per unit when comparing
-                            discounted bulk purchases
-                          </li>
-                          <li>
-                            Consider if you actually need the item - even with a
-                            great discount, unnecessary purchases waste money
-                          </li>
-                          <li>
-                            Use cashback apps and credit card rewards in
-                            addition to store discounts for maximum savings
-                          </li>
-                        </ul>
-                      </div>
-
-                      <div>
-                        <h4 className="font-semibold text-gray-900 mb-2">
-                          Business Perspective
-                        </h4>
-                        <p>
-                          For businesses, discounts are a strategic tool to
-                          increase sales volume, clear inventory, attract new
-                          customers, and compete in the market. The key is
-                          finding the right discount level that drives sales
-                          while maintaining profitability. A well-planned
-                          discount strategy considers profit margins, customer
-                          acquisition costs, and long-term customer value.
-                        </p>
-                      </div>
-                    </div>
-                  </div>
                 </>
               )}
             </motion.div>
           </div>
         </div>
       </section>
+
+      {/* Understanding Section */}
+      {results && (
+        <section className="pb-16 lg:pb-24">
+          <div className="max-w-7xl mx-auto px-6 lg:px-8">
+            <div className="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-3xl p-8 border border-blue-100">
+              <h3 className="text-xl font-bold text-gray-900 mb-4">
+                Understanding Discounts: A Complete Guide
+              </h3>
+
+              <div className="space-y-4 text-sm text-gray-700">
+                <div>
+                  <h4 className="font-semibold text-gray-900 mb-2">
+                    What is a Discount?
+                  </h4>
+                  <p>
+                    A discount is a reduction in the original price of a product
+                    or service. Discounts are commonly offered by retailers
+                    during sales events, promotions, or to incentivize
+                    purchases. Understanding how discounts work helps you
+                    calculate the true value of sales and make informed
+                    purchasing decisions.
+                  </p>
+                </div>
+
+                <div>
+                  <h4 className="font-semibold text-gray-900 mb-2">
+                    Types of Discounts
+                  </h4>
+                  <ul className="list-disc list-inside space-y-1 ml-2">
+                    <li>
+                      <span className="font-semibold">
+                        Percentage Discount:
+                      </span>{' '}
+                      A discount expressed as a percentage of the original price
+                      (e.g., 20% off, 50% off). This is the most common type of
+                      discount in retail.
+                    </li>
+                    <li>
+                      <span className="font-semibold">
+                        Fixed Amount Discount:
+                      </span>{' '}
+                      A specific dollar amount deducted from the original price
+                      (e.g., $10 off, $25 off). Often used in promotions and
+                      coupons.
+                    </li>
+                    <li>
+                      <span className="font-semibold">
+                        Buy One Get One (BOGO):
+                      </span>{' '}
+                      A promotional offer where purchasing one item results in a
+                      second item at a reduced price or free.
+                    </li>
+                    <li>
+                      <span className="font-semibold">Volume Discounts:</span>{' '}
+                      Reduced prices when buying larger quantities, common in
+                      wholesale and bulk purchases.
+                    </li>
+                  </ul>
+                </div>
+
+                <div>
+                  <h4 className="font-semibold text-gray-900 mb-2">
+                    How to Calculate Discounts
+                  </h4>
+                  <p className="mb-2">
+                    The basic discount formula depends on the type of discount
+                    being applied:
+                  </p>
+                  <div className="bg-white rounded-lg p-4 space-y-2">
+                    <p className="font-mono text-xs">
+                      <span className="font-semibold">
+                        Percentage Discount:
+                      </span>
+                      <br />
+                      Discount Amount = Original Price × (Discount % ÷ 100)
+                      <br />
+                      Final Price = Original Price - Discount Amount
+                    </p>
+                    <p className="font-mono text-xs">
+                      <span className="font-semibold">Fixed Discount:</span>
+                      <br />
+                      Final Price = Original Price - Discount Amount
+                      <br />
+                      Discount % = (Discount Amount ÷ Original Price) × 100
+                    </p>
+                  </div>
+                </div>
+
+                <div>
+                  <h4 className="font-semibold text-gray-900 mb-2">
+                    Real-World Examples
+                  </h4>
+                  <div className="space-y-2">
+                    <div className="bg-white rounded-lg p-3">
+                      <p className="font-semibold text-xs mb-1">
+                        Example 1: Black Friday Sale
+                      </p>
+                      <p className="text-xs">
+                        A $200 jacket is on sale for 30% off. The discount
+                        amount is $200 × 0.30 = $60. Your final price is $200 -
+                        $60 = $140. You save $60.
+                      </p>
+                    </div>
+                    <div className="bg-white rounded-lg p-3">
+                      <p className="font-semibold text-xs mb-1">
+                        Example 2: Coupon Code
+                      </p>
+                      <p className="text-xs">
+                        You have a $25 off coupon for a $150 purchase. The
+                        discount percentage is ($25 ÷ $150) × 100 = 16.67%. Your
+                        final price is $150 - $25 = $125.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                <div>
+                  <h4 className="font-semibold text-gray-900 mb-2">
+                    Stacking Discounts
+                  </h4>
+                  <p>
+                    Some retailers allow multiple discounts to be applied to a
+                    single purchase. When stacking discounts, they are typically
+                    applied sequentially, not added together. For example, a 20%
+                    discount followed by a 10% discount on a $100 item results
+                    in: $100 - $20 = $80, then $80 - $8 = $72 (not $100 - $30 =
+                    $70).
+                  </p>
+                </div>
+
+                <div>
+                  <h4 className="font-semibold text-gray-900 mb-2">
+                    Tips for Smart Shopping
+                  </h4>
+                  <ul className="list-disc list-inside space-y-1 ml-2">
+                    <li>
+                      Compare percentage discounts on different priced items - a
+                      50% discount on a $20 item saves less than 20% off a $100
+                      item
+                    </li>
+                    <li>
+                      Watch for &quot;original price&quot; inflation where
+                      retailers artificially raise prices before applying
+                      discounts
+                    </li>
+                    <li>
+                      Calculate the actual price per unit when comparing
+                      discounted bulk purchases
+                    </li>
+                    <li>
+                      Consider if you actually need the item - even with a great
+                      discount, unnecessary purchases waste money
+                    </li>
+                    <li>
+                      Use cashback apps and credit card rewards in addition to
+                      store discounts for maximum savings
+                    </li>
+                  </ul>
+                </div>
+
+                <div>
+                  <h4 className="font-semibold text-gray-900 mb-2">
+                    Business Perspective
+                  </h4>
+                  <p>
+                    For businesses, discounts are a strategic tool to increase
+                    sales volume, clear inventory, attract new customers, and
+                    compete in the market. The key is finding the right discount
+                    level that drives sales while maintaining profitability. A
+                    well-planned discount strategy considers profit margins,
+                    customer acquisition costs, and long-term customer value.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      )}
     </div>
   );
 }
