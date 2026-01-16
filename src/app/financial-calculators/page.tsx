@@ -15,6 +15,7 @@ import {
   Building2,
   Shield,
   TrendingUp,
+  TrendingDown,
   Banknote,
   DollarSign,
   Scale,
@@ -132,6 +133,14 @@ export default function FinancialCalculators() {
               description="Calculate payoff time, total interest charges, and create a debt-free plan. Compare payment strategies and see how extra payments can save thousands in interest."
               gradient="bg-gradient-to-br from-red-600 to-pink-600"
               href="/financial-calculators/credit-card-calculator"
+              delay={0}
+            />
+            <CalculatorCard
+              icon={<TrendingDown className="w-8 h-8 text-white" />}
+              title="Debt Payoff Calculator"
+              description="Compare debt avalanche vs snowball strategies for multiple debts. Calculate payoff time, total interest, and see how much you can save with strategic payments."
+              gradient="bg-gradient-to-br from-rose-600 to-red-600"
+              href="/financial-calculators/debt-payoff-calculator"
               delay={0}
             />
             <CalculatorCard

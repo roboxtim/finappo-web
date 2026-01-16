@@ -12,6 +12,7 @@ import {
   Home,
   Wallet,
   TrendingUp,
+  TrendingDown,
   Search,
   ArrowRight,
   ChevronRight,
@@ -168,6 +169,23 @@ const categories: Category[] = [
           'minimum payment',
           'debt',
           'apr',
+        ],
+      },
+      {
+        id: 'debt-payoff-calculator',
+        title: 'Debt Payoff Calculator',
+        description:
+          'Compare debt avalanche vs snowball strategies and calculate payoff time',
+        href: '/financial-calculators/debt-payoff-calculator',
+        icon: <TrendingDown className="w-5 h-5" />,
+        keywords: [
+          'debt payoff',
+          'debt elimination',
+          'debt snowball',
+          'debt avalanche',
+          'multiple debt',
+          'debt free',
+          'pay off debt',
         ],
       },
       {
