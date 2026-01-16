@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
 import { Navigation } from '@/components/Navigation';
@@ -44,7 +44,8 @@ export default function BoatLoanCalculator() {
   const [results, setResults] = useState<BoatLoanResults | null>(null);
   const [errors, setErrors] = useState<string[]>([]);
 
-  const handleCalculate = () => {
+  // Automatic calculation on input change
+  useEffect(() => {
     const inputs: BoatLoanInputs = {
       boatPrice: parseFloat(boatPrice) || 0,
       interestRate: parseFloat(interestRate) || 0,
@@ -74,7 +75,18 @@ export default function BoatLoanCalculator() {
     } else {
       setResults(null);
     }
-  };
+  }, [
+    boatPrice,
+    interestRate,
+    loanTermYears,
+    downPayment,
+    downPaymentType,
+    tradeInValue,
+    salesTax,
+    salesTaxType,
+    fees,
+    includeFeesInLoan,
+  ]);
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-[#F5F8FF] via-white to-white">
@@ -194,14 +206,6 @@ export default function BoatLoanCalculator() {
                       />
                     </div>
                   </div>
-
-                  {/* Calculate Button */}
-                  <button
-                    onClick={handleCalculate}
-                    className="w-full bg-gradient-to-r from-blue-600 to-cyan-600 text-white font-semibold py-4 rounded-xl hover:from-blue-700 hover:to-cyan-700 transition-all shadow-lg hover:shadow-xl transform hover:-translate-y-0.5"
-                  >
-                    Calculate Loan
-                  </button>
                 </div>
               </div>
 
@@ -507,20 +511,6 @@ export default function BoatLoanCalculator() {
                     </div>
                   </div>
                 </>
-              )}
-
-              {/* Placeholder */}
-              {!results && errors.length === 0 && (
-                <div className="bg-gradient-to-br from-gray-50 to-gray-100 rounded-3xl p-12 text-center border border-gray-200">
-                  <Ship className="w-16 h-16 text-gray-400 mx-auto mb-4" />
-                  <h3 className="text-xl font-semibold text-gray-900 mb-2">
-                    Ready to Calculate
-                  </h3>
-                  <p className="text-gray-600">
-                    Enter your boat loan details and click Calculate Loan to see
-                    your results
-                  </p>
-                </div>
               )}
             </motion.div>
           </div>

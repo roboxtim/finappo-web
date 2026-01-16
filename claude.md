@@ -271,6 +271,71 @@ grep -i "calculator-name" src/app/page.tsx
 
 **ЗАПОМНИ: Understanding ВСЕГДА в отдельной секции внизу, НЕ в правой колонке!**
 
+### 4. ВАЖНО! Автоматический расчёт результатов
+
+**⚠️ НЕ используй кнопку "Calculate"! Результаты пересчитываются АВТОМАТИЧЕСКИ при изменении любого поля.**
+
+**Правильная реализация:**
+```tsx
+'use client';
+import { useState, useEffect } from 'react';
+
+export default function CalculatorPage() {
+  const [input1, setInput1] = useState(0);
+  const [input2, setInput2] = useState(0);
+  const [results, setResults] = useState(null);
+
+  // Автоматический расчёт при изменении любого input
+  useEffect(() => {
+    try {
+      const calculatedResults = calculateResults({ input1, input2 });
+      setResults(calculatedResults);
+    } catch (error) {
+      // Handle error
+    }
+  }, [input1, input2]); // Все inputs в dependencies!
+
+  return (
+    <div>
+      {/* Inputs */}
+      <input value={input1} onChange={(e) => setInput1(Number(e.target.value))} />
+      <input value={input2} onChange={(e) => setInput2(Number(e.target.value))} />
+
+      {/* Результаты показываются ВСЕГДА, не нужен showResults state */}
+      {results && <Results data={results} />}
+    </div>
+  );
+}
+```
+
+**❌ НЕ правильно:**
+```tsx
+// ❌ НЕ делай так!
+const [showResults, setShowResults] = useState(false);
+
+<button onClick={() => {
+  const results = calculateResults(inputs);
+  setResults(results);
+  setShowResults(true);
+}}>
+  Calculate Loan
+</button>
+
+{showResults && <Results />}
+```
+
+**✅ Правильно:**
+```tsx
+// ✅ Делай так!
+useEffect(() => {
+  const results = calculateResults(inputs);
+  setResults(results);
+}, [input1, input2, input3]); // Все поля в зависимостях
+
+{/* Результаты всегда видны */}
+{results && <Results data={results} />}
+```
+
 ### Стилизация элементов:
 
 **Белые карточки:**
