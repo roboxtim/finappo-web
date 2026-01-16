@@ -27,6 +27,7 @@ import {
   Globe,
   ShoppingCart,
   GraduationCap,
+  Anchor,
 } from 'lucide-react';
 
 export default function FinancialCalculators() {
@@ -551,6 +552,14 @@ export default function FinancialCalculators() {
               gradient="bg-gradient-to-br from-indigo-600 to-blue-600"
               href="/financial-calculators/business-loan-calculator"
               delay={0.2}
+            />
+            <CalculatorCard
+              icon={<Anchor className="w-8 h-8 text-white" />}
+              title="Boat Loan Calculator"
+              description="Calculate boat loan payments with down payment, trade-in value, sales tax, and fees. Plan your marine financing with accurate payment estimates for boats, yachts, and watercraft."
+              gradient="bg-gradient-to-br from-blue-600 to-cyan-600"
+              href="/financial-calculators/boat-loan-calculator"
+              delay={0.3}
             />
           </div>
         </div>

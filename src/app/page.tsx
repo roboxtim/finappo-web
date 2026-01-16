@@ -27,6 +27,7 @@ import {
   Heart,
   Building2,
   Globe,
+  Anchor,
 } from 'lucide-react';
 
 interface CalculatorItem {
@@ -1291,6 +1292,25 @@ const categories: Category[] = [
           'equipment loan',
           'term loan calculator',
           'loan with fees',
+        ],
+      },
+      {
+        id: 'boat-loan-calculator',
+        title: 'Boat Loan Calculator',
+        description:
+          'Calculate boat loan payments with down payment, trade-in value, sales tax, and fees. Plan your marine financing with accurate payment estimates',
+        href: '/financial-calculators/boat-loan-calculator',
+        icon: <Anchor className="w-5 h-5" />,
+        keywords: [
+          'boat loan calculator',
+          'boat financing calculator',
+          'marine loan calculator',
+          'boat payment calculator',
+          'yacht loan calculator',
+          'boat loan payment',
+          'boat financing',
+          'marine financing',
+          'boat purchase calculator',
         ],
       },
     ],
