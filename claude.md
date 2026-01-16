@@ -16,9 +16,9 @@ ls src/app/financial-calculators/
 grep -i "calculator-name" src/app/financial-calculators/page.tsx
 ```
 
-3. **Поиск в архиве:**
+3. **Поиск на главной странице:**
 ```bash
-grep -i "calculator-name" src/app/calculators/page.tsx
+grep -i "calculator-name" src/app/page.tsx
 ```
 
 **Примеры существующих калькуляторов:**
@@ -35,8 +35,8 @@ grep -i "calculator-name" src/app/calculators/page.tsx
 
 ## ВАЖНО! Каждый калькулятор добавляется В ДВА МЕСТА:
 
-### 1. В основной архив калькуляторов
-**Путь:** `/src/app/calculators/page.tsx`
+### 1. На главную страницу (архив калькуляторов)
+**Путь:** `/src/app/page.tsx`
 
 Добавить в массив `calculators` в соответствующей категории:
 ```typescript
@@ -270,7 +270,7 @@ export default function CalculatorLayout({
 - [ ] Создан файл layout.tsx с полными метаданными
 - [ ] Создан файл calculations.ts
 - [ ] Созданы тесты __tests__/calculations.test.ts
-- [ ] Добавлен в /calculators/page.tsx
+- [ ] Добавлен на главную страницу (/ - src/app/page.tsx)
 - [ ] Добавлен в /financial-calculators/page.tsx (или другую категорию)
 - [ ] Проверены все мета поля (title, description, keywords)
 - [ ] Выбран подходящий градиент и иконка
@@ -279,7 +279,7 @@ export default function CalculatorLayout({
 ## Пример полного цикла добавления:
 
 1. Реализовать калькулятор в `/financial-calculators/calculator-name/`
-2. Добавить в `/calculators/page.tsx` в массив calculators
+2. Добавить на главную страницу `/` (src/app/page.tsx) в массив calculators
 3. Добавить в `/financial-calculators/page.tsx` как CalculatorCard
 4. Создать layout.tsx с метаданными
 5. Написать тесты
@@ -287,5 +287,5 @@ export default function CalculatorLayout({
 
 ## ЗАПОМНИ:
 
-**ВСЕГДА добавлять калькулятор И в /calculators И в категорию!**
-Без этого калькулятор не будет виден в поиске и архиве.
+**ВСЕГДА добавлять калькулятор И на главную (/) И в категорию!**
+Без этого калькулятор не будет виден на главной странице и в категории.

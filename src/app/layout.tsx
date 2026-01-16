@@ -14,31 +14,35 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: 'Finappo - Track Your Family Budget. Simply.',
+  title: 'Finappo - Free Financial Calculators & Tools',
   description:
-    'Beautiful, powerful expense tracking designed for families who want to spend smarter together. Smart categories, family sharing, and real-time budget insights.',
+    'Free online financial calculators for loans, mortgages, retirement, taxes, investments, and more. Calculate your finances with accurate, easy-to-use tools.',
   keywords: [
-    'budget',
-    'expense tracker',
-    'family budget',
-    'spending tracker',
-    'financial app',
-    'money management',
+    'financial calculators',
+    'loan calculator',
+    'mortgage calculator',
+    'retirement calculator',
+    'tax calculator',
+    'investment calculator',
+    'budget calculator',
+    'savings calculator',
+    'debt calculator',
+    'compound interest calculator',
   ],
   authors: [{ name: 'Finappo' }],
   openGraph: {
-    title: 'Finappo - Track Your Family Budget. Simply.',
+    title: 'Finappo - Free Financial Calculators & Tools',
     description:
-      'Beautiful, powerful expense tracking designed for families who want to spend smarter together.',
+      'Free online financial calculators for loans, mortgages, retirement, taxes, investments, and more. Calculate your finances with accurate, easy-to-use tools.',
     type: 'website',
     locale: 'en_US',
     siteName: 'Finappo',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Finappo - Track Your Family Budget. Simply.',
+    title: 'Finappo - Free Financial Calculators & Tools',
     description:
-      'Beautiful, powerful expense tracking designed for families who want to spend smarter together.',
+      'Free online financial calculators for loans, mortgages, retirement, taxes, investments, and more.',
   },
   metadataBase: new URL('https://finappo.com'),
 };

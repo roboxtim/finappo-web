@@ -1,612 +1,1360 @@
 'use client';
 
-import Image from 'next/image';
 import { motion } from 'framer-motion';
-import { AppStoreButton } from '@/components/landing/AppStoreButton';
-import { FeatureCard } from '@/components/landing/FeatureCard';
-import { ContactForm } from '@/components/landing/ContactForm';
+import Link from 'next/link';
 import { Navigation } from '@/components/Navigation';
+import { useState } from 'react';
+import {
+  Calculator,
+  Car,
+  CircleDollarSign,
+  Percent,
+  Home,
+  Wallet,
+  TrendingUp,
+  TrendingDown,
+  Search,
+  ArrowRight,
+  ChevronRight,
+  CreditCard,
+  Shield,
+  Banknote,
+  Scale,
+  Tag,
+  PiggyBank,
+  Landmark,
+  Receipt,
+  Heart,
+  Building2,
+  Globe,
+} from 'lucide-react';
 
-export default function Home() {
-	return (
-		<div className="min-h-screen bg-gradient-to-b from-[#F5F8FF] via-white to-white">
-			{/* Navigation */}
-			<Navigation/>
+interface CalculatorItem {
+  id: string;
+  title: string;
+  description: string;
+  href: string;
+  icon: React.ReactNode;
+  keywords: string[];
+}
 
-			{/* Hero Section */}
-			<section className="relative pt-32 pb-20 lg:pt-40 lg:pb-32 overflow-hidden">
-				<div className="max-w-7xl mx-auto px-6 lg:px-8">
-					<div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-						{/* Left Column - Content */}
-						<motion.div
-							initial={{opacity : 0, y : 20}}
-							animate={{opacity : 1, y : 0}}
-							transition={{
-								duration : 0.8,
-								ease     : [0.16, 1, 0.3, 1]
-							}}
-							className="text-center lg:text-left"
-						>
-							{/* Badge */}
-							<motion.div
-								initial={{opacity : 0, scale : 0.9}}
-								animate={{opacity : 1, scale : 1}}
-								transition={{
-									duration : 0.5,
-									delay    : 0.2,
-									ease     : [0.16, 1, 0.3, 1]
-								}}
-								className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-50 border border-blue-100 mb-8"
-							>
-								<div className="w-2 h-2 rounded-full bg-blue-500 animate-pulse"/>
-								<span className="text-sm font-medium text-blue-700">
-                  Now available on iOS
-                </span>
-							</motion.div>
+interface Category {
+  id: string;
+  name: string;
+  description: string;
+  href: string;
+  icon: React.ReactNode;
+  calculators: CalculatorItem[];
+  gradient: string;
+}
 
-							{/* Headline */}
-							<h1
-								className="text-5xl sm:text-6xl lg:text-7xl font-bold tracking-tight text-gray-900 mb-6 leading-[1.1]">
-								Track Your Family Budget.{' '}
-								<span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-cyan-600">
-                  Simply.
-                </span>
-							</h1>
+const categories: Category[] = [
+  {
+    id: 'financial',
+    name: 'Financial Calculators',
+    description:
+      'Comprehensive tools for loans, mortgages, investments, and financial planning',
+    href: '/financial-calculators',
+    icon: <TrendingUp className="w-6 h-6" />,
+    gradient: 'from-blue-600 to-indigo-600',
+    calculators: [
+      {
+        id: 'amortization',
+        title: 'Amortization Calculator',
+        description:
+          'Calculate loan amortization with flexible payment frequencies',
+        href: '/financial-calculators/amortization',
+        icon: <Calculator className="w-5 h-5" />,
+        keywords: ['amortization', 'loan', 'payment schedule', 'payoff'],
+      },
+      {
+        id: 'finance',
+        title: 'Finance Calculator (TVM)',
+        description: 'Advanced Time Value of Money calculator',
+        href: '/financial-calculators/finance',
+        icon: <Calculator className="w-5 h-5" />,
+        keywords: [
+          'tvm',
+          'time value',
+          'present value',
+          'future value',
+          'payment',
+        ],
+      },
+      {
+        id: 'auto-loan',
+        title: 'Auto Loan Calculator',
+        description: 'Calculate monthly car payments and total interest',
+        href: '/financial-calculators/auto-loan',
+        icon: <Car className="w-5 h-5" />,
+        keywords: ['auto', 'car', 'vehicle', 'loan', 'payment'],
+      },
+      {
+        id: 'auto-lease',
+        title: 'Auto Lease Calculator',
+        description:
+          'Calculate monthly car lease payments including depreciation and fees',
+        href: '/financial-calculators/auto-lease',
+        icon: <Car className="w-5 h-5" />,
+        keywords: [
+          'auto lease',
+          'car lease',
+          'lease payment',
+          'vehicle lease',
+          'lease calculator',
+          'residual value',
+          'money factor',
+          'cap cost',
+          'lease vs buy',
+          'leasing',
+        ],
+      },
+      {
+        id: 'loan-calculator',
+        title: 'Loan Calculator',
+        description:
+          'Calculate monthly payments, total interest, and amortization schedules with extra payment options',
+        href: '/financial-calculators/loan-calculator',
+        icon: <Calculator className="w-5 h-5" />,
+        keywords: [
+          'loan',
+          'monthly payment',
+          'amortization',
+          'interest',
+          'extra payment',
+          'payoff',
+          'mortgage',
+          'auto loan',
+        ],
+      },
+      {
+        id: 'currency-calculator',
+        title: 'Currency Calculator',
+        description:
+          'Convert between world currencies with real-time exchange rates for USD, EUR, GBP, JPY, and more',
+        href: '/financial-calculators/currency-calculator',
+        icon: <Globe className="w-5 h-5" />,
+        keywords: [
+          'currency calculator',
+          'currency converter',
+          'exchange rate',
+          'forex',
+          'usd to eur',
+          'usd to gbp',
+          'currency exchange',
+          'money converter',
+          'fx calculator',
+          'foreign exchange',
+        ],
+      },
+      {
+        id: 'personal-loan',
+        title: 'Personal Loan Calculator',
+        description: 'Calculate monthly payments for personal loans',
+        href: '/financial-calculators/personal-loan',
+        icon: <CircleDollarSign className="w-5 h-5" />,
+        keywords: ['personal', 'loan', 'debt', 'consolidation'],
+      },
+      {
+        id: 'credit-card-calculator',
+        title: 'Credit Card Calculator',
+        description:
+          'Calculate payoff time, interest charges, and create a debt-free plan',
+        href: '/financial-calculators/credit-card-calculator',
+        icon: <CreditCard className="w-5 h-5" />,
+        keywords: [
+          'credit card',
+          'payoff',
+          'interest',
+          'minimum payment',
+          'debt',
+          'apr',
+        ],
+      },
+      {
+        id: 'debt-payoff-calculator',
+        title: 'Debt Payoff Calculator',
+        description:
+          'Compare debt avalanche vs snowball strategies and calculate payoff time',
+        href: '/financial-calculators/debt-payoff-calculator',
+        icon: <TrendingDown className="w-5 h-5" />,
+        keywords: [
+          'debt payoff',
+          'debt elimination',
+          'debt snowball',
+          'debt avalanche',
+          'multiple debt',
+          'debt free',
+          'pay off debt',
+        ],
+      },
+      {
+        id: 'apr-calculator',
+        title: 'APR Calculator',
+        description:
+          'Calculate the true cost of a loan including all fees and interest',
+        href: '/financial-calculators/apr-calculator',
+        icon: <Percent className="w-5 h-5" />,
+        keywords: [
+          'apr',
+          'annual percentage rate',
+          'effective rate',
+          'loan cost',
+          'true cost',
+          'nominal rate',
+          'fees',
+          'apr vs interest rate',
+        ],
+      },
+      {
+        id: 'payment',
+        title: 'Payment Calculator',
+        description:
+          'Advanced payment calculator with compounding frequencies and balloon payments',
+        href: '/financial-calculators/payment',
+        icon: <CreditCard className="w-5 h-5" />,
+        keywords: [
+          'payment',
+          'loan',
+          'balloon',
+          'compounding',
+          'annuity',
+          'present value',
+          'future value',
+        ],
+      },
+      {
+        id: 'interest',
+        title: 'Interest Calculator',
+        description: 'Calculate simple or compound interest on investments',
+        href: '/financial-calculators/interest',
+        icon: <Percent className="w-5 h-5" />,
+        keywords: ['interest', 'compound', 'simple', 'savings', 'investment'],
+      },
+      {
+        id: 'mortgage',
+        title: 'Mortgage Calculator',
+        description: 'Calculate monthly mortgage payments and amortization',
+        href: '/financial-calculators/mortgage',
+        icon: <Home className="w-5 h-5" />,
+        keywords: ['mortgage', 'home', 'loan', 'house', 'pmi'],
+      },
+      {
+        id: 'fha-loan',
+        title: 'FHA Loan Calculator',
+        description:
+          'Calculate FHA mortgage payments with mortgage insurance premiums (MIP)',
+        href: '/financial-calculators/fha-loan',
+        icon: <Home className="w-5 h-5" />,
+        keywords: [
+          'fha',
+          'fha loan',
+          'mortgage insurance',
+          'mip',
+          'ufmip',
+          'first-time homebuyer',
+          'low down payment',
+          'government loan',
+          'fha mortgage',
+        ],
+      },
+      {
+        id: 'va-loan',
+        title: 'VA Loan Calculator',
+        description:
+          'Calculate VA mortgage payments for veterans with no PMI required and 0% down options',
+        href: '/financial-calculators/va-loan',
+        icon: <Shield className="w-5 h-5" />,
+        keywords: [
+          'va loan',
+          'va mortgage',
+          'veterans loan',
+          'military mortgage',
+          'funding fee',
+          'no pmi',
+          'disabled veteran',
+          'service member',
+          'no down payment',
+          'va benefits',
+          'va home loan',
+        ],
+      },
+      {
+        id: 'real-estate',
+        title: 'Real Estate Calculator',
+        description:
+          'Comprehensive home investment analysis with equity, appreciation, and tax savings',
+        href: '/financial-calculators/real-estate',
+        icon: <Home className="w-5 h-5" />,
+        keywords: [
+          'real estate',
+          'home',
+          'investment',
+          'property',
+          'equity',
+          'appreciation',
+          'tax deduction',
+          'pmi',
+          'homeownership',
+        ],
+      },
+      {
+        id: 'home-equity-loan',
+        title: 'Home Equity Loan Calculator',
+        description:
+          'Calculate home equity loan payments, LTV ratios, and maximum borrowable amounts',
+        href: '/financial-calculators/home-equity-loan',
+        icon: <Home className="w-5 h-5" />,
+        keywords: [
+          'home equity loan',
+          'heloc',
+          'second mortgage',
+          'ltv',
+          'cltv',
+          'equity',
+          'home loan',
+          'borrowing against home',
+        ],
+      },
+      {
+        id: 'heloc',
+        title: 'HELOC Calculator',
+        description: 'Calculate HELOC payments with draw and repayment periods',
+        href: '/financial-calculators/heloc',
+        icon: <Banknote className="w-5 h-5" />,
+        keywords: [
+          'heloc',
+          'home equity line of credit',
+          'draw period',
+          'repayment period',
+          'variable rate',
+          'credit line',
+          'home equity',
+          'interest-only',
+        ],
+      },
+      {
+        id: 'down-payment',
+        title: 'Down Payment Calculator',
+        description:
+          'Calculate required down payment, closing costs, and total cash needed for home purchase',
+        href: '/financial-calculators/down-payment',
+        icon: <Home className="w-5 h-5" />,
+        keywords: [
+          'down payment',
+          'home down payment',
+          'mortgage down payment',
+          '20 percent down',
+          'closing costs',
+          'cash needed at closing',
+          'PMI calculator',
+          'first time home buyer',
+          'FHA down payment',
+          'home purchase',
+        ],
+      },
+      {
+        id: 'rent',
+        title: 'Rent Calculator',
+        description: 'Calculate total rental costs and affordability',
+        href: '/financial-calculators/rent',
+        icon: <Wallet className="w-5 h-5" />,
+        keywords: ['rent', 'rental', 'apartment', 'housing', 'affordability'],
+      },
+      {
+        id: 'rent-vs-buy',
+        title: 'Rent vs Buy Calculator',
+        description:
+          'Compare the true costs of renting vs buying a home over time',
+        href: '/financial-calculators/rent-vs-buy',
+        icon: <Scale className="w-5 h-5" />,
+        keywords: [
+          'rent vs buy',
+          'rent or buy',
+          'renting vs buying',
+          'homeownership',
+          'rent vs own',
+          'should I buy a house',
+          'rent vs mortgage',
+          'home buying decision',
+          'opportunity cost',
+          'tax benefits',
+          'home appreciation',
+          'break-even',
+        ],
+      },
+      {
+        id: 'cash-back-vs-low-interest',
+        title: 'Cash Back vs Low Interest Calculator',
+        description:
+          'Compare cash back rebates versus low interest financing offers',
+        href: '/financial-calculators/cash-back-vs-low-interest',
+        icon: <Tag className="w-5 h-5" />,
+        keywords: [
+          'cash back vs low interest',
+          'auto loan incentive',
+          'dealer incentive calculator',
+          'cash rebate or low apr',
+          'car financing calculator',
+          '0 apr vs cash back',
+          'auto rebate',
+          'dealer cash back',
+          'financing incentive',
+          'auto loan deal',
+          'car incentive calculator',
+        ],
+      },
+      {
+        id: 'investment',
+        title: 'Investment Calculator',
+        description:
+          'Calculate investment growth with compound interest and regular contributions',
+        href: '/financial-calculators/investment',
+        icon: <TrendingUp className="w-5 h-5" />,
+        keywords: [
+          'investment calculator',
+          'compound interest calculator',
+          'investment growth',
+          'retirement calculator',
+          'savings calculator',
+          'investment return',
+          'future value calculator',
+          'wealth calculator',
+          'portfolio growth',
+          'investment planning',
+        ],
+      },
+      {
+        id: 'compound-interest',
+        title: 'Compound Interest Calculator',
+        description:
+          'Calculate compound interest with flexible frequencies and contributions',
+        href: '/financial-calculators/compound-interest',
+        icon: <Percent className="w-5 h-5" />,
+        keywords: [
+          'compound interest calculator',
+          'compound interest',
+          'exponential growth',
+          'compounding frequency',
+          'effective annual rate',
+          'continuous compounding',
+          'interest on interest',
+          'savings growth',
+          'compound returns',
+          'growth schedule',
+        ],
+      },
+      {
+        id: 'inflation-calculator',
+        title: 'Inflation Calculator',
+        description:
+          'Calculate purchasing power and see how inflation impacts your money over time',
+        href: '/financial-calculators/inflation-calculator',
+        icon: <TrendingUp className="w-5 h-5" />,
+        keywords: [
+          'inflation calculator',
+          'purchasing power calculator',
+          'inflation rate calculator',
+          'cpi calculator',
+          'cost of living calculator',
+          'inflation adjusted calculator',
+          'real value calculator',
+          'money value calculator',
+          'inflation impact',
+          'historical inflation',
+        ],
+      },
+      {
+        id: 'interest-rate',
+        title: 'Interest Rate Calculator',
+        description:
+          'Calculate interest rate from loan amount, term, and monthly payment',
+        href: '/financial-calculators/interest-rate',
+        icon: <Percent className="w-5 h-5" />,
+        keywords: [
+          'interest rate calculator',
+          'APR calculator',
+          'calculate interest rate',
+          'reverse loan calculator',
+          'find interest rate',
+          'loan rate calculator',
+          'verify dealer quote',
+          'what is my interest rate',
+          'effective rate calculator',
+          'loan APR',
+        ],
+      },
+      {
+        id: 'savings',
+        title: 'Savings Calculator',
+        description:
+          'Calculate savings growth with compound interest and regular contributions',
+        href: '/financial-calculators/savings',
+        icon: <Wallet className="w-5 h-5" />,
+        keywords: [
+          'savings calculator',
+          'compound interest calculator',
+          'savings growth calculator',
+          'interest calculator',
+          'savings account calculator',
+          'money growth calculator',
+          'investment savings',
+          'monthly savings calculator',
+          'annual savings calculator',
+          'compound interest',
+          'savings planner',
+          'emergency fund calculator',
+          'retirement savings',
+          'financial calculator',
+        ],
+      },
+      {
+        id: 'simple-interest',
+        title: 'Simple Interest Calculator',
+        description:
+          'Calculate simple interest on loans and investments with I = P × r × t formula',
+        href: '/financial-calculators/simple-interest',
+        icon: <Percent className="w-5 h-5" />,
+        keywords: [
+          'simple interest calculator',
+          'interest calculator',
+          'simple interest formula',
+          'calculate simple interest',
+          'investment interest',
+          'loan interest calculator',
+          'auto loan interest',
+          'simple vs compound interest',
+          'bond interest',
+          'straightforward interest',
+          'linear interest',
+          'non-compounding interest',
+        ],
+      },
+      {
+        id: 'cd-calculator',
+        title: 'CD Calculator',
+        description:
+          'Calculate Certificate of Deposit returns with compound interest and APY',
+        href: '/financial-calculators/cd-calculator',
+        icon: <TrendingUp className="w-5 h-5" />,
+        keywords: [
+          'cd calculator',
+          'certificate of deposit calculator',
+          'cd interest calculator',
+          'cd rates',
+          'apy calculator',
+          'cd maturity calculator',
+          'time deposit calculator',
+          'cd earnings calculator',
+          'certificate deposit',
+          'cd investment',
+          'fixed deposit calculator',
+          'cd compounding',
+          'cd interest rates',
+          'certificate of deposit returns',
+        ],
+      },
+      {
+        id: 'bond-calculator',
+        title: 'Bond Calculator',
+        description:
+          'Calculate bond prices, yield to maturity, current yield, and total returns',
+        href: '/financial-calculators/bond-calculator',
+        icon: <TrendingUp className="w-5 h-5" />,
+        keywords: [
+          'bond calculator',
+          'bond price calculator',
+          'yield to maturity calculator',
+          'ytm calculator',
+          'corporate bond calculator',
+          'government bond calculator',
+          'bond valuation',
+          'fixed income calculator',
+          'bond yield calculator',
+          'coupon bond calculator',
+          'bond pricing',
+          'treasury bond calculator',
+          'municipal bond calculator',
+          'bond investment calculator',
+        ],
+      },
+      {
+        id: 'average-return',
+        title: 'Average Return Calculator',
+        description:
+          'Calculate arithmetic mean, geometric mean (CAGR), and annualized returns for investment portfolios',
+        href: '/financial-calculators/average-return',
+        icon: <TrendingUp className="w-5 h-5" />,
+        keywords: [
+          'average return calculator',
+          'cagr calculator',
+          'geometric mean calculator',
+          'arithmetic mean calculator',
+          'annualized return calculator',
+          'investment return calculator',
+          'portfolio return calculator',
+          'compound annual growth rate',
+          'average annual return',
+          'investment performance',
+          'return on investment',
+          'roi calculator',
+          'investment analysis',
+          'portfolio performance',
+        ],
+      },
+      {
+        id: 'irr-calculator',
+        title: 'IRR Calculator',
+        description:
+          'Calculate Internal Rate of Return, MIRR, NPV, and payback period for investments with irregular cash flows',
+        href: '/financial-calculators/irr-calculator',
+        icon: <TrendingUp className="w-5 h-5" />,
+        keywords: [
+          'irr calculator',
+          'internal rate of return',
+          'mirr calculator',
+          'modified internal rate of return',
+          'npv calculator',
+          'net present value',
+          'payback period calculator',
+          'cash flow analysis',
+          'investment return calculator',
+          'project evaluation',
+          'capital budgeting',
+          'roi calculator',
+          'discount rate',
+          'investment analysis',
+        ],
+      },
+      {
+        id: 'roi-calculator',
+        title: 'ROI Calculator',
+        description:
+          'Calculate Return on Investment with annualized ROI, scenario comparison, and growth projections',
+        href: '/financial-calculators/roi-calculator',
+        icon: <TrendingUp className="w-5 h-5" />,
+        keywords: [
+          'roi calculator',
+          'return on investment',
+          'investment return calculator',
+          'roi percentage',
+          'annualized roi',
+          'investment profit calculator',
+          'roi formula',
+          'calculate roi',
+          'investment performance',
+          'profitability calculator',
+          'investment comparison',
+          'roi analysis',
+          'return calculator',
+          'investment roi',
+        ],
+      },
+      {
+        id: 'take-home-pay',
+        title: 'Take Home Pay Calculator',
+        description:
+          'Calculate net salary after federal tax, FICA, state tax, and deductions with 2025 tax brackets',
+        href: '/financial-calculators/take-home-pay-calculator',
+        icon: <Wallet className="w-5 h-5" />,
+        keywords: [
+          'take home pay',
+          'net pay',
+          'paycheck calculator',
+          'salary after tax',
+          'gross to net',
+          'paycheck',
+          'federal tax',
+          'fica',
+          'state tax',
+          'net income',
+          'after tax income',
+          'pay stub',
+          'wage calculator',
+        ],
+      },
+      {
+        id: 'marriage-calculator',
+        title: 'Marriage Tax Calculator',
+        description:
+          'Compare taxes when filing jointly vs separately. Calculate marriage penalty or bonus with 2025 tax brackets',
+        href: '/financial-calculators/marriage-calculator',
+        icon: <Heart className="w-5 h-5" />,
+        keywords: [
+          'marriage calculator',
+          'marriage penalty calculator',
+          'marriage tax calculator',
+          'marriage bonus',
+          'tax marriage penalty',
+          'married filing jointly vs separately',
+          'marriage tax benefits',
+          'wedding tax calculator',
+          'tax implications of marriage',
+          '2025 marriage tax',
+        ],
+      },
+      {
+        id: 'payback-period-calculator',
+        title: 'Payback Period Calculator',
+        description:
+          'Calculate investment recovery time with simple and discounted payback period analysis',
+        href: '/financial-calculators/payback-period-calculator',
+        icon: <TrendingUp className="w-5 h-5" />,
+        keywords: [
+          'payback period calculator',
+          'investment recovery calculator',
+          'break-even calculator',
+          'payback period',
+          'discounted payback period',
+          'investment payback',
+          'recovery time calculator',
+          'capital recovery',
+          'investment analysis',
+          'cash flow payback',
+          'roi payback',
+          'time to recover investment',
+          'payback analysis',
+          'investment recovery time',
+        ],
+      },
+      {
+        id: 'present-value',
+        title: 'Present Value Calculator',
+        description:
+          'Calculate present value of future cash flows including lump sums, annuities, and growing annuities',
+        href: '/financial-calculators/present-value',
+        icon: <TrendingUp className="w-5 h-5" />,
+        keywords: [
+          'present value calculator',
+          'pv calculator',
+          'time value of money',
+          'discount rate calculator',
+          'annuity present value',
+          'future value to present value',
+          'discounted cash flow',
+          'npv calculator',
+          'investment valuation',
+          'cash flow present value',
+          'growing annuity',
+          'ordinary annuity',
+          'annuity due',
+          'present worth',
+        ],
+      },
+      {
+        id: 'future-value',
+        title: 'Future Value Calculator',
+        description:
+          'Calculate future value with compound growth including lump sums, annuities, and retirement projections',
+        href: '/financial-calculators/future-value',
+        icon: <TrendingUp className="w-5 h-5" />,
+        keywords: [
+          'future value calculator',
+          'fv calculator',
+          'compound interest calculator',
+          'investment growth calculator',
+          'retirement calculator',
+          'savings growth calculator',
+          'compound growth',
+          'annuity future value',
+          'growing annuity calculator',
+          'wealth calculator',
+          'investment projection',
+          'savings projection',
+          'retirement planning',
+          'future worth',
+        ],
+      },
+      {
+        id: 'annuity',
+        title: 'Annuity Calculator',
+        description:
+          'Calculate annuity payments, future value, and retirement income projections. Compare immediate vs deferred annuities with inflation adjustments',
+        href: '/financial-calculators/annuity',
+        icon: <Landmark className="w-5 h-5" />,
+        keywords: [
+          'annuity calculator',
+          'annuity payment calculator',
+          'future value annuity',
+          'retirement annuity',
+          'immediate annuity',
+          'deferred annuity',
+          'annuity income calculator',
+          'fixed annuity calculator',
+          'annuity growth calculator',
+          'annuity projection',
+          'retirement income annuity',
+          'annuity investment calculator',
+          'annuity due calculator',
+          'ordinary annuity calculator',
+          'annuity savings calculator',
+          'annuity accumulation',
+          'monthly annuity calculator',
+          'annual annuity calculator',
+        ],
+      },
+      {
+        id: 'annuity-payout',
+        title: 'Annuity Payout Calculator',
+        description:
+          'Calculate annuity payout amounts and income streams. Plan your retirement income with immediate and deferred annuity payment projections',
+        href: '/financial-calculators/annuity-payout',
+        icon: <Banknote className="w-5 h-5" />,
+        keywords: [
+          'annuity payout calculator',
+          'annuity payment calculator',
+          'retirement income calculator',
+          'annuity income calculator',
+          'immediate annuity payout',
+          'deferred annuity payout',
+          'annuity withdrawal calculator',
+          'pension payout calculator',
+          'annuity amortization calculator',
+          'fixed annuity payout',
+          'retirement payout calculator',
+          'annuity distribution calculator',
+          'periodic payment annuity',
+          'annuity income stream',
+        ],
+      },
+      {
+        id: '401k-calculator',
+        title: '401(k) Calculator',
+        description:
+          'Calculate your 401(k) retirement savings with employer matching, contribution limits, salary increases, and tax-deferred growth projections',
+        href: '/financial-calculators/401k-calculator',
+        icon: <PiggyBank className="w-5 h-5" />,
+        keywords: [
+          '401k calculator',
+          '401(k) calculator',
+          'employer match calculator',
+          '401k contribution calculator',
+          '401k growth calculator',
+          '401k retirement calculator',
+          'employer matching calculator',
+          '401k balance calculator',
+          '401k projection calculator',
+          'contribution limit calculator',
+          'tax deferred savings calculator',
+          '401k catch up contributions',
+          'roth 401k calculator',
+          'employer sponsored retirement',
+          '401k match calculator',
+          'retirement savings account calculator',
+        ],
+      },
+      {
+        id: 'salary-calculator',
+        title: 'Salary Calculator',
+        description:
+          'Calculate your take-home pay, taxes, and deductions. Convert between hourly, weekly, monthly, and annual salary with federal & state tax withholdings',
+        href: '/financial-calculators/salary-calculator',
+        icon: <Banknote className="w-5 h-5" />,
+        keywords: [
+          'salary calculator',
+          'paycheck calculator',
+          'hourly to salary',
+          'salary to hourly',
+          'net pay calculator',
+          'gross to net',
+          'take home pay',
+          'salary conversion',
+          'wage calculator',
+          'income calculator',
+          '2025 salary calculator',
+          'federal tax calculator',
+          'state tax calculator',
+          'FICA calculator',
+          'tax withholding calculator',
+        ],
+      },
+      {
+        id: 'roth-ira-calculator',
+        title: 'Roth IRA Calculator',
+        description:
+          'Plan tax-free retirement savings with a Roth IRA. Compare Roth vs taxable accounts, calculate growth with 2025 contribution limits, and see your tax advantage',
+        href: '/financial-calculators/roth-ira-calculator',
+        icon: <Shield className="w-5 h-5" />,
+        keywords: [
+          'roth ira calculator',
+          'roth ira',
+          'retirement calculator',
+          'tax-free retirement',
+          'roth ira contribution limits',
+          'roth ira vs traditional ira',
+          'retirement savings calculator',
+          'investment growth calculator',
+          'roth ira 2025',
+          'tax advantage calculator',
+          'retirement planning',
+          'roth ira growth',
+          'ira calculator',
+          'roth conversion calculator',
+          'backdoor roth',
+          'tax-free growth',
+          'roth ira benefits',
+          'retirement account calculator',
+        ],
+      },
+      {
+        id: 'estate-tax-calculator',
+        title: 'Estate Tax Calculator',
+        description:
+          'Calculate federal and state estate taxes for 2025. Plan your legacy with $13.99M exemption, minimize taxes, and maximize inheritance for heirs',
+        href: '/financial-calculators/estate-tax-calculator',
+        icon: <Building2 className="w-5 h-5" />,
+        keywords: [
+          'estate tax calculator',
+          'federal estate tax',
+          'estate tax exemption',
+          'inheritance tax calculator',
+          'estate planning calculator',
+          '2025 estate tax',
+          'estate tax rates',
+          'gift tax exemption',
+          'estate planning',
+          'wealth transfer tax',
+          'death tax calculator',
+          'estate tax brackets',
+          'marital deduction',
+          'portability',
+          'state estate tax',
+          'charitable bequest',
+          'lifetime gifts',
+          'inheritance planning',
+          'wealth transfer',
+        ],
+      },
+      {
+        id: 'retirement',
+        title: 'Retirement Calculator',
+        description:
+          'Plan your retirement with comprehensive projections, savings goals, and income analysis including Social Security',
+        href: '/financial-calculators/retirement',
+        icon: <TrendingUp className="w-5 h-5" />,
+        keywords: [
+          'retirement calculator',
+          'retirement planning calculator',
+          'retirement savings calculator',
+          'retirement income calculator',
+          'how much to retire',
+          'retirement planner',
+          'social security calculator',
+          '4 percent rule',
+          'retirement age calculator',
+          'retirement fund calculator',
+          'nest egg calculator',
+          'retirement goal calculator',
+        ],
+      },
+      {
+        id: 'pension',
+        title: 'Pension Calculator',
+        description:
+          'Compare pension options: lump sum vs. monthly pension, single-life vs. joint-and-survivor, and early vs. delayed retirement decisions',
+        href: '/financial-calculators/pension-calculator',
+        icon: <Landmark className="w-5 h-5" />,
+        keywords: [
+          'pension calculator',
+          'pension planner',
+          'pension payout calculator',
+          'lump sum vs pension',
+          'lump sum calculator',
+          'monthly pension calculator',
+          'pension income calculator',
+          'defined benefit pension',
+          'pension annuity calculator',
+          'single life pension',
+          'joint and survivor pension',
+          'joint survivor pension calculator',
+          'survivor benefit calculator',
+          'pension survivor benefits',
+          'work longer calculator',
+          'early retirement pension',
+          'delayed retirement calculator',
+          'pension vs lump sum',
+          'pension analysis',
+          'pension options calculator',
+          'pension decision calculator',
+          'pension comparison calculator',
+          'cola pension calculator',
+          'cost of living adjustment pension',
+          'pension present value',
+          'pension break even calculator',
+          'pension vesting calculator',
+        ],
+      },
+      {
+        id: 'social-security',
+        title: 'Social Security Calculator',
+        description:
+          'Calculate the optimal age to claim Social Security benefits and maximize your retirement income. Compare claiming at different ages from 62 to 70',
+        href: '/financial-calculators/social-security',
+        icon: <Shield className="w-5 h-5" />,
+        keywords: [
+          'social security calculator',
+          'social security benefits',
+          'retirement age calculator',
+          'social security claiming age',
+          'social security optimization',
+          'retirement planning',
+          'social security retirement',
+          'early retirement benefits',
+          'delayed retirement credits',
+          'social security benefits calculator',
+          'when to claim social security',
+          'social security break even',
+          'social security strategy',
+          'claiming social security',
+          'social security age',
+          'cola social security',
+          'full retirement age',
+          'early social security',
+          'delayed social security',
+          'social security maximization',
+        ],
+      },
+      {
+        id: 'rmd-calculator',
+        title: 'RMD Calculator',
+        description:
+          'Calculate Required Minimum Distributions from retirement accounts using IRS tables',
+        href: '/financial-calculators/rmd-calculator',
+        icon: <Landmark className="w-5 h-5" />,
+        keywords: [
+          'rmd calculator',
+          'required minimum distribution',
+          'ira rmd',
+          '401k rmd',
+          'retirement distribution',
+          'irs life expectancy table',
+          'uniform lifetime table',
+          'retirement withdrawal',
+          'rmd age 73',
+          'rmd age 75',
+          'secure act 2.0',
+          'retirement planning',
+          'tax planning',
+        ],
+      },
+      {
+        id: 'ira-calculator',
+        title: 'IRA Calculator',
+        description:
+          'Compare Traditional and Roth IRA retirement savings options with tax benefit analysis',
+        href: '/financial-calculators/ira-calculator',
+        icon: <Shield className="w-5 h-5" />,
+        keywords: [
+          'ira calculator',
+          'roth ira',
+          'traditional ira',
+          'retirement savings',
+          'tax benefits',
+          'retirement planning',
+          'ira comparison',
+          'individual retirement account',
+          'tax-advantaged savings',
+          'retirement investment',
+          'ira contribution limits',
+          'roth vs traditional',
+          'retirement account calculator',
+          'ira growth calculator',
+          'tax-deferred growth',
+        ],
+      },
+      {
+        id: 'tax-calculator',
+        title: 'Tax Calculator',
+        description:
+          'Calculate your 2025 federal income tax, estimate refunds, and optimize deductions with latest IRS tax brackets',
+        href: '/financial-calculators/tax-calculator',
+        icon: <Receipt className="w-5 h-5" />,
+        keywords: [
+          'tax calculator',
+          'income tax calculator',
+          'federal tax calculator',
+          'tax estimator',
+          'tax refund calculator',
+          '2025 tax brackets',
+          'effective tax rate',
+          'marginal tax rate',
+          'tax deductions',
+          'tax credits',
+          'child tax credit',
+          'earned income tax credit',
+          'standard deduction',
+          'itemized deductions',
+          'tax withholding',
+        ],
+      },
+      {
+        id: 'sales-tax-calculator',
+        title: 'Sales Tax Calculator',
+        description:
+          'Calculate sales tax, find price before tax, or determine tax rates for all US states. Features 2025 rates, reverse calculation, and state comparison',
+        href: '/financial-calculators/sales-tax-calculator',
+        icon: <Receipt className="w-5 h-5" />,
+        keywords: [
+          'sales tax calculator',
+          'calculate sales tax',
+          'state sales tax',
+          'tax calculator',
+          'price with tax',
+          'sales tax rate',
+          'tax inclusive calculator',
+          'reverse sales tax',
+          'US sales tax rates',
+          'state tax rates 2025',
+          'local sales tax',
+          'city tax calculator',
+          'tax before price',
+          'VAT calculator',
+          'online sales tax',
+          'state tax comparison',
+        ],
+      },
+    ],
+  },
+];
 
-							{/* Subheadline */}
-							<p className="text-xl lg:text-2xl text-gray-600 mb-10 leading-relaxed max-w-2xl mx-auto lg:mx-0">
-								Beautiful, powerful expense tracking designed for families who
-								want to spend smarter together.
-							</p>
+export default function CalculatorsPage() {
+  const [searchQuery, setSearchQuery] = useState('');
 
-							{/* CTA Buttons */}
-							<div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-								<AppStoreButton variant="primary"/>
-								<a
-									href="#features"
-									className="group inline-flex items-center justify-center gap-2 px-8 py-4 rounded-2xl bg-white border-2 border-gray-200 hover:border-gray-300 transition-all duration-200 hover:scale-[1.02] active:scale-[0.98] shadow-sm hover:shadow-md"
-								>
-                  <span className="text-base font-semibold text-gray-900">
-                    Learn More
-                  </span>
-									<svg
-										className="w-5 h-5 text-gray-600 group-hover:translate-x-0.5 transition-transform"
-										fill="none"
-										viewBox="0 0 24 24"
-										stroke="currentColor"
-									>
-										<path
-											strokeLinecap="round"
-											strokeLinejoin="round"
-											strokeWidth={2}
-											d="M17 8l4 4m0 0l-4 4m4-4H3"
-										/>
-									</svg>
-								</a>
-							</div>
+  // Filter calculators based on search query
+  const filteredCategories = categories
+    .map((category) => ({
+      ...category,
+      calculators: category.calculators.filter(
+        (calc) =>
+          calc.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
+          calc.description.toLowerCase().includes(searchQuery.toLowerCase()) ||
+          calc.keywords.some((keyword) =>
+            keyword.toLowerCase().includes(searchQuery.toLowerCase())
+          )
+      ),
+    }))
+    .filter((category) => category.calculators.length > 0);
 
-							{/* Trust Indicators */}
-							<motion.div
-								initial={{opacity : 0}}
-								animate={{opacity : 1}}
-								transition={{duration : 0.8, delay : 0.6}}
-								className="mt-12 flex flex-wrap items-center gap-6 justify-center lg:justify-start text-sm text-gray-500"
-							>
-								<div className="flex items-center gap-2">
-									<svg
-										className="w-5 h-5 text-green-500"
-										fill="currentColor"
-										viewBox="0 0 20 20"
-									>
-										<path
-											fillRule="evenodd"
-											d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-											clipRule="evenodd"
-										/>
-									</svg>
-									<span className="font-medium">Free to download</span>
-								</div>
-								<div className="flex items-center gap-2">
-									<svg
-										className="w-5 h-5 text-blue-500"
-										fill="currentColor"
-										viewBox="0 0 20 20"
-									>
-										<path
-											fillRule="evenodd"
-											d="M2.166 4.999A11.954 11.954 0 0010 1.944 11.954 11.954 0 0017.834 5c.11.65.166 1.32.166 2.001 0 5.225-3.34 9.67-8 11.317C5.34 16.67 2 12.225 2 7c0-.682.057-1.35.166-2.001zm11.541 3.708a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-											clipRule="evenodd"
-										/>
-									</svg>
-									<span className="font-medium">Secure & private</span>
-								</div>
-								<div className="flex items-center gap-2">
-									<svg
-										className="w-5 h-5 text-purple-500"
-										fill="currentColor"
-										viewBox="0 0 20 20"
-									>
-										<path
-											d="M9 6a3 3 0 11-6 0 3 3 0 016 0zM17 6a3 3 0 11-6 0 3 3 0 016 0zM12.93 17c.046-.327.07-.66.07-1a6.97 6.97 0 00-1.5-4.33A5 5 0 0119 16v1h-6.07zM6 11a5 5 0 015 5v1H1v-1a5 5 0 015-5z"/>
-									</svg>
-									<span className="font-medium">Made for families</span>
-								</div>
-							</motion.div>
-						</motion.div>
+  return (
+    <div className="min-h-screen bg-gradient-to-b from-[#F5F8FF] via-white to-white">
+      {/* Navigation */}
+      <Navigation />
 
-						{/* Right Column - iPhone Mockup Placeholder */}
-						<motion.div
-							initial={{opacity : 0, scale : 0.95}}
-							animate={{opacity : 1, scale : 1}}
-							transition={{
-								duration : 1,
-								delay    : 0.3,
-								ease     : [0.16, 1, 0.3, 1]
-							}}
-							className="relative lg:pl-12"
-						>
-							{/* Gradient Orb Background */}
-							<div
-								className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-gradient-to-br from-blue-400/30 via-cyan-400/20 to-purple-400/30 rounded-full blur-3xl"/>
+      {/* Search Section */}
+      <section className="relative pt-24 pb-8 lg:pt-32 lg:pb-12 overflow-hidden">
+        <div className="max-w-7xl mx-auto px-6 lg:px-8">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{
+              duration: 0.6,
+              ease: [0.16, 1, 0.3, 1],
+            }}
+          >
+            {/* Search Bar */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0, duration: 0.6 }}
+              className="max-w-2xl mx-auto"
+            >
+              <div className="relative">
+                <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400" />
+                <input
+                  type="text"
+                  placeholder="Search calculators... (e.g., mortgage, loan, interest)"
+                  value={searchQuery}
+                  onChange={(e) => setSearchQuery(e.target.value)}
+                  className="w-full pl-12 pr-4 py-4 rounded-2xl border border-gray-200 bg-white shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all text-gray-900 placeholder:text-gray-400"
+                />
+              </div>
+            </motion.div>
+          </motion.div>
+        </div>
+      </section>
 
-							{/* iPhone Mockup Container */}
-							<div className="relative z-10 mx-auto w-full max-w-[280px] lg:max-w-[320px]">
-								{/* USER WILL ADD SCREENSHOT HERE */}
-								{/* Replace the entire div below with: <Image src="/screenshots/hero.png" ... /> */}
-								<div
-									className="relative h-[70vh] min-h-[500px] max-h-[700px] bg-gradient-to-br from-gray-900 to-gray-800 rounded-[3rem] p-3 shadow-2xl shadow-blue-500/20 border border-gray-700">
-									<div className="w-full h-full bg-white rounded-[2.5rem] overflow-hidden relative">
-										{/* Hero Screenshot */}
-										<Image
-											src="/screen_main.jpg"
-											alt="Finappo App Main Screen"
-											fill
-											priority
-											className="object-cover object-center"
-										/>
-									</div>
-									{/* Notch */}
-									<div
-										className="absolute top-0 left-1/2 -translate-x-1/2 w-32 h-7 bg-gray-900 rounded-b-3xl z-20"/>
-								</div>
+      {/* Categories Section */}
+      <section className="py-8 lg:py-12 bg-white relative">
+        <div className="max-w-7xl mx-auto px-6 lg:px-8">
+          {filteredCategories.length === 0 ? (
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              className="text-center py-16"
+            >
+              <Calculator className="w-16 h-16 text-gray-300 mx-auto mb-4" />
+              <h3 className="text-xl font-semibold text-gray-900 mb-2">
+                No calculators found
+              </h3>
+              <p className="text-gray-600">Try a different search term</p>
+            </motion.div>
+          ) : (
+            <div className="space-y-16">
+              {/* eslint-disable-next-line @typescript-eslint/no-unused-vars */}
+              {filteredCategories.map((category, _categoryIndex) => (
+                <motion.div
+                  key={category.id}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{
+                    delay: 0,
+                    duration: 0.6,
+                  }}
+                >
+                  {/* Category Header */}
+                  <div className="flex items-center justify-between mb-8">
+                    <div className="flex items-center gap-4">
+                      <div
+                        className={`w-14 h-14 rounded-2xl bg-gradient-to-br ${category.gradient} flex items-center justify-center text-white shadow-lg`}
+                      >
+                        {category.icon}
+                      </div>
+                      <div>
+                        <h2 className="text-2xl lg:text-3xl font-bold text-gray-900 mb-1">
+                          {category.name}
+                        </h2>
+                        <p className="text-gray-600 text-sm lg:text-base">
+                          {category.description}
+                        </p>
+                      </div>
+                    </div>
+                    <Link
+                      href={category.href}
+                      className="hidden lg:flex items-center gap-2 px-4 py-2 rounded-xl bg-gray-50 hover:bg-gray-100 transition-colors text-gray-700 font-medium"
+                    >
+                      View All
+                      <ChevronRight className="w-4 h-4" />
+                    </Link>
+                  </div>
 
-								{/* Floating Elements */}
-								<motion.div
-									animate={{
-										y : [0, -10, 0]
-									}}
-									transition={{
-										duration : 3,
-										repeat   : Infinity,
-										ease     : 'easeInOut'
-									}}
-									className="absolute -top-8 -right-8 w-24 h-24 bg-gradient-to-br from-blue-400 to-cyan-400 rounded-3xl shadow-xl shadow-blue-500/30 opacity-80 blur-sm"
-								/>
-								<motion.div
-									animate={{
-										y : [0, 10, 0]
-									}}
-									transition={{
-										duration : 4,
-										repeat   : Infinity,
-										ease     : 'easeInOut',
-										delay    : 0.5
-									}}
-									className="absolute -bottom-12 -left-8 w-32 h-32 bg-gradient-to-br from-purple-400 to-pink-400 rounded-3xl shadow-xl shadow-purple-500/30 opacity-70 blur-sm"
-								/>
-							</div>
-						</motion.div>
-					</div>
-				</div>
-			</section>
+                  {/* Calculators Grid */}
+                  <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    {/* eslint-disable-next-line @typescript-eslint/no-unused-vars */}
+                    {category.calculators.map((calculator, _calcIndex) => (
+                      <motion.div
+                        key={calculator.id}
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{
+                          delay: 0,
+                          duration: 0.5,
+                        }}
+                      >
+                        <Link href={calculator.href}>
+                          <div className="group h-full bg-white rounded-2xl border border-gray-200 hover:border-blue-300 hover:shadow-lg transition-all duration-300 p-6">
+                            <div className="flex items-start gap-4 mb-4">
+                              <div
+                                className={`w-12 h-12 rounded-xl bg-gradient-to-br ${category.gradient} flex items-center justify-center text-white shadow-md group-hover:scale-110 transition-transform`}
+                              >
+                                {calculator.icon}
+                              </div>
+                              <div className="flex-1">
+                                <h3 className="text-lg font-semibold text-gray-900 mb-1 group-hover:text-blue-600 transition-colors">
+                                  {calculator.title}
+                                </h3>
+                              </div>
+                            </div>
+                            <p className="text-gray-600 text-sm mb-4 line-clamp-2">
+                              {calculator.description}
+                            </p>
+                            <div className="flex items-center text-blue-600 text-sm font-medium group-hover:gap-2 transition-all">
+                              Calculate now
+                              <ArrowRight className="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform" />
+                            </div>
+                          </div>
+                        </Link>
+                      </motion.div>
+                    ))}
+                  </div>
 
-			{/* Features Section */}
-			<section id="features" className="py-12 lg:py-16 bg-white relative">
-				{/* Background Gradient */}
-				<div className="absolute inset-0 bg-gradient-to-b from-gray-50/50 to-transparent"/>
+                  {/* Mobile View All Link */}
+                  <Link
+                    href={category.href}
+                    className="lg:hidden flex items-center justify-center gap-2 mt-6 px-4 py-3 rounded-xl bg-gray-50 hover:bg-gray-100 transition-colors text-gray-700 font-medium"
+                  >
+                    View All {category.name}
+                    <ChevronRight className="w-4 h-4" />
+                  </Link>
+                </motion.div>
+              ))}
+            </div>
+          )}
+        </div>
+      </section>
 
-				<div className="relative max-w-7xl mx-auto px-6 lg:px-8">
-					{/* Section Header */}
-					<motion.div
-						initial={{opacity : 0, y : 20}}
-						whileInView={{opacity : 1, y : 0}}
-						viewport={{once : true}}
-						transition={{
-							duration : 0.6,
-							ease     : [0.16, 1, 0.3, 1]
-						}}
-						className="text-center mb-16 lg:mb-20"
-					>
-						<h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-900 mb-6 tracking-tight">
-							Everything you need.{' '}
-							<span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-cyan-600">
-                Nothing you don&apos;t.
-              </span>
-						</h2>
-						<p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-							Powerful features designed to make family budgeting simple,
-							beautiful, and actually enjoyable.
-						</p>
-					</motion.div>
+      {/* Features Section */}
+      <section className="py-16 lg:py-24 bg-gradient-to-b from-white to-gray-50">
+        <div className="max-w-7xl mx-auto px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
+              Why Use Our Calculators?
+            </h2>
+            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+              Professional-grade financial tools designed for accuracy and ease
+              of use
+            </p>
+          </div>
 
-					{/* Feature Cards Grid */}
-					<div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 mb-20">
-						<FeatureCard
-							icon={
-								<svg
-									className="w-8 h-8 text-white"
-									fill="none"
-									viewBox="0 0 24 24"
-									stroke="currentColor"
-								>
-									<path
-										strokeLinecap="round"
-										strokeLinejoin="round"
-										strokeWidth={2}
-										d="M7 7h.01M7 3h5c.512 0 1.024.195 1.414.586l7 7a2 2 0 010 2.828l-7 7a2 2 0 01-2.828 0l-7-7A1.994 1.994 0 013 12V7a4 4 0 014-4z"
-									/>
-								</svg>
-							}
-							title="Smart Categories"
-							description="Create custom budget categories with icons, colors, and flexible periods. Track daily, weekly, monthly, or yearly budgets with smart reset logic."
-							gradient="bg-gradient-to-br from-blue-500 to-cyan-500"
-							delay={0}
-						/>
+          <div className="grid md:grid-cols-3 gap-8">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0, duration: 0.6 }}
+              className="text-center"
+            >
+              <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-blue-500 to-indigo-500 flex items-center justify-center text-white mx-auto mb-4">
+                <Calculator className="w-8 h-8" />
+              </div>
+              <h3 className="text-xl font-semibold text-gray-900 mb-2">
+                100% Free
+              </h3>
+              <p className="text-gray-600">
+                No hidden fees, no signup required. All calculators are
+                completely free to use.
+              </p>
+            </motion.div>
 
-						<FeatureCard
-							icon={
-								<svg
-									className="w-8 h-8 text-white"
-									fill="none"
-									viewBox="0 0 24 24"
-									stroke="currentColor"
-								>
-									<path
-										strokeLinecap="round"
-										strokeLinejoin="round"
-										strokeWidth={2}
-										d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"
-									/>
-								</svg>
-							}
-							title="Family Sharing"
-							description="Share budgets with family members. Invite others to track spending together and see real-time updates across all devices."
-							gradient="bg-gradient-to-br from-purple-500 to-pink-500"
-							delay={0.1}
-						/>
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0, duration: 0.6 }}
+              className="text-center"
+            >
+              <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-green-500 to-emerald-500 flex items-center justify-center text-white mx-auto mb-4">
+                <TrendingUp className="w-8 h-8" />
+              </div>
+              <h3 className="text-xl font-semibold text-gray-900 mb-2">
+                Accurate Results
+              </h3>
+              <p className="text-gray-600">
+                Calculations validated against industry standards with
+                comprehensive test coverage.
+              </p>
+            </motion.div>
 
-						<FeatureCard
-							icon={
-								<svg
-									className="w-8 h-8 text-white"
-									fill="none"
-									viewBox="0 0 24 24"
-									stroke="currentColor"
-								>
-									<path
-										strokeLinecap="round"
-										strokeLinejoin="round"
-										strokeWidth={2}
-										d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"
-									/>
-								</svg>
-							}
-							title="Visual Analytics"
-							description="Get instant insights into your spending patterns with beautiful charts and breakdowns. See where your money goes at a glance."
-							gradient="bg-gradient-to-br from-orange-500 to-red-500"
-							delay={0.2}
-						/>
-
-						<FeatureCard
-							icon={
-								<svg
-									className="w-8 h-8 text-white"
-									fill="none"
-									viewBox="0 0 24 24"
-									stroke="currentColor"
-								>
-									<path
-										strokeLinecap="round"
-										strokeLinejoin="round"
-										strokeWidth={2}
-										d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
-									/>
-								</svg>
-							}
-							title="Quick Transactions"
-							description="Log expenses in seconds with our streamlined interface. Add date ranges, filters, and notes to keep everything organized."
-							gradient="bg-gradient-to-br from-green-500 to-emerald-500"
-							delay={0.3}
-						/>
-
-						<FeatureCard
-							icon={
-								<svg
-									className="w-8 h-8 text-white"
-									fill="none"
-									viewBox="0 0 24 24"
-									stroke="currentColor"
-								>
-									<path
-										strokeLinecap="round"
-										strokeLinejoin="round"
-										strokeWidth={2}
-										d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"
-									/>
-								</svg>
-							}
-							title="Recurring Budgets"
-							description="Set up recurring transactions and budgets that automatically reset. Never miss tracking regular expenses like subscriptions or bills."
-							gradient="bg-gradient-to-br from-indigo-500 to-purple-500"
-							delay={0.4}
-						/>
-
-						<FeatureCard
-							icon={
-								<svg
-									className="w-8 h-8 text-white"
-									fill="none"
-									viewBox="0 0 24 24"
-									stroke="currentColor"
-								>
-									<path
-										strokeLinecap="round"
-										strokeLinejoin="round"
-										strokeWidth={2}
-										d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z"
-									/>
-								</svg>
-							}
-							title="Real-time Sync"
-							description="Firebase-powered cloud sync keeps your data up-to-date across all your devices. Access your budgets anywhere, anytime."
-							gradient="bg-gradient-to-br from-cyan-500 to-blue-500"
-							delay={0.5}
-						/>
-					</div>
-				</div>
-			</section>
-
-			{/* Screenshot Gallery Section */}
-			<section className="py-12 lg:py-16 bg-gradient-to-b from-white to-gray-50">
-				<div className="max-w-7xl mx-auto px-6 lg:px-8">
-					<motion.div
-						initial={{opacity : 0, y : 20}}
-						whileInView={{opacity : 1, y : 0}}
-						viewport={{once : true}}
-						transition={{
-							duration : 0.6,
-							ease     : [0.16, 1, 0.3, 1]
-						}}
-						className="text-center mb-16"
-					>
-						<h2 className="text-4xl sm:text-5xl font-bold text-gray-900 mb-6 tracking-tight">
-							Beautiful on every screen
-						</h2>
-						<p className="text-xl text-gray-600 max-w-2xl mx-auto">
-							Designed with care for the iOS platform you love.
-						</p>
-					</motion.div>
-
-					{/* Screenshot Grid */}
-					<div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
-						{/* Screenshot 1 - Add Transaction */}
-						<motion.div
-							initial={{opacity : 0, y : 30}}
-							whileInView={{opacity : 1, y : 0}}
-							viewport={{once : true}}
-							transition={{
-								duration : 0.6,
-								delay    : 0,
-								ease     : [0.16, 1, 0.3, 1]
-							}}
-							className="relative h-[70vh] min-h-[500px] max-h-[700px] bg-gradient-to-br from-gray-900 to-gray-800 rounded-[2.5rem] p-2.5 shadow-2xl"
-						>
-							<div className="w-full h-full bg-white rounded-[2rem] overflow-hidden relative">
-								<Image
-									src="/screen_add_trans.jpg"
-									alt="Add Transaction Screen"
-									fill
-									className="object-cover object-center"
-								/>
-							</div>
-							{/* Notch */}
-							<div
-								className="absolute top-0 left-1/2 -translate-x-1/2 w-24 h-6 bg-gray-900 rounded-b-2xl z-20"/>
-						</motion.div>
-
-						{/* Screenshot 2 - Transactions List */}
-						<motion.div
-							initial={{opacity : 0, y : 30}}
-							whileInView={{opacity : 1, y : 0}}
-							viewport={{once : true}}
-							transition={{
-								duration : 0.6,
-								delay    : 0.1,
-								ease     : [0.16, 1, 0.3, 1]
-							}}
-							className="relative h-[70vh] min-h-[500px] max-h-[700px] bg-gradient-to-br from-gray-900 to-gray-800 rounded-[2.5rem] p-2.5 shadow-2xl"
-						>
-							<div className="w-full h-full bg-white rounded-[2rem] overflow-hidden relative">
-								<Image
-									src="/screen_trans.jpg"
-									alt="Transactions List Screen"
-									fill
-									className="object-cover object-center"
-								/>
-							</div>
-							{/* Notch */}
-							<div
-								className="absolute top-0 left-1/2 -translate-x-1/2 w-24 h-6 bg-gray-900 rounded-b-2xl z-20"/>
-						</motion.div>
-
-						{/* Screenshot 3 - Calculator */}
-						<motion.div
-							initial={{opacity : 0, y : 30}}
-							whileInView={{opacity : 1, y : 0}}
-							viewport={{once : true}}
-							transition={{
-								duration : 0.6,
-								delay    : 0.2,
-								ease     : [0.16, 1, 0.3, 1]
-							}}
-							className="relative h-[70vh] min-h-[500px] max-h-[700px] bg-gradient-to-br from-gray-900 to-gray-800 rounded-[2.5rem] p-2.5 shadow-2xl"
-						>
-							<div className="w-full h-full bg-white rounded-[2rem] overflow-hidden relative">
-								<Image
-									src="/screen_cal.jpg"
-									alt="Calculator Screen"
-									fill
-									className="object-cover object-center"
-								/>
-							</div>
-							{/* Notch */}
-							<div
-								className="absolute top-0 left-1/2 -translate-x-1/2 w-24 h-6 bg-gray-900 rounded-b-2xl z-20"/>
-						</motion.div>
-					</div>
-				</div>
-			</section>
-
-			{/* Download CTA Section */}
-			<section
-				id="download"
-				className="py-24 lg:py-32 bg-gradient-to-br from-blue-600 via-blue-700 to-cyan-700 relative overflow-hidden"
-			>
-				{/* Background Pattern */}
-				<div className="absolute inset-0 opacity-10">
-					<div className="absolute top-0 left-0 w-96 h-96 bg-white rounded-full blur-3xl"/>
-					<div className="absolute bottom-0 right-0 w-96 h-96 bg-cyan-300 rounded-full blur-3xl"/>
-				</div>
-
-				<div className="relative max-w-4xl mx-auto px-6 lg:px-8 text-center">
-					<motion.div
-						initial={{opacity : 0, y : 20}}
-						whileInView={{opacity : 1, y : 0}}
-						viewport={{once : true}}
-						transition={{
-							duration : 0.6,
-							ease     : [0.16, 1, 0.3, 1]
-						}}
-					>
-						<h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white mb-6 tracking-tight">
-							Ready to take control of your family budget?
-						</h2>
-						<p className="text-xl text-blue-100 mb-10 max-w-2xl mx-auto leading-relaxed">
-							Download Finappo today and start tracking your spending with
-							clarity and confidence.
-						</p>
-
-						<div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-							<a
-								href="https://apps.apple.com/us/app/finappo/id6754455387"
-								target="_blank"
-								rel="noopener noreferrer"
-								className="inline-flex items-center justify-center gap-3 px-10 py-5 rounded-2xl bg-white text-gray-900 font-semibold shadow-2xl hover:shadow-xl transition-all duration-200 hover:scale-105 active:scale-95"
-							>
-								<svg className="w-7 h-7" viewBox="0 0 24 24" fill="currentColor">
-									<path
-										d="M17.05 20.28c-.98.95-2.05.8-3.08.35-1.09-.46-2.09-.48-3.24 0-1.44.62-2.2.44-3.06-.35C2.79 15.25 3.51 7.59 9.05 7.31c1.35.07 2.29.74 3.08.8 1.18-.24 2.31-.93 3.57-.84 1.51.12 2.65.72 3.4 1.8-3.12 1.87-2.38 5.98.48 7.13-.57 1.5-1.31 2.99-2.54 4.09l.01-.01zM12.03 7.25c-.15-2.23 1.66-4.07 3.74-4.25.29 2.58-2.34 4.5-3.74 4.25z"/>
-								</svg>
-								<div className="flex flex-col items-start -my-1">
-									<span className="text-xs text-gray-600">Download on the</span>
-									<span className="text-lg font-bold -mt-0.5">App Store</span>
-								</div>
-							</a>
-						</div>
-
-						<p className="mt-8 text-sm text-blue-200">
-							Free to download. No credit card required.
-						</p>
-					</motion.div>
-				</div>
-			</section>
-
-			{/* Contact Section */}
-			<section id="contact" className="py-24 lg:py-32 bg-white relative overflow-hidden">
-				{/* Subtle Background Gradient */}
-				<div className="absolute inset-0 bg-gradient-to-b from-gray-50/50 via-white to-white"/>
-
-				<div className="relative max-w-4xl mx-auto px-6 lg:px-8">
-					<motion.div
-						initial={{opacity : 0, y : 20}}
-						whileInView={{opacity : 1, y : 0}}
-						viewport={{once : true}}
-						transition={{
-							duration : 0.6,
-							ease     : [0.16, 1, 0.3, 1]
-						}}
-						className="text-center mb-12"
-					>
-						<h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-900 mb-6 tracking-tight">
-							Get in Touch
-						</h2>
-						<p className="text-xl text-gray-600 max-w-2xl mx-auto leading-relaxed">
-							Have a question, suggestion, or feedback? We&apos;d love to hear from you.
-						</p>
-					</motion.div>
-
-					<motion.div
-						initial={{opacity : 0, y : 30}}
-						whileInView={{opacity : 1, y : 0}}
-						viewport={{once : true}}
-						transition={{
-							duration : 0.6,
-							delay    : 0.2,
-							ease     : [0.16, 1, 0.3, 1]
-						}}
-						className="bg-white border border-gray-200 rounded-3xl shadow-xl shadow-gray-900/5 p-8 lg:p-12"
-					>
-						<ContactForm />
-					</motion.div>
-				</div>
-			</section>
-
-			{/* Footer */}
-			<footer className="border-t border-gray-200 bg-white">
-				<div className="max-w-7xl mx-auto px-6 lg:px-8 py-12">
-					<div className="flex flex-col md:flex-row items-center justify-between gap-6">
-						{/* Logo & Copyright */}
-						<div className="flex items-center gap-3">
-							<Image
-								src="/logo.png"
-								alt="Finappo"
-								width={32}
-								height={32}
-								className="w-8 h-8"
-							/>
-							<div className="text-sm text-gray-600">
-								<p className="font-medium text-gray-900">Finappo</p>
-								<p>© 2025 All rights reserved.</p>
-							</div>
-						</div>
-
-						{/* Links */}
-						<div className="flex items-center gap-8 text-sm text-gray-600">
-							<a
-								href="#features"
-								className="hover:text-gray-900 transition-colors"
-							>
-								Features
-							</a>
-							<a
-								href="#download"
-								className="hover:text-gray-900 transition-colors"
-							>
-								Download
-							</a>
-							<a
-								href="#contact"
-								className="hover:text-gray-900 transition-colors"
-							>
-								Contact
-							</a>
-							<a href="/privacy" className="hover:text-gray-900 transition-colors">
-								Privacy
-							</a>
-						</div>
-					</div>
-				</div>
-			</footer>
-		</div>
-	);
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0, duration: 0.6 }}
+              className="text-center"
+            >
+              <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-purple-500 to-pink-500 flex items-center justify-center text-white mx-auto mb-4">
+                <Wallet className="w-8 h-8" />
+              </div>
+              <h3 className="text-xl font-semibold text-gray-900 mb-2">
+                Easy to Use
+              </h3>
+              <p className="text-gray-600">
+                Intuitive interfaces with helpful tips and instant results as
+                you type.
+              </p>
+            </motion.div>
+          </div>
+        </div>
+      </section>
+    </div>
+  );
 }
