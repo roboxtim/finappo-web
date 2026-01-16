@@ -166,6 +166,26 @@ const categories: Category[] = [
         ],
       },
       {
+        id: 'college-cost-calculator',
+        title: 'College Cost Calculator',
+        description:
+          'Estimate future college costs with inflation, calculate required monthly savings, and plan for education expenses',
+        href: '/financial-calculators/college-cost-calculator',
+        icon: <Calculator className="w-5 h-5" />,
+        keywords: [
+          'college cost',
+          'college savings',
+          'education cost',
+          '529 plan',
+          'college expense',
+          'tuition calculator',
+          'college planning',
+          'education savings',
+          'college fund',
+          'higher education costs',
+        ],
+      },
+      {
         id: 'currency-calculator',
         title: 'Currency Calculator',
         description:

@@ -26,6 +26,7 @@ import {
   Heart,
   Globe,
   ShoppingCart,
+  GraduationCap,
 } from 'lucide-react';
 
 export default function FinancialCalculators() {
@@ -125,6 +126,14 @@ export default function FinancialCalculators() {
               description="Calculate student loan payments with 3 powerful modes: simple calculator, repayment comparison with extra payments, and projection calculator for future costs. Plan your education financing."
               gradient="bg-gradient-to-br from-blue-600 to-indigo-600"
               href="/financial-calculators/student-loan-calculator"
+              delay={0}
+            />
+            <CalculatorCard
+              icon={<GraduationCap className="w-8 h-8 text-white" />}
+              title="College Cost Calculator"
+              description="Estimate future college expenses with inflation, calculate required monthly savings, and see how your savings will grow. Plan for 4-year private, public, or 2-year colleges with 529 plan support."
+              gradient="bg-gradient-to-br from-purple-600 to-pink-600"
+              href="/financial-calculators/college-cost-calculator"
               delay={0}
             />
             <CalculatorCard
