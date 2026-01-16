@@ -33,10 +33,16 @@ export function Navigation() {
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center gap-6">
             <Link
-              href="/financial-calculators"
+              href="/"
               className="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors"
             >
               Calculators
+            </Link>
+            <Link
+              href="/financial-calculators"
+              className="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors"
+            >
+              Financial Calculators
             </Link>
             <Link
               href="/finappo-tool"
@@ -45,22 +51,10 @@ export function Navigation() {
               App
             </Link>
             <Link
-              href="/finappo-tool#features"
-              className="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors"
-            >
-              Features
-            </Link>
-            <Link
               href="/finappo-tool#download"
               className="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors"
             >
               Download
-            </Link>
-            <Link
-              href="/finappo-tool#contact"
-              className="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors"
-            >
-              Contact
             </Link>
           </div>
 
@@ -108,11 +102,18 @@ export function Navigation() {
           >
             <div className="max-w-7xl mx-auto px-6 py-6 space-y-4">
               <Link
-                href="/financial-calculators"
+                href="/"
                 onClick={() => setMobileMenuOpen(false)}
                 className="block text-base font-medium text-gray-600 hover:text-gray-900 py-2 transition-colors"
               >
                 Calculators
+              </Link>
+              <Link
+                href="/financial-calculators"
+                onClick={() => setMobileMenuOpen(false)}
+                className="block text-base font-medium text-gray-600 hover:text-gray-900 py-2 transition-colors"
+              >
+                Financial Calculators
               </Link>
               <Link
                 href="/finappo-tool"
@@ -122,25 +123,11 @@ export function Navigation() {
                 App
               </Link>
               <Link
-                href="/finappo-tool#features"
-                onClick={() => setMobileMenuOpen(false)}
-                className="block text-base font-medium text-gray-600 hover:text-gray-900 py-2 transition-colors"
-              >
-                Features
-              </Link>
-              <Link
                 href="/finappo-tool#download"
                 onClick={() => setMobileMenuOpen(false)}
                 className="block text-base font-medium text-gray-600 hover:text-gray-900 py-2 transition-colors"
               >
                 Download
-              </Link>
-              <Link
-                href="/finappo-tool#contact"
-                onClick={() => setMobileMenuOpen(false)}
-                className="block text-base font-medium text-gray-600 hover:text-gray-900 py-2 transition-colors"
-              >
-                Contact
               </Link>
             </div>
           </motion.div>
