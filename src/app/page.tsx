@@ -189,6 +189,24 @@ const categories: Category[] = [
         ],
       },
       {
+        id: 'debt-consolidation-calculator',
+        title: 'Debt Consolidation Calculator',
+        description:
+          'Compare existing debts with consolidation loan options and calculate real APR',
+        href: '/financial-calculators/debt-consolidation-calculator',
+        icon: <Scale className="w-5 h-5" />,
+        keywords: [
+          'debt consolidation',
+          'consolidation loan',
+          'combine debts',
+          'consolidate credit cards',
+          'real APR',
+          'loan fees',
+          'debt refinance',
+          'consolidation savings',
+        ],
+      },
+      {
         id: 'apr-calculator',
         title: 'APR Calculator',
         description:

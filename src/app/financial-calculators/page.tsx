@@ -144,6 +144,14 @@ export default function FinancialCalculators() {
               delay={0}
             />
             <CalculatorCard
+              icon={<Scale className="w-8 h-8 text-white" />}
+              title="Debt Consolidation Calculator"
+              description="Compare existing debts with consolidation loan options. Calculate real APR including fees, monthly payments, and total interest to see if consolidation will save you money."
+              gradient="bg-gradient-to-br from-orange-600 to-red-600"
+              href="/financial-calculators/debt-consolidation-calculator"
+              delay={0}
+            />
+            <CalculatorCard
               icon={<Percent className="w-8 h-8 text-white" />}
               title="APR Calculator"
               description="Calculate the true cost of a loan including all fees and interest. Compare nominal interest rate vs effective APR to understand what you're really paying."
