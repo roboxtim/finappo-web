@@ -536,6 +536,14 @@ export default function FinancialCalculators() {
               href="/financial-calculators/margin-calculator"
               delay={0}
             />
+            <CalculatorCard
+              icon={<Tag className="w-8 h-8 text-white" />}
+              title="Discount Calculator"
+              description="Calculate sale prices, discounts, and savings from any two values. Supports both percentage and fixed amount discounts with detailed breakdowns for smart shopping decisions."
+              gradient="bg-gradient-to-br from-rose-600 to-pink-600"
+              href="/financial-calculators/discount-calculator"
+              delay={0.1}
+            />
           </div>
         </div>
       </section>

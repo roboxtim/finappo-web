@@ -158,15 +158,85 @@ grep -i "calculator-name" src/app/page.tsx
 </section>
 ```
 
-### 3. Educational Section
+### 3. Educational Section - Understanding (ВАЖНО ДЛЯ SEO!)
+
+**ОБЯЗАТЕЛЬНО делай раздел "Understanding" подробным и детальным!**
+
+Это КРИТИЧЕСКИ важно для SEO и органического поиска. Раздел должен содержать:
+
+1. **Что это такое** - определение термина/концепции
+2. **Типы/виды** - различные варианты (если применимо)
+3. **Как рассчитывать** - формулы и методы расчета
+4. **Примеры из реальной жизни** - конкретные сценарии использования
+5. **Дополнительная информация** - стратегии, советы, важные нюансы
+6. **Практические советы** - как применять на практике
+
+Минимум 4-6 подразделов с детальными объяснениями!
+
 ```tsx
-<section className="py-16 lg:py-24 bg-gray-50">
-  <div className="max-w-4xl mx-auto px-6 lg:px-8">
-    <h2 className="text-3xl font-bold text-gray-900 mb-8">Understanding [Topic]</h2>
-    {/* Educational content */}
+<div className="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-3xl p-8 border border-blue-100">
+  <h3 className="text-xl font-bold text-gray-900 mb-4">
+    Understanding [Topic]: A Complete Guide
+  </h3>
+
+  <div className="space-y-4 text-sm text-gray-700">
+    <div>
+      <h4 className="font-semibold text-gray-900 mb-2">
+        What is [Topic]?
+      </h4>
+      <p>
+        Детальное объяснение концепции...
+      </p>
+    </div>
+
+    <div>
+      <h4 className="font-semibold text-gray-900 mb-2">
+        Types of [Topic]
+      </h4>
+      <ul className="list-disc list-inside space-y-1 ml-2">
+        <li><span className="font-semibold">Type 1:</span> Description...</li>
+        <li><span className="font-semibold">Type 2:</span> Description...</li>
+      </ul>
+    </div>
+
+    <div>
+      <h4 className="font-semibold text-gray-900 mb-2">
+        How to Calculate
+      </h4>
+      <p className="mb-2">Explanation...</p>
+      <div className="bg-white rounded-lg p-4">
+        <p className="font-mono text-xs">
+          Formula 1: ...
+        </p>
+      </div>
+    </div>
+
+    <div>
+      <h4 className="font-semibold text-gray-900 mb-2">
+        Real-World Examples
+      </h4>
+      <div className="space-y-2">
+        <div className="bg-white rounded-lg p-3">
+          <p className="font-semibold text-xs mb-1">Example 1: ...</p>
+          <p className="text-xs">Detailed scenario...</p>
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <h4 className="font-semibold text-gray-900 mb-2">
+        Tips & Strategies
+      </h4>
+      <ul className="list-disc list-inside space-y-1 ml-2">
+        <li>Practical tip 1...</li>
+        <li>Practical tip 2...</li>
+      </ul>
+    </div>
   </div>
-</section>
+</div>
 ```
+
+**Пример хорошего Understanding раздела:** `/src/app/financial-calculators/discount-calculator/page.tsx`
 
 ### Стилизация элементов:
 

@@ -1253,6 +1253,26 @@ const categories: Category[] = [
           'business profit',
         ],
       },
+      {
+        id: 'discount-calculator',
+        title: 'Discount Calculator',
+        description:
+          'Calculate sale prices, discounts, and savings from any two values. Supports both percentage and fixed amount discounts for smart shopping decisions',
+        href: '/financial-calculators/discount-calculator',
+        icon: <Tag className="w-5 h-5" />,
+        keywords: [
+          'discount calculator',
+          'sale price',
+          'percent off',
+          'savings calculator',
+          'price discount',
+          'sale calculator',
+          'shopping calculator',
+          'coupon calculator',
+          'markdown calculator',
+          'promotional pricing',
+        ],
+      },
     ],
   },
 ];
