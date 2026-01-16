@@ -128,6 +128,24 @@ const categories: Category[] = [
         ],
       },
       {
+        id: 'repayment-calculator',
+        title: 'Repayment Calculator',
+        description:
+          'Calculate loan repayment with fixed term or fixed payment modes. View amortization schedule and total interest',
+        href: '/financial-calculators/repayment-calculator',
+        icon: <Calculator className="w-5 h-5" />,
+        keywords: [
+          'repayment',
+          'loan repayment',
+          'monthly payment',
+          'payoff time',
+          'fixed payment',
+          'fixed term',
+          'amortization',
+          'installment',
+        ],
+      },
+      {
         id: 'currency-calculator',
         title: 'Currency Calculator',
         description:

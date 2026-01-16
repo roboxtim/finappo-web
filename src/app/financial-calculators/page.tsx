@@ -112,6 +112,14 @@ export default function FinancialCalculators() {
               delay={0}
             />
             <CalculatorCard
+              icon={<Calculator className="w-8 h-8 text-white" />}
+              title="Repayment Calculator"
+              description="Calculate loan repayment with two flexible modes: fixed term or fixed payment. View detailed breakdown of principal vs interest and see your complete payoff timeline."
+              gradient="bg-gradient-to-br from-green-600 to-emerald-600"
+              href="/financial-calculators/repayment-calculator"
+              delay={0}
+            />
+            <CalculatorCard
               icon={<Globe className="w-8 h-8 text-white" />}
               title="Currency Calculator"
               description="Convert between 20+ world currencies including USD, EUR, GBP, JPY, and more. Get instant exchange rates and compare multiple currencies at once."
