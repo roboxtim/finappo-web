@@ -2,6 +2,8 @@
 
 import { useState } from 'react';
 import { motion } from 'framer-motion';
+import Link from 'next/link';
+import { Navigation } from '@/components/Navigation';
 import {
   Anchor,
   DollarSign,
@@ -75,55 +77,68 @@ export default function BoatLoanCalculator() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-blue-50 via-white to-blue-50">
+    <div className="min-h-screen bg-gradient-to-b from-[#F5F8FF] via-white to-white">
+      <Navigation />
+
       {/* Hero Section */}
-      <section className="pt-20 pb-12 px-6">
-        <div className="max-w-7xl mx-auto text-center">
+      <section className="relative pt-24 pb-6 lg:pt-28 lg:pb-8">
+        <div className="max-w-7xl mx-auto px-6 lg:px-8">
+          <Link
+            href="/financial-calculators"
+            className="inline-flex items-center gap-2 text-sm text-gray-600 hover:text-gray-900 transition-colors mb-6"
+          >
+            <svg
+              className="w-4 h-4"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M15 19l-7-7 7-7"
+              />
+            </svg>
+            Back to Calculators
+          </Link>
+
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-            className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-blue-600 to-cyan-600 rounded-2xl mb-6 shadow-lg"
+            transition={{ duration: 0.6 }}
+            className="flex items-center gap-4 mb-4"
           >
-            <Anchor className="w-8 h-8 text-white" />
+            <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-blue-600 to-cyan-600 flex items-center justify-center shadow-lg">
+              <Anchor className="w-8 h-8 text-white" />
+            </div>
+            <div>
+              <h1 className="text-4xl sm:text-5xl font-bold tracking-tight text-gray-900">
+                Boat Loan Calculator
+              </h1>
+              <p className="text-lg text-gray-600 mt-2">
+                Calculate boat loan payments with down payment, trade-in, sales
+                tax, and fees
+              </p>
+            </div>
           </motion.div>
-
-          <motion.h1
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.1 }}
-            className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-6"
-          >
-            Boat Loan Calculator
-          </motion.h1>
-
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.2 }}
-            className="text-xl text-gray-600 max-w-3xl mx-auto"
-          >
-            Calculate your boat loan payments with down payment, trade-in value,
-            sales tax, and fees. Get accurate estimates for your marine
-            financing.
-          </motion.p>
         </div>
       </section>
 
       {/* Calculator Section */}
-      <section className="pb-16 lg:pb-24 px-6">
-        <div className="max-w-7xl mx-auto">
-          <div className="grid lg:grid-cols-5 gap-8">
-            {/* Left Column - Inputs (40%) */}
+      <section className="pb-8 lg:pb-12">
+        <div className="max-w-7xl mx-auto px-6 lg:px-8">
+          <div className="grid lg:grid-cols-[40%_60%] gap-8">
+            {/* Left Column - Input Form */}
             <motion.div
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.5, delay: 0.3 }}
-              className="lg:col-span-2"
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className="space-y-6"
             >
-              <div className="bg-white rounded-3xl shadow-xl p-8 border border-gray-100 sticky top-8">
-                <h2 className="text-2xl font-bold text-gray-900 mb-6 flex items-center">
-                  <Calculator className="w-6 h-6 mr-3 text-blue-600" />
+              {/* Loan Details */}
+              <div className="bg-white rounded-3xl p-8 shadow-sm border border-gray-100">
+                <h2 className="text-2xl font-bold text-gray-900 mb-6">
                   Loan Details
                 </h2>
 
@@ -139,7 +154,7 @@ export default function BoatLoanCalculator() {
                         type="number"
                         value={boatPrice}
                         onChange={(e) => setBoatPrice(e.target.value)}
-                        className="w-full pl-12 pr-4 py-3 bg-gray-50 border border-gray-200 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all text-gray-900"
+                        className="w-full pl-12 pr-4 py-3 rounded-xl text-gray-900 border-2 border-gray-200 focus:border-blue-500 focus:outline-none transition-colors font-medium"
                         placeholder="50000"
                       />
                     </div>
@@ -156,7 +171,7 @@ export default function BoatLoanCalculator() {
                         type="number"
                         value={interestRate}
                         onChange={(e) => setInterestRate(e.target.value)}
-                        className="w-full pl-12 pr-4 py-3 bg-gray-50 border border-gray-200 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all text-gray-900"
+                        className="w-full pl-12 pr-4 py-3 rounded-xl text-gray-900 border-2 border-gray-200 focus:border-blue-500 focus:outline-none transition-colors font-medium"
                         placeholder="7.5"
                         step="0.1"
                       />
@@ -174,12 +189,29 @@ export default function BoatLoanCalculator() {
                         type="number"
                         value={loanTermYears}
                         onChange={(e) => setLoanTermYears(e.target.value)}
-                        className="w-full pl-12 pr-4 py-3 bg-gray-50 border border-gray-200 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all text-gray-900"
+                        className="w-full pl-12 pr-4 py-3 rounded-xl text-gray-900 border-2 border-gray-200 focus:border-blue-500 focus:outline-none transition-colors font-medium"
                         placeholder="15"
                       />
                     </div>
                   </div>
 
+                  {/* Calculate Button */}
+                  <button
+                    onClick={handleCalculate}
+                    className="w-full bg-gradient-to-r from-blue-600 to-cyan-600 text-white font-semibold py-4 rounded-xl hover:from-blue-700 hover:to-cyan-700 transition-all shadow-lg hover:shadow-xl transform hover:-translate-y-0.5"
+                  >
+                    Calculate Loan
+                  </button>
+                </div>
+              </div>
+
+              {/* Down Payment & Trade-In */}
+              <div className="bg-white rounded-3xl p-8 shadow-sm border border-gray-100">
+                <h2 className="text-2xl font-bold text-gray-900 mb-6">
+                  Down Payment & Trade-In
+                </h2>
+
+                <div className="space-y-6">
                   {/* Down Payment with Toggle */}
                   <div>
                     <div className="flex items-center justify-between mb-2">
@@ -194,7 +226,7 @@ export default function BoatLoanCalculator() {
                               : 'percentage'
                           )
                         }
-                        className="text-xs font-medium text-blue-600 hover:text-blue-700 transition-colors"
+                        className="text-xs font-medium text-blue-600 hover:text-blue-700 transition-colors px-3 py-1 rounded-lg bg-blue-50 hover:bg-blue-100"
                       >
                         {downPaymentType === 'percentage' ? '% Mode' : '$ Mode'}
                       </button>
@@ -209,7 +241,7 @@ export default function BoatLoanCalculator() {
                         type="number"
                         value={downPayment}
                         onChange={(e) => setDownPayment(e.target.value)}
-                        className="w-full pl-12 pr-4 py-3 bg-gray-50 border border-gray-200 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all text-gray-900"
+                        className="w-full pl-12 pr-4 py-3 rounded-xl text-gray-900 border-2 border-gray-200 focus:border-blue-500 focus:outline-none transition-colors font-medium"
                         placeholder={
                           downPaymentType === 'percentage' ? '20' : '10000'
                         }
@@ -229,12 +261,21 @@ export default function BoatLoanCalculator() {
                         type="number"
                         value={tradeInValue}
                         onChange={(e) => setTradeInValue(e.target.value)}
-                        className="w-full pl-12 pr-4 py-3 bg-gray-50 border border-gray-200 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all text-gray-900"
+                        className="w-full pl-12 pr-4 py-3 rounded-xl text-gray-900 border-2 border-gray-200 focus:border-blue-500 focus:outline-none transition-colors font-medium"
                         placeholder="0"
                       />
                     </div>
                   </div>
+                </div>
+              </div>
 
+              {/* Sales Tax & Fees */}
+              <div className="bg-white rounded-3xl p-8 shadow-sm border border-gray-100">
+                <h2 className="text-2xl font-bold text-gray-900 mb-6">
+                  Sales Tax & Fees
+                </h2>
+
+                <div className="space-y-6">
                   {/* Sales Tax with Toggle */}
                   <div>
                     <div className="flex items-center justify-between mb-2">
@@ -249,7 +290,7 @@ export default function BoatLoanCalculator() {
                               : 'percentage'
                           )
                         }
-                        className="text-xs font-medium text-blue-600 hover:text-blue-700 transition-colors"
+                        className="text-xs font-medium text-blue-600 hover:text-blue-700 transition-colors px-3 py-1 rounded-lg bg-blue-50 hover:bg-blue-100"
                       >
                         {salesTaxType === 'percentage' ? '% Mode' : '$ Mode'}
                       </button>
@@ -264,7 +305,7 @@ export default function BoatLoanCalculator() {
                         type="number"
                         value={salesTax}
                         onChange={(e) => setSalesTax(e.target.value)}
-                        className="w-full pl-12 pr-4 py-3 bg-gray-50 border border-gray-200 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all text-gray-900"
+                        className="w-full pl-12 pr-4 py-3 rounded-xl text-gray-900 border-2 border-gray-200 focus:border-blue-500 focus:outline-none transition-colors font-medium"
                         placeholder={
                           salesTaxType === 'percentage' ? '7' : '3500'
                         }
@@ -284,7 +325,7 @@ export default function BoatLoanCalculator() {
                         type="number"
                         value={fees}
                         onChange={(e) => setFees(e.target.value)}
-                        className="w-full pl-12 pr-4 py-3 bg-gray-50 border border-gray-200 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all text-gray-900"
+                        className="w-full pl-12 pr-4 py-3 rounded-xl text-gray-900 border-2 border-gray-200 focus:border-blue-500 focus:outline-none transition-colors font-medium"
                         placeholder="500"
                       />
                     </div>
@@ -304,28 +345,20 @@ export default function BoatLoanCalculator() {
                       </label>
                     </div>
                   </div>
-
-                  {/* Calculate Button */}
-                  <button
-                    onClick={handleCalculate}
-                    className="w-full bg-gradient-to-r from-blue-600 to-cyan-600 text-white font-semibold py-4 rounded-xl hover:from-blue-700 hover:to-cyan-700 transition-all shadow-lg hover:shadow-xl transform hover:-translate-y-0.5"
-                  >
-                    Calculate Loan
-                  </button>
                 </div>
               </div>
             </motion.div>
 
-            {/* Right Column - Results (60%) */}
+            {/* Right Column - Results */}
             <motion.div
               initial={{ opacity: 0, x: 20 }}
               animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.5, delay: 0.4 }}
-              className="lg:col-span-3"
+              transition={{ duration: 0.6, delay: 0.3 }}
+              className="space-y-6"
             >
               {/* Errors */}
               {errors.length > 0 && (
-                <div className="bg-red-50 border border-red-200 rounded-2xl p-6 mb-6">
+                <div className="bg-red-50 border border-red-200 rounded-2xl p-6">
                   <div className="flex items-start">
                     <AlertCircle className="w-5 h-5 text-red-600 mt-0.5 mr-3 flex-shrink-0" />
                     <div>
@@ -344,125 +377,63 @@ export default function BoatLoanCalculator() {
 
               {/* Results */}
               {results && (
-                <div className="space-y-6">
+                <>
                   {/* Monthly Payment - Hero Card */}
-                  <div className="bg-gradient-to-br from-blue-600 to-cyan-600 rounded-3xl p-8 text-white shadow-2xl">
-                    <div className="flex items-center justify-between mb-2">
-                      <span className="text-blue-100 font-medium">
-                        Monthly Payment
-                      </span>
-                      <Ship className="w-6 h-6 text-blue-200" />
+                  <div className="rounded-3xl p-8 text-white shadow-xl bg-gradient-to-br from-blue-600 to-cyan-600">
+                    <div className="flex items-center gap-2 text-sm font-medium opacity-90 mb-2">
+                      <Ship className="w-4 h-4" />
+                      Monthly Payment
                     </div>
-                    <div className="text-5xl font-bold mb-1">
+                    <div className="text-5xl font-bold mb-2">
                       {formatCurrency(results.monthlyPayment)}
                     </div>
-                    <div className="text-blue-100 text-sm">
+                    <div className="text-sm opacity-75 mb-6">
                       For {loanTermYears} years at {interestRate}% APR
                     </div>
                   </div>
 
-                  {/* Upfront Payment */}
-                  <div className="bg-white rounded-2xl p-6 border border-gray-200 shadow-sm">
-                    <div className="flex items-center justify-between">
-                      <div>
-                        <div className="text-sm text-gray-600 mb-1">
-                          Upfront Payment
-                        </div>
-                        <div className="text-2xl font-bold text-gray-900">
+                  {/* Payment Breakdown */}
+                  <div className="bg-white rounded-3xl p-8 shadow-sm border border-gray-100">
+                    <h3 className="text-xl font-bold text-gray-900 mb-6">
+                      Payment Breakdown
+                    </h3>
+
+                    <div className="space-y-4">
+                      <div className="flex items-center justify-between py-3 border-b border-gray-100">
+                        <span className="text-gray-600">Upfront Payment</span>
+                        <span className="font-semibold text-gray-900">
                           {formatCurrency(results.upfrontPayment)}
-                        </div>
-                        <div className="text-xs text-gray-500 mt-1">
-                          {includeFeesInLoan
-                            ? 'Down payment only'
-                            : 'Down payment + fees'}
-                        </div>
+                        </span>
                       </div>
-                      <DollarSign className="w-8 h-8 text-blue-600" />
-                    </div>
-                  </div>
 
-                  {/* Loan Amount */}
-                  <div className="bg-white rounded-2xl p-6 border border-gray-200 shadow-sm">
-                    <div className="flex items-center justify-between">
-                      <div>
-                        <div className="text-sm text-gray-600 mb-1">
-                          Loan Amount
-                        </div>
-                        <div className="text-2xl font-bold text-gray-900">
+                      <div className="flex items-center justify-between py-3 border-b border-gray-100">
+                        <span className="text-gray-600">Loan Amount</span>
+                        <span className="font-semibold text-gray-900">
                           {formatCurrency(results.loanAmount)}
-                        </div>
-                        <div className="text-xs text-gray-500 mt-1">
-                          Amount financed
-                        </div>
+                        </span>
                       </div>
-                      <Calculator className="w-8 h-8 text-blue-600" />
-                    </div>
-                  </div>
 
-                  {/* Cost Breakdown Grid */}
-                  <div className="grid md:grid-cols-2 gap-4">
-                    {/* Down Payment */}
-                    <div className="bg-gradient-to-br from-gray-50 to-gray-100 rounded-2xl p-6 border border-gray-200">
-                      <div className="text-sm text-gray-600 mb-1">
-                        Down Payment
+                      <div className="flex items-center justify-between py-3 border-b border-gray-100">
+                        <span className="text-gray-600">Total Interest</span>
+                        <span className="font-semibold text-gray-900">
+                          {formatCurrency(results.totalInterest)}
+                        </span>
                       </div>
-                      <div className="text-xl font-bold text-gray-900">
-                        {formatCurrency(results.downPaymentAmount)}
-                      </div>
-                    </div>
 
-                    {/* Sales Tax */}
-                    <div className="bg-gradient-to-br from-gray-50 to-gray-100 rounded-2xl p-6 border border-gray-200">
-                      <div className="text-sm text-gray-600 mb-1">
-                        Sales Tax
-                      </div>
-                      <div className="text-xl font-bold text-gray-900">
-                        {formatCurrency(results.salesTaxAmount)}
-                      </div>
-                    </div>
-
-                    {/* Total Interest */}
-                    <div className="bg-gradient-to-br from-gray-50 to-gray-100 rounded-2xl p-6 border border-gray-200">
-                      <div className="text-sm text-gray-600 mb-1">
-                        Total Interest
-                      </div>
-                      <div className="text-xl font-bold text-gray-900">
-                        {formatCurrency(results.totalInterest)}
-                      </div>
-                    </div>
-
-                    {/* Total Payments */}
-                    <div className="bg-gradient-to-br from-gray-50 to-gray-100 rounded-2xl p-6 border border-gray-200">
-                      <div className="text-sm text-gray-600 mb-1">
-                        Total Payments
-                      </div>
-                      <div className="text-xl font-bold text-gray-900">
-                        {formatCurrency(results.totalPayments)}
-                      </div>
-                    </div>
-                  </div>
-
-                  {/* Total Cost */}
-                  <div className="bg-gradient-to-br from-gray-900 to-gray-800 rounded-2xl p-6 text-white shadow-xl">
-                    <div className="flex items-center justify-between">
-                      <div>
-                        <div className="text-gray-300 text-sm mb-1">
-                          Total Cost of Boat
-                        </div>
-                        <div className="text-3xl font-bold">
+                      <div className="flex items-center justify-between py-3 pt-4 border-t-2 border-gray-200">
+                        <span className="text-gray-900 font-bold">
+                          Total Cost
+                        </span>
+                        <span className="font-bold text-blue-600 text-xl">
                           {formatCurrency(results.totalCost)}
-                        </div>
-                        <div className="text-gray-400 text-xs mt-1">
-                          Boat price + sales tax + fees + interest
-                        </div>
+                        </span>
                       </div>
-                      <TrendingUp className="w-8 h-8 text-gray-400" />
                     </div>
                   </div>
 
-                  {/* Loan Summary */}
-                  <div className="bg-blue-50 rounded-2xl p-6 border border-blue-100">
-                    <h3 className="font-semibold text-gray-900 mb-4 flex items-center">
+                  {/* Cost Details */}
+                  <div className="bg-white rounded-3xl p-8 shadow-sm border border-gray-100">
+                    <h3 className="text-xl font-bold text-gray-900 mb-6 flex items-center">
                       <Calculator className="w-5 h-5 mr-2 text-blue-600" />
                       Loan Summary
                     </h3>
@@ -509,7 +480,33 @@ export default function BoatLoanCalculator() {
                       </div>
                     </div>
                   </div>
-                </div>
+
+                  {/* Additional Metrics */}
+                  <div className="bg-gradient-to-br from-gray-50 to-gray-100 rounded-3xl p-8 border border-gray-200">
+                    <h3 className="text-xl font-bold text-gray-900 mb-6 flex items-center">
+                      <TrendingUp className="w-5 h-5 mr-2 text-gray-600" />
+                      Additional Information
+                    </h3>
+                    <div className="grid grid-cols-2 gap-4">
+                      <div>
+                        <div className="text-xs text-gray-600 mb-1">
+                          Total Payments
+                        </div>
+                        <div className="text-lg font-bold text-gray-900">
+                          {formatCurrency(results.totalPayments)}
+                        </div>
+                      </div>
+                      <div>
+                        <div className="text-xs text-gray-600 mb-1">
+                          Effective Rate
+                        </div>
+                        <div className="text-lg font-bold text-gray-900">
+                          {formatPercentage(results.effectiveInterestRate)}
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </>
               )}
 
               {/* Placeholder */}
