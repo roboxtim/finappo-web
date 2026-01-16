@@ -512,6 +512,14 @@ export default function FinancialCalculators() {
               href="/financial-calculators/sales-tax-calculator"
               delay={0}
             />
+            <CalculatorCard
+              icon={<Receipt className="w-8 h-8 text-white" />}
+              title="VAT Calculator"
+              description="Calculate Value Added Tax from any two known values. Includes common VAT rates for UK (20%), Germany (19%), France (20%), Spain (21%), and Italy (22%)."
+              gradient="bg-gradient-to-br from-orange-600 to-red-600"
+              href="/financial-calculators/vat-calculator"
+              delay={0}
+            />
           </div>
         </div>
       </section>

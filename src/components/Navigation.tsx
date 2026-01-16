@@ -33,6 +33,12 @@ export function Navigation() {
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center gap-6">
             <Link
+              href="/financial-calculators"
+              className="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors"
+            >
+              Calculators
+            </Link>
+            <Link
               href="/finappo-tool"
               className="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors"
             >
@@ -101,6 +107,13 @@ export function Navigation() {
             className="md:hidden border-t border-gray-100 bg-white/95 backdrop-blur-xl"
           >
             <div className="max-w-7xl mx-auto px-6 py-6 space-y-4">
+              <Link
+                href="/financial-calculators"
+                onClick={() => setMobileMenuOpen(false)}
+                className="block text-base font-medium text-gray-600 hover:text-gray-900 py-2 transition-colors"
+              >
+                Calculators
+              </Link>
               <Link
                 href="/finappo-tool"
                 onClick={() => setMobileMenuOpen(false)}
