@@ -1233,6 +1233,26 @@ const categories: Category[] = [
           'tax depreciation',
         ],
       },
+      {
+        id: 'margin-calculator',
+        title: 'Margin Calculator',
+        description:
+          'Calculate profit margin, markup, revenue, cost, or profit from any two known values. Understand the difference between margin and markup with visual breakdowns',
+        href: '/financial-calculators/margin-calculator',
+        icon: <Percent className="w-5 h-5" />,
+        keywords: [
+          'margin calculator',
+          'profit margin',
+          'markup calculator',
+          'gross margin',
+          'profit calculator',
+          'revenue calculator',
+          'margin vs markup',
+          'profit percentage',
+          'sales margin',
+          'business profit',
+        ],
+      },
     ],
   },
 ];

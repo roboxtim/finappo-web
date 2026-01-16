@@ -528,6 +528,14 @@ export default function FinancialCalculators() {
               href="/financial-calculators/depreciation-calculator"
               delay={0}
             />
+            <CalculatorCard
+              icon={<Percent className="w-8 h-8 text-white" />}
+              title="Margin Calculator"
+              description="Calculate profit margin, markup, revenue, cost, or profit from any two known values. Understand the difference between margin and markup with clear visual breakdowns and formulas."
+              gradient="bg-gradient-to-br from-emerald-600 to-green-600"
+              href="/financial-calculators/margin-calculator"
+              delay={0}
+            />
           </div>
         </div>
       </section>
