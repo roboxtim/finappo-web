@@ -146,6 +146,26 @@ const categories: Category[] = [
         ],
       },
       {
+        id: 'student-loan-calculator',
+        title: 'Student Loan Calculator',
+        description:
+          'Calculate student loan payments, compare repayment strategies with extra payments, or project future loan costs',
+        href: '/financial-calculators/student-loan-calculator',
+        icon: <Calculator className="w-5 h-5" />,
+        keywords: [
+          'student loan',
+          'college loan',
+          'education loan',
+          'student debt',
+          'loan projection',
+          'extra payment',
+          'student loan payoff',
+          'graduate loan',
+          'federal student loan',
+          'student loan repayment',
+        ],
+      },
+      {
         id: 'currency-calculator',
         title: 'Currency Calculator',
         description:

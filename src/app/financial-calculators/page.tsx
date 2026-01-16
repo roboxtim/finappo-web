@@ -120,6 +120,14 @@ export default function FinancialCalculators() {
               delay={0}
             />
             <CalculatorCard
+              icon={<Calculator className="w-8 h-8 text-white" />}
+              title="Student Loan Calculator"
+              description="Calculate student loan payments with 3 powerful modes: simple calculator, repayment comparison with extra payments, and projection calculator for future costs. Plan your education financing."
+              gradient="bg-gradient-to-br from-blue-600 to-indigo-600"
+              href="/financial-calculators/student-loan-calculator"
+              delay={0}
+            />
+            <CalculatorCard
               icon={<Globe className="w-8 h-8 text-white" />}
               title="Currency Calculator"
               description="Convert between 20+ world currencies including USD, EUR, GBP, JPY, and more. Get instant exchange rates and compare multiple currencies at once."
