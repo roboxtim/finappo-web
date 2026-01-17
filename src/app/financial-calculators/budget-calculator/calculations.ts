@@ -112,32 +112,35 @@ export interface BudgetResults {
   housingBenchmark: {
     current: number;
     recommended: number;
-    status: 'good' | 'warning' | 'high';
+    status: 'good' | 'warning' | 'high' | 'low';
   };
   transportationBenchmark: {
     current: number;
     recommended: number;
-    status: 'good' | 'warning' | 'high';
+    status: 'good' | 'warning' | 'high' | 'low';
   };
   savingsBenchmark: {
     current: number;
     recommended: number;
-    status: 'good' | 'warning' | 'low';
+    status: 'good' | 'warning' | 'high' | 'low';
   };
 }
 
 /**
  * Sum all values in an object
  */
-function sumObjectValues(obj: Record<string, number>): number {
-  return Object.values(obj).reduce((sum, val) => sum + val, 0);
+function sumObjectValues(obj: object): number {
+  return Object.values(obj).reduce(
+    (sum, val) => sum + (typeof val === 'number' ? val : 0),
+    0
+  );
 }
 
 /**
  * Calculate category total and percentage
  */
 function calculateCategoryTotal(
-  categoryExpenses: Record<string, number>,
+  categoryExpenses: object,
   grossIncome: number
 ): CategoryTotal {
   const total = sumObjectValues(categoryExpenses);
