@@ -28,6 +28,7 @@ import {
   Building2,
   Globe,
   Anchor,
+  FileText,
 } from 'lucide-react';
 
 interface CalculatorItem {
@@ -108,6 +109,26 @@ const categories: Category[] = [
           'cap cost',
           'lease vs buy',
           'leasing',
+        ],
+      },
+      {
+        id: 'lease-calculator',
+        title: 'Lease Calculator',
+        description:
+          'Calculate lease payments and effective interest rates for any asset with depreciation and finance fee breakdowns',
+        href: '/financial-calculators/lease-calculator',
+        icon: <FileText className="w-5 h-5" />,
+        keywords: [
+          'lease calculator',
+          'lease payment calculator',
+          'equipment lease calculator',
+          'lease vs buy calculator',
+          'lease interest rate calculator',
+          'monthly lease payment',
+          'lease depreciation calculator',
+          'residual value calculator',
+          'lease finance calculator',
+          'capital lease calculator',
         ],
       },
       {

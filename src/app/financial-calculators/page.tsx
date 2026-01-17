@@ -28,6 +28,7 @@ import {
   ShoppingCart,
   GraduationCap,
   Anchor,
+  FileText,
 } from 'lucide-react';
 
 export default function FinancialCalculators() {
@@ -103,6 +104,14 @@ export default function FinancialCalculators() {
               description="Calculate monthly car lease payments including depreciation, finance fees, and taxes. Compare lease options and understand total lease costs."
               gradient="bg-gradient-to-br from-blue-500 to-cyan-500"
               href="/financial-calculators/auto-lease"
+              delay={0}
+            />
+            <CalculatorCard
+              icon={<FileText className="w-8 h-8 text-white" />}
+              title="Lease Calculator"
+              description="Calculate lease payments and effective interest rates for any asset with detailed depreciation and finance fee breakdowns. Compare leasing vs. buying options for equipment, vehicles, or other assets."
+              gradient="bg-gradient-to-br from-purple-600 to-indigo-600"
+              href="/financial-calculators/lease-calculator"
               delay={0}
             />
             <CalculatorCard
