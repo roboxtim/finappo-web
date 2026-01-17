@@ -1334,6 +1334,26 @@ const categories: Category[] = [
           'boat purchase calculator',
         ],
       },
+      {
+        id: 'budget-calculator',
+        title: 'Budget Calculator',
+        description:
+          'Track income and expenses across 9 categories with automatic calculations. Get budget benchmarks, surplus/deficit analysis, and personalized recommendations for better financial planning',
+        href: '/financial-calculators/budget-calculator',
+        icon: <Wallet className="w-5 h-5" />,
+        keywords: [
+          'budget calculator',
+          'personal budget calculator',
+          'monthly budget calculator',
+          'expense tracker',
+          'budget planner',
+          'income expense calculator',
+          'budget breakdown',
+          '50/30/20 budget rule',
+          'budget benchmarks',
+          'personal finance calculator',
+        ],
+      },
     ],
   },
 ];

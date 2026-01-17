@@ -570,6 +570,14 @@ export default function FinancialCalculators() {
               href="/financial-calculators/boat-loan-calculator"
               delay={0.3}
             />
+            <CalculatorCard
+              icon={<Wallet className="w-8 h-8 text-white" />}
+              title="Budget Calculator"
+              description="Plan your personal finances with detailed income and expense tracking across 9 categories. Get automatic calculations, budget benchmarks, surplus/deficit analysis, and personalized financial recommendations."
+              gradient="bg-gradient-to-br from-green-600 to-emerald-600"
+              href="/financial-calculators/budget-calculator"
+              delay={0.4}
+            />
           </div>
         </div>
       </section>
